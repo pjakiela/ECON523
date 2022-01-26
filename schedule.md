@@ -4,8 +4,6 @@ February 17: Introduction
 
 [February 8, 10: Why Evaluate?](M1-why-evaluate.html)  
 
-### Identification Strategies  
-
 [February 15, 17: Selection Bias and the Experimental Ideal](M2-selection-bias.html)  
 
 [February 22, 24: False Counterfactuals](M3-false-counterfactuals.html)  
