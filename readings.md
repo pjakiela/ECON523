@@ -8,6 +8,8 @@ February 17: Introduction
 
 - [Running Randomized Evaluations:  Chapter 1](https://www.jstor.org/stable/j.ctt4cgd52.5)  
 
+- [J-PAL Policy Briefcase:  A Balancing Act](https://www.povertyactionlab.org/publication/balancing-act)  
+
 **February 15, 17: Selection Bias and the Experimental Ideal**  
 
 - [Running Randomized Evaluations:  Chapter 2](https://doi.org/10.2307/j.ctt4cgd52.6)  
