@@ -6,7 +6,11 @@ February 17: Introduction
 
 - [Impact Evaluation in Practice](https://openknowledge.worldbank.org/handle/10986/2550), first edition: Chapters 1 and 2  
 
+- [Running Randomized Evaluations:  Chapter 1](https://www.jstor.org/stable/j.ctt4cgd52.5)  
+
 **February 15, 17: Selection Bias and the Experimental Ideal**  
+
+- [Running Randomized Evaluations:  Chapter 2](https://doi.org/10.2307/j.ctt4cgd52.6)  
 
 - [Mastering Metrics: Chapter 1](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjE2pfw-JjuAhUBZc0KHQo1DnoQFjAAegQIBhAC&url=http%3A%2F%2Fassets.press.princeton.edu%2Fchapters%2Fs10363.pdf&usg=AOvVaw3IGywrUpw1_F9e5npteATA)  
 
@@ -54,8 +58,14 @@ _Yes, we are using the first edition for everything else, but this chapter only 
 
 **April 21:  Randomization in Practice**  
 
+- [Running Randomized Evaluations:  Chapter 4](https://doi.org/10.2307/j.ctt4cgd52.8)  
+
 **April 26, 28:  Power Calculations**  
 
+- [Running Randomized Evaluations:  Chapter 6](https://doi.org/10.2307/j.ctt4cgd52.10)  
+
 **May 3:  Survey Design & Measurement**   
+
+- [Running Randomized Evaluations:  Chapter 5](https://doi.org/10.2307/j.ctt4cgd52.9)  
 
 May 5, 10, 12:  student presentations  
