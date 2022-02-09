@@ -7,7 +7,7 @@ by Jessica Cohen, Pascaline Dupas, and Simone Schaner, published in the _America
 various discounts ("subsidies") for malaria treatment, called "artemisinin combination therapy" or "ACT."  An overview of the randomized evalaution is available [here](https://www.povertyactionlab.org/sites/default/files/publication/2011.12.15-Subsidizing-Malaria.pdf).
 
 The aim of this empirical exercise is to review key Stata commands.  Please upload your answers to gradescope after completing the exercise.  You can also download the activity 
-as a [do file](https://pjakiela.github.io/ECON523/E1-intro/E1-questions.do) or a [pdf](https://pjakiela.github.io/ECON523/E1-intro/E1-questions.pdf).
+as a [do file](https://pjakiela.github.io/ECON523/E1-intro/E1-questions.do) or a [pdf](https://pjakiela.github.io/ECON523/E1-intro/E1-questions.pdf).  
 
 ## Getting Started 
 
@@ -42,11 +42,53 @@ webuse set https://pjakiela.github.io/ECON523/exercises
 webuse E1-CohenEtAl-data.dta
 ```
 
-If you prefer, you can instead download the data set using the link above and save it directly to your computer.  In that case, you would use the `use` command to open the data set in Stata.
+If you prefer, you can instead download the data set using the link above and save it directly to your computer.  In that case, you would use the `use` command to open the data set in Stata.  
 
+## Stata Commands  
+
+In this exercise, we'll use the Stata commands `count`, 
+
+## Empirical Exercise  
+  
 ### Question 1
 
 How many observations are in the data set?  
+
+### Question 2  
+
+What is the mean of the variable act_any (to three decimal places)?  
+
+### Question 3  
+
+The variable `act_any` is a dummy for assignment to any treatment (positive subsidy).  How many people received a positive subsidy?  
+
+### Question 4  
+
+What is the standard deviation of the variable c_act?  
+
+### Question 5  
+
+The variable c_act is a dummy for using ACT treatment during a malaria episode.  How many respondents report using ACT treatment for malaria?  
+
+### Question 6  
+
+Regress c_act on act_any.  What is the R-squared?  
+
+### Question 7  
+
+What is the coefficient associated with the act_any variable?  
+
+### Question 8  
+
+What is the associated standard error?  
+
+### Question  
+
+What do you get when you divide the coefficient by the standard error?  
+
+### Question 10  
+
+What is the t-statistic associated with the act_any variable?  
 
 
 This exercise is part of [Module 1:  Why Evaluate?](https://pjakiela.github.io/ECON523/M1-why-evaluate.html).
