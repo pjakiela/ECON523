@@ -46,7 +46,13 @@ If you prefer, you can instead download the data set using the link above and sa
 
 ## Stata Commands  
 
-In this exercise, we'll use the Stata commands `count`, 
+In this exercise, we'll use the Stata commands `count`, `summarize` (`sum` for short), `tabulate` (`tab` for short), and `regress` (`reg` for short).  If you are unfamiliar with any of these commands, use type `help` followed by the name of the command (for example, `help sum`) to link to the relevant help page.  
+
+You may also want to use the `display` command (`di` for short) to do simple math in Stata.  For example, if you type 
+```
+di 24/8
+```
+Stata will return the number 3 in answer to your question.  
 
 ## Empirical Exercise  
   
@@ -89,7 +95,21 @@ What do you get when you divide the coefficient by the standard error?
 ### Question 10  
 
 What is the t-statistic associated with the `act_any` variable?  
+
+## Even More Fun with Stata  
+
+Use the `describe`, `summarize`, and `tabulate` commands to familiarize yourself with the other variables in the data set.   What are the mean and median levels of education among household heads?  What proportion of households live more than 2 km from the nearest chemist? For how many obesrvations is information on household size, the education level of the household head, and distance to the nearest chemist missing?
   
-    
+Calculate the mean of `c_act` in the treatment group (observations with `act_any==1`) and in the comparison group (observations with `act_any==0`).  How do these means relate to your regression results above, when you regressed `c_act`on `act_any'?  
+
+Now use the `ttest` command to test the hypothesis that the mean of `c_act` is the same in the treatment and comparison groups.  How do these results compare to your regression results?  
+
+The variable `coartemprice` indicates the randomly-assigned ACT price (and, implicitly, the associated level of price subsidy).  What price/subsidy levels are included in the experiment?  
+
+The variables `act40`, `act60`, `act100`, and `act500` are dummies for individual randomly assigned prices/treatments.  Summarize the mean level of `c_act` in each of the treatment arms (you already summarized the mean of `c_act` in the treatment group above).  
+
+Regress `c_act` on the dummies for the three subsidy levels (`act40`, `act60`, `act100`).  How do the regression results compare to the means that you calculated for each treatment group?
+
+Convince yourself that the OLS coefficient from Question 7 is the weighted average of the coefficients from the regression you just estimated.  What are the weights?  
   
 This exercise is part of [Module 1:  Why Evaluate?](https://pjakiela.github.io/ECON523/M1-why-evaluate.html).
