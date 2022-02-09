@@ -9,6 +9,8 @@ various discounts ("subsidies") for malaria treatment, called "artemisinin combi
 The aim of this empirical exercise is to review key Stata commands.  Please upload your answers to gradescope after completing the exercise.  You can also download the activity 
 as a [do file](https://pjakiela.github.io/ECON523/E1-intro/E1-questions.do) or a [pdf](https://pjakiela.github.io/ECON523/E1-intro/E1-questions.pdf).  
 
+<br>
+
 ## Getting Started 
 
 There are two ways to get started.  One option is to start by downloading the `do` file linked above, saving it to a file on your computer, and opening it in Stata.  Alternatively, you can open a new `do` file in Stata and add the necessary commands yourself.
@@ -44,6 +46,8 @@ webuse E1-CohenEtAl-data.dta
 
 If you prefer, you can instead download the data set using the link above and save it directly to your computer.  In that case, you would use the `use` command to open the data set in Stata.  
 
+<br>
+
 ## Stata Commands  
 
 In this exercise, we'll use the Stata commands `count`, `summarize` (`sum` for short), `tabulate` (`tab` for short), and `regress` (`reg` for short).  If you are unfamiliar with any of these commands, use type `help` followed by the name of the command (for example, `help sum`) to link to the relevant help page.  
@@ -53,6 +57,8 @@ You may also want to use the `display` command (`di` for short) to do simple mat
 di 24/8
 ```
 Stata will return the number 3 in answer to your question.  
+
+<br>
 
 ## Empirical Exercise  
   
@@ -96,6 +102,8 @@ What do you get when you divide the coefficient by the standard error?
 
 What is the t-statistic associated with the `act_any` variable?  
 
+<br>
+
 ## Even More Fun with Stata  
 
 Use the `describe`, `summarize`, and `tabulate` commands to familiarize yourself with the other variables in the data set.   What are the mean and median levels of education among household heads?  What proportion of households live more than 2 km from the nearest chemist? For how many obesrvations is information on household size, the education level of the household head, and distance to the nearest chemist missing?
@@ -111,6 +119,8 @@ The variables `act40`, `act60`, `act100`, and `act500` are dummies for individua
 Regress `c_act` on the dummies for the three subsidy levels (`act40`, `act60`, `act100`).  How do the regression results compare to the means that you calculated for each treatment group?
 
 Convince yourself that the OLS coefficient from Question 7 is the weighted average of the coefficients from the regression you just estimated.  What are the weights? 
+
+<br>
 
    ---
   
