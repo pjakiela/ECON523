@@ -64,19 +64,19 @@ The variable `act_any` is a dummy for assignment to any treatment (positive subs
 
 ### Question 4  
 
-What is the standard deviation of the variable c_act?  
+What is the standard deviation of the variable `c_act`?  
 
 ### Question 5  
 
-The variable c_act is a dummy for using ACT treatment during a malaria episode.  How many respondents report using ACT treatment for malaria?  
+The variable `c_act` is a dummy for using ACT treatment during a malaria episode.  How many respondents report using ACT treatment for malaria?  
 
 ### Question 6  
 
-Regress c_act on act_any.  What is the R-squared?  
+Regress `c_act` on `act_any`.  What is the R-squared?  
 
 ### Question 7  
 
-What is the coefficient associated with the act_any variable?  
+What is the coefficient associated with the `act_any` variable?  
 
 ### Question 8  
 
@@ -88,7 +88,8 @@ What do you get when you divide the coefficient by the standard error?
 
 ### Question 10  
 
-What is the t-statistic associated with the act_any variable?  
-
-
+What is the t-statistic associated with the `act_any` variable?  
+  
+    
+  
 This exercise is part of [Module 1:  Why Evaluate?](https://pjakiela.github.io/ECON523/M1-why-evaluate.html).
