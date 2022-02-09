@@ -110,6 +110,8 @@ The variables `act40`, `act60`, `act100`, and `act500` are dummies for individua
 
 Regress `c_act` on the dummies for the three subsidy levels (`act40`, `act60`, `act100`).  How do the regression results compare to the means that you calculated for each treatment group?
 
-Convince yourself that the OLS coefficient from Question 7 is the weighted average of the coefficients from the regression you just estimated.  What are the weights?  
+Convince yourself that the OLS coefficient from Question 7 is the weighted average of the coefficients from the regression you just estimated.  What are the weights? 
+
+# 
   
 This exercise is part of [Module 1:  Why Evaluate?](https://pjakiela.github.io/ECON523/M1-why-evaluate.html).
