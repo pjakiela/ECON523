@@ -7,7 +7,7 @@ by Jessica Cohen, Pascaline Dupas, and Simone Schaner, published in the _America
 various discounts ("subsidies") for malaria treatment, called "artemisinin combination therapy" or "ACT."  An overview of the randomized evalaution is available [here](https://www.povertyactionlab.org/sites/default/files/publication/2011.12.15-Subsidizing-Malaria.pdf).
 
 The aim of this empirical exercise is to review key Stata commands.  Please upload your answers to gradescope after completing the exercise.  You can also download the activity 
-as a [do file](https://pjakiela.github.io/ECON523/E1-intro/E1-questions.do) or a [pdf](https://pjakiela.github.io/ECON523/E1-intro/E1-questions.pdf).  
+as a [do file](https://pjakiela.github.io/ECON523/exercises/E1-questions.do) or a [pdf](https://pjakiela.github.io/ECON523/exercises/E1-questions.pdf).  
 
 <br>
 
