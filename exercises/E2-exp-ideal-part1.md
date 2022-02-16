@@ -80,15 +80,29 @@ What is the standard error associated with the estimated difference in education
 
 To understand where this standard error comes from, remember that the mean value of `b_h_edu` among people who do (or do not) have `c_act==1` is a random variable, as is the difference in means between those who have `c_act==1` and those who have `c_act==0`.  The variance of the **difference** of two independent random variables is the **sum** of their individual variances, so the variance of the difference in `b_h_edu` between those with `c_act==1` and those with `c_act==0` is the sum of the variances of the subgroup means.  (And, of course, the standard error is the square root of the variance.)  If you used the results of your `ttest` command to calculate the standard error of the difference in means "by hand" (by which I mean, using Stata to do arithmetic instead of using the `ttest` command), what answer would you arrive at?  
 
-_If you have done this correctly, you should NOT get the exact same answer as Stata._  
-
 ### Question 9 
 
 If you have answered Question 8 correctly, you be wondering why the standard error you just calculated differs (slightly) from the one reported by the `ttest` command.  The answer is that our "by hand" calculation did not assume that the variance of `b_h_edu` was the same in both groups, but Stata's `ttest` command does impose that assumption -- unless you add the `unequal` option.  Trying redoing your `ttest` with `unequal` at the end.  What is the estimated standard error on the difference in means now?  It should match your answer to Question 8.
 
 ### Question 10  
 
+We can also test whether the mean of a variable (`b_h_edu`) is the same in two groups by regressing it on a dummy characterizing the two groups.  What command would you use to regress `b_h_edu` on `c_act`, restricting the sample to the control group in the RCT?
 
+### Question 11  
+
+When you run this regression, what is the estimated coefficient on `c_act`?  
+
+### Question 12 
+
+What is the estimated standard error associated with the coefficient on `c_act`?  
+
+### Question 13 
+
+How does the standard error from your regression compare to the standard error you got when you used the `ttest` command?
+
+### Question 14
+
+When we run a simple OLS regression, Stata assumes that errors are **homoskedastic** (the variance of the error term does not vary across observations).  As an alternative, we can add `, robust` at the end of our regression command to tell Stata to calculated heteroskedasticity-robust standard errors (which are the default in most applied microeconomic research).  Rerun your regression, adding `, robust` at the end.  What is the estimated standard error associated with the coefficient on `c_act` now? 
 
 
    ---
