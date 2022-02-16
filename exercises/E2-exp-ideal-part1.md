@@ -7,19 +7,22 @@ by Jessica Cohen, Pascaline Dupas, and Simone Schaner, published in the _America
 various discounts ("subsidies") for malaria treatment, called "artemisinin combination therapy" or "ACT."  An overview of the randomized evalaution is available [here](https://www.povertyactionlab.org/sites/default/files/publication/2011.12.15-Subsidizing-Malaria.pdf).
 
 This exercise has three objectives.  The first is to review the idea of selection bias by showing that individuals who choose to take up a treatment (in this case, 
-artemisinin combination treatment for malaria) often differ from those who do not take up treatment (when treatment is not randomized).  In doing so, we will also 
-review the different approaches to testing whether the mean of a(n outcome) variable is the same in two groups.  
+artemisinin combination treatment, or ACT, for malaria) often differ from those who do not take up treatment (when treatment is not randomized).  In doing so, we will also 
+review the different approaches to testing whether the mean of a(n outcome) variable is the same in two groups (defined by another variable).    
 
-Please upload your answers to gradescope after completing the exercise.  
-
-You can also download the activity 
-as a [do file](https://pjakiela.github.io/ECON523/exercises/E2-questions.do) or a [pdf](https://pjakiela.github.io/ECON523/exercises/E2-questions.pdf).  
+Please upload your answers to gradescope after completing the exercise.  You can also download the entire activity 
+as a [do file](https://pjakiela.github.io/ECON523/exercises/E2-questions.do).  
 
 <br>
 
 ## Getting Started 
 
-
+The variable `act_any` is a treatment dummy equal to 1 for observations in the treatment group and equal to zero otherwise.  The variable `c_act` is an indicator 
+for having used ACT when they last had malaria.  The data set also includes several variables capturing the baseline (i.e. pre-treatment) characteristics of the households in the sample.  These variables all begin with `b_`.  Familiarize yourself with these variables by typing
+```
+sum b_*
+```
+to summarize all the variables in the data set that begin with `b_`.
 
    ---
   
