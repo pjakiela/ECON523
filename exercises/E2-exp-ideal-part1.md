@@ -61,7 +61,9 @@ What is the mean level of (household head) educational attainment among individu
 
 ### Question 4  
 
-What is the standard deviation of the level of (household head) educational attainment among individuals in the control gorup who **did** use ACT the last time they had malaria?
+What is the standard deviation of the level of (household head) educational attainment among individuals in the control gorup who **did** use ACT the last time they had malaria?  
+### Question 5  
+
 
    ---
   
