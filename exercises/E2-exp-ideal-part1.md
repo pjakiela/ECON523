@@ -61,9 +61,24 @@ What is the mean level of (household head) educational attainment among individu
 
 ### Question 4  
 
-What is the standard deviation of the level of (household head) educational attainment among individuals in the control gorup who **did** use ACT the last time they had malaria?  
+What is the standard deviation of the level of (household head) educational attainment among individuals in the control gorup who **did** use ACT the last time they 
+had malaria?  
+
 ### Question 5  
 
+Is there a statistically significant difference in educational attainment between those (in the control group) who used ACT the last time they had malaria and those who did not?  What is the p-value associated with this hypothesis test?
+
+### Question 6  
+
+What is the estimated difference in educational attainment between those (in the control group) who used ACT the last time they had malaria and those who did not?  
+
+### Question 7  
+
+What is the standard error associated with the estimated difference in educational attainment between those (in the control group) who used ACT the last time they had malaria and those who did not?  
+
+### Question 8  
+
+To understand where this standard error comes from, remember that the mean value of `b_h_edu` among people who do (or do not) have `c_act==1` is a random variable, as is the difference in means between those who have `c_act==1` and those who have `c_act==0`.  The variance of the **difference** of two independent random variables is the **sum** of their individual variances, so the variance of the difference in `b_h_edu` between those with `c_act==1` and those with `c_act==0` is the sum of the variances of the subgroup means.  (And, of course, the standard error is the square root of the variance.)  If you used the results of your 
 
    ---
   
