@@ -104,6 +104,14 @@ How does the standard error from your regression compare to the standard error y
 
 When we run a simple OLS regression, Stata assumes that errors are **homoskedastic** (the variance of the error term does not vary across observations).  As an alternative, we can add `, robust` at the end of our regression command to tell Stata to calculated heteroskedasticity-robust standard errors (which are the default in most applied microeconomic research).  Rerun your regression, adding `, robust` at the end.  What is the estimated standard error associated with the coefficient on `c_act` now? 
 
+### Question 15 
+
+You might (quite reasonably) be surprised to learn that the standard error reported after an OLS regression with robust standard errors is **not** the same as the one we calculated ourselves using the formula.  So, now we have three different standard errors!  The **robust** standard error from Question 14 differs from the standard error that you calculated by hand in Question 8 because of a degrees of freedom correction -- Stata's robust standard errors are but one of several different variants of the Huber-Eicker-White heteoskedasticity robust standard error.  Type 
+```
+reg b_h_edu c_act if act_any==0, vce(hc2)
+```
+and confirm that your standard error matches the answer to Question 8.  What is that standard error? 
+
 
    ---
   
