@@ -53,15 +53,15 @@ in the control group who do not use ACT when they have malaria in terms of the e
 
 ### Question 2  
 
-What is the mean level of (household head) educational attainment among individuals in the control gorup who **did not** use ACT the last time they had malaria?
+What is the mean level of (household head) educational attainment among individuals in the control group who **did not** use ACT the last time they had malaria?
 
 ### Question 3  
 
-What is the mean level of (household head) educational attainment among individuals in the control gorup who **did** use ACT the last time they had malaria?
+What is the mean level of (household head) educational attainment among individuals in the control group who **did** use ACT the last time they had malaria?
 
 ### Question 4  
 
-What is the standard deviation of the level of (household head) educational attainment among individuals in the control gorup who **did** use ACT the last time they 
+What is the standard deviation of the level of (household head) educational attainment among individuals in the control group who **did** use ACT the last time they 
 had malaria?  
 
 ### Question 5  
@@ -82,7 +82,7 @@ To understand where this standard error comes from, remember that the mean value
 
 ### Question 9 
 
-If you have answered Question 8 correctly, you be wondering why the standard error you just calculated differs (slightly) from the one reported by the `ttest` command.  The answer is that our "by hand" calculation did not assume that the variance of `b_h_edu` was the same in both groups, but Stata's `ttest` command does impose that assumption -- unless you add the `unequal` option.  Trying redoing your `ttest` with `unequal` at the end.  What is the estimated standard error on the difference in means now?  It should match your answer to Question 8.
+If you have answered Question 8 correctly, you might be wondering why the standard error you just calculated differs (slightly) from the one reported by the `ttest` command.  The answer is that our "by hand" calculation did not assume that the variance of `b_h_edu` was the same in both groups, but Stata's `ttest` command does impose that assumption -- unless you add the `unequal` option.  Trying redoing your `ttest` with `unequal` at the end.  What is the estimated standard error on the difference in means now?  It should match your answer to Question 8.
 
 ### Question 10  
 
