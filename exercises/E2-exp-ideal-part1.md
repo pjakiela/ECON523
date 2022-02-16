@@ -17,6 +17,21 @@ as a [do file](https://pjakiela.github.io/ECON523/exercises/E2-questions.do).
 
 ## Getting Started 
 
+We can use the same code that we used in Empirical Exercise 1 to load the data:
+```
+// LOAD DATA
+
+clear all 
+set more off
+set seed 12345
+version 16.1 // feel free to use version 17.0 instead
+
+** load the data from the course website
+webuse set https://pjakiela.github.io/ECON523/exercises
+webuse E1-CohenEtAl-data.dta
+```
+You can create a new do file that begins with this code, or you can copy your code from Exercise 1.  
+
 The variable `act_any` is a treatment dummy equal to 1 for observations in the treatment group and equal to zero otherwise.  The variable `c_act` is an indicator 
 for having used ACT when they last had malaria.  The data set also includes several variables capturing the baseline (i.e. pre-treatment) characteristics of the households in the sample.  These variables all begin with `b_`.  Familiarize yourself with these variables by typing
 ```
