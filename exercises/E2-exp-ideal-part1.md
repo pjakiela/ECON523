@@ -49,7 +49,19 @@ we'll want to restrict ourselves to data points with `act_any==0` when answer th
 ### Question 1  
 
 Use the `ttest` command to test whether individuals in the control group who use ACT when they have malaria (i.e. individuals with `c_act==1`) differ from those 
-in the control group who do not use ACT in terms of educational attainment.  
+in the control group who do not use ACT when they have malaria in terms of the educational attainment of their head of household.  What Stata command would you use to do this?  
+
+### Question 2  
+
+What is the mean level of (household head) educational attainment among individuals in the control gorup who **did not** use ACT the last time they had malaria?
+
+### Question 3  
+
+What is the mean level of (household head) educational attainment among individuals in the control gorup who **did** use ACT the last time they had malaria?
+
+### Question 4  
+
+What is the standard deviation of the level of (household head) educational attainment among individuals in the control gorup who **did** use ACT the last time they had malaria?
 
    ---
   
