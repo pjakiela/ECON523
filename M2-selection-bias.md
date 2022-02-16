@@ -9,7 +9,10 @@ explaining how average treatment effects can be estimated when treatment status 
 
 <br>
 
-### Readings
+### Readings  
+
+[_Running Randomized Evaluations_:  Chapter 2](https://doi.org/10.2307/j.ctt4cgd52.6)  
+
 [_Mastering Metrics_: Chapter 1](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjE2pfw-JjuAhUBZc0KHQo1DnoQFjAAegQIBhAC&url=http%3A%2F%2Fassets.press.princeton.edu%2Fchapters%2Fs10363.pdf&usg=AOvVaw3IGywrUpw1_F9e5npteATA)
 
 <details><summary>Review Questions</summary>
@@ -25,11 +28,11 @@ explaining how average treatment effects can be estimated when treatment status 
 
 <br>
 
-### Video Lectures  
+### Video Lectures (from 2021)  
 
 [Lecture 2.1 The Potential Outcomes Framework](https://vimeo.com/512774637) (26:44)  
 
-<iframe src="https://player.vimeo.com/video/512774637?h=e301a96f17" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/512774637?h=e301a96f17" width="320" height="180" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 <p><a href="https://vimeo.com/512774637">Lecture 2.1 The Potential Outcomes Framework</a> from <a href="https://vimeo.com/user133773060">Pamela Jakiela</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 
 <details><summary>Review Questions</summary>
@@ -44,6 +47,8 @@ explaining how average treatment effects can be estimated when treatment status 
 <br>
 
 [Lecture 2.2 The Experimental Ideal](https://vimeo.com/512966906) (13:17)  
+
+<iframe src="https://player.vimeo.com/video/512966906?h=668a847e84" width="320" height="180" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
 <details><summary>Review Questions</summary>
   <br>
