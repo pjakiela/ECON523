@@ -78,7 +78,7 @@ What is the standard error associated with the estimated difference in education
 
 ### Question 8  
 
-To understand where this standard error comes from, remember that the mean value of `b_h_edu` among people who do (or do not) have `c_act==1` is a random variable, as is the difference in means between those who have `c_act==1` and those who have `c_act==0`.  The variance of the **difference** of two independent random variables is the **sum** of their individual variances, so the variance of the difference in `b_h_edu` between those with `c_act==1` and those with `c_act==0` is the sum of the variances of the subgroup means.  (And, of course, the standard error is the square root of the variance.)  If you used the results of your 
+To understand where this standard error comes from, remember that the mean value of `b_h_edu` among people who do (or do not) have `c_act==1` is a random variable, as is the difference in means between those who have `c_act==1` and those who have `c_act==0`.  The variance of the **difference** of two independent random variables is the **sum** of their individual variances, so the variance of the difference in `b_h_edu` between those with `c_act==1` and those with `c_act==0` is the sum of the variances of the subgroup means.  (And, of course, the standard error is the square root of the variance.)  If you used the results of your `ttest` command to calculate the standard error of the difference in means "by hand" (by which I mean, using Stata to do arithmetic instead of using the `ttest` command), what answer would you arrive at?
 
    ---
   
