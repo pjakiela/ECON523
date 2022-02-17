@@ -1,4 +1,4 @@
-## Module 2:  Selection Bias and the Experimental Ideal
+## Module 2:  Selection Bias & the Experimental Ideal
 
 <br>
 
