@@ -1,5 +1,4 @@
-# Module 2:  
-# Selection Bias and the Experimental Ideal
+## Module 2:  Selection Bias and the Experimental Ideal
 
 <br>
 
@@ -31,9 +30,9 @@ explaining how average treatment effects can be estimated when treatment status 
 ### Video Lectures (from 2021)  
 
 [Lecture 2.1 The Potential Outcomes Framework](https://vimeo.com/512774637) (26:44)  
-
+  
 <iframe src="https://player.vimeo.com/video/512774637?h=e301a96f17" width="320" height="180" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>  
-
+  
 <details><summary>Review Questions</summary>
   <br>
   <ol>
@@ -46,9 +45,9 @@ explaining how average treatment effects can be estimated when treatment status 
 <br>
 
 [Lecture 2.2 The Experimental Ideal](https://vimeo.com/512966906) (13:17)  
-
+  
 <iframe src="https://player.vimeo.com/video/512966906?h=668a847e84" width="320" height="180" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>  
-
+  
 <details><summary>Review Questions</summary>
   <br>
   <ol>
@@ -61,9 +60,9 @@ explaining how average treatment effects can be estimated when treatment status 
 <br>
 
 [Lecture 2.3 A Short History of Randomized Experiments](https://vimeo.com/512975354) (27:35)  
-
+  
 <iframe src="https://player.vimeo.com/video/512975354?h=ef18e57ae3&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="320" height="180" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Lecture 2.3 A Short History of Randomized Experiments"></iframe>  
-
+  
 <details><summary>Review Questions</summary>
   <br>
   <ol>
@@ -76,9 +75,9 @@ explaining how average treatment effects can be estimated when treatment status 
 <br>
 
 [Lecture 2.4 Analysis of Randomized Experiments](https://vimeo.com/512992481) (8:32)  
-
+  
 <iframe src="https://player.vimeo.com/video/512992481?h=9fb977c2e9&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="320" height="180" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Lecture 2.4 Analysis of Randomized Experiments in Stata"></iframe>  
-
+  
 <details><summary>Review Questions</summary>
   <br>
   <ol>
@@ -89,7 +88,7 @@ explaining how average treatment effects can be estimated when treatment status 
  
 <br>
 
-#### Lecture Slides
+### Lecture Slides (from 2021)
 
 [A handout version of the lecture slides is available here.](https://pjakiela.github.io/ECON379/lectures/L2-selection-bias/ECON379-L2-Selection-Bias-PUBLIC.pdf)  
 
@@ -97,7 +96,7 @@ If you wish to use these slides for teaching, the underlying beamer files and su
 
 <br>
 
-#### Papers Mentioned in the Lectures
+### Papers Mentioned in the Lectures
 
 [_The Design of Experiments_, Chapter 2](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjzkKfKr-7uAhWkB50JHTs7BfoQFjADegQIAhAC&url=https%3A%2F%2Fmimno.infosci.cornell.edu%2Finfo3350%2Freadings%2Ffisher.pdf&usg=AOvVaw3PD-Tt-WKw8_2oE_GqJOZl)  
 
@@ -111,22 +110,14 @@ If you wish to use these slides for teaching, the underlying beamer files and su
 
 ### Empirical Exercise
 
-In this exercise, we'll use Stata's `rnormal()` command to generate draws from a normally-distributed random variable.  This approach - simulating data 
-according to a known data-generating process - is an incredibly useful tool in empirical microeconomics (both for checking your econometric intuitions and 
-your anlayis code).    
-
-We'll use "locals" (also know as "local macros") to easily change the number of observations and other parameters of our data set.  This will allow us to 
-explore the way the properties of randomly-assigned treatment groups in larger and smaller samples.  
-
-This exercise introduces a range of practical coding tools:  `rnormal()`, locals, and the `return list` and `display` commands.  By varying the sample size, we'll build a better understanding of the role that the Law of large Numbers plays in randomized evaluations.  
-
-You can download the activity as a [do](https://pjakiela.github.io/ECON379/exercises/E2-selection-bias/E2-questions.do) file or a [pdf](https://pjakiela.github.io/ECON379/exercises/E2-selection-bias/E2-questions.pdf).
+[Empirical Exercise 2, Part 1](https://pjakiela.github.io/ECON523/exercises/E2-exp-ideal-part1.html) is here.
 
 <br>
 
 ### Further Reading
 
-#### More Recent Evidence on Health Insurance
+#### More Recent Evidence on Health Insurance  
+ 
 [Health Insurance and Mortality: Experimental Evidence from Taxpayer Outreach](https://academic.oup.com/qje/article/136/1/1/5911132?login=true)  
 
 #### On the "Credibility" Revolution in Empirical Microeconomics
