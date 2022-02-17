@@ -32,8 +32,7 @@ explaining how average treatment effects can be estimated when treatment status 
 
 [Lecture 2.1 The Potential Outcomes Framework](https://vimeo.com/512774637) (26:44)  
 
-<iframe src="https://player.vimeo.com/video/512774637?h=e301a96f17" width="320" height="180" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-<p><a href="https://vimeo.com/512774637">Lecture 2.1 The Potential Outcomes Framework</a> from <a href="https://vimeo.com/user133773060">Pamela Jakiela</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+<iframe src="https://player.vimeo.com/video/512774637?h=e301a96f17" width="320" height="180" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>  
 
 <details><summary>Review Questions</summary>
   <br>
@@ -48,7 +47,7 @@ explaining how average treatment effects can be estimated when treatment status 
 
 [Lecture 2.2 The Experimental Ideal](https://vimeo.com/512966906) (13:17)  
 
-<iframe src="https://player.vimeo.com/video/512966906?h=668a847e84" width="320" height="180" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/512966906?h=668a847e84" width="320" height="180" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>  
 
 <details><summary>Review Questions</summary>
   <br>
@@ -63,6 +62,8 @@ explaining how average treatment effects can be estimated when treatment status 
 
 [Lecture 2.3 A Short History of Randomized Experiments](https://vimeo.com/512975354) (27:35)  
 
+<iframe src="https://player.vimeo.com/video/512975354?h=ef18e57ae3&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="320" height="180" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Lecture 2.3 A Short History of Randomized Experiments"></iframe>  
+
 <details><summary>Review Questions</summary>
   <br>
   <ol>
@@ -75,6 +76,8 @@ explaining how average treatment effects can be estimated when treatment status 
 <br>
 
 [Lecture 2.4 Analysis of Randomized Experiments](https://vimeo.com/512992481) (8:32)  
+
+<iframe src="https://player.vimeo.com/video/512992481?h=9fb977c2e9&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="320" height="180" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Lecture 2.4 Analysis of Randomized Experiments in Stata"></iframe>  
 
 <details><summary>Review Questions</summary>
   <br>
