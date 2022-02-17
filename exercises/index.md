@@ -2,7 +2,7 @@
 
 [Exercise 1:  Getting Started in Stata](E1-intro.html)  
 
-Exercise 2: Selection Bias and the Experimental Ideal  
+[Exercise 2: Selection Bias and the Experimental Ideal](E2-exp-ideal-part1.html)  
 
 Exercise 3: False Counterfactuals  
 
