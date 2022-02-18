@@ -4,13 +4,11 @@ February 17: Introduction
 
 [February 8, 10: Why Evaluate?](M1-why-evaluate.html)  
 
-[February 15, 17: Selection Bias and the Experimental Ideal](M2-selection-bias.html)  
+[February 15, 17, 22, 24: Selection Bias and the Experimental Ideal](M2-selection-bias.html)   
 
-[February 22, 24: False Counterfactuals](M3-false-counterfactuals.html)  
+[March 1, 3: Difference-in-Differences (DD I)](M3-DD1.html)  
 
-[March 1, 3: Difference-in-Differences (DD I)](M4-DD1.html)  
-
-[March 8, 10: Diff-in-Diff in a Regression Framework (DD II)](M5-DD2.html)  
+[March 8, 10: Diff-in-Diff in a Regression Framework (DD II)](M4-DD2.html)  
 
 March 15, 17:  student presentations
 
