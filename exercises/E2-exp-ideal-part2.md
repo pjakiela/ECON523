@@ -21,11 +21,8 @@ Start a do file with the standard code at the top (making sure to save your do f
 
 ** start with a clean workspace
 clear all
-** setting more off prevents your code from stopping halfway through
 set more off 
-** setting the seed makes pseudo-random draws replicable
 set seed 12345 
-** make sure you use a specific version of Stata (for replicability)
 version 16.1 
 ```
 
@@ -36,14 +33,14 @@ Now we are going to generate a data set that contains 500 observations of two no
 
 Here, we define the local macro `myobs`, setting it equal to 500.  If we want to see that we've defined the local correctly, we can use the `display` command (putting the local in two sets of quotes).
 ```
-** define a local that we'll use to indicate the number of observations
+** define a local to indicate the number of observations
 local myobs = 500
 display "`myobs`"
 ```
 
 Having defined our local, we can use it in place of the number 500.  Use the `set obs` command to set the number of observations (i.e. rows) in an otherwise empty data set.  The `count` command tells us that we've succeeded in creating a data set with 500 observations.
 ```
-** use the local to create an empty data set with N=myobs rows
+** create an empty data set with N=myobs rows
 set obs `myobs'
 count
 ```
@@ -54,3 +51,7 @@ Now, we'll use Stata's `rnormal()` function to create a variable, `y`, that is n
 gen y = rnormal()
 gen z = 5*rnormal() + 10
 ```
+
+Use the `sum`, `ci means`, `ttest`, and `histogram` commands to familiarize yourself with `y` and `z`.  What is the estimated mean of each variable?  What is the estimated standard deviation? What is the standard error associated with the estimate of the mean of each variable?  
+
+Use the `histogram` command to plot a histogram of each variable.  Does this look like a normal distribution?  Rerun your do file, changing the number of observations from 500 to 50,000.  How do the histograms of `y` and `z` change as you increase the sample size?  What happens to the estimates of the mean, the standard deviation, and the standard error of the sample mean as you increase the sample?  
