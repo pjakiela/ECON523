@@ -55,3 +55,19 @@ gen z = 5*rnormal() + 10
 Use the `sum`, `ci means`, `ttest`, and `histogram` commands to familiarize yourself with `y` and `z`.  What is the estimated mean of each variable?  What is the estimated standard deviation? What is the standard error associated with the estimate of the mean of each variable?  
 
 Use the `histogram` command to plot a histogram of each variable.  Does this look like a normal distribution?  Rerun your do file, changing the number of observations from 500 to 50,000.  How do the histograms of `y` and `z` change as you increase the sample size?  What happens to the estimates of the mean, the standard deviation, and the standard error of the sample mean as you increase the sample?  
+
+<br> 
+
+## Empirircal Exercise
+
+Set the sample size back to 500 and rerun your code.  
+
+### Question 1 
+
+What is the mean of `z`?  
+
+### Question 2 
+
+Use the command `egen mean_z = mean(z)` to generate a new variable equal to the mean of `z'.  What is the standard deviation of your new variable, `mean_z`?
+
+### Question 3
