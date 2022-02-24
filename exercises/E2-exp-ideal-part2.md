@@ -79,7 +79,7 @@ Generate another variable, `diff_z`, equal to the difference between `z` and `me
 Generate yet another new variable, this one equal to `diff_z` squared.  Call this variable `diff2_z`.  Now use the code below to calculate the sum of `diff2_z` across all observations, and to transform that sum into the standard deviation of `z` by dividing by the number of observations and then taking the square root.  
 ```
 egen sd_z = total(diff2_z)
-replace sd_z = sd_z / `myobs'
+replace sd_z = sd_z / (`myobs'-1)
 replace sd_z = sqrt(sd_z)
 ```
 
