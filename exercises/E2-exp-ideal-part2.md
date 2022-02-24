@@ -1,4 +1,4 @@
-# Empirical Exercise 2, Part 1
+# Empirical Exercise 2, Part 2
 
 In this exercise, we'll use Stata's `rnormal()` command to generate draws from a normally-distributed random variable.  This approach - simulating data 
 according to a known data-generating process - is an incredibly useful tool in empirical microeconomics (both for checking your econometric intuitions and 
