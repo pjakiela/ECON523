@@ -101,7 +101,12 @@ local temp_se = string(r(sd)/sqrt(r(N)),"%03.2f")
 putexcel B3="(`temp_se')", hcenter nformat(#.##)
 ```
 
-At this point, it makes sense to check in on your Excel output again - just make sure to close the file after you look at it.  
+At this point, it makes sense to check in on your Excel output again - just make sure to close the file after you look at it.  You should have something 
+that looks like this:
+
+![Excel output](E3-excel-output.png)  
+
+
 
   
 
