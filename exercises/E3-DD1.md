@@ -26,7 +26,8 @@ into Stata using the `import excel` command.  The `do` file `E3-in-class.do` doe
 command:
 
 ```
-import excel using E3-Semmelweis1861-data.xlsx, sheet("ViennaBothClinics") first
+import excel using E3-Semmelweis1861-data.xlsx, ///
+   sheet("ViennaBothClinics") first
 ```
 
 The option `sheet` tells Stata which worksheet within the Excel file `E3-Semmelweis1861-data.xlsx` to select.  The option 
@@ -43,5 +44,20 @@ and Division 2.  If you have important the data correctly and installed the `bli
 ![all-data-plot](vienna-by-wing-fig1.png)
 
 What patterns do you notice in this figure?  How do maternal mortality rates in the two divisions of the hospital compare?
+
+Use the `list` command to list the the notes contained in the data set by year.  If you only want to list the rows of data 
+that include a note (i.e. where the `Note` variable is non-missing), you can add `if Note!=""`) at the end of the command.  Add 
+your list command to your 
+
+In what year did the hospital first move to the system where patients in Division 1 were treated by doctors and patients in Division 2 
+were treated by midwives?  Drop the observations (years) before this happened using the drop command.
+
+_Make sure that you record this an all your subsequent commands in your do file, so that you can re-run your code later._
+
+Generate a `post` variable equal to one for years after the handwashing policy was implemented (and zero otherwise).  What is the mean 
+postpartum mortality rate in the doctors' wing (Division 1) prior to the implementation of the handwashing policy?
+
+Now let's put this result in a table!  We're going to use the `putexcel` command to write our results into an Excel file.  
+
 
 
