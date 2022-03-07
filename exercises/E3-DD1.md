@@ -6,5 +6,10 @@ We'll be reading them in from excel using the import excel command.
 
 We're going to be exporting estimation results to Excel using the `putexcel` command, and we'll also be making figures.  Before doing so, 
 make sure you have the `blindschemes` package installed.  To do this, type `findit blindschemes` in the Stata command window.  When you do, 
- 
+a window that looks like this will pop up:
+
+![blindschemes.png]
+  
+<br> 
+
 ## Getting Started  
