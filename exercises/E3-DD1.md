@@ -8,7 +8,9 @@ We're going to be exporting estimation results to Excel using the `putexcel` com
 make sure you have the `blindschemes` package installed.  To do this, type `findit blindschemes` in the Stata command window.  When you do, 
 a window that looks like this will pop up:
 
-![blindschemes.png]
+![blindschemes-window](blindschemes.png)
+
+Click the first link, and then scroll down until you see the blue text that says **click here to install"".
   
 <br> 
 
