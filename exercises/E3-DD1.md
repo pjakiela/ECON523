@@ -71,6 +71,27 @@ putexcel A2="Before Handwashing", bold
 putexcel A4="After Handwashing", bold
 ```
 
+Now we can add the mean of the variable `Rate1` for the years prior to the introduction of handwashing.  Remember that you can always use the `return list` command after a command like `summarize` to see what statistics the summarize command stored in Stata's short-term memory as locals.  Any of these statistics can be exported to Excel.
+
+```
+sum Rate1 if post==0
+return list
+putexcel B2=`r(mean)', nformat(#.##)
+```
+
+Notice that the local macro being exported to Excel appears in single quotes.  The `nformat()` option tells Stata how many digits to export.
+
+We can calculate the standard error of the mean by taking the standard deviation (reported by the `sum` command) and dividing it by the square root of the number of 
+observartions (also reported by the `sum` command).  What is the standard error of the mean postpartum mortality rate in the doctors' wing prior to Semmelweis' handwashing 
+intervention?
+
+```
+sum Rate1 if post==0
+return list
+local temp_se = r(sd)/sqrt(r(N)) 
+putexcel B2="(`temp_se')", nformat(#.##)
+```
+
 At this point, it is worth opening your Excel file to make sure that you are writing to it successfully.  
 
 
