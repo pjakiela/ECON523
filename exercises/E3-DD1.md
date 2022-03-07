@@ -71,15 +71,17 @@ putexcel A2="Before Handwashing", bold
 putexcel A4="After Handwashing", bold
 ```
 
-Now we can add the mean of the variable `Rate1` for the years prior to the introduction of handwashing.  Remember that you can always use the `return list` command after a command like `summarize` to see what statistics the summarize command stored in Stata's short-term memory as locals.  Any of these statistics can be exported to Excel.
+At this point, it is worth opening your Excel file to make sure that you are writing to it successfully.  **Be sure to close the file after you look at it**; Stata won't write over an open Excel file.  
+
+Now that we know that the `putexcel` command is working, we can add the mean of the variable `Rate1` for the years prior to the introduction of handwashing.  Remember that you can always use the `return list` command after a command like `summarize` to see what statistics the summarize command stored in Stata's short-term memory as locals.  Any of these statistics can be exported to Excel.  We're going to put the mean maternal mortality rate in Division 1 prior to the handwashing intervention in cell B2:  the **Treatment** column, in the **Before Handwashing** row.
 
 ```
 sum Rate1 if post==0
 return list
-putexcel B2=`r(mean)', nformat(#.##)
+putexcel B2=`r(mean)', hcenter nformat(#.##)
 ```
 
-Notice that the local macro being exported to Excel appears in single quotes.  The `nformat()` option tells Stata how many digits to export.
+Notice that the local macro being exported to Excel appears in single quotes.  If you are writing **a number** to Excel using the `putexcel` command, it does not need to appear in quotes.  We are using single quotes here because we are writing a local macro representing a number to Excel.  The `nformat()` option tells Stata how many digits to export.  The `hcenter` option tells Excel to center the number within the column.  
 
 We can calculate the standard error of the mean by taking the standard deviation (reported by the `sum` command) and dividing it by the square root of the number of 
 observartions (also reported by the `sum` command).  What is the standard error of the mean postpartum mortality rate in the doctors' wing prior to Semmelweis' handwashing 
@@ -87,11 +89,20 @@ intervention?
 
 ```
 sum Rate1 if post==0
-return list
 local temp_se = r(sd)/sqrt(r(N)) 
-putexcel B2="(`temp_se')", nformat(#.##)
+putexcel B2="(`temp_se')", hcenter nformat(#.##)
 ```
 
-At this point, it is worth opening your Excel file to make sure that you are writing to it successfully.  
+If we wanted to have our standard error appear in parentheses, we'd need to format the number correctly before exporting.  We could do this using the following commands, which generate a local macro in string rather than numeric format:
+
+```
+sum Rate1 if post==0
+local temp_se = string(r(sd)/sqrt(r(N)),"%03.2f")
+putexcel B3="(`temp_se')", hcenter nformat(#.##)
+```
+
+At this point, it makes sense to check in on your Excel output again, making sure to close the file afterward.  
+
+  
 
 
