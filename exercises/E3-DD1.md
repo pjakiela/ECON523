@@ -57,7 +57,20 @@ _Make sure that you record this an all your subsequent commands in your do file,
 Generate a `post` variable equal to one for years after the handwashing policy was implemented (and zero otherwise).  What is the mean 
 postpartum mortality rate in the doctors' wing (Division 1) prior to the implementation of the handwashing policy?
 
-Now let's put this result in a table!  We're going to use the `putexcel` command to write our results into an Excel file.  
+Now let's put this result in a table!  We're going to use the `putexcel` command to write our results into an Excel file.  `putexcel` 
+is a simple command that allows you to write Stata output to a particular cell or set of cells in an Excel file.  Before getting started 
+with `putexcel`, use the `pwd` ("print working directory") command in the Stata command window to make sure that you are writing your 
+results to an appropriate file.  Then set up the Excel file that will receive your results using the commands:
 
+```
+putexcel set E3-DD-table1.xlsx, replace
+putexcel B1="Treatment", bold border(top)
+putexcel C1="Control", bold border(top)
+putexcel D1="Difference", bold border(top)
+putexcel A2="Before Handwashing", bold
+putexcel A4="After Handwashing", bold
+```
+
+At this point, it is worth opening your Excel file to make sure that you are writing to it successfully.  
 
 
