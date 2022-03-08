@@ -59,7 +59,8 @@ postpartum mortality rate in the doctors' wing (Division 1) prior to the impleme
 Now let's put this result in a table!  We're going to use the `putexcel` command to write our results into an Excel file.  `putexcel` 
 is a simple command that allows you to write Stata output to a particular cell or set of cells in an Excel file.  Before getting started 
 with `putexcel`, use the `pwd` ("print working directory") command in the Stata command window to make sure that you are writing your 
-results to an appropriate file.  Then set up the Excel file that will receive your results using the commands:
+results to an appropriate file.  Use the `cd` command to change your file path if necessary.  Then set up the Excel file that will 
+receive your results using the commands:
 
 ```
 putexcel set E3-DD-table1.xlsx, replace
