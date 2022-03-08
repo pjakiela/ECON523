@@ -56,19 +56,13 @@ twoway (connected Rate1 Year, color(vermillion) msymbol(o) msize(small) lw(thin)
  
 // Use the list command to list the the notes contained in the data set by year.   If you only want to list the rows of data that include a note (i.e. where the `Note` variable is non-missing), you can add `if Note!=""`) at the end of the command.  
 
-list Year Note
 
 
 // In what year did the hospital first move to the system where patients in Division 1 were treated by doctors and patients in Division 2 were treated by midwives?  Drop the observations (years) before this happened using the drop command.
 
-drop if Year<1841
-
 
 // Generate a "post" variable equal to one for years after the handwashing policy was implemented (and zero otherwise).  What is the mean postpartum mortality rate in the doctors' wing prior to the implementation of the handwashing policy?
 
-gen post = Year>=1847
-sum Rate1 if post==0
-display "r(mean)"
 
 // Now let's put this result in a table!  We're going to use the `putexcel` command to write our results into an Excel file.  `putexcel` is a simple command that allows you to write Stata output to a particular cell or set of cells in an Excel file.  Before getting started with `putexcel`, use the `pwd` ("print working directory") command in the Stata command window to make sure that you are writing your results to an appropriate file.  Then set up the Excel file that will receive your results using the commands:
 
