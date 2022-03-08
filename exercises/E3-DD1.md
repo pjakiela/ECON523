@@ -179,7 +179,7 @@ graph export vienna-by-wing-fig1.png, replace
 
 ### Storing Results in Matrices
 
-One way to avoid using the `putexcel` command over and over is to save your results in a Stata matrix.  You can create an empty matrix that is j rows by k columns using the command `matrix matrixname=J(j,k,.)`.  So, for example, if you wanted to make a matrix called `ddresults` with 6 rows and 3 columns, you could use the command 
+One way to avoid using the `putexcel` command over and over is to save your results in a Stata matrix.  You can create an empty matrix that is j rows by k columns using the command `matrix matrixname=J(j,k,.)`.  So, for example, if you wanted to make a matrix called `ddresults` with 6 rows and 3 columns, you could use the command: 
 
 ```
 matrix ddresults=J(6,3,.)
