@@ -164,7 +164,9 @@ Write Stata code to calculate the standard error of the difference-in-difference
 
 ## More (Optional) Fun with Stata
 
-Modify the code near the top of the `do` file that generates the graph (replicated below):  make a new version that plots only the data used in our difference-in-differences estimation.  The code uses the `twoway` command (check out the help file) that is useful for making all sorts of graphs.  You'll want to modify the `xlabel(1830(5)1860)` part of the code (which controls the scale of the x-axis) so that you only show a narrow window around the data you are plotting.  You may also want to add a line showing when the hospital instituted the handwashing policy.  You can do this by inserting the text `xline(1847)` somewhere *after* the comma in your `twoway` command.
+### Graphing Your Diff-in-Diff
+
+Modify the code near the top of the `do` file that generates the graph (code replicated below):  make a new version that plots only the data used in our difference-in-differences estimation.  The code uses the `twoway` command (check out the help file) that is useful for making all sorts of graphs.  You'll want to modify the `xlabel(1830(5)1860)` part of the code (which controls the scale of the x-axis) so that you only show a narrow window around the data you are plotting.  You may also want to add a line showing when the hospital instituted the handwashing policy.  You can do this by inserting the text `xline(1847)` somewhere *after* the comma in your `twoway` command.
 
 ```
 twoway (connected Rate1 Year, color(vermillion) msymbol(o) msize(small) lw(thin)) /// 
@@ -174,6 +176,8 @@ twoway (connected Rate1 Year, color(vermillion) msymbol(o) msize(small) lw(thin)
 	legend(label(1 "Doctors' Wing") label(2 "Midwives' Wing") col(1) ring(0) pos(2))
 graph export vienna-by-wing-fig1.png, replace
 ```
+
+### Storing Results in Matrices
 
 One way to avoid using the `putexcel` command over and over is to save your results in a Stata matrix.  You can create an empty matrix that is j rows by k columns using the command `matrix matrixname=J(j,k,.)`.  So, for example, if you wanted to make a matrix called `ddresults` with 6 rows and 3 columns, you could use the command 
 
