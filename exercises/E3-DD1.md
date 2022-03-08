@@ -140,7 +140,13 @@ Next, we want to test the hypothesis that the mean maternal mortality rate was t
 
 ### Question 6 
 
-We can also use the ttest command to test that the means of two variables are equal - you can read about this in the help file for `ttest`.  Confirm that the command `ttest Rate1 = Rate2 if post==0, unpaired unequal` yields the same estimated difference in means and standard error that you calculated in Question 5. Then export your estimated difference in means and standard error to Excel.
+We can also use the ttest command to test the hypothesis that the means of two variables are equal - you can read about this in the help file for `ttest`.  Confirm that the command 
+
+```
+ttest Rate1 = Rate2 if post==0, unpaired unequal
+```
+
+yields the same estimated difference in means and standard error that you calculated in Question 5. Then export your estimated difference in means and standard error to Excel.
 
 ### Question 7 
 
