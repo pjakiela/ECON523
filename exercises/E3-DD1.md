@@ -106,8 +106,82 @@ that looks like this:
 
 ![Excel output](E3-excel-output.png)  
 
+<br>
 
+## Empirical Exercise
 
-  
+_NOTE:  This empirical exercise differs from previous ones in that you will be graded based on your (Stata) code and your final output (the Excel table).  You will not be asked to enter any numbers into gradescope (but you do need to upload your do file and Excel output there after you finish the exercise)._  
 
+### Question 1
+
+You can also get the standard error of a mean using Stata's `ci means` command.  Use the command `ci means Rate1 if post==0` to confirm that your standard error calculation (above) is correct.   What local macros are stored after you run the `ci means` command?
+
+### Question 2 
+
+Use the `ci means` command to calculate the mean and standard error for the other three cells required for difference-in-differences analysis:  the treatment group in the post-treatment period, the control group in the pre-treatment period, and the control gorup in the post-treatment period.  Export these results to Excel using the `putexcel' command.
+
+### Question 3 
+
+Now run a t-test of the hypothesis that the mean maternal mortality rate in Division 1 was the same in the pre-treatment and post-treatment periods (using the `t-test` command).  You will need to calculate the difference in means as the difference between the locals `r(mu_1)` and `r(mu_2)`, which are stored in Stata after the `ttest` command.  Export the estimated difference in means and the estimated standard error of the difference in means to Excel.
+
+### Question 4 
+
+Now do the same for Division 2:  run a t-test of the hypothesis that the mean maternal mortality rate in Division 2 was the same in the pre-treatment and post-treatment periods, and Export your estimated difference in means to Excel together with the associated standard error.
+
+### Question 5
+
+Next, we want to test the hypothesis that the mean maternal mortality rate was the same in Division 1 and Division 2 prior to the handwashing intervention.  One approach is to do the calculations ourselves using the formulas.  We know the sample mean of the `Rate1` variable in the pre-treatment period, and we know how to use Stata to find the standard error of that mean (and, in fact, we have already recorded this standard error in our Excel table).  We also know the mean of the Rate2 variable and the associated standard error for the pre-treatment period.  Since these two means are independendent random variables, we know that the standard error of the estimated difference in means is the square root of the squared standard errors of the individual means.  Write a few lines of Stata code that would generate locals equal to the estimated difference in means and the standard error of that estimated difference.
+
+### Question 6 
+
+We can also use the ttest command to test that the means of two variables are equal - you can read about this in the help file for `ttest`.  Confirm that the command `ttest Rate1 = Rate2 if post==0, unpaired unequal` yields the same estimated difference in means and standard error that you calculated in Question 5. Then export your estimated difference in means and standard error to Excel.
+
+### Question 7 
+
+Now use the `ttest` command to calculate the estimated difference in maternal mortality between Division 1 and Division 2 in the post-treatment period.  Export your difference in means and the associated standard error to Excel.
+
+### Question 8 
+
+Write Stata code to calculate the difference-in-differences estimator of the treatment effect of handwashing and export your results to Excel.
+
+### Question 9 
+
+Write Stata code to calculate the standard error of the difference-in-differences estimator of the treatment effect of handwashing and export your results to Excel.  Assume that the four cell means (treatment X pre, treatment X post, control X pre, control X post) are independent random variables.
+
+<br> 
+
+## More (Optional) Fun with Stata
+
+Modify the code near the top of the `do` file that generates the graph (replicated below):  make a new version that plots only the data used in our difference-in-differences estimation.  The code uses the `twoway` command (check out the help file) that is useful for making all sorts of graphs.  You'll want to modify the `xlabel(1830(5)1860)` part of the code (which controls the scale of the x-axis) so that you only show a narrow window around the data you are plotting.  You may also want to add a line showing when the hospital instituted the handwashing policy.  You can do this by inserting the text `xline(1847)` somewhere **after* the comma in your `twoway` command.
+
+```
+twoway (connected Rate1 Year, color(vermillion) msymbol(o) msize(small) lw(thin)) /// 
+	(connected Rate2 Year, color(sea) msymbol(t) msize(small) lw(thin)), ///
+	ylabel(0(5)20) ytitle("Maternal Mortality (Percent)" " ") ///
+	xlabel(1830(5)1860) xtitle(" ") ///
+	legend(label(1 "Doctors' Wing") label(2 "Midwives' Wing") col(1) ring(0) pos(2))
+graph export vienna-by-wing-fig1.png, replace
+```
+
+One way to avoid using the `putexcel` command over and over is to save your results in a Stata matrix.  You can create an empty matrix that is j rows by k columns using the command `matrix matrixname=J(j,k,.)`.  So, for example, if you wanted to make a matrix called `ddresults` with 6 rows and 3 columns, you could use the command 
+
+````
+matrix ddresults=J(6,3,.)
+```
+
+You could then write your estimation results to this matrix using code that is similar to the code you used with the `putexcel` command.  For example, if you wanted to write the your maternal mortality results for Division 1 in the first column of the matrix `ddresults`, you might use the following code (after defining the empty matrix):
+```
+ttest Rate1, by(post)
+matrix ddresults[1,1] = round(r(mu_1),0.01)
+matrix ddresults[2,1] = round(r(sd_1)/sqrt(r(N_1)),0.01)
+matrix ddresults[3,1] = round(r(mu_2),0.01)
+matrix ddresults[4,1] = round(r(sd_2)/sqrt(r(N_2)),0.01)
+matrix ddresults[5,1] = round(r(mu_1) - r(mu_2),0.01)
+matrix ddresults[6,1] = round(r(se),0.01)
+svmat ddresults
+```
+
+The `svmat` command at the end saves your results as a Stata matrix, which can then be converted into a variable or exported to Excel. Since the elements of the matrix are numbers and not strings, we can't use this approach to put our standard errors in parentheses (or to bold some coefficients and not others).  However, the `round` function truncates our results at two decimal places.
+
+After saving a matrix in Stata, we can then export the whole thing using the `putexcel` command, indicating where the top-left cell should be placed.  So, for instance, to export our difference-in-differences results, we might use the command `putexcel B2=matrix(ddresults)` - but be careful, as this will write over your earlier work!
 
