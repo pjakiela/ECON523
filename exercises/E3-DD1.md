@@ -165,11 +165,12 @@ graph export vienna-by-wing-fig1.png, replace
 
 One way to avoid using the `putexcel` command over and over is to save your results in a Stata matrix.  You can create an empty matrix that is j rows by k columns using the command `matrix matrixname=J(j,k,.)`.  So, for example, if you wanted to make a matrix called `ddresults` with 6 rows and 3 columns, you could use the command 
 
-````
+```
 matrix ddresults=J(6,3,.)
 ```
 
 You could then write your estimation results to this matrix using code that is similar to the code you used with the `putexcel` command.  For example, if you wanted to write the your maternal mortality results for Division 1 in the first column of the matrix `ddresults`, you might use the following code (after defining the empty matrix):
+
 ```
 ttest Rate1, by(post)
 matrix ddresults[1,1] = round(r(mu_1),0.01)
