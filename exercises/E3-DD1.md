@@ -22,7 +22,7 @@ inlcudes annual data from 1833 (when the Vienna Maternity Hospital opened its se
 In Semmelweis' difference-in-differences analysis, Division 1 was the (ever-)treated group.  
 
 Our first task is to import this Excel file 
-into Stata using the `import excel` command.  The `do` file [`E3-questions.do`](E3-in-class.do) does this:  after the usual top-of-the-do-file preliminaries, it includes the 
+into Stata using the `import excel` command.  The `do` file [`E3-questions.do`](E3-questions.do) does this:  after the usual top-of-the-do-file preliminaries, it includes the 
 command:
 
 ```
