@@ -2,7 +2,7 @@
    
 In this exercise, we're going to analyze data from Ignaz Semmelweis' handwashing intervention in the maternity hospital in Vienna.  The data come from 
 Semmelweis' (1861) book, and [some helpful person put them on Wikipedia](https://en.wikipedia.org/wiki/Historical_mortality_rates_of_puerperal_fever#Yearly_mortality_rates_for_birthgiving_women_1784%E2%80%931849). 
-We'll be reading them in from excel using the import excel command.
+We'll be reading them in from Excel using the `import excel` command.
 
 We're going to be exporting estimation results to Excel using the `putexcel` command, and we'll also be making figures.  Before doing so, 
 make sure you have the `blindschemes` package installed.  To do this, type `findit blindschemes` in the Stata command window.  When you do, 
@@ -31,14 +31,14 @@ import excel using E3-Semmelweis1861-data.xlsx, ///
 ```
 
 The option `sheet` tells Stata which worksheet within the Excel file `E3-Semmelweis1861-data.xlsx` to select.  The option 
-`first' indicates that the first row of the spreadsheet should be treated as variable names and not one of the observations.  
+`first` indicates that the first row of the spreadsheet should be treated as variable names and not as one of the observations.  
 
 After importing the data, the `do` file then adds labels to all the variables using the `label variable` command (which can be 
 abbreviated as `la var`).  Use the `describe` and `summarize` commands to familiarize yourself with the data set.  Which variable 
 records the maternal mortality rate in Division 1 of the hospital?  What is the average maternal mortality rate in Division 1?  What is 
 the average maternal mortality rate in Division 2?
 
-The last lines of the code in the `do` file save the data in Stata format, and then graph maternal mortality rates in Division 1 
+The next lines of the code in the `do` file save the data in Stata format, and then graph maternal mortality rates in Division 1 
 and Division 2.  If you have important the data correctly and installed the `blindschemes` package, Stata should generate a figure that looks like this:
 
 ![all-data-plot](vienna-by-wing-fig1.png)
@@ -46,13 +46,12 @@ and Division 2.  If you have important the data correctly and installed the `bli
 What patterns do you notice in this figure?  How do maternal mortality rates in the two divisions of the hospital compare?
 
 Use the `list` command to list the the notes contained in the data set by year.  If you only want to list the rows of data 
-that include a note (i.e. where the `Note` variable is non-missing), you can add `if Note!=""`) at the end of the command.  Add 
-your list command to your 
+that include a note (i.e. where the `Note` variable is non-missing), you can add `if Note!=""` at the end of the command.  
 
 In what year did the hospital first move to the system where patients in Division 1 were treated by doctors and patients in Division 2 
 were treated by midwives?  Drop the observations (years) before this happened using the drop command.
 
-_Make sure that you record this an all your subsequent commands in your do file, so that you can re-run your code later._
+_Make sure that you record this and all your subsequent commands in your do file, so that you can re-run your code later._
 
 Generate a `post` variable equal to one for years after the handwashing policy was implemented (and zero otherwise).  What is the mean 
 postpartum mortality rate in the doctors' wing (Division 1) prior to the implementation of the handwashing policy?
