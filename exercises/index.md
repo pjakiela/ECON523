@@ -6,7 +6,7 @@
 
 [Exercise 2B: Selection Bias and the Experimental Ideal, Part 2](E2-exp-ideal-part2.html) 
 
-Exercise 3: Difference-in-Differences I (2x2 DD)   
+[Exercise 3: Difference-in-Differences I (2x2 DD)](E3-DD1.html)   
 
 Exercise 4: Diff-in-Diff in a Regression Framework (DD II)  
 
