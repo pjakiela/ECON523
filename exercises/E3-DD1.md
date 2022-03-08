@@ -64,16 +64,16 @@ receive your results using the commands:
 
 ```
 putexcel set E3-DD-table1.xlsx, replace
-putexcel B1="Treatment", bold border(top)
-putexcel C1="Control", bold border(top)
-putexcel D1="Difference", bold border(top)
+putexcel B1="Treatment", hcenter bold border(top)
+putexcel C1="Control", hcenter bold border(top)
+putexcel D1="Difference", hcenter bold border(top)
 putexcel A2="Before Handwashing", bold
 putexcel A4="After Handwashing", bold
 ```
 
-At this point, it is worth opening your Excel file to make sure that you are writing to it successfully.  **Be sure to close the file after you look at it**; Stata won't write over an open Excel file.  
+At this point, it is worth opening your Excel file to make sure that you are writing to it successfully.  **Be sure to close the file after you look at it**; Stata won't write over an open Excel file.  The column and row labels should all appear in bold font (the `bold` option), and the column headings in cells B1, C1, and D1 should be centered (the `hcenter` option) and have a border above them (the `border()` option).  
 
-Now that we know that the `putexcel` command is working, we can add the mean of the variable `Rate1` for the years prior to the introduction of handwashing.  Remember that you can always use the `return list` command after a command like `summarize` to see what statistics the summarize command stored in Stata's short-term memory as locals.  Any of these statistics can be exported to Excel.  We're going to put the mean maternal mortality rate in Division 1 prior to the handwashing intervention in cell B2:  the **Treatment** column, in the **Before Handwashing** row.
+Now that we know that `putexcel` is working, we can add the mean of the variable `Rate1` (the maternal mortality rate in Division 1) for the years prior to the introduction of handwashing.  Remember that you can always use the `return list` command after a command like `summarize` to see what statistics the summarize command stored in Stata's short-term memory as locals.  Any of these statistics can be exported to Excel.  We're going to put the mean maternal mortality rate in Division 1 prior to the handwashing intervention in cell B2:  the **Treatment** column, in the **Before Handwashing** row.
 
 ```
 sum Rate1 if post==0
@@ -81,7 +81,7 @@ return list
 putexcel B2=`r(mean)', hcenter nformat(#.##)
 ```
 
-Notice that the local macro being exported to Excel appears in single quotes.  If you are writing **a number** to Excel using the `putexcel` command, it does not need to appear in quotes.  We are using single quotes here because we are writing a local macro representing a number to Excel.  The `nformat()` option tells Stata how many digits to export.  The `hcenter` option tells Excel to center the number within the column.  
+Notice that the local macro being exported to Excel appears in single quotes.  If you are writing **a number** to Excel using the `putexcel` command, it does not need to appear in (double) quotes (but sequences of letters and numbers - strings - do need double quotes).  We are using single quotes here because we are writing a local macro representing a number to Excel.  The `nformat()` option tells Stata how many digits to export.  The `hcenter` option tells Excel to center the number within the column.  
 
 We can calculate the standard error of the mean by taking the standard deviation (reported by the `sum` command) and dividing it by the square root of the number of 
 observartions (also reported by the `sum` command).  What is the standard error of the mean postpartum mortality rate in the doctors' wing prior to Semmelweis' handwashing 
@@ -90,10 +90,10 @@ intervention?
 ```
 sum Rate1 if post==0
 local temp_se = r(sd)/sqrt(r(N)) 
-putexcel B2="(`temp_se')", hcenter nformat(#.##)
+putexcel B3="(`temp_se')", hcenter nformat(#.##)
 ```
 
-If we wanted to have our standard error appear in parentheses, we'd need to format the number correctly before exporting.  We could do this using the following commands, which generate a local macro in string rather than numeric format:
+If we wanted to have our standard error appear in parentheses, we'd need to format the number *before* exporting to Excel.  We could do this using the following commands, which generate a local macro in string rather than numeric format:
 
 ```
 sum Rate1 if post==0
@@ -114,15 +114,21 @@ _NOTE:  This empirical exercise differs from previous ones in that you will be g
 
 ### Question 1
 
-You can also get the standard error of a mean using Stata's `ci means` command.  Use the command `ci means Rate1 if post==0` to confirm that your standard error calculation (above) is correct.   What local macros are stored after you run the `ci means` command?
+You can also get the standard error of a mean using Stata's `ci means` command.  Use the command 
+
+```
+ci means Rate1 if post==0
+```
+
+to confirm that your standard error calculation (above) is correct.   What local macros are stored after you run the `ci means` command?
 
 ### Question 2 
 
-Use the `ci means` command to calculate the mean and standard error for the other three cells required for difference-in-differences analysis:  the treatment group in the post-treatment period, the control group in the pre-treatment period, and the control gorup in the post-treatment period.  Export these results to Excel using the `putexcel' command.
+Use the `ci means` command to calculate the mean and standard error for the other three cells required for difference-in-differences analysis:  the treatment group in the post-treatment period, the control group in the pre-treatment period, and the control gorup in the post-treatment period.  Export these results to Excel using the `putexcel` command.
 
 ### Question 3 
 
-Now run a t-test of the hypothesis that the mean maternal mortality rate in Division 1 was the same in the pre-treatment and post-treatment periods (using the `t-test` command).  You will need to calculate the difference in means as the difference between the locals `r(mu_1)` and `r(mu_2)`, which are stored in Stata after the `ttest` command.  Export the estimated difference in means and the estimated standard error of the difference in means to Excel.
+Now run a t-test of the hypothesis that the mean maternal mortality rate in Division 1 was the same in the pre-treatment and post-treatment periods (using the `ttest` command).  You will need to calculate the difference in means as the difference between the locals `r(mu_1)` and `r(mu_2)`, which are stored in Stata after the `ttest` command.  Export the estimated difference in means and the estimated standard error of the difference in means to Excel.
 
 ### Question 4 
 
@@ -130,7 +136,7 @@ Now do the same for Division 2:  run a t-test of the hypothesis that the mean ma
 
 ### Question 5
 
-Next, we want to test the hypothesis that the mean maternal mortality rate was the same in Division 1 and Division 2 prior to the handwashing intervention.  One approach is to do the calculations ourselves using the formulas.  We know the sample mean of the `Rate1` variable in the pre-treatment period, and we know how to use Stata to find the standard error of that mean (and, in fact, we have already recorded this standard error in our Excel table).  We also know the mean of the Rate2 variable and the associated standard error for the pre-treatment period.  Since these two means are independendent random variables, we know that the standard error of the estimated difference in means is the square root of the squared standard errors of the individual means.  Write a few lines of Stata code that would generate locals equal to the estimated difference in means and the standard error of that estimated difference.
+Next, we want to test the hypothesis that the mean maternal mortality rate was the same in Division 1 and Division 2 prior to the handwashing intervention.  One approach is to do the calculations ourselves using the formulas.  We know the sample mean of the `Rate1` variable in the pre-treatment period, and we know how to use Stata to find the standard error of that mean (and, in fact, we have already recorded this standard error in our Excel table).  We also know the mean of the Rate2 variable and the associated standard error for the pre-treatment period.  Since these two means are independendent random variables, we know that the standard error of the estimated difference in means is the square root of the sum of the squared standard errors of the individual means.  Write a few lines of Stata code that would generate locals equal to the estimated difference in means and the standard error of that estimated difference.
 
 ### Question 6 
 
