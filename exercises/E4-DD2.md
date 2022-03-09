@@ -30,7 +30,7 @@ use "C:\mypath\E4-DD2\E5-GodlontonOkeke-data.dta"
 
 <br>
 
-### Generating the Variables Needed for Analysis
+## Generating the Variables Needed for Analysis
 
 To implement difference-in-differences, we need:
  - a dummy variable for the post treatment period, 
@@ -80,8 +80,13 @@ recode m3g (9=.), gen(tba)
 This generates a new variable, `tba`, that is the same as the `m3g` variable except that `tba` is equal to missing for all 
 observations where `m3g` is equal to 9.  (It is usually better to generate a new variable 
 instead of modifying the variables in your raw data set, because you don't want to make 
-mistakes that you cannot undo.)  Confirm that your new variable, `tba`, is a dummy variable.  
-Use the command `tab tba, m` to tabulate the observed values of `tba` (the `, m` option tells 
+mistakes that you cannot undo.)  Confirm that your new variable, `tba`, is a dummy variable.  Use the command 
+
+```
+tab tba, m
+``` 
+
+to tabulate the observed values of `tba` (the `, m` option tells 
 Stata to tabulate the number of missing values in addition to the other values).
 
 We want to generate a **treatment dummy** - an indicator for DHS clusters where use of TBAs was at or above 
@@ -141,12 +146,12 @@ Tabulate your `high_exposure` variable to make sure that it is only missing for 
 with the `tba` variable missing.  What is the mean of `high_exposure`?
 
 The last variable we need to conduct difference-in-differences analysis is an interaction between 
-our treatment variable, `high_exposure`, and the post variable.  Generate such a variable. 
+our treatment variable, `high_exposure`, and the `post` variable.  Generate such a variable. 
 I suggest calling it `highxpost`.  Now you are ready to run a regression.
 
 <br>
 
-### Replicating One Coefficient
+## Replicating One Coefficient
 
 Now you have the variables you need to run a 2x2 difference-in-differences analysis 
 on the impact of Malawi's ban on TBAs on their use.  Do this.  How does the coefficient of interest 
@@ -166,19 +171,39 @@ a table in a published paper!), move on to the rest of the empirical exercise.
 
 <br>
 
-### Empirical Exercise
+## Empirical Exercise
 
-In the remainder of this exercise, we'll be estimating the impact of Malawi's ban on traditional birth attendants 
-on the use of formal sector providers (aka skilled birth attendants or SBAs).  The variable `sba` is an indicator 
+In the remainder of this exercise, we will be estimating the impact of Malawi's ban on traditional birth attendants 
+on the use of formal sector providers (aka skilled birth attendants or SBAs), and then testing whether the common trends 
+assumption is likely to hold.  
+
+The variable `sba` is an indicator 
 for use of (wait for it) an SBA.  Estimates of the impact of the TBA ban on use of SBAs are reported in Panel B of 
 Table 5 in Godlonton and Okeke (2015).
 
-Extend your do file to answer the following additional questions.  
+Before we begin, we're going to set up an Excel file where we can record our results.  Our coefficient of interest is the `highxpost` variable, which is the interaction between the `post` dummy and the `high_exposure` dummy.  Our regression table will only record this coefficient.  Add the following Stata code to your do file to set up your Excel file that will receive your coefficient estimates.  
 
-1. What fraction of women in Malawi give birth in the presence of a skilled birth attendant?  In other words, what is the mean of the `sba` variable?
-2. Test the hypothesis that the proportion of women giving birth in the presence of a skilled birth attendant increased after Malawi introduced the ban on TBAs.  What is the t-statistic associated with this hypothesis test?
-3. Estimate a simple 2x2 difference-in-differences specification to measure the impact of Malawi's TBA ban on the use of SBAs.  What is the estimated coefficient of interest (ie the coefficient on `highxpost`)?  You can, of course, read the results directly from Stata's output.  However, if you want Stata to display a specific regression coefficient after you run your estimation, you can use the command `display _b[varname]` where "varname" is the name of the variable you care about.
-4. What is the coefficient on `high_exposure`?  
+```
+putexcel set E4-DD-table.xlsx, replace
+putexcel B1="(1)", hcenter bold border(top)
+putexcel C1="(2)", hcenter bold border(top)
+putexcel A2="High Exposure x Post", bold
+putexcel A4="Observations", bold border(bottom)
+```
+
+Make sure you understand the code above before proceeding with the exercise.
+
+### Question 1
+
+Test the hypothesis that the proportion of women giving birth in the presence of a skilled birth attendant increased after Malawi introduced the ban on TBAs.  What is the t-statistic associated with this hypothesis test?
+
+### Question 2
+
+Estimate a simple 2x2 difference-in-differences specification to measure the impact of Malawi's TBA ban on the use of SBAs.  Your regression should include the `post` dummy, the `high-exposure` (i.e. treatment) dummy, and the `highxpost` interaction term (and no other independent variables).  What is the estimated coefficient of interest (ie the coefficient on `highxpost`)?  
+
+### Question 3 
+
+
 5. Now re-run your diff-in-diff estimation replacing the `post` variable with time fixed effects.  What is the estimated coefficient on `high_exposure` now?
 6. As we saw above, Professor Godlonton and Dr. Okeke also include district fixed effects.  Re-run your diff-in-diff estimation including these as well.  What is the estimated coefficient on `high_exposure` now?
 
