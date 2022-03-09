@@ -216,7 +216,7 @@ If we estimated our regression using the command
 reg sba post high_exp highxpost
 ```
 
-then our coefficient of interest is the third variable in the regression.  This means that the coefficient estimate, standard error, etc. are stored in the third column of the matrix `V`.  To expore the coefficient estimate to cell B2 in Excel, we can use the commands:
+then our coefficient of interest is the third variable in the regression.  This means that the coefficient estimate, standard error, etc. are stored in the third column of the matrix `V`.  To export the coefficient estimate to cell B2 in Excel, we can use the commands:
 
 ```
 my_coef = round(V[1,3],0.01)
@@ -236,7 +236,6 @@ Use the code below (after your regression) to export the number of observations 
 ```
 putexcel B4 = e(N)
 ```
-
 
 ### Question 6
 
