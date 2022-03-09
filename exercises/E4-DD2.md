@@ -37,7 +37,7 @@ use "C:\mypath\E4-DD2\E5-GodlontonOkeke-data.dta"
 To implement difference-in-differences, we need:
  - a dummy variable for the post treatment period, 
  - a dummy variable for the treatment group, and 
- - -an interaction between the two 
+ - an interaction between the two 
 The `post` variable is already present in the data set.  What is the mean of the `post` variable?  What fraction of the observations in the data set occur in the post-treatment period?
 
 The `time` variable indicates the month and year in which a birth took place. If you type the command 
