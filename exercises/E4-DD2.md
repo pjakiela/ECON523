@@ -1,13 +1,15 @@
 # Empirical Exercise 4
 
-In this exercise, we're going to be replicating the first difference-in-differences specification reported Table 5 
-of [Does a ban on informal health providers save lives? Evidence from Malawi](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4677333/) 
-by Professor Susan Godlonton and Dr. Edward Okeke.  The table summarizes the impact of Malawi's 2007 ban on the use of 
+In this exercise, we're going to be replicating the difference-in-differences analysis from 
+[Does a ban on informal health providers save lives? Evidence from Malawi](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4677333/) 
+by Professor Susan Godlonton and Dr. Edward Okeke.  Table 5, which we will replicate, summarizes the impact of Malawi's 2007 ban on the use of 
 traditional birth attendants (TBAs) on birth outcomes, including both the use of formal sector providers and neonatal mortality.
 
 <br>
 
 ### Getting Started
+
+The `do` file needed for this activity is here:  [E4-questions.do](E4-questions.do).
 
 The data set E4-GodlontonOkeke-data.dta is available on glow.  It contains information (from the 
 [2010 Malawi Demographic and Health Survey](https://dhsprogram.com/methodology/survey/survey-display-333.cfm)) 
