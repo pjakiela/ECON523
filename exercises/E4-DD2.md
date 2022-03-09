@@ -7,9 +7,9 @@ traditional birth attendants (TBAs) on birth outcomes, including both the use of
 
 <br>
 
-#### Getting Started
+### Getting Started
 
-The data set E5-GodlontonOkeke-data.dta is available on glow.  It contains information (from the 
+The data set E4-GodlontonOkeke-data.dta is available on glow.  It contains information (from the 
 [2010 Malawi Demographic and Health Survey](https://dhsprogram.com/methodology/survey/survey-display-333.cfm)) 
 on 19,680 live births between July 2005 and September 2010.  Each observartion represents a birth.  Download the data, and then create 
 a do file that opens the data set in Stata.  Our standard code for starting a do file will look something like:
@@ -24,17 +24,17 @@ set more off
 set scheme s1mono
 set seed 123456
 
-cd "C:\Users\pj\Dropbox\econ379-2021\exercises\E5-DD2\fig"
-use "C:\Users\pj\Dropbox\econ379-2021\exercises\E5-DD2\data\E5-GodlontonOkeke-data.dta"
+cd "C:\mypath\E4-DD2"
+use "C:\mypath\E4-DD2\E5-GodlontonOkeke-data.dta"
 ```
 
 <br>
 
-#### Generating the Variables Needed for Analysis
+### Generating the Variables Needed for Analysis
 
-To implement difference-in-differences, we need a dummy variable for the post treatment period, 
-a dummy variable for the treatment group, and an interaction between the two. The post variable is 
-already present in the data set.  What is the mean of the post variable?  
+To implement difference-in-differences, we need a **dummy variable for the post treatment period**, 
+a **dummy variable for the treatment group**, and an **interaction between the two**. The `post` variable is 
+already present in the data set.  What is the mean of the `post` variable?  
 
 The `time` variable indicates the month and year in which a birth took place. If you type the command 
 `desc time` you'll see the following output:
