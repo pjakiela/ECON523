@@ -7,7 +7,7 @@ traditional birth attendants (TBAs) on birth outcomes, including both the use of
 
 <br>
 
-### Getting Started
+## Getting Started
 
 The `do` file needed for this activity is here:  [E4-questions.do](E4-questions.do).
 
