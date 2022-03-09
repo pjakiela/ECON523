@@ -174,10 +174,7 @@ a table in a published paper!), move on to the rest of the empirical exercise.
 ## Empirical Exercise
 
 In the remainder of this exercise, we will be estimating the impact of Malawi's ban on traditional birth attendants 
-on the use of formal sector providers (aka skilled birth attendants or SBAs), and then testing whether the common trends 
-assumption is likely to hold.  
-
-The variable `sba` is an indicator 
+on the use of formal sector providers (aka skilled birth attendants or SBAs).  The variable `sba` is an indicator 
 for use of (wait for it) an SBA.  Estimates of the impact of the TBA ban on use of SBAs are reported in Panel B of 
 Table 5 in Godlonton and Okeke (2015).
 
@@ -203,8 +200,54 @@ Estimate a simple 2x2 difference-in-differences specification to measure the imp
 
 ### Question 3 
 
+To export our regression coefficients to Excel, we first need to save our regression results to a matrix in Stata.  We will do this with the command
 
-5. Now re-run your diff-in-diff estimation replacing the `post` variable with time fixed effects.  What is the estimated coefficient on `high_exposure` now?
-6. As we saw above, Professor Godlonton and Dr. Okeke also include district fixed effects.  Re-run your diff-in-diff estimation including these as well.  What is the estimated coefficient on `high_exposure` now?
+```
+matrix V = r(table)
+```
+
+The `r(table)` refers to Stata's default way of storing regression results; the command defines a matrix `V` containing the regression results.  Type `matrix list V` into the command window to see this matrix.
+
+You can see that the matrix is 9 rows tall.  The number of columns is one plus the number of variables included in our regression.  The first row contains the coefficient estimates, the second row contains the standard errors, the third row contains the t-statistics, and the fourth row contains the p-values.  
+
+If we estimated our regression using the command
+
+```
+reg sba post high_exp highxpost
+```
+
+then our coefficient of interest is the third variable in the regression.  This means that the coefficient estimate, standard error, etc. are stored in the third column of the matrix `V`.  To expore the coefficient estimate to cell B2 in Excel, we can use the commands:
+
+```
+my_coef = round(V[1,3],0.01)
+putexcel B2 = "`my_coef'", hcenter
+```
+
+where **V[1,3]** refers to the cell of the matrix V in the first column and the third row.  Implement this code, making sure that you are successfully exporting your regression coefficient of interest.
+
+### Question 4
+
+Now write the standard error associated with the regression coefficient on `highxpost` to cell B3 in your Excel file.  
+
+### Question 5
+
+Use the code below (after your regression) to export the number of observations to cell B4 in your Excel file:
+
+```
+putexcel B4 = e(N)
+```
+
+
+### Question 6
+
+Now re-run your diff-in-diff estimation replacing the `post` variable with time fixed effects.  What is the estimated coefficient on `high_exposure` now?  Write your coefficient on `high_exposure`, the associated standard error, and the number of observations to Column C in your Excel file.
+
+### Question 7
+
+As we saw above, Professor Godlonton and Dr. Okeke also include district fixed effects.  Re-run your diff-in-diff estimation including these as well.  What is the estimated coefficient on `high_exposure` now?  Write your coefficient on `high_exposure`, the associated standard error, and the number of observations to Column D in your Excel file.
 
 At this point, you (should) have successfully replicated the result from Godlonton and Okeke (2015).  As you saw, the coeffcient on the `highxpost` (the diff-in-diff estimate of the treatment effect) was extremely similar in specifications with and without fixed effects.  
+
+<br> 
+
+## More Fun with Stata
