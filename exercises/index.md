@@ -8,7 +8,7 @@
 
 [Exercise 3: Difference-in-Differences I (2x2 DD)](E3-DD1.html)   
 
-Exercise 4: Diff-in-Diff in a Regression Framework (DD II)  
+[Exercise 4: Diff-in-Diff in a Regression Framework (DD II)](E4-DD2.html)  
 
 Exercise 5: Two-Way Fixed Effects   
 
