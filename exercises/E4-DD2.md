@@ -219,7 +219,7 @@ reg sba post high_exp highxpost
 then our coefficient of interest is the third variable in the regression.  This means that the coefficient estimate, standard error, etc. are stored in the third column of the matrix `V`.  To export the coefficient estimate to cell B2 in Excel, we can use the commands:
 
 ```
-my_coef = round(V[1,3],0.01)
+local my_coef = round(V[1,3],0.01)
 putexcel B2 = "`my_coef'", hcenter
 ```
 
@@ -234,7 +234,7 @@ Now write the standard error associated with the regression coefficient on `high
 Use the code below (after your regression) to export the number of observations to cell B4 in your Excel file:
 
 ```
-putexcel B4 = e(N)
+putexcel B4 = `e(N)'
 ```
 
 ### Question 6
@@ -250,3 +250,58 @@ At this point, you (should) have successfully replicated the result from Godlont
 <br> 
 
 ## More Fun with Stata
+
+Professor Godlonton and Dr. Okeke test common trends directly by generating a 
+time trend variable that they interact with treatment.  Their results are 
+presented in Table 2 in their paper, which appears below:
+
+![GO Table 2](https://pjakiela.github.io/ECON379/exercises/E6-DD3/GO-Tab2.png)
+
+We are primarily interested in the interaction between our treatment variable, 
+`high_exposure`, and the time trend:  if this variable is statistically significant, 
+it indicates that the treatment and comparison groups were on different trajectories 
+prior to the program.  
+
+To replicate these results, we need to generate a time trend variable.  The data set 
+contains the variable `time`; it indicates the the month and year in which a birth 
+took place. However, `time` is formatted in Stata's date-time format, which even 
+economics professors can never remember how to use.  Fortunately, we can use 
+the `egen` command to create a trend variable after we sort the data by date:
+
+```
+sort time
+egen trend = group(time) if post==0
+```
+
+The `egen` option `group` creates a variable indicating the different groups (or values) 
+of the `time` variable.  So, in this data set, the `egen` command will generate a group variable as 
+follows:
+
+time|trend
+----|----
+Jul05|1
+Jul05|1
+Jul05|1
+Aug05|2
+Aug05|2
+Oct05|3
+Oct05|3
+
+Notice that `egen` is just counting off the groups:  there are no observations 
+from September of 2005, so October 2005 is the third group (ie the `egen` command 
+is **not** telling us how many months have passed since the start of the data set). In this case, 
+you can tab `time` and see that there aren't any missing months, so the `trend` variable 
+_does_ also tell us how many months an observation is from the earliest observations in 
+the data set - but that is because of the particular structure of this data set.  (Also, 
+remember that you have to sort your data before using the `egen` command with the group 
+option.)
+
+Once you've generated the `trend` variable, you need to interact it with `high_exposure` 
+(the treatment dummy).  Then you can regress an outcome like `tba` on the `high_exposure` 
+variable, the `trend` variable, and the interaction between them.  The table notes 
+above also indicate that Professor Godlonton and Dr. Okeke include district fixed effects; 
+you can add these by adding `i.district` to your regression command.
+
+Do you get the same results as the authors?  Specifically, do the coefficient and 
+standard error on the variable `highxtrend` match up?
+
