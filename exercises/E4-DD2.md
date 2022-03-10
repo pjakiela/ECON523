@@ -245,7 +245,7 @@ Now re-run your diff-in-diff estimation replacing the `post` variable with time 
 
 ### Question 7
 
-As we saw above, Professor Godlonton and Dr. Okeke also include district fixed effects.  Re-run your diff-in-diff estimation including these as well.  What is the estimated coefficient on `highxpost` now?  Write your coefficient on `high_exposure`, the associated standard error, and the number of observations to Column D in your Excel file.
+As we saw above, Professor Godlonton and Dr. Okeke also include district fixed effects.  Re-run your diff-in-diff estimation including these as well.  What is the estimated coefficient on `highxpost` now?  Write your coefficient on `highxpost`, the associated standard error, and the number of observations to Column D in your Excel file.
 
 At this point, you (should) have successfully replicated the result from Godlonton and Okeke (2015).  As you saw, the coeffcient on the `highxpost` (the diff-in-diff estimate of the treatment effect) was extremely similar in specifications with and without fixed effects.  
 
