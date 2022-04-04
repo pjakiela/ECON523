@@ -18,9 +18,9 @@ March 22, 24, 29, 31:  spring break (no class)
 
 [April 12: Fixed Effects Stata Lab](E5-TWFE.html)   
 
-[April 14: Treatment-on-the-Treated](M6-TOT.html)  
+April 14: no class
 
-[April 19:  Treatment-on-the-Treated Stata Lab](E6-TOT.html)  
+[April 19: Treatment-on-the-Treated](M6-TOT.html)  
 
 [April 21:  Regression Discontinuity](M7-RD-html)   
 
