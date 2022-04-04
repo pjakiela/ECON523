@@ -14,19 +14,19 @@ March 15, 17:  student presentations
 
 March 22, 24, 29, 31:  spring break (no class)
 
-[April 5, 7: Two-Way Fixed Effects (DD IV)](M6-TWFE.html)   
+[April 5, 7: Fixed Effects (DD III & DD IV)](M5-TWFE.html)   
 
-[April 12: Treatment-on-the-Treated](M7-TOT.html)  
+[April 12: Fixed Effects Stata Lab](E5-TWFE.html)   
 
-[April 14:  Instrumental Variables](M8-IV.html)  
+[April 14: Treatment-on-the-Treated](M6-TOT.html)  
 
-[April 19:  Regression Discontinuity](M9-RD-html)  
+[April 19:  Treatment-on-the-Treated Stata Lab](E6-TOT.html)  
 
-[April 21:  Randomization in Practice](M10-random-assignment.html)  
+[April 21:  Regression Discontinuity](M7-RD-html)   
 
-[April 26, 28:  Power Calculations](M11-power.html)  
+[April 26:  Randomization in Practice](M8-random-assignment.html)  
 
-[May 3:  Survey Design & Measurement](M12-surveys.html)   
+[April 28, May 3:  Power Calculations](M9-power.html)  
 
 May 5, 10, 12:  student presentations  
 
