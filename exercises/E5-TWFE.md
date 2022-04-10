@@ -12,7 +12,7 @@ of two-way fixed effects.
 
 ## Getting Started
 
-Start by creating your own do file that downloads the data from the course website.  Your 
+Start by creating your own do file that downloads the data from the web.  Your 
 code will look something like this:
 
 ```
@@ -26,9 +26,9 @@ webuse set https://pjakiela.github.io/TWFE/
 webuse WDI-FPE-data.dta
 ```
 
-The data set only contains eight variables:  `country`, `year`, `ccode`, `id`, `primary`, `secondary`, 
+The data set contains eight variables:  `country`, `year`, `ccode`, `id`, `primary`, `secondary`, 
 `fpe_year`, and `treatment`.  The variables `country` and `year` are self-explanatory.  `id` is a unique 
-numeric identifier for each of the 15 individual countries in the data set, and `ccode' is the Wold Bank's three-letter 
+numeric identifier for each of the 15 individual countries in the data set, and `ccode` is the Wold Bank's three-letter 
 code for each country.  
 
 The data set also contains the the variables `primary` and `secondary` which 
@@ -36,6 +36,9 @@ indicate gross enrollment in primary and secondary school, respectively.  The **
 is 100 times the number of students enrolled in primary school divided by the number of primary-school aged 
 children.  This number can be greater than 100 when over-age children are enrolled in primary school - which 
 often happens when school fees are eliminated.  The **gross secondary enrollment ratio** is defined analagously.
+
+What is the mean of the `primary` variable?  How does the mean in the first year included in the data set 
+compare to the mean in the last year of the data set?  Which country has the highest level of primary school enrollment?
 
 The variable `fpe_year` 
 indicates the year in which a given country made primary schooling free to all eligible children.  Malawi 
@@ -61,14 +64,13 @@ ID|Country|Implementation of Free Primary Education
 32|Namibia|2013
 
 The data set contains 15 countries, but only 13 distinct "timing groups" - since Kenya and Rwanda both 
-eliminated primary school fees in 2003, while Benin and Lesotho both eliminated fees in 2006.  
+eliminated primary school fees in 2003, while Benin and Lesotho both eliminated fees in 2006.  The 
+variable `treatment` is equal to 1 for country-years (i.e. observations in the data set) that occur after the elimination of 
+primary school fees, and equal to 0 otherwise.
 
+Which countries eliminated school fees in the 1990s?  How many countries eliminated primary school fees after 2010?  
 
-
-Start by familiarizing yourself with the data set.  What are the first and last years included in the sample?  Which 
-countries eliminated school fees in the 1990s?  How many countries eliminated primary school fees after 2010?
-
-We are going to be looking at the outcome variable `gross_enroll`, but this variable is missing for some 
-country-years.  How many?  Go ahead and drop those observations to make your life easier.
+We are going to be looking at the outcome variable `primary`, but this variable is missing for some 
+country-years.  How many?  Add a line to your do file that drops those observations to make your life easier.
 
 <br>
