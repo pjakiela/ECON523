@@ -89,3 +89,10 @@ To do this, add a line to your do file that estimates an OLS regression of `prim
 on treatment controlling for year fixed effects.  To include fixed effects in a regression, 
 you include the variable of interest with "i." before it.  So, for example, to include 
 year fixed effects you would add `i.year` to your regression command.  
+
+Run your do file.  What is the estimated coefficient on `treatment` when you include year fixed effects 
+in your OLS regression?  
+
+_If your code is correct, the estimated coefficient on `treatment` should be 10.74162, and the standard error should be 
+3.928681. Your regression should include 490 observations.  If your results are different, go back and confirm that 
+you have dropped the obesrvations with `primary==.`._
