@@ -1,7 +1,7 @@
 # Empirical Exercise 5
 
 In this exercise, we'll be using a data set on school enrollment in 15 African countries that eliminated primary 
-school fees between 1990 and 2015.  Raw data on enrollment comes from the World Bank's 
+school fees between 1990 and 2015.  Raw data on primary and secondary school enrollment comes from the World Bank's 
 [World Development Indicators Database](https://databank.worldbank.org/source/world-development-indicators).  The 
 data set that we'll use is posted at [here](https://pjakiela.github.io/TWFE/WDI-FPE-data.dta).  We'll be using 
 this data set to estimate the two-way fixed effects estimator of the impact of eliminating school fees on enrollment.  Since 
@@ -10,7 +10,7 @@ of two-way fixed effects.
 
 <br>
 
-# Getting Started
+## Getting Started
 
 Start by creating your own do file that downloads the data from the course website.  Your 
 code will look something like this:
@@ -27,7 +27,7 @@ webuse WDI-FPE-data.dta
 ```
 
 The data set only contains eight variables:  `country`, `year`, `ccode`, `id`, `primary`, `secondary`, 
-`fpe_year`, and `treatment'.  The variables `country` and `year` are self-explanatory.  `id` is a unique 
+`fpe_year`, and `treatment`.  The variables `country` and `year` are self-explanatory.  `id` is a unique 
 numeric identifier for each of the 15 individual countries in the data set, and `ccode' is the Wold Bank's three-letter 
 code for each country.  
 
