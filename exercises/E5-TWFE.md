@@ -96,3 +96,7 @@ in your OLS regression?
 _If your code is correct, the estimated coefficient on `treatment` should be 10.74162, and the standard error should be 
 3.928681. Your regression should include 490 observations.  If your results are different, go back and confirm that 
 you have dropped the obesrvations with `primary==.`._
+
+There are two other ways that we can arrive at the coefficient from a fixed effects regression.  As we discussed in class, 
+one alternative to including year fixed effects is to subtract the year-level mean from both the independent variable (`treatment`) 
+and the dependent variable (`primary`).  We can then 
