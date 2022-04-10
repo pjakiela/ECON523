@@ -71,6 +71,21 @@ primary school fees, and equal to 0 otherwise.
 Which countries eliminated school fees in the 1990s?  How many countries eliminated primary school fees after 2010?  
 
 We are going to be looking at the outcome variable `primary`, but this variable is missing for some 
-country-years.  How many?  Add a line to your do file that drops those observations to make your life easier.
+country-years.  How many?  Add a line to your do file that drops those observations to make your life easier (you'll 
+see why this matters later).  
+
+What is the mean value of `primary` prior to the elimination of primary school fees?  How does that compare to 
+the average level of primary enrollment after school fees are eliminated?
 
 <br>
+
+# One-Way Fixed Effects
+
+Before implementing two-way fixed effects to estimate the treatment effect of free primary education on 
+gross primary enrollment, we're going to review the mechanics of fixed effects estimation by implementing 
+one-way fixed effects.  
+
+To do this, add a line to your do file that estimates an OLS regression of `primary` 
+on treatment controlling for year fixed effects.  To include fixed effects in a regression, 
+you include the variable of interest with "i." before it.  So, for example, to include 
+year fixed effects you would add `i.year` to your regression command.  
