@@ -79,7 +79,7 @@ the average level of primary enrollment after school fees are eliminated?
 
 <br>
 
-# One-Way Fixed Effects
+## One-Way Fixed Effects
 
 Before implementing two-way fixed effects to estimate the treatment effect of free primary education on 
 gross primary enrollment, we're going to review the mechanics of fixed effects estimation by implementing 
@@ -99,4 +99,5 @@ you have dropped the obesrvations with `primary==.`._
 
 There are two other ways that we can arrive at the coefficient from a fixed effects regression.  As we discussed in class, 
 one alternative to including year fixed effects is to subtract the year-level mean from both the independent variable (`treatment`) 
-and the dependent variable (`primary`).  We can then 
+and the dependent variable (`primary`).  This is a way of normalizing our values of `treatment` and `primary` across years.  We can then 
+regress our normalized (i.e. de-meaned) outcome variable on our normalized treatment variable.  
