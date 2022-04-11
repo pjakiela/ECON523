@@ -5,14 +5,14 @@ school fees between 1990 and 2015.  Raw data on primary and secondary school enr
 [World Development Indicators Database](https://databank.worldbank.org/source/world-development-indicators).  The 
 data set that we'll use is posted at [here](https://pjakiela.github.io/TWFE/WDI-FPE-data.dta).  We'll be using 
 this data set to estimate the two-way fixed effects estimator of the impact of eliminating school fees on enrollment.  Since 
-this policy was phased in by different countries at different time, it is a useful setting for exploring the potential pitfalls 
+this policy was phased in by different countries at different times, it is a useful setting for exploring the potential pitfalls 
 of two-way fixed effects.
 
 <br>
 
 ## Getting Started
 
-Start by creating your own do file that downloads the data from the web.  Your 
+Start by creating your own do file that downloads [the data set WDI-FPE-data.dta](https://pjakiela.github.io/TWFE/WDI-FPE-data.dta) from the web.  Your 
 code will look something like this:
 
 ```
