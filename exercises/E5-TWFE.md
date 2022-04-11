@@ -33,7 +33,7 @@ code for each country.
 
 The data set also contains the the variables `primary` and `secondary` which 
 indicate gross enrollment in primary and secondary school, respectively.  The **gross primary enrollment ratio** 
-is 100 times the number of students enrolled in primary school divided by the number of primary-school aged 
+is 100 times the number of students enrolled in primary school divided by the number of primary-school-aged 
 children.  This number can be greater than 100 when over-age children are enrolled in primary school - which 
 often happens when school fees are eliminated.  The **gross secondary enrollment ratio** is defined analagously.
 
@@ -43,7 +43,7 @@ compare to the mean in the last year of the data set?  Which country has the hig
 The variable `fpe_year` 
 indicates the year in which a given country made primary schooling free to all eligible children.  Malawi 
 was the first country in the data set that eliminated primary school fees (in 1994), while Namibia was the 
-last (in 2013).  The countries in the data set and the timing of school fee elination is summarized in the table below.
+last (in 2013).  The countries in the data set and the timing of school fee elimination are summarized in the table below.
 
 ID|Country|Implementation of Free Primary Education
 --|-------|----------------------------------------
@@ -101,3 +101,12 @@ There are two other ways that we can arrive at the coefficient from a fixed effe
 one alternative to including year fixed effects is to subtract the year-level mean from both the independent variable (`treatment`) 
 and the dependent variable (`primary`).  This is a way of normalizing our values of `treatment` and `primary` across years.  We can then 
 regress our normalized (i.e. de-meaned) outcome variable on our normalized treatment variable.  
+
+To do this, we first need to use the `egen` command to calculate year-level means of `primary` and `treatment`.  To calculate 
+year-level means of `primary`, we can use the command
+```
+bysort year:  egen mean_primary = mean(primary)
+```
+Add this command to your do file, and then use similar code to calculate the year-level mean of `treatment`.  The, write the additional 
+code you need to generate new variables `norm_primary` and `norm_treatment` that are equal to your original variables (`primary` and `treatment`) 
+minus the year-level means.  
