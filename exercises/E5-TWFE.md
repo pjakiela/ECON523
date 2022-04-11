@@ -199,13 +199,13 @@ see this, regress `treatment` on country and year fixed effects, and the use the
 reg treatment i.year i.id
 predict treatment_resid, resid
 ```
-Again, `treatment_resid` is the name of my new variable, the residual 
+Again, `treatment_resid` is the name of the new variable, the residual 
 from a regression of `treatment` on country and year fixed effects.  Regress `primary` 
 on `treatment_resid` without any additional controls.  You should see that the estimated coefficient is 
 identical to the coefficient of interest in your original two-way fixed effects regression.  
 
 Further extend your code so that you generate a variable `primary_resid` in the same way that you generated 
-`resid_treatment` (by regressing `primary` on country and year fixed effects, and then predicting the 
+`treatment_resid` (by regressing `primary` on country and year fixed effects, and then predicting the 
 residuals).  Then regress `primary_resid` on `treatment_resid`.  You should once again replicate the same 
 TWFE estimate of the treatment effect.
 
@@ -216,8 +216,8 @@ TWFE estimate of the treatment effect.
 In lecture, we saw that the TWFE difference-in-differences estimator does not always 
 provide an unbiased estimate of the treatment effect that we are interested in.  We can now see why.  We 
 started with a treatment dummy:  `treatment` equals one in country-years where primary education was free, and zero 
-in country-years when primary school fees had not yet been eliminated.  So, our treatment group is the  
-country-years with free primary education.  
+in country-years when primary school fees had not yet been eliminated.  So, our treatment group is 
+country years with free primary education.  
 
 However, when we include country and year fixed effects, we convert our treatment dummy into a continuous 
 measure of treatment intensity - specifically a measure of treatment intensity that is not explained/predicted 
@@ -231,9 +231,9 @@ of treatment intensity, we are imposing a linear dose-response relationship and 
 further from the mean treatment intensity.  Importantly, all observations with below mean treatment intensity 
 are implicitly part of the comparison group.  
 
-In practical terms, we've seen that the TWFE coefficient put negative weight on treated observations (i.e. country-years) 
+In practical terms, we've seen that the TWFE coefficient puts negative weight on treated observations (i.e. country-years) 
 where the residualized value of treatment (`treatment_resid`) is negative.  So, the practical question is:  how often does 
-this happen among obersvations with `treatment` equal to one?  Test this by summarizing the `treatment_resid` variable 
+this happen among observations with `treatment` equal to one?  Test this by summarizing the `treatment_resid` variable 
 in the treatment group.  What is the lowest value of `treatment_resid` that you observe in the treatment group?  How many 
 treated observations are there, and how many of them have values of `treatment_resid` that are less than zero?
 
@@ -259,27 +259,6 @@ tw ///
  Tabulate the `country` variable among observations where this `negweight` variable is equal to one.  Which country has the 
  highest number of treated years receiving negative weight in our two-way fixed effects estimation?  When did that country 
  implement free primary education?   
- 
-Negative weights aren't necessarily a problem if our model is correctly specified.  The question is whether the assumption of a linear relationship 
-between the residualized outcome variable and the residualized treatment variable is reasonable.  One way to explore the issue 
-is by plotting these residuals, for example by using the code:
- 
-```
-tw ///
-	(scatter primary_resid treatment_resid if treatment==0, msymbol(o) color(vermillion%20)) ///
-	(scatter primary_resid treatment_resid if treatment==1, msymbol(o) color(sea%20)) ///	
-	(lpoly primary_resid treatment_resid if treatment==0, lcolor(vermillion) lpattern(longdash) deg(1) bwidth(0.2)) ///
-	(lfit primary_resid treatment_resid if treatment==0, lcolor(vermillion) lpattern(solid)) ///	
-	(lpoly primary_resid treatment_resid if treatment==1, lcolor(sea) lpattern(longdash) deg(1) bwidth(0.2)) ///
-	(lfit primary_resid treatment_resid if treatment==1, lcolor(sea) lpattern(solid)), ///	
-	legend(off)
-```
-
-In this case, we see that the assumption of a linear relationship between the residualized outcome variable and 
-the residualized treatment variable does not seem unreasonable.  In particular, we see that the _slope_ of 
-the linear fit is similar in the treatment and comparison groups.  We can test this formally by regressing 
-`yresid` on `tresid`, `treatment`, and an interaction between `treatment` and `tresid`.  Are the coefficients 
-on the `treatment` variable or interaction term statistically significant?
 
 <br>
 
@@ -287,20 +266,19 @@ on the `treatment` variable or interaction term statistically significant?
 
 Negative weights arise because the predicted value of treatment is greater than one 
 for some treated observations.  This occurs for country-years where both the country-level-mean
-and the year-level-mean of the treatment variable are high - ie in early-adopter countries observed in 
+and the year-level-mean of the treatment variable are high - i.e. in early-adopter countries observed in 
 later years of the panel (by which time most countries are treated).  One way to eliminate 
 negative weights, so that we only place positive weight on treated country-years, is to truncate the 
-data set before late-adopted countries are treated.  If treatment effects are homogenous, 
+data set before late-adopter countries are treated.  If treatment effects are homogenous, 
 this should not change your estimated treatment effect too much (though your data set will be smaller, 
 so your standard errors will probably be larger).  
 
-To see that this is the case, re-run your code (or add code to your do file that clear the data set and reloads 
-the raw data) so that you drop observations after 2005.  Re-run the two-way fixed effects estimation.  What is 
-the estimated coefficient on treatment?  How different is it from your initial estimate (at the very beginning 
-of this exercise)?  
+To see that this is the case, extend your do file so that you drop observations after 2005.  Re-run the two-way fixed effects estimation 
+in this restricted sample.  What is the estimated coefficient on treatment?  How different is it from your initial estimate?  
 
-Now regress `treatment` on your country and year fixed effects, and then predict the residuals.  These are the 
-weights used in your two-way fixed effects estimation of the impact of treatment on school enrollment.  Summarize the 
+Now regress `treatment` on your country and year fixed effects, and then predict the residuals (you will either need to drop `treatment_resid` first 
+or give your new variable a name other than `treatment_resid`).  These are the 
+relative weights used in your two-way fixed effects estimation of the impact of treatment on primary school enrollment.  Summarize the 
 regression weights for observations in the treatment group.  How many are negative?  What is the lowest weight 
 placed on a country-year observation where `treatment==1`?
 
@@ -309,26 +287,24 @@ placed on a country-year observation where `treatment==1`?
 ## More Fun with Stata
 
 We can also calculate the difference-in-differences estimator "by hand" from the observed values 
-of the `gross_enroll` and `tresid` variables.  We know that when we run a univariate regression 
+of the `primary` and `treatment_resid` variables.  We know that when we run a univariate regression 
 in a data set containing a totla of _n_ observations, the OLS coefficient can be written as:
 
 ![ols-coeff](https://pjakiela.github.io/ECON379/exercises/E7-TWFE/OLS-coefficient.png)
 
 In this case, our right-hand side variable (_X_ in the equation above) is the residualized treatment 
-variable `tresid`.  It has a mean of zero (the residuals from a regression are mean-zero by construction) - so we 
+variable `treatment_resid`.  It has a mean of zero (the residuals from a regression are mean-zero by construction) - so we 
 don't need to worry about the "X-bar" terms.  This means that we can calculate the two-way fixed 
 effects difference-in-differences estimator using the following code:
-
 ```
-gen yxtresid = gross_enroll*tresid
+gen yxtresid = primary*treatment_resid
 egen sumyxtresid = sum(yxtresid)
-gen tresid2 = tresid^2
+gen tresid2 = treatment_resid^2
 egen sumtresid2 = sum(tresid2)
 gen twfecoef = sumyxtresid/sumtresid2
 sum twfecoef
 display r(mean)
 ```
-
 In the first line, we calculate a variable that is the value of the outcome variable 
 multiplied by the associated residual from a regression of `treatment` on country and year fixed effects. 
 We then use the `egen` command to sum these terms across all observations.  In the next two lines, 
@@ -337,7 +313,7 @@ The last three lines use these two sums - which appear in the algebra above - to
 the TWFE estimator of the treatment effect by hand (in some sense).  
 
 If you have done this correctly, you will see that our original two-way fixed effects coefficient, 
-the coefficient from our regression of `gross_enroll` on `tresid`, and the mean of our new variable 
+the coefficient from our regression of `primary` on `treatment_resid`, and the mean of our new variable 
 `twfecoef` are all identical (though the associated standard errors are different).  Thus, we've shown that 
 the two-way fixed effects coefficient is a weighted sum of the values of the outcome variable (like 
 any coefficient from a univariate OLS regression).
