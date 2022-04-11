@@ -143,6 +143,6 @@ twoway ///
 	legend(order(3 4) label(3 "Treatment") cols(1) label(4 "Comparison") ring(0) pos(2)) ///
 	ytitle("Residualized Treatment" " ") xtitle(" " "Year")
 ```
-Running this code (at the end of your existing do file) generates the following figure:
+Running this code (at the end of your existing do file) generates the following figure: 
 !(resid-fig)[https://pjakiela.github.io/ECON523/exercises/resid-plot-one-way.png)
 
