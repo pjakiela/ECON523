@@ -132,3 +132,17 @@ will be very different._
 As we've discussed in class, the OLS coefficient on `treatment` is a linear combination of the values of the outcome variable, `primary`.  The weights used to calculate this linear combination are proportional to our residualized `treatment` variable.  Observations with positive values of `treatment_resid` get positive weight when we calculate our OLS coefficient; they are, in essence, the treatment group.  Observations with negative values of  `treatment_resid` get negavitve weight when we calculate our OLS coefficient.  
 
 What range of values of `treatment_resid` do you observe in our **actual** treatment group (observations with `treatment==1`)?  What is the minimum value of `treatment_resid` in the treatment group?  What is the maximum value of `treatment_resid` in the treatment group?  What range of values of `treatment_resid` do you observe in our **actual** comparison group (observations with `comparison==1`)?
+
+We can use the code below to plot the residualized values of `treatment` (i.e. the values of `treatment_resid`) by year for the treatment and comparison groups.  
+```
+twoway ///
+	(scatter treatment_resid year if treatment==1, mcolor(vermillion*0.8)) ///
+	(scatter treatment_resid year if treatment==0, mcolor(sea*0.6)) ///
+	(lpoly treatment_resid year if treatment==1, lcolor(vermillion)) ///
+	(lpoly treatment_resid year if treatment==0, lcolor(sea)), ///
+	legend(order(3 4) label(3 "Treatment") cols(1) label(4 "Comparison") ring(0) pos(2)) ///
+	ytitle("Residualized Treatment" " ") xtitle(" " "Year")
+```
+Running this code (at the end of your existing do file) generates the following figure:
+!(resid-fig)[https://pjakiela.github.io/ECON523/exercises/resid-plot-one-way.png)
+
