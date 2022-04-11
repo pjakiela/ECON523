@@ -110,3 +110,18 @@ bysort year:  egen mean_primary = mean(primary)
 Add this command to your do file, and then use similar code to calculate the year-level mean of `treatment`.  The, write the additional 
 code you need to generate new variables `norm_primary` and `norm_treatment` that are equal to your original variables (`primary` and `treatment`) 
 minus the year-level means.  
+
+Now, add a line to your do file where you regress `norm_primary` on `norm_treatment`.  If you have done this correctly, the estimated 
+coefficient on `norm_treatment` should be the same as the coefficient on `treatment` in your original fixed effects regression (though the standard errors 
+will be slightly different).  
+
+Another approach that is equivalent to fixed effects involves (first) regressing `primary` and `treatment` on your fixed effects and storing the residuals from 
+those regressions, and then (second) regressing the residuals from your regression of `primary` on your fixed effects on the residuals from your regression of `treatment` on your fixed effects.
+
+To implement this approach, we need to generate a variable `primary_resid` equal to the residuals from a regression of `primary` on our year fixed effects.  We can do this by adding the following code to our do file:
+```
+reg primary i.year
+predict primary_resid, resid
+```
+Add this code to your do file, and then write additional code that will define an analogous variable `treatment_resid`.  Then, regress `primary_resid` 
+on `treatment_resid` and confirm that this approach generates the same estimate of the treatment effect as either of the approaches that we used above.
