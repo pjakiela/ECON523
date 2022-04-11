@@ -221,7 +221,7 @@ country-years with free primary education.
 
 However, when we include country and year fixed effects, we convert our treatment dummy into a continuous 
 measure of treatment intensity - specifically a measure of treatment intensity that is not explained/predicted 
-by our country year fixed effects.  
+by our country-year fixed effects.  
 
 There is an important difference between regression on a dummy variable 
 and regression on a continuous measure of treatment intensity (as we saw in earlier modules):  when we regress 
