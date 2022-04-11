@@ -146,4 +146,12 @@ twoway ///
 Running this code (at the end of your existing do file) generates the following figure: 
 ![resid-fig](https://pjakiela.github.io/ECON523/exercises/resid-plot-one-way.png)
 
+The figure illustrates a few important points:
+
+- After including year fixed effects, years before free primary education was implemented in any of our sample countries receive zero weight in our estimation
+- Years **after** all countries had implemented FPE also receive zero weight, as does 2011 - Namibia did not implement FPE until 2013, but date from Namibia is missing for 2011
+- The country-years receiving the most positive weights are the early post-adoption years in early-adopter countries.  Later adopters and later years in early-adopter countries receive much less weight
+- Within the comparison group, the most weight is put on late-adopter countries in the years immediately before they adopted FPE
+
+
 
