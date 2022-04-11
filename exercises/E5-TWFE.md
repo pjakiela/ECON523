@@ -125,3 +125,10 @@ predict primary_resid, resid
 ```
 Add this code to your do file, and then write additional code that will define an analogous variable `treatment_resid`.  Then, regress `primary_resid` 
 on `treatment_resid` and confirm that this approach generates the same estimate of the treatment effect as either of the approaches that we used above.
+
+_You can also get the same regression coefficient by regressing `primary` on `norm_treatment` or `treatment_resid` - though the constant 
+will be very different._
+
+As we've discussed in class, the OLS coefficient on `treatment` is a linear combination of the values of the outcome variable, `primary`.  The weights used to calculate this linear combination are proportional to our residualized `treatment` variable.  Observations with positive values of `treatment_resid` get positive weight when we calculate our OLS coefficient; they are, in essence, the treatment group.  Observations with negative values of  `treatment_resid` get negavitve weight when we calculate our OLS coefficient.  
+
+What range of values of `treatment_resid` do you observe in our **actual** treatment group (observations with `treatment==1`)?  What is the minimum value of `treatment_resid` in the treatment group?  What is the maximum value of `treatment_resid` in the treatment group?  What range of values of `treatment_resid` do you observe in our **actual** comparison group (observations with `comparison==1`)?
