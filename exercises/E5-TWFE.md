@@ -144,6 +144,6 @@ twoway ///
 	ytitle("Residualized Treatment" " ") xtitle(" " "Year")
 ```
 Running this code (at the end of your existing do file) generates the following figure: 
-!(resid-fig)[https://pjakiela.github.io/ECON523/exercises/resid-plot-one-way.png]
+![resid-fig](https://pjakiela.github.io/ECON523/exercises/resid-plot-one-way.png)
 
 
