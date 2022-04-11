@@ -153,5 +153,94 @@ The figure illustrates a few important points:
 - The country-years receiving the most positive weights are the early post-adoption years in early-adopter countries.  Later adopters and later years in early-adopter countries receive much less weight
 - Within the comparison group, the most weight is put on late-adopter countries in the years immediately before they adopted FPE
 
+<br>
 
+## Two-Way Fixed Effects
+
+Now we are ready to estimate the impact of eliminating primary school fees on gross primary enrollment using two-way 
+fixed effects (TWFE).  We want to implement the regression equation:
+
+![twfe-eq](https://pjakiela.github.io/ECON523/exercises/DD-equation.png)
+
+where Y<sub>it</sub> is the outcome variable of interest (gross primary enrollment); 
+&lambda;<sub>i</sub> and &gamma;<sub>t</sub> are country and year fixed effects, respectively; 
+and _D<sub>it</sub>_ is our treatment dummy, an indicator equal to one in country-years 
+after the elimination of school fees (inluding the year during which school fees were eliminated).  
+
+As in the case of one-way fixed effects, there are three ways that we can arrive at the TWFE 
+estimate of the treatment effect of free primary education:
+
+1. By running a TWFE regression
+2. By normalizing the independent and dependent variables by subtracting off the appropriate means
+3. By regressing a residualized version of our outcome variable on a residualized version of our treatment variable
+
+Before we work through these approaches, extend your do file so that you drop the variables that you generated 
+in the first part of this exercise: `mean_primary`, `mean_treatment`, `norm_primary`, `norm_treatment`, 
+`primary_resid`, and `treatment_resid`.
+
+<br>
+
+### The TWFE Regression
+
+Start by running a TWFE regression of `primary` on `treatment` plus year and country fixed effects.  Add a line 
+that does this at the bottom of your do file, and then run your code.  What is the estimated regression coefficient 
+on `treatment`?  Is the coefficient statistically significant?  How much does eliminated primary school fees increase 
+gross enrollment in primary school?
+
+###
+
+The coefficient from a two-way fixed effects regression is equal to the coefficient from a regression 
+of your outcome on the residuals from a regression of `treatment` on your two-way fixed effects.  To 
+see this, regress `treatment` on country and year fixed effects, and the use the post-estimation 
+`predict` command to generate a value equal to the residual from this regression:
+```
+reg treatment i.year i.id
+predict resid_treatment, resid
+```
+Again, `resid_treatment` is the name of my new variable, the residual 
+from a regression of `treatment` on country and year fixed effects.  Regress `primary` 
+on `resid_treatment` without any additional controls.  You should see that the estimated coefficient is 
+identical to the coefficient of interest in your original two-way fixed effects regression.  
+
+
+
+<br> 
+
+## More Fun with Stata
+
+We can also calculate the difference-in-differences estimator "by hand" from the observed values 
+of the `gross_enroll` and `tresid` variables.  We know that when we run a univariate regression 
+in a data set containing a totla of _n_ observations, the OLS coefficient can be written as:
+
+![ols-coeff](https://pjakiela.github.io/ECON379/exercises/E7-TWFE/OLS-coefficient.png)
+
+In this case, our right-hand side variable (_X_ in the equation above) is the residualized treatment 
+variable `tresid`.  It has a mean of zero (the residuals from a regression are mean-zero by construction) - so we 
+don't need to worry about the "X-bar" terms.  This means that we can calculate the two-way fixed 
+effects difference-in-differences estimator using the following code:
+
+```
+gen yxtresid = gross_enroll*tresid
+egen sumyxtresid = sum(yxtresid)
+gen tresid2 = tresid^2
+egen sumtresid2 = sum(tresid2)
+gen twfecoef = sumyxtresid/sumtresid2
+sum twfecoef
+display r(mean)
+```
+
+In the first line, we calculate a variable that is the value of the outcome variable 
+multiplied by the associated residual from a regression of `treatment` on country and year fixed effects. 
+We then use the `egen` command to sum these terms across all observations.  In the next two lines, 
+we sum up the observation-level values of the square of our residualized treatment variable. 
+The last three lines use these two sums - which appear in the algebra above - to caluculate 
+the TWFE estimator of the treatment effect by hand (in some sense).  
+
+If you have done this correctly, you will see that our original two-way fixed effects coefficient, 
+the coefficient from our regression of `gross_enroll` on `tresid`, and the mean of our new variable 
+`twfecoef` are all identical (though the associated standard errors are different).  Thus, we've shown that 
+the two-way fixed effects coefficient is a weighted sum of the values of the outcome variable (like 
+any coefficient from a univariate OLS regression).
+
+<br>
 
