@@ -284,6 +284,29 @@ placed on a country-year observation where `treatment==1`?
 
 <br>
 
+## Wrapping Up
+
+Before you submit your do file on grade scope, make sure it does the following:
+
+1. Loads the data set form github
+2. Drops observations for which the `primary` variable is missing
+3. Regresses `primary` on `treatment` controlling for year fixed effects
+4. Uses the `egen` command to generate year-level means of `treatment` and `primary`
+5. Generates normalized variables `norm_primary` and `norm_treatment` constructed by subtracting off the year-level means of each variable
+6. Regresses `norm_primary` on `norm_treatment` to obtain the same one-way fixed effects coefficient that you got in Question 3
+7. Generates residualized variables `treatment_resid` and `primary_resid` from regressions of each variable on year fixed effects.
+8. Regresses `primary_resid` on `treatment_resid` to obtain the same coefficient estimate as in Question 3
+9. Drops the variables `mean_primary`, `mean_treatment`, `norm_primary`, `norm_treatment`, `primary_resid`, and `treatment_resid` (to begin your analysis of two-way fied effects)
+10. Implements a two-way fixed effects regression of `primary` on `treatment` including year and country fixed effects
+11. Generates new variables `treatment_resid` and `primary_resid` from regressions on year and country fixed effects
+12. Regresses `primary` on `treatment_resid` and `primary_resid` on `treatment_resid` to show that both approaches generate the same two-way fixed effects estimate of the treatment effect
+13. Generate a variable `negweight` equal to one if a country-year has `treatment==1` and `treatment_resid<0`, and tabulates the `country` variable among observations where this `negweight` variable is equal to one to identify observations receiving ngeative weight in our analysis
+14. Estimates two-way fixed effects estimation in a restricted sample that drops years after 2005
+15. Determines what fraction of treated observations in the restricted sample are receiving negative weight in our two-way fixed effects estimation 
+
+
+<br>
+
 ## More Fun with Stata
 
 We can also calculate the difference-in-differences estimator "by hand" from the observed values 
