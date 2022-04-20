@@ -1,4 +1,4 @@
-# Empirical Exercise 8  
+# Empirical Exercise 6  
 
 In this exercise, we'll be using data from the paper [The Miracle of Microfinance?  Evidence from a Randomized Evaluation](https://www.jstor.org/stable/43189512?seq=1) by 
 Abhijit Banerjee, Esther Duflo, Rachel Glennerster, and Cynthia Kinnan.  The paper reports the results of one of the first randomized evaluations of a microcredit 
@@ -14,3 +14,7 @@ of **treatment on the treated** - and to think about when such methods are appro
 <br>
 
 ## Getting Started
+
+The data that we will use in this exercise is available [here](https://pjakiela.github.io/ECON523/exercises/E6-BanerjeeEtAl-data.dta).  The data set 
+contains information on 6,863 households in treatment and control neighborhoods in Hyderabad; these households were randomly sampled form 
+the local population, so not all of them will have chosen to take out loans from an MFI. 
