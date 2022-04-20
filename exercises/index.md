@@ -10,17 +10,15 @@
 
 [Exercise 4: Diff-in-Diff in a Regression Framework (DD II)](E4-DD2.html)  
 
-Exercise 5: Two-Way Fixed Effects   
+[Exercise 5: Two-Way Fixed Effects](E5-TWFE.html)   
 
-Exercise 6: Treatment-on-the-Treated  
+[Exercise 6: Treatment-on-the-Treated](E6-TOT.html)  
 
-Exercise 7:  Instrumental Variables  
+Exercise 7:  Regression Discontinuity  
 
-Exercise 8:  Regression Discontinuity  
+Exercise 8:  Randomization in Practice  
 
-Exercise 9:  Randomization in Practice  
+Exercise 9A:  Power Calculations I  
 
-Exercise 10:  Power Calculations  
-
-Exercise 11:  Survey Design & Measurement  
+Exercise 9B:  Power Calculations II  
 
