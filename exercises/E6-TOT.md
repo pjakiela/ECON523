@@ -16,5 +16,14 @@ of **treatment on the treated** - and to think about when such methods are appro
 ## Getting Started
 
 The data that we will use in this exercise is available [here](https://pjakiela.github.io/ECON523/exercises/E6-BanerjeeEtAl-data.dta).  The data set 
-contains information on 6,863 households in treatment and control neighborhoods in Hyderabad; these households were randomly sampled form 
-the local population, so not all of them will have chosen to take out loans from an MFI. 
+contains information on 6,863 households in 104 neighborhoods in Hyderabad; these households were randomly sampled form 
+the local population, so not all of them will have chosen to take out loans from an MFI. Half of the neighborhoods (52 of 104) were randomly assigned 
+to treatment (and the rest to control).  The variable `treatment` indicates treatment status, and the variable `areaid` is a neighborhood identifier.  
+
+We will be using the following outcome variables:
+
+- `spandana_1` is an indicator for taking out a loan from Spandana (the MFI)
+- `bizprofit_1` is a measure of microenterprise profits
+- `bizrev_1` is a measure of microenterprise revenues
+- `bizassets_1` is a measure of assets owned by one's microenterprise
+- `any_biz_1` is an indicator for operating a microenterprise
