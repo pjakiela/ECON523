@@ -20,14 +20,14 @@ March 22, 24, 29, 31:  spring break (no class)
 
 April 14: no class
 
-[April 19: Treatment-on-the-Treated](M6-TOT.html)  
+[April 19, 21: Treatment-on-the-Treated](M6-TOT.html)  
 
-[April 21:  Regression Discontinuity](M7-RD-html)   
+[April 26, 28:  Regression Discontinuity](M7-RD-html)   
 
-[April 26:  Randomization in Practice](M8-random-assignment.html)  
+[May 3:  Randomization in Practice](M8-random-assignment.html)  
 
-[April 28, May 3:  Power Calculations](M9-power.html)  
+[May 5, 10, 12:  Research Design & Power Calculations](M9-power.html)  
 
-May 5, 10, 12:  student presentations  
+ 
 
 
