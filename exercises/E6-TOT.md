@@ -73,3 +73,59 @@ Confirm that your answer is correct by estimating an **instrumental variables** 
 ### Question 5 
 
 As we discussed in class, you can also calculate the treatment-on-the-treated estimate by regressing `spandana_1` on `treatment`, storing the predicted values from that regression, and regressing `bizprofit_1` on your predicted values.  To do this, you will need to rerun your first stage regression (from Question 1) and then use Stata's `predict` command (without the `, resid` option that we used last week).  Again, your estimated coefficient should match your answers to Questions 3 and 4.  How do the standard errors compare?  
+
+### Question 6
+
+Now we want to output our results to Excel.  Use the code below to setup a blank Excel table where you can store your results:
+```
+putexcel set E6-TOT-results.xlsx, replace
+putexcel B1="Profits", hcenter bold border(top)
+putexcel B2="(1)", hcenter bold border(bottom)
+putexcel C1="Revenues", hcenter bold border(top)
+putexcel C2="(2)", hcenter bold border(bottom)
+putexcel D1="Assets", hcenter bold border(top)
+putexcel D2="(3)", hcenter bold border(bottom)
+putexcel E1="Any Business", hcenter bold border(top)
+putexcel E2="(4)", hcenter bold border(bottom)
+putexcel A3="Treatment", bold
+putexcel A6="Observations", bold border(bottom)
+```
+
+### Question 7 
+
+After you run a regression (even an IV regression), you can use the following commands to store your regression results as a matrix and view the contents of that matrix:
+```
+ivregress 2sls bizprofit_1 (spandana_1 = treatment), cluster(areaid) 
+mat V = r(table)
+mat list V
+```
+
+As you can see, the estimated IV regresion coefficient is stored in cell `[1,1]` of the matrix, the estimated standard error is stored in cell `[2,1]`, and the associated p-value is stored in cell `[4,1]`.  The number of observations used in the regression is stored in the local `e(N)` after you run your regression.  As we saw in Empirical Exercise 4, you can use the following code to export your results to Excel.  
+```
+local my_coef = round(V[1,1],0.001)
+putexcel B3 = "`my_coef'", hcenter
+
+local my_se = round(V[2,1],0.001)
+putexcel B4 = "(`my_se')", hcenter
+
+local my_pval = round(V[4,1],0.001)
+putexcel B5 = "[0`my_pval']", hcenter 
+
+putexcel B6 = "`e(N)'", hcenter border(bottom)
+```
+
+Now extend your do file so that your results table (in Excel) also includes TOT estimates of the impact of Spandana loans on microenterprise revenues (the variable `bizrev_1`), microenterprise assets (the variable `bizassets_1`), and the likelihood of operating a microenterprise (the variable `any_biz_1`).  There are many ways to do this, but you might want to use a loop like this (using the loop is totally optional):
+```
+local i = 66 // the first column with results in your table
+
+foreach var of varlist bizprofit_1 bizrev_1 bizassets_1 any_biz_1 {
+	ivregress 2sls `var' (spandana_1 = treatment), cluster(areaid) 
+	mat V = r(table)
+	local myletter = char(`i')
+	local my_coef = round(V[1,1],0.001)
+	putexcel `myletter'3 = "`my_coef'", hcenter
+	local i = `i' + 1
+}
+```
+
+Extend this loop or write other Stata code so that your table also reports the standard errors in parentheses (in Row 4), the p-values in square brackets (in Row 5), and the number of observations (in Row 6).
