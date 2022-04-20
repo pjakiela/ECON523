@@ -56,5 +56,20 @@ We will start by reviewing all three approaches to confirm that they lead to ide
 
 ### Question 1
 
-Estimate the impact of treatment on the likelihood of taking a loan from Spandana (the variable spandana_1).  What is the estimated coefficient on treatment?  Because treatment is randomly assigned at the neighborhood level, we need to cluster our standard errors by neighborhood.
+Estimate the impact of `treatment` on the likelihood of taking a loan from Spandana (the variable `spandana_1`).  What is the estimated coefficient on `treatment`?  Because treatment is randomly assigned at the neighborhood level, we need to cluster our standard errors by neighborhood.  Add the option `, cluster(areaid)` to the end of your regression command to do this.  This is the **first stage** regression.
 
+### Question 2
+
+Now extend your do file so that you also run the **reduced form** regression of microenterprise profits (the variable `bizprofit_1`) on `treatment`.  What is the estimated impact of being randomly assigned to a treatment (at the neighborhood level) on business profits?
+
+### Question 3 
+
+Based on your answers to Questions 1 and 2, what is the **treatment-on-the-treated** impact of random assignment to Spandana access on business profits?
+
+### Question 4 
+
+Confirm that your answer is correct by estimating an **instrumental variables** (IV) regression of `bizprofit_1` on `spandana_1`, instrumenting for `spandana_1` with the `treatment` dummy.  Make sure you remember to cluster your standard errors!  Your estimated coefficient should be identical to your answer to Question 3.
+
+### Question 5 
+
+As we discussed in class, you can also calculate the treatment-on-the-treated estimate by regressing `spandana_1` on `treatment`, storing the predicted values from that regression, and regressing `bizprofit_1` on your predicted values.  To do this, you will need to rerun your first stage regression (from Question 1) and then use Stata's `predict` command (without the `, resid` option that we used last week).  Again, your estimated coefficient should match your answers to Questions 3 and 4.  How do the standard errors compare?  
