@@ -129,3 +129,13 @@ foreach var of varlist bizprofit_1 bizrev_1 bizassets_1 any_biz_1 {
 ```
 
 Extend this loop or write other Stata code so that your table also reports the standard errors in parentheses (in Row 4), the p-values in square brackets (in Row 5), and the number of observations (in Row 6).
+
+### Question 8 
+
+Using instrumental variables to estimated treatment effects on the treated makes sense when random assignment to treatment (i.e. inviting someone to participate in a program) has no impact on those who choose not to take up treatment.  Does this approach make sense in the context of microfinance?  Why or why not?
+
+<br>
+
+## More Fun with Stata
+
+The relatively low take-up rates for microfinance loans can be interpreted as evidence that not everyone wants to be an entrepreneur, and several studies have found that access to credit is more effective at helping people expand their businesses than at encouraging non-entrepreneurs to start new businesses.  The variable `any_old_biz` is an indicator for operating a microenterprise prior to the start of the study.  Restrict your sample to those who were already operating microenterprises before Spandana's expansion, and estimate the impact of Spandana loans on microenterprise profits, revenues, and assets in this restricted sample.  Store your results in an Excel table (but don't over-write your earlier work).
