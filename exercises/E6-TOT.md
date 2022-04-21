@@ -38,7 +38,7 @@ webuse set https://pjakiela.github.io/ECON523/exercises/
 webuse E6-BanerjeeEtAl-data.dta
 ```
 
-We are going to make use of the variables treatment, spandana_1, bizprofit_1, `bizrev_1`, `bizassets_1`, and `any_biz_1`.  Before you begin, 
+We are going to make use of the variables `treatment`, `spandana_1`, `bizprofit_1`, `bizrev_1`, `bizassets_1`, and `any_biz_1`.  Before you begin, 
 add a line to your do file that drops any observations with one of these variables missing.
 
 <br>
