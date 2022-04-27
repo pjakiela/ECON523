@@ -48,11 +48,11 @@ We would like to recreate Figure I from Angrist and Lavy's paper.  As a first st
 twoway scatter class_size cohort_size
 ```
 to plot the relationship between class size and cohort size.  The `twoway` command is Stata's general tool for 
-plotting the relationships between two variables, `scatter` is one of the options for types of `twoway` plots.  
+plotting the relationships between two variables, and `scatter` is one of the options for types of `twoway` plots.  
 
-When you use the command above, does your graph look like Figure I?  (A:  No, it doesn't.)  One problem is that 
-we are showing too much data:  instead of plotting the values of `class_size` for every data point, we want to calculate 
-the average value of `class_size` for each value of `cohort_size`.  We can use the `mean` function of the `egen` command 
+When you use the command above, the resulting graph doesn't look much like Figure I.  One problem is that 
+we are showing too much data:  instead of plotting every single data point, we want to calculate 
+the _average_ value of `class_size` for each value of `cohort_size`.  We can use the `mean` function of the `egen` command 
 to do this:
 ```
 bys cohort_size:  egen mean_class = mean(class_size)
