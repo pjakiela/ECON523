@@ -13,7 +13,7 @@ student achievement using a regression discontinuity (RD) design.
 ## Getting Started
 
 Some of the data used in the paper are available [here](E7-AngristLavy-data.html).  Download the data set and create a do file that 
-reads in your data (or create a do file that reads the data directly from the web).  If you are unsure how to do this, 
+reads your data into Stata (or create a do file that reads the data directly from the web).  If you are unsure how to do this, 
 go back and review some of [the earlier empirical exercises](https://pjakiela.github.io/ECON523/exercises/index.html).  
 
 Use the `describe`, `summarize`, and `codebook` commands to familiarize yourself with the data.  How many variables are there?  What 
@@ -36,7 +36,9 @@ estimated association between class size and student test scores?
 This figure, Figure I in Angrist and Lavy's paper, summarizes their identification strategy:  cohorts that have exactly 40 students 
 can be taught in a single classroom, but those that have 41 students must be split into two (smaller) classes; likewise, cohorts that have 
 exactly 80 students can be divided into two classes, while cohorts with 81 students must be divided into three (smaller) classes.  This requirement 
-creates the sawtooth pattern in the figure below, because class size is not a monotonic function of cohort size.
+creates the sawtooth pattern in the figure below, because class size is not a monotonic function of cohort size.  Cohorts that are very similar 
+in terms of overall size end up with quite differently sized classes, through the plausibly exogenous variation that results from 
+Maimonides' Rule.
 ![Angrist & Lavy Figure I](AL-FigI.png)
 
 ### Question 1 
