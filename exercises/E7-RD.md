@@ -34,4 +34,6 @@ estimated association between class size and student test scores?
 
 This figure, Figure I in Angrist and Lavy's paper, summarizes their identification strategy:  cohorts that have exactly 40 students 
 can be taught in a single classroom, but those that have 41 students must be split into two (smaller) classes; likewise, cohorts that have 
-exactly 80 students can be divided into two classes, while cohorts with 81 students must be divided into three (smaller) classes.  
+exactly 80 students can be divided into two classes, while cohorts with 81 students must be divided into three (smaller) classes.  This requirement 
+creates the sawtooth pattern in the figure below, because class size is not a monotonic function of cohort size.
+![Angrist & Lavy Figure I](AL-FigI.png)
