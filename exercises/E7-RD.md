@@ -68,3 +68,76 @@ classes is 2; if the cohort size is between 81 and 120, the predicted number of 
 `pred_size` that is the overall cohort size divided by the predicted number of classes.  Now, you should have something that looks 
 a lot like Figure I from the paper.  Make sure that all of your code for generating your figure is recorded in your do file, 
 and then use the `graph export` command to save your figure so that you can upload it later.  
+
+<br>
+
+## Implementing RD
+
+### Question 2 
+
+The figure suggests that relationship between predicted class size and actual class size is strongest around the discontinuity 
+at 40, so we will focus our analysis there.  Add a line to your code dropping observations with cohort sizes above 80.
+
+### Question 3 
+
+Our running variable is `cohort_size`, but we need to center it around our discontinuity.  Do this by generating a variable 
+`running_var` equal to `cohort_size` minus 40.  Then generate separate variables `running_below` and `running_above`:  `running_below` 
+is equal to the running variable for cohorts of 40 or fewer students, and equal to zero otherwise; `running_above` is equal to the running variable 
+for cohorts of 41 or more students, and equal to zero otherwise.  
+
+### Question 4 
+
+The last variable we need is an indicator for having a cohort size of 41 or above.  Call this variable `over40`.  
+
+### Question 5
+
+Now regress `class_size` on `over40`, `running_below`, and `running_above`.  This is our regression discontinuity specification, 
+but what we are estimating is effectively a first-stage regression.  How much lower are class sizes just above the discontinuity, 
+as compared to those just below it?  
+
+### Question 6 
+
+Now implement the same RD specification, but using `math_score` as the outcome variable.  What is the estimated impact of being 
+above the discontinuity on math test scores?  
+
+### Question 7 
+
+We can also use our `over40` variable as an instrument for class size, controlling for `running_below` and `running_above`.  Estimate 
+this IV regression using the `ivregress 2sls` command.  The coefficient on class size tells us the causal impact of increasing class size 
+by one, assuming that our RD design is valid.  What is the estimated coefficient on `class_size` from our IV regression?
+
+### Question 8 
+
+The `binscatter` command allows us to plot the data from an RD design.  Use the commands:
+```
+ssc install binscatter
+binscatter class_size cohort_size, rd(40) discrete
+```
+to look at the data on the first-stage relationship between cohort size and class size.  Then extend your code 
+so that you also produce `binscatter` plots of `math_score` and `verbal_score`.  
+
+### Question 9 
+
+As discussed in class, using too large of a window (bandwidth) around the discontinuity can lead to mispecification.  Replicate your 
+IV regression from Question 7, but use only the data for cohorts with between 20 and 60 students.  How do your results change 
+when you use the smaller cohort?
+
+### Question 10 
+
+As we discussed in class, if our RD design is valid, we would not expect pre-treatment characteristics to "jump" at the 
+discontinuity.  Use the `binscatter` command to plot the relationship between `cohort_size` and percent disadvantaged 
+(the variable `pct_dis`).  Does it look like the proportion disadvantaged jumps at the discontinuity?  You can also 
+conduct a formal statistical test by replicating your reduced form RD specification from Questions 5 and 6 using 
+`pct_dis` as the outcome variable.
+
+### Question 11
+
+The assumption underlying RD designs is that there is no manipulation of the running variable near the discontinuity; in other words, 
+individuals (or schools) cannot determine whether they are just above or just below the discontinuity.  If this assumption is valid, 
+the histogram of the running variable should look smooth near the cutoff.  Use the `histogram` command to test whether this is the case 
+in our data.  You may want to use the `discrete` option since the variable `cohort_size` only takes on whole number values.  What patterns 
+do you observe in the histogram, and how does this influence your view of the analysis above?
+
+
+
+
