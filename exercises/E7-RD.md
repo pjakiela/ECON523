@@ -55,16 +55,16 @@ we are showing too much data:  instead of plotting every single data point, we w
 the _average_ value of `class_size` for each value of `cohort_size`.  We can use the `mean` function of the `egen` command 
 to do this:
 ```
-bys cohort_size:  egen mean_class = mean(class_size)
+bysort cohort_size:  egen mean_class = mean(class_size)
 ```
 Now redo your scatter plot using `mean_class` instead of `class_size` as your dependent variable.  It 
 should look better.  You can further refine your graph by playing around with the `msymbol` and `mcolor` options 
 in twoway (take a look at Stata's help file for `twoway` to explore the possibilities).  You can also try making a 
-`line` plot rather than a `scatter` plot using twoway.
+`line` plot rather than a `scatter` plot using `twoway`.
 
 To fully replicate Figure I from Angrist and Lavy, we need to include both the actual relationship between class size and 
 cohort size (which we've done) and the relationship predicted by Maimonides' Rule.  The first step to doing this 
-is to calculate the number of classes a school would need to have under Maimonides' Rule:  if the cohort size is 
+is to calculate the predicted number of classes that a school _should_ have under Maimonides' Rule:  if the cohort size is 
 between 1 and 40, the predicted number of classes is 1; if the cohort size is between 41 and 80, the predicted number of 
 classes is 2; if the cohort size is between 81 and 120, the predicted number of classes is 3; and so on.  Generate a variable 
 `pred_classes` using this formula.  You might want to use the `ceil()` function to do this.  Then generate a variable 
