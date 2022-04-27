@@ -14,7 +14,7 @@
 
 [Exercise 6: Treatment-on-the-Treated](E6-TOT.html)  
 
-Exercise 7:  Regression Discontinuity  
+[Exercise 7:  Regression Discontinuity](E7-RD.html)  
 
 Exercise 8:  Randomization in Practice  
 
