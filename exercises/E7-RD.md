@@ -5,7 +5,7 @@ In this exercise, we'll use data from Joshua Angrist and Victor Lavy's paper
 which was published in the _Quarterly Journal of Economics_ in 1999.  The paper makes use of the fact that class size in Israeli public 
 schools is capped at 40.  So, if there are 40 students in a grade within a school, they are likely to be grouped into a single class; 
 but if there are 41 students, the school must divide the grade into two classes taught by different teachers.  This creates a discontinuity in 
-class size as a function of grade-level cohort size.  Angrist and Lavy use test score data to estimate the impact of smaller classes on 
+class size as a function of grade-level cohort size.  Angrist and Lavy use data on student test scores to estimate the impact of smaller classes on 
 student achievement using a regression discontinuity (RD) design.
 
 <br>
