@@ -12,7 +12,7 @@ student achievement using a regression discontinuity (RD) design.
 
 ## Getting Started
 
-Some of the data used in the paper are available [here](E7-AngristLavy-data.html).  Download the data set and create a do file that 
+Some of the data used in the paper are available [here](https://pjakiela.github.io/ECON523/exercises/E7-AngristLavy-data.dta).  Download the data set and create a do file that 
 reads your data into Stata (or create a do file that reads the data directly from the web).  If you are unsure how to do this, 
 go back and review some of [the earlier empirical exercises](https://pjakiela.github.io/ECON523/exercises/index.html).  
 
