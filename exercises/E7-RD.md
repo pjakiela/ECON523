@@ -143,6 +143,8 @@ in our data.  You may want to use the `discrete` option since the variable `coho
 do you observe in the histogram, and how does this influence your view of the analysis above?  Does the evidence suggest that smaller 
 class sizes improve student test scores?
 
-
+   ---
+  
+  Many thanks to Anthony Keats for allowing me to adapt his version of this assignment.
 
 
