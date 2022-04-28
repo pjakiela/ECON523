@@ -107,7 +107,8 @@ above the discontinuity on math test scores?
 ### Question 7 
 
 We can also use our `over40` variable as an instrument for class size, controlling for `running_below` and `running_above`.  Estimate 
-this IV regression using the `ivregress 2sls` command.  The coefficient on class size tells us the causal impact of increasing class size 
+this IV regression using the `ivregress 2sls` command.  Use `math_score` as the outcome variable, include `running_below` and `running_above` as controls, 
+and instrument for `class_size` using `over40`.  The IV regression coefficient on `class_size` tells us the causal impact of increasing class size 
 by one, assuming that our RD design is valid.  What is the estimated coefficient on `class_size` from our IV regression?
 
 ### Question 8 
