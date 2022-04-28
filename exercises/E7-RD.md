@@ -68,7 +68,8 @@ is to calculate the predicted number of classes that a school _should_ have unde
 between 1 and 40, the predicted number of classes is 1; if the cohort size is between 41 and 80, the predicted number of 
 classes is 2; if the cohort size is between 81 and 120, the predicted number of classes is 3; and so on.  Generate a variable 
 `pred_classes` using this formula.  You might want to use the `ceil()` function to do this.  Then generate a variable 
-`pred_size` that is the overall cohort size divided by the predicted number of classes.  Now, you should have something that looks 
+`pred_size` that is the overall cohort size divided by the predicted number of classes.  That variable tells you 
+the predicted class size (as opposed to the predicted number of classes).  Now, you should have something that looks 
 a lot like Figure I from the paper.  Make sure that all of your code for generating your figure is recorded in your do file, 
 and then use the `graph export` command to save your figure so that you can upload it later.  
 
@@ -95,8 +96,8 @@ The last variable we need is an indicator for having a cohort size of 41 or abov
 ### Question 5
 
 Now regress `class_size` on `over40`, `running_below`, and `running_above`.  This is our regression discontinuity specification, 
-but what we are estimating is effectively a first-stage regression.  How much lower are class sizes just above the discontinuity, 
-as compared to those just below it?  
+but what we are estimating is our first-stage regression indicated the impact of being above the discontinuity on class size.  How much 
+lower are class sizes just above the discontinuity, as compared to those just below it?  
 
 ### Question 6 
 
@@ -123,7 +124,7 @@ so that you also produce `binscatter` plots of `math_score` and `verbal_score`.
 
 As discussed in class, using too large of a window (bandwidth) around the discontinuity can lead to mispecification.  Replicate your 
 IV regression from Question 7, but use only the data for cohorts with between 20 and 60 students.  How do your results change 
-when you use the smaller cohort?
+when you use the narrower bandwidth?
 
 ### Question 10 
 
