@@ -131,7 +131,7 @@ when you use the narrower bandwidth?
 As we discussed in class, if our RD design is valid, we would not expect pre-treatment characteristics to "jump" at the 
 discontinuity.  Use the `binscatter` command to plot the relationship between `cohort_size` and percent disadvantaged 
 (the variable `pct_dis`).  Does it look like the proportion disadvantaged jumps at the discontinuity?  You can also 
-conduct a formal statistical test by replicating your reduced form RD specification from Questions 5 and 6 using 
+conduct a formal statistical test by replicating your RD specification from Questions 5 and 6 using 
 `pct_dis` as the outcome variable.
 
 ### Question 11
@@ -140,7 +140,8 @@ The assumption underlying RD designs is that there is no manipulation of the run
 individuals (or schools) cannot determine whether they are just above or just below the discontinuity.  If this assumption is valid, 
 the histogram of the running variable should look smooth near the cutoff.  Use the `histogram` command to test whether this is the case 
 in our data.  You may want to use the `discrete` option since the variable `cohort_size` only takes on whole number values.  What patterns 
-do you observe in the histogram, and how does this influence your view of the analysis above?
+do you observe in the histogram, and how does this influence your view of the analysis above?  Does the evidence suggest that smaller 
+class sizes improve student test scores?
 
 
 
