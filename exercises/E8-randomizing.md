@@ -179,7 +179,7 @@ called cluster-randomized trials.
 The microfinance program that we studied in 
 [Empirical Exericse 6](https://pjakiela.github.io/ECON523/exercises/E6-TOT.html) is an example 
 of a cluster-randomized trial:  neighborhoods rather than households were assigned to treatment 
-and control.  
+and control.  How might you go about this?
  
  
 
