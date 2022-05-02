@@ -62,7 +62,7 @@ using Stata's pseudo-random number generator and then sort the data set based on
 variable; when we do this, the observations in the data set are listed in a 
 random order.  If we want to randomly assign observations to treatment and comparison groups, 
 we can assign every other observation to treatment - once we've scrambled the observations 
-in the data set by sorting them using a randomly-generated variable.
+in the data set by sorting them based on our random `x` variable.
 
 <br>
 
