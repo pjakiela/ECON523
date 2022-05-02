@@ -104,10 +104,26 @@ Notice that do files assigning treatment always specify both the
 version (of Stata) and the seed. This will ensure that the treatment assignment process is 
 replicable:  when the code is re-run on any machine at any time, 
 it will always assign the same observations to treatment (and control).  
+
+Before you do anything else, add a line to your do file that creates a unique ID number for 
+each observation (using the same code as above).  Then, familiarize yourself with 
+the variables in the data set.  How many are dummy variables?   
  
  <br>
  
- ## Even More Fun with Stata
+## Even More Fun with Stata
+ 
+We often wish to assign treatment at the group rather than the individual level - for example, 
+when a policy might have spillovers from one individual to another.  So, for instance, educational 
+interventions such as textbooks or teacher training are often randomized at the school level, 
+and health interventions are often randomized at the clinic or community level.  We refer to 
+such larger units as **clusters**, and studies that are randomized at the cluster level are 
+called cluster-randomized trials.  
+
+The microfinance program that we studied in 
+[Empirical Exericse 6](https://pjakiela.github.io/ECON523/exercises/E6-TOT.html) is an example 
+of a cluster-randomized trial:  neighborhoods rather than households were assigned to treatment 
+and control.  
  
  
 
