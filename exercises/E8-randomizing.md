@@ -18,3 +18,4 @@ gen randnum = runiform()
 sort randnum
 egen treatment = seq(), from(0) to(1)
 ```
+What is up?
