@@ -81,6 +81,33 @@ might you extend the do file above to do this?
 
 ## Empirical Exercise
 
-Stata's `runiform()` and `rnormal()` commands can also be used to generate 
-simulated data sets.  
+Now that we know how to assign treatment, let's see how it works in practice.  We're 
+going to use the same data set on potential microfinance clients in urban India 
+that we worked with in [Empirical Exericse 6](https://pjakiela.github.io/ECON523/exercises/E6-TOT.html). The 
+data set contains information on 6,853 households.  We'll only use a subset of the data:  eight variables measuring 
+entrepreneurial activity.  
+
+Use the code below to load the data set:  
+```
+clear all
+version 17.0
+set more off
+set scheme s1mono
+set seed 314159
+cd "C:\Users\pj\Dropbox\econ523-2022\exercises\E8-randomizing"
+webuse set https://pjakiela.github.io/ECON523/exercises/
+webuse E6-BanerjeeEtAl-data.dta
+keep anymfi_1 anybank_1 anyinformal_1 bizassets_1 ///
+	bizinvestment_1 bizrev_1 bizprofit_1 any_biz_1
+ ```
+Notice that do files assigning treatment always specify both the 
+version (of Stata) and the seed. This will ensure that the treatment assignment process is 
+replicable:  when the code is re-run on any machine at any time, 
+it will always assign the same observations to treatment (and control).  
+ 
+ <br>
+ 
+ ## Even More Fun with Stata
+ 
+ 
 
