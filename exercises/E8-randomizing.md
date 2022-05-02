@@ -154,12 +154,14 @@ on?  How do the differences that we observe compare to those that we saw when we
 We often wish to produce a balance check table that documents our statistical analysis 
 of the similarities between the treatment and comparison groups.  Such a table should look 
 something like this:
+
 | Variable        | Treatment           | Control  | T-Test |
-| ------------- |:-------------:| :-----:|:-----:|
+| ------------- |-------------|-----|-----|
 | Any bank loan      | 0.083 | 0.080 | 0.4461 |
 |       | (0.004)     |   (0.005) | |
 | Microenterprise profits      | 858 | 1078 | -0.7340 |
 |       | (185)     |   (235) | |
+
 Extend your do file so that you create such a table, reporting standard deviations 
 in parentheses below each mean.  
  
