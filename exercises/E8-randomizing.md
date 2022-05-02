@@ -57,8 +57,17 @@ hist x, bin(50) fraction
 ```
 Now re-run the code using the `rnormal()` command instead of the `runiform()` command.  
 
+The idea behind random assignment is that we can sort our data set generate a variable 
+using Stata's pseudo-random number generator and then sort the data set based on that 
+variable; when we do this, the observations in the data set are listed in a 
+random order.  If we want to randomly assign observations to treatment and comparison groups, 
+we can assign every other observation to treatment - once we've scrambled the observations 
+in the data set by sorting them using a randomly-generated variable.
+
 <br>
 
 ## Generating Data 
 
+Stata's `runiform()` and `rnormal()` commands can also be used to generate 
+simulated data sets.  
 
