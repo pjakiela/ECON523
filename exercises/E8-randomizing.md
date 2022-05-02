@@ -107,11 +107,64 @@ it will always assign the same observations to treatment (and control).
 
 Before you do anything else, add a line to your do file that creates a unique ID number for 
 each observation (using the same code as above).  Then, familiarize yourself with 
-the variables in the data set.  How many are dummy variables?   
+the variables in the data set.  How many are dummy variables?  Do the other variables 
+look like they are approximately normal?  Why or why not?
+
+### Question 1
+
+Extend your do file so that you randomly assign observations in the data set to either the 
+treatment group or a control group.  
+
+### Question 2
+
+Next, we want to check whether randomly assigning treatment has created treatment and comparison 
+groups that look similar in terms of observable characteristics.  Create a variable `pvalue` that 
+is missing for all observations.  Then, test whether the mean of the variabl `anymfi_1` is the same 
+in your treatment and comparison groups.  Save the resulting p-value from your hypothesis test 
+as the `pvalue` variable for the observation with `id==1`.  You could do this, for example, by running 
+the commands:
+```
+ttest anymfi_1, by(treatment)
+replace pvalue = `r(p)' if id==1
+```
+Now test the other seven variables included in the data set.  Can you do this by writing a loop 
+using `foreach`?  When you test the hypothesis (hypotheses?) that your treatment and control 
+groups are similar in terms of covariates, how many statistically significant differences do you 
+see?
+
+### Question 3 
+
+With a large number of baseline covariats, we expect that some of them will differ between the 
+treatment and comparison groups - just by chance.  To guarantee that important covariates are 
+balanced, we often **stratify** our treatment assignments.  This just means that, instead of sorting 
+by `treatment`, we first sort our data into groups and then randomly assign treatment 
+within each group.  We would like to stratify treatment assignments by `anymfi_1` and `any_biz_1`.  To do this, 
+we want to create a variable `stratum` that takes on values 1 through 4, reflecting the four possible 
+combinations of our two stratification variables.  Then, before we assign tratment, we sort 
+by our `stratum` variable (first) and our `random` variable (second) using a single `sort` command.  Extend 
+your do file to do this and then randomly assign treatment (creating a new treatment variable, `t2`).  
+
+How do your stratified-assignment treatment groups compare in terms of the variables that we stratified 
+on?  How do the differences that we observe compare to those that we saw when we did not stratify?
+
+<br>
  
- <br>
+## Even More Fun with Stata, Part 1
+
+We often wish to produce a balance check table that documents our statistical analysis 
+of the similarities between the treatment and comparison groups.  Such a table should look 
+something like this:
+| Variable        | Treatment           | Control  | T-Test |
+| ------------- |:-------------:| :-----:|:-----:|
+| Any bank loan      | 0.083 | 0.080 | 0.4461 |
+|       | (0.004)     |   (0.005) | |
+| Microenterprise profits      | 858 | 1078 | -0.7340 |
+|       | (185)     |   (235) | |
+
  
-## Even More Fun with Stata
+<br>
+ 
+## Even More Even More Fun with Stata
  
 We often wish to assign treatment at the group rather than the individual level - for example, 
 when a policy might have spillovers from one individual to another.  So, for instance, educational 
