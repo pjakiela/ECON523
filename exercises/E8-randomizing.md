@@ -57,16 +57,29 @@ hist x, bin(50) fraction
 ```
 Now re-run the code using the `rnormal()` command instead of the `runiform()` command.  
 
-The idea behind random assignment is that we can sort our data set generate a variable 
+The idea behind random assignment is that we can generate a variable 
 using Stata's pseudo-random number generator and then sort the data set based on that 
 variable; when we do this, the observations in the data set are listed in a 
 random order.  If we want to randomly assign observations to treatment and comparison groups, 
-we can assign every other observation to treatment - once we've scrambled the observations 
-in the data set by sorting them based on our random `x` variable.
+we can assign every other observation to treatment - after we've sorted them based on 
+our random `x` variable.
+
+The command 
+```
+egen treatment = seq(), from(0) to(1)
+``` 
+will generate a repeating sequence from 0 to 1.  So, the first row (observation) in 
+the data set will get a 0, the second row will get a 1, the third row will get a 0, 
+and so on.  Familiarize yourself with this command.  How might you assign observations 
+in your data set to four different treatment groups?
+
+Once you have randomly assigned treatment status, we will typically want to check whether 
+our treatment and comparison groups look similar in terms of observable characteristics.  How 
+might you extend the do file above to do this?
 
 <br>
 
-## Generating Data 
+## Empirical Exercise
 
 Stata's `runiform()` and `rnormal()` commands can also be used to generate 
 simulated data sets.  
