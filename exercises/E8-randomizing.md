@@ -33,8 +33,32 @@ The code above contains the three key parts of every randomization do file:
 However, we failed to set the seed, so each time we run our code, we get a 
 completely new random treatment assignment.  Insert the command 
 ```
-set seed 8675309 
+set seed 1234 
 ```
 between `clear` and `set obs 4`.  This will guarantee that Stata uses the 
 same sequence of pseudo-random numbers every time you run the file.  Run the file 
-a few times to confirm that this is the case.  
+a few times to confirm that this is the case. 
+
+<br>
+
+## Random Assignment in Stata
+
+The code above uses the command `runiform()` to generate a variable that assigns 
+each observation a different draw from a standard uniform random variable, which 
+takes values between 0 and 1.  What happens when you create a large data set of such 
+draws from a standard uniform?  What happens as you increase the number 
+of observations?  Use the code below to find out:
+```
+clear
+set obs 100
+gen x = runiform()
+sum x
+hist x, bin(50) fraction
+```
+Now re-run the code using the `rnormal()` command instead of the `runiform()` command.  
+
+<br>
+
+## Generating Data 
+
+
