@@ -160,13 +160,14 @@ something like this:
 |       | (0.004)     |   (0.005) | |
 | Microenterprise profits      | 858 | 1078 | -0.7340 |
 |       | (185)     |   (235) | |
-
+Extend your do file so that you create such a table, reporting standard deviations 
+in parentheses below each mean.  
  
 <br>
  
 ## Even More Even More Fun with Stata
  
-We often wish to assign treatment at the group rather than the individual level - for example, 
+Sometimes we want to assign treatment at the group rather than the individual level - for example, 
 when a policy might have spillovers from one individual to another.  So, for instance, educational 
 interventions such as textbooks or teacher training are often randomized at the school level, 
 and health interventions are often randomized at the clinic or community level.  We refer to 
