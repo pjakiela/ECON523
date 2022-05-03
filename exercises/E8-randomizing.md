@@ -94,7 +94,7 @@ version 17.0
 set more off
 set scheme s1mono
 set seed 314159
-cd "C:\Users\pj\Dropbox\econ523-2022\exercises\E8-randomizing"
+cd "C:\insert-path-here"
 webuse set https://pjakiela.github.io/ECON523/exercises/
 webuse E6-BanerjeeEtAl-data.dta
 keep anymfi_1 anybank_1 anyinformal_1 bizassets_1 ///
@@ -134,7 +134,7 @@ see?
 
 ### Question 3 
 
-With a large number of baseline covariats, we expect that some of them will differ between the 
+With a large number of baseline covariates, we expect that some of them will differ between the 
 treatment and comparison groups - just by chance.  To guarantee that important covariates are 
 balanced, we often **stratify** our treatment assignments.  This just means that, instead of sorting 
 by `treatment`, we first sort our data into groups and then randomly assign treatment 
