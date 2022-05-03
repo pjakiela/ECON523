@@ -16,7 +16,7 @@
 
 [Exercise 7:  Regression Discontinuity](E7-RD.html)  
 
-Exercise 8:  Randomization in Practice  
+[Exercise 8:  Randomization in Practice](E8-randomizing.html)  
 
 Exercise 9A:  Power Calculations I  
 
