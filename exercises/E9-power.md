@@ -16,8 +16,7 @@ in the _American Economic Review_ in 2015.  The authors examine behavioral respo
 discounts ("subsidies") for malaria treatment, called "artemisinin combination therapy" or "ACT."  The J-PAL summary of the experiment and the findings is [here](https://www.povertyactionlab.org/publication/balancing-act).
 
 
-Create a do file that uses the following code to download the data.
-
+Create a new do file that downloads the data using the following code (or write a do file that reads the data in from your hard drive, if you've saved it on your computer):
 ```
 webuse set https://pjakiela.github.io/ECON523/exercises
 webuse E1-CohenEtAl-data.dta
