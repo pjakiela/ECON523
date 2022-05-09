@@ -71,7 +71,7 @@ How large of a sample size would need to detect the MDE that you calculated in Q
 
 One way to increase power is to include controls that explain the observed variation in the outcome variable.  When you plan to include 
 controls, the standard deviation used in the MDE calculuation is the standard deviation of the the **residuals** after regressing 
-the outcome on the controls.  Replace the missing values of the variables `b_acres` with zeroes.  Then, 
+the outcome on the controls.  Replace the missing values of the variables `b_acres` and `b_dist_km` with the means of those variables.  Then, 
 regress `b_knowledge_correct` on `b_h_edu`, `b_hh_size`, `b_acres`, and `b_dist_km`.  Use the post-estimation command 
 `predict` to predict the residuals, generating the new variable `yresid`.  Then summarize `yresid`.  What is the standard 
 deviation of the outcome variable **after regressing on the controls**?  How does it compare to the standard deviation 
@@ -82,11 +82,11 @@ of `b_knowledge_correct` without controls?
 Using the standard deviation of the residualized outcome variable, calculate the MDE (using the assumptions about 
 the ratio of treatment and control observations that you used in Question 6).  What is the MDE?
 
-##### Question 10
+### Question 10
 
 What is the mean of the outcome variable, `b_knowledge_correct`?
 
-##### Question 11
+### Question 11
 
 Express the MDE as a perecentage of the outcome variable of interest:  how large of a (percent) change in `b_knowledge_correct` would we need to anticipate if we wanted to have power of 0.8 to detect it?
 
