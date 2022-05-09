@@ -25,7 +25,7 @@ webuse E1-CohenEtAl-data.dta
 The **minimum detectable effect** or MDE is the smallest impact that we can detect with probability 0.8.  The MDE 
 depends on the sample size (N), the proportion of the sample assigned to treatment (P), and the 
 standard deviation of our outcome of interest.  We can calculate the MDE using the formula:
-![mde](https://pjakiela.github.io/ECON523/exercises/E11-power/MDE-eq1.png)  
+![mde](https://pjakiela.github.io/ECON523/exercises/MDE-eq1.png)  
 
 ### Question 1
 
