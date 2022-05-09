@@ -91,14 +91,14 @@ What is the mean of the outcome variable, `b_knowledge_correct`?  Express the MD
 ## More Fun with Stata
 
 Now we will consider a completely different data set: the data on access to microfinance that we used in Empirical Exercise 6 and again in Empirical Exercise 8.  The data comes from the paper [The Miracle of Microfinance?  Evidence from a Randomized Evaluation](https://www.jstor.org/stable/43189512?seq=1) by 
-Abhijit Banerjee, Esther Duflo, Rachel Glennerster, and Cynthia Kinnan.  The data comes from a randomized evaluation of a microfinance intervention.  We are particularly interested in the variable `bizprofit_1`, which measures microenterprise profits.  Unlike the knowledge variable used above, the standard deviation of `bizprofit_1` is large relative to its mean.
+Abhijit Banerjee, Esther Duflo, Rachel Glennerster, and Cynthia Kinnan.  The data comes from a randomized evaluation of a microfinance intervention.  We are particularly interested in the variable `bizprofit_1`, which measures microenterprise profits.  Unlike the knowledge variable used above, the standard deviation of `bizprofit_1` is large relative to its mean.  We will also look at the dummy variable `any_biz_1`, an indicator for operating a microenterprise.
 
 Use the code below to read the data into Stata and drop the observations where our outcome variable of interest, `bizprofit_1`, is missing:
 ```
 clear
 webuse set https://pjakiela.github.io/ECON523/exercises/
 webuse E6-BanerjeeEtAl-data.dta
-keep bizprofit_1
+keep bizprofit_1 any_biz_1
 drop if bizprofit_1==.
 ```
 
@@ -106,4 +106,6 @@ Look at a histogram of the `bizprofit_1` variable.  What do you notice about its
 is the mean of `bizprofit_1`?  What is the standard deviation of `bizprofit_1`?
 
 Given the size of this data set and the standard deviation of `bizprofit_1`, what is the MDE if you wanted to have power of 0.8 (assuming treatment and comparison groups of equal size)?  How does this MDE compare to the mean of the outcome variable?  How large of a percent change in the outcome would you need to anticipate if you wanted to have power of at least 0.8?  
+
+Now calculate the MDE if you wanted to have power of 0.8 to detect impacts on `any_biz_1`, assuming the treatment and comparison groups are equally sized?  How large of a percent change in the outcome would you need to anticipate if you wanted to have power of at least 0.8?  
 
