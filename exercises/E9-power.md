@@ -25,46 +25,43 @@ webuse E1-CohenEtAl-data.dta
 The **minimum detectable effect** or MDE is the smallest impact that we can detect with probability 0.8.  The MDE 
 depends on the sample size (N), the proportion of the sample assigned to treatment (P), and the 
 standard deviation of our outcome of interest.  We can calculate the MDE using the formula:
-![mde](https://pjakiela.github.io/ECON379/exercises/E11-power/MDE-eq1.png)  
+![mde](https://pjakiela.github.io/ECON523/exercises/E11-power/MDE-eq1.png)  
 
-##### Question 1
+### Question 1
 
 Your are designing an intervention intended to increase knowledge about malaria transmission.  Your 
-main outcome variable of interest is `b_knowledge_correct`.  Summarize this variable using 
-the `sum` command with the `detail` option.  What is the estimated **standard deviation** of 
-`b_knowledge_correct`?
+main outcome variable of interest is `b_knowledge_correct`.  Familiarize yourself with this variable:  what is 
+its mean, and what are the maximum and minimum values observed in the sample?
 
-##### Question 2
+Write Stata code that summarizes `b_knowledge_correct`, using the `sum` command with the `detail` option 
+so that the standard deviation is saved as a local after you run the command.  What is the estimated **standard deviation** of 
+`b_knowledge_correct`?  Write an additional line of code to display the MDE given the standard deviation of 
+`b_knowledge_correct` and the sample size, if you assume that the treatment and comparison groups are 
+the same size (so P in the formula = 0.5).  What is the MDE?
 
-What is the estimated **variance** of `b_knowledge_correct`?
+### Question 2 
 
-##### Question 3
+You can calculate the sample size needed to detect a particular MDE using Stata `sampsi` command.  Type 
+the command:
+```
+sampsi 0 0.11651129, power(0.8) sd(0.4989005)
+```
+What sample size does Stata suggest, and how does it compare to the actual sample size (that you used 
+to calculate the MDE in Question 1)?
 
-Using the formula for the minimum detectable effect, calculate the MDE given your sample size 
-if you assume equally-sized treatment and comparison groups (so P in the formula = 0.5).  What 
-is the MDE?
-
-##### Question 4 
-
-Now use the `sampsi` command to calculate the sample size you would need to detect an MDE equal 
-to your answer to Question 3, given the standard deviation of the outcome variable.  What sample 
-size does `sampsi` indicate that you need?
-
-##### Question 5
+### Question 3
 
 The treatment dummy in the original study is `act_any`.  Based on this variable, what is the ratio 
-of treated obesrvations to control observations?  
-
-##### Question 6
+of treated obesrvations to control observations?  What proportion of the sample was assigned to treatment?
 
 Use the formula to calculate the MDE in the study (if you used the same outcome variable as above, 
 `b_knowledge_correct`) given the actual ratio of treatment to control observations.  What is the MDE?
 
-##### Question 7
+### Question 4
 
 Now use the `sampsi` command to check your answer.  The `ratio()` option allows you to indicate a ratio of treatment:comparison observations 
 that differs from one (note that this is not the same as the proportion of observations that are treated).  What is the 
-required sample size that you would need to detect an impact as large as your answer to Question 6?
+required sample size that you would need to detect the MDE that you calculated in Question 1?
 
 ##### Question 8
 
