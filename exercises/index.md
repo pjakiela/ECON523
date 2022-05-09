@@ -18,7 +18,7 @@
 
 [Exercise 8:  Randomization in Practice](E8-randomizing.html)  
 
-Exercise 9A:  Power Calculations I  
+[Exercise 9:  Power Calculations](E9-power.html)   
 
-Exercise 9B:  Power Calculations II  
+Exercise 10:  Clustering    
 
