@@ -61,19 +61,23 @@ Use the formula to calculate the MDE in the study (if you used the same outcome 
 ### Question 4
 
 Now use the `sampsi` command to check your answer.  The `ratio()` option allows you to indicate a ratio of treatment:comparison observations 
-that differs from one (note that this is not the same as the proportion of observations that are treated).  What is the 
-required sample size that you would need to detect the MDE that you calculated in Question 1?
+that differs from one (note that this is not the same as the proportion of observations that are treated).  
 
-##### Question 8
+### Question 5
+
+How large of a sample size would need to detect the MDE that you calculated in Question 1?
+
+### Question 6
 
 One way to increase power is to include controls that explain the observed variation in the outcome variable.  When you plan to include 
 controls, the standard deviation used in the MDE calculuation is the standard deviation of the the **residuals** after regressing 
 the outcome on the controls.  Replace the missing values of the variables `b_acres` with zeroes.  Then, 
 regress `b_knowledge_correct` on `b_h_edu`, `b_hh_size`, `b_acres`, and `b_dist_km`.  Use the post-estimation command 
 `predict` to predict the residuals, generating the new variable `yresid`.  Then summarize `yresid`.  What is the standard 
-deviation of the outcome variable **after regressing on the controls**?
+deviation of the outcome variable **after regressing on the controls**?  How does it compare to the standard deviation 
+of `b_knowledge_correct` without controls?
 
-##### Question 9 
+### Question 7 
 
 Using the standard deviation of the residualized outcome variable, calculate the MDE (using the assumptions about 
 the ratio of treatment and control observations that you used in Question 6).  What is the MDE?
@@ -86,9 +90,11 @@ What is the mean of the outcome variable, `b_knowledge_correct`?
 
 Express the MDE as a perecentage of the outcome variable of interest:  how large of a (percent) change in `b_knowledge_correct` would we need to anticipate if we wanted to have power of 0.8 to detect it?
 
-##### Question 12
+<br>
 
-Now we will consider a completely different data set: the data on access to microfinance that we used in Empirical Exercise 8.  The data comes from the paper [The Miracle of Microfinance?  Evidence from a Randomized Evaluation](https://www.jstor.org/stable/43189512?seq=1) by 
+## More Fun with Stata
+
+Now we will consider a completely different data set: the data on access to microfinance that we used in Empirical Exercise 6.  The data comes from the paper [The Miracle of Microfinance?  Evidence from a Randomized Evaluation](https://www.jstor.org/stable/43189512?seq=1) by 
 Abhijit Banerjee, Esther Duflo, Rachel Glennerster, and Cynthia Kinnan.  The paper reports the results of one of the first randomized evaluations of a microcredit intervention.  The authors worked with an Indian MFI (microfinance institution) called Spandana that was expanding into the city of Hyderabad.  Spandana identified 104 neighborhoods where it would be willing to open branches.  They couldn't open branches in all the neighborhoods simultaneously, so they worked with the researchers to assign half of them to a treatment group where branches would be opened immediately.  Spandana held off on opening branches in the control neighborhoods until after the study. 
 
 Use the code below to read the data into Stata and drop the observations where our outcome variable of interest, `bizprofit_1`, is missing:
@@ -101,17 +107,7 @@ drop if bizprofit_1==.
 ```
 
 Look at a histogram of the `bizprofit_1` variable.  What do you notice about its distribution?  Now use the `sum` command with the `detail` option.  What 
-is the mean of `bizprofit_1`?
+is the mean of `bizprofit_1`?  What is the standard deviation of `bizprofit_1`?
 
-##### Question 13
-
-What is the standard deviation of `bizprofit_1`?
-
-##### Question 14
-
-Given the size of this data set and the standard deviation of `bizprofit_1`, what is the MDE if you wanted to have power of 0.8 (assuming treatment and comparison groups of equal size)?  
-
-##### Question 15
-
-How does this MDE compare to the mean of the outcome variable?  How large of a percent change in the outcome would you need to anticipate if you wanted to have power of at least 0.8?  
+Given the size of this data set and the standard deviation of `bizprofit_1`, what is the MDE if you wanted to have power of 0.8 (assuming treatment and comparison groups of equal size)?  How does this MDE compare to the mean of the outcome variable?  How large of a percent change in the outcome would you need to anticipate if you wanted to have power of at least 0.8?  
 
