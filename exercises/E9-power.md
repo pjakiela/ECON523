@@ -13,8 +13,7 @@ impact evaluation of malaria treatment that we studied in the first week of clas
 [E1-CohenEtAl-data.dta](https://pjakiela.github.io/ECON379/exercises/E1-intro/E1-CohenEtAl-data.dta) contains 
 (some of  the) data from [Price Subsidies, Diagnostic Tests, and Targeting of Malaria Treatment: Evidence from a Randomized Controlled Trial](https://www.aeaweb.org/articles?id=10.1257/aer.20130267) by Jessica Cohen, Pascaline Dupas, and Simone Schaner, a paper that appeared 
 in the _American Economic Review_ in 2015.  The authors examine behavioral responses to various 
-discounts ("subsidies") for malaria treatment, called "artemisinin combination therapy" or "ACT."  
-The J-PAL summary of the experiment and the findings is [here](https://www.povertyactionlab.org/publication/balancing-act).
+discounts ("subsidies") for malaria treatment, called "artemisinin combination therapy" or "ACT."  The J-PAL summary of the experiment and the findings is [here](https://www.povertyactionlab.org/publication/balancing-act).
 
 
 Create a do file that uses the following code to download the data.
