@@ -82,27 +82,23 @@ of `b_knowledge_correct` without controls?
 Using the standard deviation of the residualized outcome variable, calculate the MDE (using the assumptions about 
 the ratio of treatment and control observations that you used in Question 6).  What is the MDE?
 
-### Question 10
+### Question 8
 
-What is the mean of the outcome variable, `b_knowledge_correct`?
-
-### Question 11
-
-Express the MDE as a perecentage of the outcome variable of interest:  how large of a (percent) change in `b_knowledge_correct` would we need to anticipate if we wanted to have power of 0.8 to detect it?
+What is the mean of the outcome variable, `b_knowledge_correct`?  Express the MDE as a perecentage of the outcome variable of interest:  how large of a (percent) change in `b_knowledge_correct` would we need to anticipate if we wanted to have power of 0.8 to detect it?
 
 <br>
 
 ## More Fun with Stata
 
-Now we will consider a completely different data set: the data on access to microfinance that we used in Empirical Exercise 6.  The data comes from the paper [The Miracle of Microfinance?  Evidence from a Randomized Evaluation](https://www.jstor.org/stable/43189512?seq=1) by 
-Abhijit Banerjee, Esther Duflo, Rachel Glennerster, and Cynthia Kinnan.  The paper reports the results of one of the first randomized evaluations of a microcredit intervention.  The authors worked with an Indian MFI (microfinance institution) called Spandana that was expanding into the city of Hyderabad.  Spandana identified 104 neighborhoods where it would be willing to open branches.  They couldn't open branches in all the neighborhoods simultaneously, so they worked with the researchers to assign half of them to a treatment group where branches would be opened immediately.  Spandana held off on opening branches in the control neighborhoods until after the study. 
+Now we will consider a completely different data set: the data on access to microfinance that we used in Empirical Exercise 6 and again in Empirical Exercise 8.  The data comes from the paper [The Miracle of Microfinance?  Evidence from a Randomized Evaluation](https://www.jstor.org/stable/43189512?seq=1) by 
+Abhijit Banerjee, Esther Duflo, Rachel Glennerster, and Cynthia Kinnan.  The data comes from a randomized evaluation of a microfinance intervention.  We are particularly interested in the variable `bizprofit_1`, which measures microenterprise profits.  Unlike the knowledge variable used above, the standard deviation of `bizprofit_1` is large relative to its mean.
 
 Use the code below to read the data into Stata and drop the observations where our outcome variable of interest, `bizprofit_1`, is missing:
-
 ```
 clear
-webuse set https://pjakiela.github.io/ECON379/exercises/E8-TOT/
-webuse E8-BanerjeeEtAl-data.dta
+webuse set https://pjakiela.github.io/ECON523/exercises/
+webuse E6-BanerjeeEtAl-data.dta
+keep bizprofit_1
 drop if bizprofit_1==.
 ```
 
