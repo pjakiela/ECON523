@@ -30,7 +30,8 @@ standard deviation of our outcome of interest.  We can calculate the MDE using t
 ### Question 1
 
 Your are designing an intervention intended to increase knowledge about malaria transmission.  Your 
-main outcome variable of interest is `b_knowledge_correct`.  Familiarize yourself with this variable:  what is 
+main outcome variable of interest is the variable `b_knowledge_correct`, which measures beliefs about how malaria 
+is transmitted and what can be done to treat it.  Familiarize yourself with this variable:  what is 
 its mean, and what are the maximum and minimum values observed in the sample?
 
 Write Stata code that summarizes `b_knowledge_correct`, using the `sum` command with the `detail` option 
