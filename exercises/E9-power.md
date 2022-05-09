@@ -1,6 +1,6 @@
 # Empirical Exercise 9
 
-This is the first of two exercises on power calculations in indiviudal-level randomizations. In this exercise, 
+This is the first of two exercises on power calculations. In this exercise, 
 we'll learn how to calculate the **minimum detectable effect** as a function of sample size 
 (or the required sample size as a function of the minimum detectable effect).
 
