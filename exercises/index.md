@@ -20,5 +20,5 @@
 
 [Exercise 9:  Power Calculations](E9-power.html)   
 
-Exercise 10:  Clustering    
+[Exercise 10:  Clustering](E10-clusters.html)    
 
