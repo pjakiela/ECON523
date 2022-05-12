@@ -43,6 +43,7 @@ forvalues i  =1/`loopmax' {
 	gen clustid = _n
 	gen treatment=cond(_n>`numclusters'/2,1,0)
 	gen clusteffect = rnormal()
+	quietly expand `obspercluster'
 	gen y = clusteffect + `effect'*treatment + rnormal()
 	reg y treatment
 	mat V = r(table)
