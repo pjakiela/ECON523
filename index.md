@@ -8,7 +8,7 @@ _This is the website for Professor Pamela Jakiela's ECON 523 course at Williams 
 
 ### Instructor:  [Pamela Jakiela](https://pjakiela.github.io)  
 
-[Syllabus](https://pjakiela.github.io/ECON523/ECON523syllabus.pdf)  
+[Syllabus](https://pjakiela.github.io/ECON523/ECON523-syllabus-2023-02-02.pdf)  
 
 [Schedule of Course Modules](https://pjakiela.github.io/ECON523/schedule.html)  
 
