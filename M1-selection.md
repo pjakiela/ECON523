@@ -97,6 +97,12 @@ A handout version of the lecture slides is available here.
 
 [Worms:  Identifying Impacts on Education and Health in the Presence of Treatment Externalities](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1468-0262.2004.00481.x) by Edward Miguel and Michael Kremer
 
+### Randomistas in Development Economics
+
+[The Poverty Lab](https://www.newyorker.com/magazine/2010/05/17/the-poverty-lab) (A _New Yorker_ profile of Esther Duflo, from 2010)  
+
+[A Nobel Prize for the Randomistas](https://www.cgdev.org/blog/nobel-prize-randomistas) (a Center for Global Development blog post by me)
+
 ### More Recent Evidence on Health Insurance
 
 [Health Insurance and Mortality: Experimental Evidence from Taxpayer Outreach](https://academic.oup.com/qje/article/136/1/1/5911132?login=true)  
