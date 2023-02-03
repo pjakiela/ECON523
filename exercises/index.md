@@ -24,3 +24,7 @@ Exercise 11:  Clustering
 
 Exercise 12:  Machine Learning for Causal Inference
 
+<br>
+
+Williams' ECON's [Stata tutorials are here](https://pjakiela.github.io/stata/).
+
