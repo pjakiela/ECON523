@@ -15,8 +15,6 @@ explaining how average treatment effects can be estimated when treatment status 
 
 [_Mastering Metrics_: Chapter 1](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjE2pfw-JjuAhUBZc0KHQo1DnoQFjAAegQIBhAC&url=http%3A%2F%2Fassets.press.princeton.edu%2Fchapters%2Fs10363.pdf&usg=AOvVaw3IGywrUpw1_F9e5npteATA)  
 
-**Review Questions:**  
-
 <details><summary>Review Questions</summary>
   <br>
   <ol>
@@ -117,20 +115,28 @@ A handout version of the lecture slides is available here (not yet).
 
 [Worms:  Identifying Impacts on Education and Health in the Presence of Treatment Externalities](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1468-0262.2004.00481.x) by Edward Miguel and Michael Kremer
 
+<br>
+
 ### Randomistas in Development Economics
 
 [The Poverty Lab](https://www.newyorker.com/magazine/2010/05/17/the-poverty-lab) (A _New Yorker_ profile of Esther Duflo, from 2010)  
 
 [A Nobel Prize for the Randomistas](https://www.cgdev.org/blog/nobel-prize-randomistas) (a Center for Global Development blog post by me)
 
+<br>
+
 ### More Recent Evidence on Health Insurance
 
 [Health Insurance and Mortality: Experimental Evidence from Taxpayer Outreach](https://academic.oup.com/qje/article/136/1/1/5911132?login=true)  
+
+<br>
 
 ### On the "Credibility" Revolution in Empirical Microeconomics
 
 [The Credibility Revolution in Empirical Economics: How Better Research Design Is Taking the Con out of Econometrics](https://www.aeaweb.org/articles?id=10.1257/jep.24.2.3) by Joshua D. Angrist and Jörn-Steffen Pischke
 
 [Better LATE Than Nothing: Some Comments on Deaton (2009) and Heckman and Urzua (2009)](https://www.aeaweb.org/articles?id=10.1257/jel.48.2.399) by Guido Imbens
+
+<br>
 
 
