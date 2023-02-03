@@ -11,6 +11,8 @@ explaining how average treatment effects can be estimated when treatment status 
 
 ## Readings
 
+### For Lecture
+
 [_Mastering Metrics_: Chapter 1](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjE2pfw-JjuAhUBZc0KHQo1DnoQFjAAegQIBhAC&url=http%3A%2F%2Fassets.press.princeton.edu%2Fchapters%2Fs10363.pdf&usg=AOvVaw3IGywrUpw1_F9e5npteATA)
 
 <details><summary>Review Questions</summary>
@@ -24,11 +26,23 @@ explaining how average treatment effects can be estimated when treatment status 
   </ol>
 </details>
 
+**Optional:** [_Impact Evaluation in Practice, first edition_: Chapter 3]([https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjE2pfw-JjuAhUBZc0KHQo1DnoQFjAAegQIBhAC&url=http%3A%2F%2Fassets.press.princeton.edu%2Fchapters%2Fs10363.pdf&usg=AOvVaw3IGywrUpw1_F9e5npteATA](https://openknowledge.worldbank.org/handle/10986/2550))  
+
+_Use the link to access the French, Portuguese, and Spanish versions._
+
 <br>
 
-### Lecture Slides
+### For Lab
 
-A handout version of the lecture slides is available here. 
+[J-PAL:  A Balancing Act](https://www.povertyactionlab.org/publication/balancing-act)
+
+**Optional:** [Price Subsidies, Diagnostic Tests, and Targeting of Malaria Treatment: Evidence from a Randomized Controlled Trial](https://www.aeaweb.org/articles?id=10.1257/aer.20130267)
+
+<br>
+
+## Lecture Slides
+
+A handout version of the lecture slides is available here (not yet). 
 
 <br>
 
