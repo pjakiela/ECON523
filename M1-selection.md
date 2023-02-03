@@ -17,11 +17,16 @@ explaining how average treatment effects can be estimated when treatment status 
 
 **Review Questions:**  
 
-- How do Americans with health insurance differ from those without health insurance?  Are those differences likely to represent the causal effects of having health insurance?  Why or why not?  
-- What are potential outcomes?  How do potential outcomes lead to a missing data problem in causal inference? 
-- What is selection bias, and what implications does it have for program evaluation?  
-- What is the Law of Large Numbers, and why is it important in randomized experiments?  
-- Based on the evidence presented in the reading, what are the impacts of access to health insurance (in the United States)?  
+<details><summary>Review Questions</summary>
+  <br>
+  <ol>
+  <li>How do Americans with health insurance differ from those without health insurance?  Are those differences likely to represent the causal effects of having health insurance?  Why or why not? </li>
+  <li>What are potential outcomes?  How do potential outcomes lead to a missing data problem in causal inference?  </li>
+  <li>What is selection bias, and what implications does it have for program evaluation?  </li>
+  <li>What is the Law of Large Numbers, and why is it important in randomized experiments?  </li>
+  <li>Based on the evidence presented in the reading, what are the impacts of access to health insurance (in the United States)?  </li>
+  </ol>
+</details> 
 
 <br>
 
@@ -33,7 +38,7 @@ explaining how average treatment effects can be estimated when treatment status 
 
 ### Optional Readings
 
-[_Impact Evaluation in Practice, first edition_: Chapter 3]([https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjE2pfw-JjuAhUBZc0KHQo1DnoQFjAAegQIBhAC&url=http%3A%2F%2Fassets.press.princeton.edu%2Fchapters%2Fs10363.pdf&usg=AOvVaw3IGywrUpw1_F9e5npteATA](https://openknowledge.worldbank.org/handle/10986/2550))  
+[_Impact Evaluation in Practice, first edition_: Chapter 3](https://openknowledge.worldbank.org/handle/10986/2550)  
 
 _Use the link to access the French, Portuguese, and Spanish versions._
 
