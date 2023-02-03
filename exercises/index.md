@@ -26,5 +26,7 @@ Exercise 12:  Machine Learning for Causal Inference
 
 <br>
 
-Williams' ECON's [Stata tutorials are here](https://pjakiela.github.io/stata/).
+### Additional Resources 
+
+Williams ECON's [Stata tutorials](https://pjakiela.github.io/stata/).
 
