@@ -26,7 +26,7 @@ You'll also want to include a command to **change the working directory** so tha
 
 ```
 ** change working directory as appropriate to where you want to save
-cd "C:\Users\CookieMonster\Dropbox\ECON-523\exercises\E1-why-evaluate-etc"
+cd "C:\Users\CookieMonster\Dropbox\ECON-523\exercises\E1-selection"
 ```
 
 Because the data set is available on github, you can simply download it every time you want to use it.  The following code in the do file will do this:  
