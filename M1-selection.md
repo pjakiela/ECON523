@@ -50,6 +50,16 @@ A handout version of the lecture slides is available [here](ECON523-L1-selection
 
 <br>
 
+## Empirical Exercise
+
+The in-class activity as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/in-class1.do) or [pdf](h[ttps://pjakiela.github.io/exercises/](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/)ECON-523-in-class1.pdf)
+
+The empirical exercise as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/E1-questions.do) or [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-ex1.pdf)
+
+A web version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/E1-selection.html).
+
+<br>
+
 ## Video Lectures from 2021 
 
 [Lecture 2.1 The Potential Outcomes Framework](https://vimeo.com/512774637) (26:44)  
