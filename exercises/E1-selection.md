@@ -109,11 +109,59 @@ Why does the standard error you calculated using the output from `ci means` not 
 
 ### Question 15
 
-Confirm that you can also replicate your results from Q12 using the regress command withe the `, vce(hc2)` option.
+Confirm that you can also replicate your results from Q12 using the `regress` command withe the `, vce(hc2)` option.
 
 <br>
 
 ## Empirical Exercise
+
+Create a new do file (with the same preliminaries at the top) to answer the following questions, so that you can run the code from start to finish and re-generate all your answers.  Some questions only ask you to provide the correct Stata code; when a question asks for a numeric or verbal response, please provide your answer in a comment in your do file.  Upload your finished do file to gradescope once you have finished.
+
+### Question 1:  One Treatment Dummy
+
+#### Part (a)
+
+Summarize the mean level of ART use (the variable `c_act`) in the randomly assigned treatment group (`act_any==1`) and the randomly assigned comaprison group (`act_any==0`).
+
+#### Part (b)
+
+Conduct a t-test of the hypothesis that treatment (`act_any`) does not impact the likelihood of using ARTs (using the `ttest` command).  
+
+#### Part (c)
+
+Test the hypothesis that treatment (`act_any`) does not impact the likelihood of using ARTs using the regress command.
+
+### Question 2:  Multiple Treatments
+
+#### Part (a)
+
+The variable `coartemprice` indicates the randomly-assigned ACT price (and, implicitly, the associated level of price subsidy).  What price/subsidy levels are included in the experiment?
+
+#### Part (b) 
+
+If you place the code 
+```
+bysort coartemprice: 
+```
+before the summarize command, Stata will summarize your value of interest separately for each observed value of the variable `coartemprice`.  What is the mean level of ART use at each subsidy level, and how do these levels compare to the level observed in the control group?  
+
+#### Part (c)
+
+Now regress `c_act` on the dummies `act40`, `act60`, and `act100`, which indicate the three different randomly-assigned subsidy levels in the RCT.  What do you expect the regression coefficients to be (based on your answer to Question 2b).  Do they observed coefficients match your expectations?
+
+### Question 3:  Pooling Treatment Arms
+
+#### Part (a) 
+
+Can you figure out a way to get Stata to tell you how many treated observations are in each (of the three) treatment arms using a single line of Stata code?
+
+#### Part (b)
+
+Stata's `display` command is useful for doing arithmetic.  Calculate a weighted average of the regression coefficients from Question 2c, where the weights are the proportion of treated observations in each of the three arms.  
+
+#### Part (c)
+
+Where have you seen this coefficient before?
 
 <br>
 
