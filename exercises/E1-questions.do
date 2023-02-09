@@ -34,7 +34,7 @@ webuse E1-CohenEtAl-data.dta
 
 // ONE TREATMENT DUMMY
 
-// 1a. Summarize the mean level of ART use (the variable c_act) in the randomly assigned treatment group (act_any==1) and the randomly assigned comaprisong group (act_any==0).  
+// 1a. Summarize the mean level of ART use (the variable c_act) in the randomly assigned treatment group (act_any==1) and the randomly assigned comaprison group (act_any==0).  
 
 
 // 1b. Conduct a t-test of the hypothesis that treatment (act_any) does not impact the likelihood of using ARTs (using the ttest command).  

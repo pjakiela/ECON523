@@ -55,11 +55,11 @@ exit
 
 // 6. What does the variable c_act measure?
 
-// 7. What is the standard deviation of the mean c_act?
+// 7. What is the mean of the variable c_act?
 
 // 8. What is the standard deviation of the variable c_act?
 
-// 9. What is the standard error of the variable c_act? (hint: look at the help file for the summarize command)
+// 9. What is the standard error of the variable c_act? (hint: use the ci means command)
 
 // 10. What is the mean level of ACT use among those assigned to the treatment group?  (hint:  use an if statement)
 
@@ -69,7 +69,7 @@ exit
 
 // 13. Now compare your results to what you obtain using the the ttest command.  
 
-// 14. Look at the help file for the ttest command.  Can you figure out why the standard error you calculated does not match the results of the ttest command?  
+// 14. Why does the standard error you calculated using the output from ci means not match the results of the ttest command? How can you modify the ttest command so that your results line up with your answer to Question 12?  (hint:  look at the help file for ttest if needed)  
 
-// 15.   Confirm that you can replicate your results from Q12 using the ttest command.
+// 15.   Confirm that you can also replicate your results from Q12 using the regress command withe the ", vce(hc2)" option.
 
