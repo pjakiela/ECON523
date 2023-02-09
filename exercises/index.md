@@ -1,6 +1,6 @@
 # Empirical Exercises  
 
-Exercise 1:  Selection Bias and the Experimental Ideal
+[Exercise 1:  Selection Bias and the Experimental Ideal](https://pjakiela.github.io/ECON523/exercises/E1-selection.html)
 
 Exercise 2: Regression Review
 
