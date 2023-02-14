@@ -1,144 +1,93 @@
 
 // ECON 523:  PROGRAM EVALUATION FOR INTERNATIONAL DEVELOPMENT
 // PROFESSOR PAMELA JAKIELA
-// EMPIRICAL EXERCISE 2:  THE EXPERIMENTAL IDEAL
+// EMPIRICAL EXERCISE 2:  REGRESSION
 
 /***************************************************************************
-This exercise makes use of the data set E1-CohenEtAl-data.dta, 
-a subset of the data used in the paper "Price Subsidies, 
-Diagnostic Tests, and Targeting of Malaria Treatment: Evidence from a 
-Randomized Controlled Trial" by Jessica Cohen, Pascaline Dupas, and Simone 
-Schaner, published in the American Economic Review in 2015.  
 
-The authors examine behavioral responses to various discounts (""subsidies) 
-for malaria treatment, called "artemisinin combination therapy" 
-or "ACT."
+This exercise makes use of the data set E2-BanerjeeEtAl-data.dta, 
+a subset of the data used in the paper "A multifaceted program causes 
+lasting progress for the very poor:  Evidence from six countries" by Abhijit 
+Banerjee, Esther Duflo, Nathanael Goldberg, Dean Karlan, William Pariente, 
+Jeremy Shapiro, Bram Thuysbaert, and Chris Udry, published in Science in 2015.  
+
+The authors examine the impacts of a "graduation" program first designed by 
+the Bangladeshi NGO BRAC.  The program offers extremely poor households an 
+asset transfer, temporary consumption support, skills training, home visits, 
+and access to savings technologies.  The program was evaluated through a 
+randomized trial in six countries.  
+
+In this exercise, we use data on the program's impacts on food security to 
+explore the mechanics of fixed effects.  For this exercise, we're going to drop 
+all the observations in the treatment group, and then simulate alternative 
+scenarios to better understand how fixed effects work.
+
 ******************************************************************************/
 
-// LOAD DATA
-
+** preliminaries
 clear all 
 set more off
 set seed 12345
-version 16.1 // feel free to use version 17.0 instead
-
-** change working directory as appropriate to where you want to save
-cd "C:\Users\pj\Dropbox\econ523-2022\exercises\E2-experimental-ideal-part1"
 
 ** load the data from the course website
 webuse set https://pjakiela.github.io/ECON523/exercises
-webuse E1-CohenEtAl-data.dta
+webuse E2-BanerjeeEtAl-data.dta
 
-** save the raw data so that you have a local copy
-save E2-CohenEtAl-data-my-raw-data-copy, replace
+** drop observations in the treatment group
+drop if treatment==1
+drop treatment
 
+** randomly assign observations to four equally-sized groups
+gen randnum = runiform()
+sort country randnum
+by country:  gen within_id = _n
+gen group = mod(within_id,4)
+replace group = 4 if group==0
+sort country within_id
 
-// GETTING STARTED (TO BE DONE TOGETHER AS A CLASS)
 
-/*
+// QUESTIONS
 
-key variables (review):
+// 1. Fixed effects when p is constant across countries
 
-- variables starting with b_ are baseline characteristics (measured before the RCT)
-		use the command sum b_* to familiarize yourself with them
+// 1a. Create a treatment variable t1 and assign observations in groups 1 and 2 to treatment.  Then, create a variable impact1 that is equal to 2 for observations in the treatment group and 0 otherwise.  This is the treatment effect for the purposes of this (first) simulation.  Generate an outcome variable y1 that is endline foodsecurity (e_foodsec) plus impact1.  Now regress y1 on t1 with and without country fixed effects.  How do the estimated treatments effect and the levels of statistical significant compare across the two specifications?
 
-- act_any is a treatment dummy; act_any==0 is the control group
 
-- c_act is a dummy for using ACT treatment the last time a HH member had malaria
+// 1b. When treatment does not vary across countries, including country fixed effects is not necessary - but it may increase statistical power.  In the example above, fixed effects did not improve statistical power much because the mean does not vary across countries (it is normalized to zero in the control group in every country).  Change this by increasing y1 by 10 in two countries and decreasing y1 by 20 in two other countries.  Now rerun your two regressions (with and without fixed effects).  You should see that including fixed effects now changes the standard error on your estimated treatment effect substantially (though it still should not impact your estimated coefficient much).
 
-*/
 
-** We are going to test whether individuals *in the control group* who use ACT when they have malaria (i.e. individuals with `c_act==1`) differ from those in the control group who do not use ACT (i.e. those with `c_act==0`) in terms of observable characteristics.  To focus on individuals in the control group, we'll want to restrict ourselves to data points with `act_any==0` when answer the following questions.  
+// 1c. When p is fixed, the estimated coefficient from a regression with fixed effects is a weighted average of the estimated country-specific treatment effects (i.e. the within-country differences in means).  The weights are the share of the total sample size within each country.  Given this, if you increased the treatment effect in Peru from 2 to 11, what you expect the treatment effect to be?  See whether this is true in practice (by changing the treatment effect in Peru and then re-running your fixed effects regression).
 
-// Question 1  
 
- ** Use the `ttest` command to test whether individuals in the control group who use ACT when they have malaria (i.e. individuals with `c_act==1`) differ from those in the control group who do not use ACT when they have malaria in terms of the educational attainment of their head of household.  What Stata command would you use to do this?  
- 
+// 2. When are fixed effects necessary?
 
+// Fixed effects are needed when treatment probabilities vary across countries *and* the mean of the outcome variable also varies across countries (because then treatment is correlated with the outcome, even in the absence of a treatment effect).  To see this, generate a variable t2 that is equal to 1 for all observations in group 1 plus the observations in group 2 in Ethiopia, Ghana, and Honduras (countries 1, 2, and 3).  In this case, we are not going to add any treatment effect.  Generate an outcome variable y2 that is equal to food security, and then add 5 to it in Ethiopia, Ghana, and Honduras (for observations in the treatment and control groups in those countries).  How do the results of regressions with and without country fixed effects compare?
 
-// Question 2  
 
-** What is the mean level of (household head) educational attainment among individuals in the control gorup who **did not** use ACT the last time they had malaria?
+// 3. How observations are weighted with fixed effects.
 
+// For the last question, we need to have the same number of observations in each country.  The code below does this.  You can see that we now have equal numbers of observations from groups 1, 2, 3, and 4 in each country as well. 
 
+keep if within<=360 // 360 obs per country
+tab country group 
 
-// Question 3  
+// Now generate a treatment variable t3.  t3 should be equal to one for observations in group 1 in Ethiopia and Ghana.  t3 should be equal to one for observations in groups 1 and 2 in Honduras and India.  t3 should be equal to 1 for observations in groups 1, 2, and 3 in Pakistan and Peru. Given this, what is the proportion treated in each country?
 
-** What is the mean level of (household head) educational attainment among individuals in the control gorup who **did** use ACT the last time they had malaria?
 
+// 3a. First, consider what happens when we *only* have a treatment effect in the countries with the lowest proportion treated. Create a variable impact3 that is equal to 10 for treated observations in Ethiopia and Ghana, and equal to zero for everybody else. Then, create an outcome variable y3a that is the sum of e_foodsec and impact3a.  You can see the average treatment effect across all the treated observations in the sample summarizing impact3a among all treated individuals.  How does that compare to the results of regressions with and without fixed effects, or to the results from a regression that only includes data from Ethiopia and Ghana?
 
 
-// Question 4  
+// 3b.  Now replicate the exercise above, but have the treatment effect occur in Honduras and India (where the proportion treated is one half) rather than in Ethiopia and Ghana (where the proportion treated is one quarter).  Generate new variables impact3b and y3b and repeat your analysis.
 
-** What is the standard deviation of the level of (household head) educational attainment among individuals in the control group who **did** use ACT the last time they had malaria?  
 
+// 3c.  Now replicate the exercise again, but have the treatment effect occur in Pakistan and peru (where the proportion treated is three quarters) rather than in Honduras and India (where the proportion treated is one half).  Generate new variables impact3c and y3c and repeat your analysis.
 
 
-// Question 5  
+// 4. Based on the above, which countries received relatively low weight in the analysis of Banerjee et al. because the proportion treated was relatively low?  How do you think that might have impacted their results?  
 
-** Is there a statistically significant difference in educational attainment between those (in the control group) who used ACT the last time they had malaria and those who did not?  What is the p-value associated with this hypothesis test?
 
 
 
-// Question 6  
-
-** What is the estimated difference in educational attainment between those (in the control group) who used ACT the last time they had malaria and those who did not?  
-
-
-
-// Question 7  
-
-** What is the standard error associated with the estimated difference in educational attainment between those (in the control group) who used ACT the last time they had malaria and those who did not?  
-
-
-// Question 8  
-
-** To understand where this standard error comes from, remember that the mean value of `b_h_edu` among people who do (or do not) have `c_act==1` is a random variable, as is the difference in means between those who have `c_act==1` and those who have `c_act==0`.  The variance of the **difference** of two independent random variables is the **sum** of their individual variances, so the variance of the difference in `b_h_edu` between those with `c_act==1` and those with `c_act==0` is the sum of the variances of the subgroup means.  (And, of course, the standard error is the square root of the variance.)  If you used the results of your `ttest` command to calculate the standard error of the difference in means "by hand" (by which I mean, using Stata to do arithmetic instead of using the `ttest` command), what answer would you arrive at?
-
-
-
-// Question 9 
-
-** If you have answered Question 8 correctly, you be wondering why the standard error you just calculated differs (slightly) from the one reported by the `ttest` command.  The answer is that our "by hand" calculation did not assume that the variance of `b_h_edu` was the same in both groups, but Stata's `ttest` command does impose that assumption -- unless you add the `unequal` option.  Trying redoing your `ttest` with `unequal` at the end.  What is the estimated standard error on the difference in means now?
-
-
-
-// Question 10  
-
-** We can also test whether the mean of a variable (`b_h_edu`) is the same in two groups by regressing it on a dummy characterizing the two groups.  What command would you use to regress `b_h_edu` on `c_act`, restricting the sample to the control group in the RCT?
-
-
-
-
-// Question 11  
-
-** When you run this regression, what is the estimated coefficient on `c_act`?  
-
-
-
-// Question 12 
-
-** What is the estimated standard error associated with the coefficient on `c_act`?  
-
-
-
-// Question 13 
-
-** How does the standard error from your regression compare to the standard error you got when you used the `ttest` command?
-
-
-// Question 14
-
-** When we run a simple OLS regression, Stata assumes that errors are **homoskedastic** (the variance of the error term does not vary across observations).  As an alternative, we can add `, robust` at the end of our regression command to tell Stata to calculated heteroskedasticity-robust standard errors (which are the default in most applied microeconomic research).  Rerun your regression, adding `, robust` at the end.  What is the estimated standard error associated with the coefficient on `c_act` now? 
-
-
-// Question 15 
-
-** You might (quite reasonably) be surprised to learn that the standard error reported after an OLS regression with robust standard errors is **not** the same as the one we calculated ourselves using the formula.  So, now we have three different standard errors!  The **robust** standard error from Question 14 differs from the standard error that you calculated by hand in Question 8 because of a degrees of freedom correction -- Stata's robust standard errors are but one of several different variants of the Huber-Eicker-White heteoskedasticity robust standard error.  Type 
-
-reg b_h_edu c_act if act_any==0, vce(hc2)
-
-**and confirm that your standard error matches the answer to Question 8.  What is that standard error? 
 
 
 
