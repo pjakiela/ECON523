@@ -51,8 +51,8 @@ and how many observations are there in each country?  What fraction of the obser
 
 ### Question 2  
 
-Take a look at the outcome variable `e_foodsec`.  What is the mean value in each country?  
-What is the mean value **in the treatment group** in each country?  What does a histogram of the food security index look like?
+Take a look at the outcome variable `e_foodsec`.  What is the mean value in each country?  What is the mean value **in the treatment group** 
+in each country?  What does a histogram of the food security index look like?
 
 ### Question 3
 
@@ -185,7 +185,6 @@ that we now have equal numbers of observations from groups 1, 2, 3, and 4 in eac
 ```
 keep if within<=360 // 360 obs per country
 tab country group 
-
 ```
 
 Now generate a treatment variable `t3`.  `t3` should be equal to one for observations in group 1 in 
