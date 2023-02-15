@@ -2,7 +2,7 @@
 
 [February 6, 8: Selection Bias and the Experimental Ideal](M1-selection.html)  
 
-February 13, 15: Regression 
+[February 13, 15: Regression](M2-regression.html) 
 
 February 20, 22: 2x2 Difference-in-Differences (DD I)  
 
