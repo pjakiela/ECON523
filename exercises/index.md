@@ -2,7 +2,7 @@
 
 [Exercise 1:  Selection Bias and the Experimental Ideal](https://pjakiela.github.io/ECON523/exercises/E1-selection.html)
 
-Exercise 2: Regression Review
+[Exercise 2: Regression Review](https://pjakiela.github.io/ECON523/exercises/E2-regression.html)
 
 Exercise 3: Difference-in-Differences I (2x2 DD)  
 
