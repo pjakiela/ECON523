@@ -16,7 +16,7 @@ This module reviews regression, which we all know but could know better.
 
 ### Optional Readings
 
-[Building Stable Livelihoods for the Ultra-poor](https://openknowledge.worldbank.org/handle/10986/2550](https://www.povertyactionlab.org/publication/building-stable-livelihoods-ultra-poor)  
+[Building Stable Livelihoods for the Ultra-poor](https://www.povertyactionlab.org/publication/building-stable-livelihoods-ultra-poor)  
 
 <br>
 
