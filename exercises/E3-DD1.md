@@ -109,7 +109,7 @@ intervention?
 
 ### Question 7
 
-We can calculate the standard error of the mean by taking the standard deviation (reported by the `sum` command) and dividing it by the square root of the number of observartions (also reported by the `sum` command).  What is the standard error of the mean postpartum mortality rate in the doctors' wing prior to Semmelweis' handwashing intervention?  Use the code below to add this to your table.
+We can calculate the standard error of the mean by taking the standard deviation (reported by the `sum` command) and dividing it by the square root of the number of observations (also reported by the `sum` command).  What is the standard error of the mean postpartum mortality rate in the doctors' wing prior to Semmelweis' handwashing intervention?  Use the code below to add this to your table.
 
 ```
 local temp_se = string(r(sd)/sqrt(r(N)),"%03.2f")
@@ -124,7 +124,7 @@ the mean and standard error of `Rate1` in the post-treatment period to your tabl
 
 ### Question 9
 
-Calculate the difference (between the mean of `Rate1` in the pre-treatment period and the mean of `Rate1` in the psot-treatment period) and the associated standard error by hand using the formula (and the `display` command).
+Calculate the difference (between the mean of `Rate1` in the pre-treatment period and the mean of `Rate1` in the post-treatment period) and the associated standard error by hand using the formula (and the `display` command).
 
 ### Question 10
 
@@ -135,6 +135,69 @@ Now confirm that you get the same result using the `ttest` command.  How would y
 Now complete the table. 
 
 <br> 
+
+## Empirical Exercise
+
+Create a do file that reads in your copy of Semmelweis' data and restricts attention to the period 
+when doctors worked in the first clinic and midwives worked in the second clinic.  All your do files 
+should start with the same set of commands at the top.
+
+```
+clear all 
+set scheme s1mono 
+set more off
+set seed 314159
+
+** change working directory as appropriate to where you want to save
+cd "C:\Users\pj\Dropbox\ECON-523\topics\3-DD1\stata"
+
+** load data
+use E3-semmelweis-vienna-by-wing.dta
+drop if Year<1840
+```
+
+### Question 1
+
+Use the following `reshape` command to convert your data into a panel data set containing a variable `Rate` and a variable `clinic` that indicates whether an observation comes from Clinic 1 (doctors) or Clinic 2 (midwives).  How many observations are there in the data set now?  How many from each clinic?  
+
+reshape long Rate, j(clinic) i(Year)
+
+### Question 2
+
+Generate a `post` variable equal to one for years after the handwashing policy was implemented (and zero otherwise) and a `treatment` variable equal to one for the doctors' wing (and zero otherwise).
+
+### Question 3
+
+Generate the interaction term you need to estimate a difference-in-differences model in a regression framework.
+
+### Question 4
+
+Use the `label variable` command to give your variables short, easy to interpret labels.
+
+### Question 5
+
+Implement difference-in-differences in an OLS regression framework.  Use the command `eststo clear` immediately before your `regression` command, and then use the command `eststo` (estimates store) immediately after.  This will save your results.
+
+### Question 6
+
+You can use the `esttab` command to make a table of your regression results.  Try it by typing `esttab` in the command window.  The command `esttab using clinic-regs.rtf` will save your table as a word document.  Look through the `esttab` options to make your table look more professional.  Report standard errors rather than t-statistics in parentheses below your coefficients.  Have your variable labels appear in place of variable names, and make sure your first column is wide enough to accomodate the labels you have given your varaibles.  Make the column with your regression coefficients say OLS at the top using `esttab`'s `mtitle` option.  You can learn more about making tables in `esttab` [here](https://pjakiela.github.io/stata/regression-table.html). 
+
+### Question 7
+
+Take a screenshot of your finished regression table and upload it to gradescope.
+
+### Question 8
+
+Which coefficient in the regression table (i.e. the coefficient on which variable) is the difference-in-differences estimate of the treatment effect of handwashing on maternal mortalty?
+
+### Question 9
+
+Which regression coefficient is the estimate of the degree of selection bias?
+
+### Question 10
+
+Which regression coefficient is the estimate of the time trend in the absence of treatment?
+
 
  ---
  
