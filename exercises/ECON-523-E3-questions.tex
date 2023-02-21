@@ -1,0 +1,102 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[table]{xcolor}
+
+\addtolength{\oddsidemargin}{-.75in}
+\addtolength{\evensidemargin}{-.75in}
+\addtolength{\textwidth}{1.5in}
+
+\addtolength{\topmargin}{-0.5in}
+\addtolength{\textheight}{1.0in}
+
+\def\urltilda{\kern -.15em\lower .7ex\hbox{\~{}}\kern .04em}
+
+\renewcommand\labelitemi{$\circ$}
+
+\begin{document}
+
+\begin{center}
+
+\textbf{\large{ECON 523:  Program Evaluation for International Development}} \\
+
+\medskip
+
+\textbf{\large{Empirical Exercise 3}} \\ 
+
+\end{center}
+
+\bigskip
+
+\bigskip
+
+\noindent
+In this exercise, we're going to analyze data from Ignaz Semmelweis' handwashing
+intervention in the maternity hospital in Vienna.  The data come from 
+Semmelweis' (1861) book, and some helpful person put them on Wikipedia.
+
+\medskip
+
+\noindent
+Before you begin, save a new do file containing the Stata code below.  
+
+\begin{verbatim}
+clear all 
+set scheme s1mono 
+set more off
+set seed 314159
+
+** change working directory as appropriate to where you want to save
+cd "C:\Users\pj\Dropbox\ECON-523\topics\3-DD1\stata"
+
+** load data
+use E3-semmelweis-vienna-by-wing.dta
+drop if Year<1840
+\end{verbatim}
+
+\noindent
+Extend your do file as you answer the following questions: 
+
+\begin{enumerate}
+	
+	\item Use the following reshape command to convert your data into a panel data set containing a variable \url{Rate} and a variable \url{clinic} that indicates whether an observation comes from Clinic 1 (doctors) or Clinic 2 (midwives).  How many observations are there in the data set now?  How many from each clinic?  
+	
+	\begin{verbatim}
+	reshape long Rate, j(clinic) i(Year)
+	\end{verbatim}
+	
+	
+	\item Generate a \url{post} variable equal to one for years after the handwashing policy was implemented (and zero otherwise) and a \url{treatment} variable equal to one for the doctors' wing (and zero otherwise). 
+	
+	
+	\item Generate the interaction term you need to estimate a difference-in-differences model in a regression framework.
+	
+	
+	\item Use the \url{label variable} command to give your variables short, easy to interpret labels.
+	
+	
+	\item Implement difference-in-differences in an OLS regression framework.  Use the command \url{eststo clear} immediately before your \url{regression} command, and then use the command \url{eststo} (estimates store) immediately after.  This will save your results.
+	
+	
+	\item You can use the esttab command to make a table of your regression results.  Try it by typing \url{esttab} in the command window.  The command \url{esttab using clinic-regs.rtf} will save your table as a word document.  Look through the \url{esttab} options to make your table look more professional:  report standard errors rather than t-statistics in parentheses below your coefficients.  Have your variable labels appear in place of variable names, and make sure your first column is wide enough to accommodate the labels you have given your variables.  Make the column with your regression coefficients say OLS at the top using \url{esttab}'s \url{mtitle} option.  
+	
+	
+	\item Take a screenshot of your finished regression table and upload it to gradescope.  
+	
+	
+	\item Which coefficient in the regression table (i.e. the coefficient on which variable) is the difference-in-differences estimate of the treatment effect of handwashing on maternal mortalty?
+	
+	
+	\item Which regression coefficient is the estimate of the degree of selection bias?
+	
+	
+	\item Which regression coefficient is the estimate of the time trend in the absence of treatment?
+	
+
+\end{enumerate}
+
+
+\end{document}
