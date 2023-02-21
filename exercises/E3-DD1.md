@@ -180,7 +180,7 @@ Implement difference-in-differences in an OLS regression framework.  Use the com
 
 ### Question 6
 
-You can use the `esttab` command to make a table of your regression results.  Try it by typing `esttab` in the command window.  The command `esttab using clinic-regs.rtf` will save your table as a word document.  Look through the `esttab` options to make your table look more professional.  Report standard errors rather than t-statistics in parentheses below your coefficients.  Have your variable labels appear in place of variable names, and make sure your first column is wide enough to accomodate the labels you have given your varaibles.  Make the column with your regression coefficients say OLS at the top using `esttab`'s `mtitle` option.  You can learn more about making tables in `esttab` [here](https://pjakiela.github.io/stata/regression-table.html). 
+You can use the `esttab` command to make a table of your regression results.  Try it by typing `esttab` in the command window.  The command `esttab using clinic-regs.rtf` will save your table as a word document.  Look through the `esttab` options to make your table look more professional.  Report standard errors rather than t-statistics in parentheses below your coefficients.  Have your variable labels appear in place of variable names, and make sure your first column is wide enough to accommodate the labels you have given your variables.  Make the column with your regression coefficients say OLS at the top using `esttab`'s `mtitle` option.  You can learn more about making tables in `esttab` [here](https://pjakiela.github.io/stata/regression-table.html). 
 
 ### Question 7
 
