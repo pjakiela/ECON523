@@ -4,7 +4,7 @@
 
 [February 13, 15: Regression](M2-regression.html) 
 
-February 20, 22: 2x2 Difference-in-Differences (DD I)  
+[February 20, 22: 2x2 Difference-in-Differences (DD I)](M3-DD1.html)   
 
 February 27, March 1: Diff-in-Diff in a Panel Data Framework (DD II)  
 
