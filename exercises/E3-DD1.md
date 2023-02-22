@@ -6,9 +6,9 @@ We'll be reading them in from Excel using the `import excel` command.
 
 In this exercise, we'll review the different ways to estimate simple difference-in-differences models.  We'll also learn how to export results to word, excel, or latex using Stata's `esttab` and `putexcel` commands.  The `putexcel` command is more customizable, but it also takes more work (i.e. coding).  `esttab` is a very straightforward tool for getting basic regression results out of stata and into pretty much any format.   
 
-You can access the in-class activity (below) as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-in-class3.do) or [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-E3-in-class.pdf).
+You can access the in-class activity (below) as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-in-class.do) or [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-E3-in-class.pdf).
 
-You can also access the main empirical exercise (also below) as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-E2-questions.do) or [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-E3-questions.pdf).
+You can also access the main empirical exercise (also below) as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-E3-questions.do) or [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-E3-questions.pdf).
   
 <br> 
 
@@ -201,4 +201,4 @@ Which regression coefficient is the estimate of the time trend in the absence of
 
  ---
  
-This exercise is part of [Module 3:  Difference-in-Differences 1](https://pjakiela.github.io/ECON-523/DD1.html).
+This exercise is part of [Module 3:  Difference-in-Differences 1](https://pjakiela.github.io/ECON-523/M3-DD1.html).
