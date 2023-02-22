@@ -26,6 +26,18 @@ A handout version of the lecture slides is available [here](ECON523-L3-DD1-hando
 
 <br>
 
+## Video Lectures from 2021
+
+[Lecture 4.1 Intro to Difference-in-Differences Estimation](https://vimeo.com/514391221) (6:56)  
+
+[Lecture 4.2 Diff-in-Diff Pioneers](https://vimeo.com/514413880) (21:19)  
+
+[Lecture 4.3 Identifying Assumptions for Diff-in-Diff Estimation](https://vimeo.com/514395275) (13:10)  
+
+[Lecture 4.4 Diff-in-Diff Examples](https://vimeo.com/514402706) (20:42)  
+
+<br>
+
 ## Empirical Exercise
 
 The in-class activity as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-in-class3.do) or [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-E3-in-class.pdf)
