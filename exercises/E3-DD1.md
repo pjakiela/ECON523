@@ -201,4 +201,4 @@ Which regression coefficient is the estimate of the time trend in the absence of
 
  ---
  
-This exercise is part of [Module 3:  Difference-in-Differences 1](https://pjakiela.github.io/ECON-523/M3-DD1.html).
+This exercise is part of [Module 3:  Difference-in-Differences 1](https://pjakiela.github.io/ECON523/M3-DD1.html).
