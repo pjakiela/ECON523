@@ -4,7 +4,7 @@
 
 [Exercise 2: Regression Review](https://pjakiela.github.io/ECON523/exercises/E2-regression.html)
 
-Exercise 3: Difference-in-Differences I (2x2 DD)  
+[Exercise 3: Difference-in-Differences I (2x2 DD)](https://pjakiela.github.io/ECON523/exercises/E3-DD1.html)  
 
 Exercise 4: Diff-in-Diff in a Panel Data Framework (DD II)  
 
