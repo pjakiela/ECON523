@@ -15,4 +15,5 @@ your own devising.  More original and/or challenging extensions will receive mor
 Details of the assignment are available [here](ECON523-replication-2023-02-24.pdf).  This  
 [paper template](paper-template-short.docx) provides a suggested structure for your write-up.  Your empirical results 
 must be nicely formatted, and your do files should replicate your tables (both the results and the layout).  Guidance 
-on exporting tables from stata to word (or excel or latex) is available [here](https://pjakiela.github.io/stata/making-tables.html).
+on exporting tables from stata to word (or excel or latex) is available [here](https://pjakiela.github.io/stata/making-tables.html).  You can find 
+some additional tips (not curated by me) on writing economics papers [here](https://statatexblog.com/useful-links/#writing-research-papers). 
