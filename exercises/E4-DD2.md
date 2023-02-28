@@ -1,10 +1,9 @@
 # Empirical Exercise 4
 
-In this exercise, we're going to be replicating the difference-in-differences analysis from 
+In this exercise, we're going to replicate the difference-in-differences analysis from 
 [Does a ban on informal health providers save lives? Evidence from Malawi](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4677333/) 
-by Professor Susan Godlonton and Dr. Edward Okeke.  
-
-At the end of the exercise, we'll be exporting our regression results to word using the `esttab` command.  An 
+by Professor Susan Godlonton and Dr. Edward Okeke.  At the end of the exercise, we'll export our 
+regression results to word using the `esttab` command.  An 
 overview of the use of `esttab` is available [here](https://pjakiela.github.io/stata/regression-table.html).
 
 You can access the in-class activity (below) as a do file or pdf.
@@ -23,9 +22,6 @@ a do file that opens the data set in Stata.  Your standard code for starting a d
 ``` 
 clear all
 set more off
-set scheme s1mono
-set seed 123456
-
 cd "C:\mypath\E4-DD2"
 use "C:\mypath\E4-DD2\E5-GodlontonOkeke-data.dta"
 ```
@@ -39,7 +35,7 @@ use "C:\mypath\E4-DD2\E5-GodlontonOkeke-data.dta"
 To implement difference-in-differences, we need:
  - a dummy variable for the post treatment period, 
  - a dummy variable for the treatment group, and 
- - an interaction between the two 
+ - an interaction between the two  
 The `post` variable is already present in the data set.  What is the mean of the `post` variable?  What fraction of the observations in the data set occur in the post-treatment period?
 
 ### Question 2
