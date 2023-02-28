@@ -17,7 +17,7 @@ You can also access the main empirical exercise (also below) as a do file or pdf
 
 The data set `E4-GodlontonOkeke-data.dta` contains information (from the 
 [2010 Malawi Demographic and Health Survey](https://dhsprogram.com/methodology/survey/survey-display-333.cfm)) 
-on 19,680 live births between July 2005 and September 2010.  Each observartion represents a birth.  Create 
+on 19,680 live births between July 2005 and September 2010.  Each observation represents a birth.  Create 
 a do file that opens the data set in Stata.  Your standard code for starting a do file should look something like:
 
 ``` 
@@ -100,7 +100,7 @@ Confirm that your new variable, `tba`, is a dummy variable.   Use the command
 tab tba, m
 ``` 
 
-to tabulate the observed values of `tba` (the `, m` option tells 
+to tabulate the observed values of `tba` (the `m` option tells 
 Stata to tabulate the number of missing values in addition to the other values).
 
 ### Question 7
@@ -128,7 +128,7 @@ to calculate the level of TBA use prior to the ban?
 ### Question 10
 
 Summarize your `meantba` variable using the `detail` or `d` option after the `sum` command 
-so that you can calculate the 75th percentil of TBA use in the pre-ban period.  As we've seen in earlier 
+so that you can calculate the 75th percentile of TBA use in the pre-ban period.  As we've seen in earlier 
 exercises, you can use the `return list` command to see which locals are saved when 
 you run the `summarize` command.  Define a local macro `cutoff` equal to the 75th percentile 
 of the variable `meantba`.  Then immediately create a new variable `high_exposure` that is an indicator 
@@ -220,9 +220,9 @@ in the table notes).  Report standard errors rather than t-statistics.  Make sur
 all variables and columns are clearly labeled, and that your labels are not 
 cut off (because they are too long).  
 
-### Question 2:  Assessing the Common Trends Assmption
+### Question 2:  Assessing the Common Trends Assumption
 
-Next, assess the validity of the common trends assumption by replicting 
+Next, assess the validity of the common trends assumption by replicating 
 the first two columns of Table 2 (we don't have the outcome data needed 
 to replicate Columns 3 and 4).  
 
@@ -274,7 +274,7 @@ treatment intensity:  the interaction between the level of TBA use prior to the 
 this new treatment variable using your existing `meantba` variable (which, unfortunately, is missing for all 
 observations in the post-ban period), and then estimate regressions that control for DHS cluster and time 
 fixed effects (warning:  this will give your computer a bit of a workout).  How do the results from these 
-alterantive specifications compare to those reported in the paper?
+alternative specifications compare to those reported in the paper?
 
 <br>
 
