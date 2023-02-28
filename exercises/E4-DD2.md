@@ -2,7 +2,8 @@
 
 In this exercise, we're going to replicate the difference-in-differences analysis from 
 [Does a ban on informal health providers save lives? Evidence from Malawi](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4677333/) 
-by Professor Susan Godlonton and Dr. Edward Okeke.  At the end of the exercise, we'll export our 
+by Professor Susan Godlonton and Dr. Edward Okeke.  The authors estimate the impact of Malawi's 2007 ban 
+on traditional birth attendants (TBAs) on a range of birth outcomes.  At the end of the exercise, we'll export our 
 regression results to word using the `esttab` command.  An 
 overview of the use of `esttab` is available [here](https://pjakiela.github.io/stata/regression-table.html).
 
@@ -36,6 +37,7 @@ To implement difference-in-differences, we need:
  - a dummy variable for the post treatment period, 
  - a dummy variable for the treatment group, and 
  - an interaction between the two  
+ 
 The `post` variable is already present in the data set.  What is the mean of the `post` variable?  What fraction of the observations in the data set occur in the post-treatment period?
 
 ### Question 2
@@ -86,13 +88,13 @@ recode m3g (9=.), gen(tba)
 ```
 
 This generates a new variable, `tba`, that is the same as the `m3g` variable except that `tba` is equal to missing for all 
-observations where `m3g` is equal to 9.  (It is usually better to generate a new variable 
+observations where `m3g` is equal to 9.  It is usually better to generate a new variable 
 instead of modifying the variables in your raw data set, because you don't want to make 
-mistakes that you cannot undo.)  Confirm that your new variable, `tba`, is a dummy variable.  
+mistakes that you cannot undo.   
 
 ### Question 6
 
-Use the command 
+Confirm that your new variable, `tba`, is a dummy variable.   Use the command 
 
 ```
 tab tba, m
@@ -125,10 +127,10 @@ to calculate the level of TBA use prior to the ban?
 
 ### Question 10
 
-Summarize your `meantba` variable using the `, detail` or `, d` option after the `sum` command 
+Summarize your `meantba` variable using the `detail` or `d` option after the `sum` command 
 so that you can calculate the 75th percentil of TBA use in the pre-ban period.  As we've seen in earlier 
-exercises, you can use the `return list` command after summarize to see which locals are saved when 
-you run the `summarize` command in Stata.  Define a local macro `cutoff` equal to the 75th percentile 
+exercises, you can use the `return list` command to see which locals are saved when 
+you run the `summarize` command.  Define a local macro `cutoff` equal to the 75th percentile 
 of the variable `meantba`.  Then immediately create a new variable `high_exposure` that is an indicator 
 for DHS clusters where the level of TBA use prior to the ban exceeded the cutoff we just calculated. 
 
@@ -138,7 +140,7 @@ At this point, `meantba` is only non-missing for births (ie observations) in the
 Modify the code so that you only define `high_exposure` for births 
 where the `meantba` variable is non-missing. Then we need to replace the missing values of `high_exposure` 
 in the post-treatment period with the correct ones (based on the values in the same cluster in 
-the pre-treatment period),  Here are three lines of code that will fix it:
+the pre-treatment period).  Here are three lines of code that will fix it:
 
 ``` 
 bys dhsclust:  egen maxtreat = max(high_exposure)
@@ -170,16 +172,11 @@ to those in Table 5, Panel A, Column 1 of the paper?
 Read the notes below Table 5.  See if you can modify your regression command so that your results 
 are precisely identical to those in the paper.
 
-
 <br>
 
-## Replicating One Coefficient
+## Empirical Exercise
 
-Now you have the variables you need to run a 2x2 difference-in-differences analysis 
-on the impact of Malawi's ban on TBAs on their use.  Do this.  How does the coefficient of interest 
-(on the interaction between `post` and `high_exposure`) compare to the results reported in 
-Panel A of Table 5 in Godlonton and Okeke (2015), shown below?  (Right click on the table to open it 
-in a new tab so that you can actually read it.)
+
 
 ![table](https://pjakiela.github.io/ECON379/exercises/E5-DD2/GO-Tab5.png)
 
