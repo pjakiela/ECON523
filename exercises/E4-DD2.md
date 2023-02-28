@@ -263,5 +263,22 @@ they will not replicate perfectly).  Store your coefficient estimates.
 
 Export your results to word as a nicely formatted table (all of the guidance from Question 1 still applies).  
 
+<br>
 
+## Additional Activities
+
+If you are looking for ways to expand your program evaluation skills further, extend your answer to Question 1 
+by including district-specific time trends, as Professor Godlonton and Dr. Okeke do in Columns 4 through 6 
+of Tables 5 and 6.  Alternatively, you can replicate the main analysis using a continuous measure of 
+treatment intensity:  the interaction between the level of TBA use prior to the ban and the `post` dummy.  Generate 
+this new treatment variable using your existing `meantba` variable (which, unfortunately, is missing for all 
+observations in the post-ban period), and then estimate regressions that control for DHS cluster and time 
+fixed effects (warning:  this will give your computer a bit of a workout).  How do the results from these 
+alterantive specifications compare to those reported in the paper?
+
+<br>
+
+ ---
+
+This exercise is part of the module [Diff-in-Diff in Panel Data](https://pjakiela.github.io/M4-DD2.html).
 
