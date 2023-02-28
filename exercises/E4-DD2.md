@@ -2,25 +2,25 @@
 
 In this exercise, we're going to be replicating the difference-in-differences analysis from 
 [Does a ban on informal health providers save lives? Evidence from Malawi](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4677333/) 
-by Professor Susan Godlonton and Dr. Edward Okeke.  Table 5, which we will replicate, summarizes the impact of Malawi's 2007 ban on the use of 
-traditional birth attendants (TBAs) on birth outcomes, including both the use of formal sector providers and neonatal mortality.
+by Professor Susan Godlonton and Dr. Edward Okeke.  
+
+At the end of the exercise, we'll be exporting our regression results to word using the `esttab` command.  An 
+overview of the use of `esttab` is available [here](https://pjakiela.github.io/stata/regression-table.html).
+
+You can access the in-class activity (below) as a do file or pdf.
+
+You can also access the main empirical exercise (also below) as a do file or pdf.
 
 <br>
 
 ## Getting Started
 
-The `do` file needed for this activity is here:  [E4-questions.do](E4-questions.do).
-
-The data set E4-GodlontonOkeke-data.dta is available on glow.  It contains information (from the 
+The data set E4-GodlontonOkeke-data.dta contains information (from the 
 [2010 Malawi Demographic and Health Survey](https://dhsprogram.com/methodology/survey/survey-display-333.cfm)) 
-on 19,680 live births between July 2005 and September 2010.  Each observartion represents a birth.  Download the data, and then create 
-a do file that opens the data set in Stata.  Our standard code for starting a do file will look something like:
+on 19,680 live births between July 2005 and September 2010.  Each observartion represents a birth.  Create 
+a do file that opens the data set in Stata.  Your standard code for starting a do file should look something like:
 
 ``` 
-/* Replicating Table 5 from Godlonton & Okeke (2015) */
-
-// PRELIMINARIES
-
 clear all
 set more off
 set scheme s1mono
@@ -32,13 +32,17 @@ use "C:\mypath\E4-DD2\E5-GodlontonOkeke-data.dta"
 
 <br>
 
-## Generating the Variables Needed for Analysis
+## In-Class Activity
+
+### Question 1
 
 To implement difference-in-differences, we need:
  - a dummy variable for the post treatment period, 
  - a dummy variable for the treatment group, and 
  - an interaction between the two 
 The `post` variable is already present in the data set.  What is the mean of the `post` variable?  What fraction of the observations in the data set occur in the post-treatment period?
+
+### Question 2
 
 The `time` variable indicates the month and year in which a birth took place. If you type the command 
 `desc time` you'll see the following output:
@@ -47,6 +51,8 @@ The `time` variable indicates the month and year in which a birth took place. If
 
 Notice that the `time` variable is formatted in Stata's date format:  it is stored as a number, 
 but appears as a month and year when you describe or tabulate it.  
+
+### Question 3
 
 Use the command 
 
@@ -57,7 +63,9 @@ tab time post
 to see how Professor Godlonton and Dr. Okeke define the 
 post-treatment time period in their analysis.  What is the first treated month?
 
-Next we need to define an indicator for the treatment group.  Professor Godlonton and Dr. Okeke 
+### Question 4
+
+We need to define an indicator for the treatment group.  Professor Godlonton and Dr. Okeke 
 define the treatment group as DHS clusters (i.e. communities) that were at or above the 
 75th percentile in terms of use of TBAs prior to the ban.  Data 
 on use of TBAs comes from responses to the question below:
@@ -67,6 +75,8 @@ on use of TBAs comes from responses to the question below:
 Responses have been converted into a set of different variables representing the different 
 types of attendants who might have been present at the birth.  Tabulate (using the `tab` command) 
 the `m3g` variable, which indicates whether a woman indicated that a TBA was present at a birth. What pattern of responses do you observe?
+
+### Question 5
 
 We want to generate a dummy variable that is equal to one if a TBA was present at a particular birth, 
 equal to zero if a TBA was not present, and equal to missing if a woman did not 
@@ -82,7 +92,11 @@ recode m3g (9=.), gen(tba)
 This generates a new variable, `tba`, that is the same as the `m3g` variable except that `tba` is equal to missing for all 
 observations where `m3g` is equal to 9.  (It is usually better to generate a new variable 
 instead of modifying the variables in your raw data set, because you don't want to make 
-mistakes that you cannot undo.)  Confirm that your new variable, `tba`, is a dummy variable.  Use the command 
+mistakes that you cannot undo.)  Confirm that your new variable, `tba`, is a dummy variable.  
+
+### Question 6
+
+Use the command 
 
 ```
 tab tba, m
@@ -91,9 +105,13 @@ tab tba, m
 to tabulate the observed values of `tba` (the `, m` option tells 
 Stata to tabulate the number of missing values in addition to the other values).
 
+### Question 7
+
 We want to generate a **treatment dummy** - an indicator for DHS clusters where use of TBAs was at or above 
 the 75th percentile prior to the ban.  How should we do it?  The variable `dhsclust` is an ID number 
 for each DHS cluster.  How many clusters are there in the data set?  
+
+### Question 8
 
 We can use the `egen` command 
 to generate a variable equal to the mean of another variable, and we can use `egen` with the `bysort` option 
@@ -103,40 +121,28 @@ to generate a variable equal to the mean within different groups:
 bysort dhsclust:  egen meantba = mean(tba)
 ```
 
+### Question 9
+
 However, this tells us the mean use of TBAs within a DHS cluster over the entire sample period, 
 but we only want a measure of the mean in  the pre-ban period.  How can we modify the code above 
 to calculate the level of TBA use prior to the ban?  
 
-Now summarize your `meantba` variable using the `, detail` or `, d` option after the `sum` command 
+### Question 10
+
+Summarize your `meantba` variable using the `, detail` or `, d` option after the `sum` command 
 so that you can calculate the 75th percentil of TBA use in the pre-ban period.  As we've seen in earlier 
 exercises, you can use the `return list` command after summarize to see which locals are saved when 
-you run the `summarize` command in Stata:
+you run the `summarize` command in Stata.  Define a local macro `cutoff` equal to the 75th percentile 
+of the variable `meantba`.  Then immediately create a new variable `high_exposure` that is an indicator 
+for DHS clusters where the level of TBA use prior to the ban exceeded the cutoff we just calculated. 
 
-``` 
-sum meantba, d
-return list
-local cutoff = r(p75)
-```
+### Question 11
 
-The last line in the code above (when implemented immediately after the `sum meantba, d` command, 
-stores a local macro equal to the 75th percentile of the variable `meantba`.  Now we need to create a new variable `high_exposure` that is an 
-indicator for DHS clusters where the level of TBA use prior to the ban exceeded the cutoff we just 
-calculated.  How might you go about doing this?  
-
-Remember:  `meantba` is only non-missing for births (ie observations) in the pre-treatment period. 
-If you type 
-```
-gen high_exposure = meantba>=`cutoff' if tba!=.
-```
-you will end up setting `high_exposure` to one for all post-treatment observations.  You 
-don't want to do that! Modify the code so that you only define `high_exposure` for births 
-where the `meantba` variable is non-missing. 
-
-Of course, now we have a small problem:  you've successfully defined a `high_exposure` 
-variable that is an indicator for DHS clusters where the level of TBA use was at or above the 
-75th percentile in the pre-ban period, but your treatment variable is missing for all births 
-in the post-ban period.  This issue comes up a lot.  Here are three lines of 
-code that will fix it:
+At this point, `meantba` is only non-missing for births (ie observations) in the pre-treatment period. 
+Modify the code so that you only define `high_exposure` for births 
+where the `meantba` variable is non-missing. Then we need to replace the missing values of `high_exposure` 
+in the post-treatment period with the correct ones (based on the values in the same cluster in 
+the pre-treatment period),  Here are three lines of code that will fix it:
 
 ``` 
 bys dhsclust:  egen maxtreat = max(high_exposure)
@@ -144,12 +150,30 @@ replace high_exposure = maxtreat if high_exposure==. & post==1 & tba!=.
 drop maxtreat
 ```
 
+### Question 12
+
 Tabulate your `high_exposure` variable to make sure that it is only missing for observations 
 with the `tba` variable missing.  What is the mean of `high_exposure`?
 
+### Question 13 
+
 The last variable we need to conduct difference-in-differences analysis is an interaction between 
 our treatment variable, `high_exposure`, and the `post` variable.  Generate such a variable. 
-I suggest calling it `highxpost`.  Now you are ready to run a regression.
+I suggest calling it `highxpost`.  You should also label your three variables:  `high_exp`, `post`, 
+and `highxpost`.
+
+### Question 14
+
+Now you are ready to run a regression.  Regress the `tba` dummy on `high_exp`, `post`, and 
+`highxpost`.  What is the difference-in-differences estimate of the treatment effect 
+of the TBA ban on use of informal birth attendants?  How do your results compare 
+to those in Table 5, Panel A, Column 1 of the paper?
+
+### Question 15
+
+Read the notes below Table 5.  See if you can modify your regression command so that your results 
+are precisely identical to those in the paper.
+
 
 <br>
 
