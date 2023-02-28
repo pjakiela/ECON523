@@ -15,7 +15,7 @@ You can also access the main empirical exercise (also below) as a do file or pdf
 
 ## Getting Started
 
-The data set E4-GodlontonOkeke-data.dta contains information (from the 
+The data set `E4-GodlontonOkeke-data.dta` contains information (from the 
 [2010 Malawi Demographic and Health Survey](https://dhsprogram.com/methodology/survey/survey-display-333.cfm)) 
 on 19,680 live births between July 2005 and September 2010.  Each observartion represents a birth.  Create 
 a do file that opens the data set in Stata.  Your standard code for starting a do file should look something like:
@@ -169,6 +169,12 @@ to those in Table 5, Panel A, Column 1 of the paper?
 
 ### Question 15
 
+You are using the same data as Professor Godlonton and Dr. Okeke, so you should 
+be able to replicate their coefficient estimates and standard errors **exactly**.  Have you done 
+it?
+
+![table](https://pjakiela.github.io/ECON379/exercises/E5-DD2/GO-Tab5.png)
+
 Read the notes below Table 5.  See if you can modify your regression command so that your results 
 are precisely identical to those in the paper.
 
@@ -176,124 +182,56 @@ are precisely identical to those in the paper.
 
 ## Empirical Exercise
 
+Start by generating a new do file that loads `E4-GodlontonOkeke-data.dta` and uses your answers 
+to the in-class activity to generate and labels the variables needed to replicate Column 1 of 
+Table 5.  
 
+### Question 1:  Replicating Column 1 from Tables 5 and 6
 
-![table](https://pjakiela.github.io/ECON379/exercises/E5-DD2/GO-Tab5.png)
+#### Part (a)
 
-You are using the same data set as Professor Godlonton and Dr. Okeke, so you should 
-be able to replicate their coefficient estimates and standard errors **exactly**.  Have you done 
-it?  If not, look closely at the coefficients that they report and read their table notes carefully.  Try to 
-figure out what you need to change to replicate their exact results.  Once you've done that (Congratulations! You replicated 
-a table in a published paper!), move on to the rest of the empirical exercise.
+Estimate a difference-in-differences specification that replicates Table 5, Panel A, 
+Column 1.  Store your results using the `eststo` command.
 
-(Hint:  if you want Stata to include fixed effects for, for example, time periods, you add the code `i.time` like it is an additional variable in your regression.)
+#### Part (b)
 
-<br>
+Now replicate Table 5, Panel B, Column 1 (the same specification with the `sba` dummy 
+as the outcome variable) and store your results.
 
-## Empirical Exercise
+#### Part (c)
 
-In the remainder of this exercise, we will be estimating the impact of Malawi's ban on traditional birth attendants 
-on the use of formal sector providers (aka skilled birth attendants or SBAs).  The variable `sba` is an indicator 
-for use of (wait for it) an SBA.  Estimates of the impact of the TBA ban on use of SBAs are reported in Panel B of 
-Table 5 in Godlonton and Okeke (2015).
+Recode the `m3h` variable to generate a dummy for having a friend or relative 
+as the birth attendant.  Use this variable to replicate Table 6, Panel A, 
+Column 1.  Store your results.
 
-Before we begin, we're going to set up an Excel file where we can record our results.  Our coefficient of interest is the `highxpost` variable, which is the interaction between the `post` dummy and the `high_exposure` dummy.  Our regression table will only record this coefficient.  Add the following Stata code to your do file to set up your Excel file that will receive your coefficient estimates.  
+#### Part (d)
 
-```
-putexcel set E4-DD-table.xlsx, replace
-putexcel B1="(1)", hcenter bold border(top)
-putexcel C1="(2)", hcenter bold border(top)
-putexcel A2="High Exposure x Post", bold
-putexcel A4="Observations", bold border(bottom)
-```
+Now generate a variable `alone` that is equal to one minus the maximum of 
+the `tba`, `sba`, and `friend` variables. Use this variable to replicate 
+Table 6, Panel B, Column 1.  Store your results. 
 
-Make sure you understand the code above before proceeding with the exercise.
+#### Part (e)
 
-### Question 1
+Now export your results to word as a nicely formatted table.  Report the 
+R-squared for each specification, and do not report coefficients 
+on the district and time fixed effects (use the `indicate` option to report 
+which columns include fixed effects, or indicate which fixed effects are used 
+in the table notes).  Report standard errors rather than t-statistics.  Make sure 
+all variables and columns are clearly labeled, and that your labels are not 
+cut off (because they are too long).  
 
-Test the hypothesis that the proportion of women giving birth in the presence of a skilled birth attendant increased after Malawi introduced the ban on TBAs.  What is the t-statistic associated with this hypothesis test?
+### Question 2:  Assessing the Common Trends Assmption
 
-### Question 2
+Next, assess the validity of the common trends assumption by replicting 
+the first two columns of Table 2 (we don't have the outcome data needed 
+to replicate Columns 3 and 4).  
 
-Estimate a simple 2x2 difference-in-differences specification to measure the impact of Malawi's TBA ban on the use of SBAs.  Your regression should include the `post` dummy, the `high-exposure` (i.e. treatment) dummy, and the `highxpost` interaction term (and no other independent variables).  What is the estimated coefficient of interest (ie the coefficient on `highxpost`)?  
+#### Part (a) 
 
-### Question 3 
-
-To export our regression coefficients to Excel, we first need to save our regression results to a matrix in Stata.  We will do this with the command
-
-```
-matrix V = r(table)
-```
-
-The `r(table)` refers to Stata's default way of storing regression results; the command defines a matrix `V` containing the regression results.  Type `matrix list V` into the command window to see this matrix.
-
-You can see that the matrix is 9 rows tall.  The number of columns is one plus the number of variables included in our regression.  The first row contains the coefficient estimates, the second row contains the standard errors, the third row contains the t-statistics, and the fourth row contains the p-values.  
-
-If we estimated our regression using the command
-
-```
-reg sba post high_exp highxpost
-```
-
-then our coefficient of interest is the third variable in the regression.  This means that the coefficient estimate, standard error, etc. are stored in the third column of the matrix `V`.  To export the coefficient estimate to cell B2 in Excel, we can use the commands:
-
-```
-local my_coef = round(V[1,3],0.01)
-putexcel B2 = "`my_coef'", hcenter
-```
-
-where **V[1,3]** refers to the cell of the matrix V in the first column and the third row.  Implement this code, making sure that you are successfully exporting your regression coefficient of interest.
-
-### Question 4
-
-Now write the standard error associated with the regression coefficient on `highxpost` to cell B3 in your Excel file.  
-
-### Question 5
-
-Use the code below (after your regression) to export the number of observations to cell B4 in your Excel file:
-
-```
-putexcel B4 = `e(N)'
-```
-
-### Question 6
-
-Now re-run your diff-in-diff estimation replacing the `post` variable with time fixed effects.  What is the estimated coefficient on `highxpost` now?  Write your coefficient on `highxpost`, the associated standard error, and the number of observations to Column C in your Excel file.
-
-### Question 7
-
-As we saw above, Professor Godlonton and Dr. Okeke also include district fixed effects.  Re-run your diff-in-diff estimation including these as well.  What is the estimated coefficient on `highxpost` now?  Write your coefficient on `highxpost`, the associated standard error, and the number of observations to Column D in your Excel file.
-
-At this point, you (should) have successfully replicated the result from Godlonton and Okeke (2015).  As you saw, the coeffcient on the `highxpost` (the diff-in-diff estimate of the treatment effect) was extremely similar in specifications with and without fixed effects.  
-
-<br> 
-
-## More Fun with Stata
-
-Professor Godlonton and Dr. Okeke test common trends directly by generating a 
-time trend variable that they interact with treatment.  Their results are 
-presented in Table 2 in their paper, which appears below:
-
-![GO Table 2](https://pjakiela.github.io/ECON379/exercises/E6-DD3/GO-Tab2.png)
-
-We are primarily interested in the interaction between our treatment variable, 
-`high_exposure`, and the time trend:  if this variable is statistically significant, 
-it indicates that the treatment and comparison groups were on different trajectories 
-prior to the program.  
-
-To replicate these results, we need to generate a time trend variable.  The data set 
-contains the variable `time`; it indicates the the month and year in which a birth 
-took place. However, `time` is formatted in Stata's date-time format, which even 
-economics professors can never remember how to use.  Fortunately, we can use 
-the `egen` command to create a trend variable after we sort the data by date:
-
-```
-sort time
-egen trend = group(time) if post==0
-```
-
-The `egen` option `group` creates a variable indicating the different groups (or values) 
-of the `time` variable.  So, in this data set, the `egen` command will generate a group variable as 
+Drop the observations from after the ban was in place.  Then generate a `trend` variable 
+by using the `egen` command's `group` option (with the `time` variable).  The `egen` option `group` 
+creates a variable indicating the different groups (or values) of the `time` variable.  So, 
+in the example below, the `egen` command would generate a `trend` variable as 
 follows:
 
 time|trend
@@ -306,21 +244,24 @@ Aug05|2
 Oct05|3
 Oct05|3
 
-Notice that `egen` is just counting off the groups:  there are no observations 
-from September of 2005, so October 2005 is the third group (ie the `egen` command 
-is **not** telling us how many months have passed since the start of the data set). In this case, 
-you can tab `time` and see that there aren't any missing months, so the `trend` variable 
+Notice that `egen` is just counting off the groups defined by the `time` variable:  there are no observations 
+from September of 2005 in the example above, so October 2005 is the third group (ie the `egen` command 
+is **not** telling us how many months have passed since the start of the data set). 
+
+If you tab `time` in our actual data, you will see that there aren't any missing months, so the `trend` variable 
 _does_ also tell us how many months an observation is from the earliest observations in 
-the data set - but that is because of the particular structure of this data set.  (Also, 
-remember that you have to sort your data before using the `egen` command with the group 
-option.)
+the data set - but that is because of the particular structure of this data.  
 
-Once you've generated the `trend` variable, you need to interact it with `high_exposure` 
-(the treatment dummy).  Then you can regress an outcome like `tba` on the `high_exposure` 
-variable, the `trend` variable, and the interaction between them.  The table notes 
-above also indicate that Professor Godlonton and Dr. Okeke include district fixed effects; 
-you can add these by adding `i.district` to your regression command.
+Once you've generated the `trend` variable, interact it with the `high_exposure` variable, and label everything.
 
-Do you get the same results as the authors?  Specifically, do the coefficient and 
-standard error on the variable `highxtrend` match up?
+#### Part (b) 
+
+Replicate columns 1 and 2 from Table 2 to the best of your ability (note:  
+they will not replicate perfectly).  Store your coefficient estimates.
+
+#### Part (c)
+
+Export your results to word as a nicely formatted table (all of the guidance from Question 1 still applies).  
+
+
 
