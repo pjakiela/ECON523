@@ -1,7 +1,7 @@
 # Replication Project
 
 This exercise makes use of the data set [Card-Krueger-1994-data.dta](Card-Krueger-1994-data.dta), 
-which was first used in the paper [Minimum Wages and Employment:  A Case Study of the Fast-Food Industry in New Jersey and Pennsylvania](https://www.jstor.org/stable/2677856) by David Card 
+which was first used in the paper [Minimum Wages and Employment:  A Case Study of the Fast-Food Industry in New Jersey and Pennsylvania](https://www.jstor.org/stable/2118030?sid=primo) by David Card 
 and Alan Krueger, published in the _American Economic Review_ in 1994. The authors 
 examine the impacts of a change in New Jersey's minumum wage law 
 that took effect in April of 1992.  
