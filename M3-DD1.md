@@ -40,7 +40,7 @@ A handout version of the lecture slides is available [here](ECON523-L3-DD1-hando
 
 ## Empirical Exercise
 
-The in-class activity as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-in-class.do) or [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-E3-in-class.pdf)
+The in-class activity as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-E3-in-class.do) or [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-E3-in-class.pdf)
 
 The empirical exercise as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-E3-questions.do) or [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-E3-questions.pdf)
 
