@@ -7,9 +7,9 @@ on traditional birth attendants (TBAs) on a range of birth outcomes.  At the end
 regression results to word using the `esttab` command.  An 
 overview of the use of `esttab` is available [here](https://pjakiela.github.io/stata/regression-table.html).
 
-You can access the in-class activity (below) as a do file or pdf.
+You can access the in-class activity as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON523-E4-in-class.do) or [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON523-E4-in-class.pdf).
 
-You can also access the main empirical exercise (also below) as a do file or pdf.
+You can also access the empirical exercise as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON523-E4-questions.do) or [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON523-E4-questions.pdf).
 
 <br>
 
@@ -280,5 +280,5 @@ alternative specifications compare to those reported in the paper?
 
  ---
 
-This exercise is part of the module [Diff-in-Diff in Panel Data](https://pjakiela.github.io/M4-DD2.html).
+This exercise is part of the module [Diff-in-Diff in Panel Data](https://pjakiela.github.io/ECON523/M4-DD2.html).
 
