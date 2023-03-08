@@ -109,7 +109,7 @@ Generate a relative time variable `rel_time` that indicates the difference betwe
 Summarize the `rel_time` variable.  What is the maximum number of years that we observe **before** a country implements free primary (among countries that eventually implement it)?  Use the loop below to generate variables `minus_2`, `minus_3`, `minus_4` etc that are dummies equal to one for country-years (respectively) 2, 3, 4 etc. years before a country implements free primary.  For countries that never implement free primary, these variables should be equal to 0 for all years.  
 ```
 forvalues i = 2/27 {
-	gen minus_`i' = (fpe_year - year==`i' & nevertreated==0)
+ gen minus_`i' = (fpe_year - year==`i' & nevertreated==0)
 }
 ```
 
@@ -119,7 +119,7 @@ What is the maximum number of years that we observe **after** a country implemen
 
 #### Part (d) 
 
-Now implement the event study design by regressing complete on country and year fixed effects as well as the `minus_*` and `plus_*` variables.  What patterns of significance do you observe among the `plus_*` variables?  Is there ever a statistically significant impact of FPE on primary school completion?  What patterns of significance do you observe among the `minus_*` variables?  Is there evidence that the assumption of common trends is violated?
+Now implement the event study design by regressing `complete` on country and year fixed effects as well as the `minus_*` and `plus_*` variables.  What patterns of significance do you observe among the `plus_*` variables?  Is there ever a statistically significant impact of FPE on primary school completion?  What patterns of significance do you observe among the `minus_*` variables?  Is there evidence that the assumption of common trends is violated?
 
 #### Part (e)
 
@@ -137,7 +137,7 @@ Use the results from Question 5a to exclude some pre-treatment observations (whe
 
 #### Part (c)
 
-Make a new event study plot that presents the results in your trimmed (i.e. restricted sample). 
+Make a new event study plot that presents the results in your trimmed (i.e. restricted) sample. 
 
 #### Part (d)
 
@@ -149,4 +149,4 @@ From a statistical perspective, do you think it is good or bad that we trimmed t
 
  ---
  
-This exercise is part of the [Two-Way Fixed Effects](https://pjakiela.github.io/ECON523/M5-TWFE.html)  module.
+This exercise is part of the module [Two-Way Fixed Effects](https://pjakiela.github.io/ECON523/M5-TWFE.html).
