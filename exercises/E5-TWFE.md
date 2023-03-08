@@ -12,7 +12,7 @@ weaknesses of TWFE.
 
 You can access the in-class activity as a [do file](ECON523-E5-in-class.do) or [pdf](ECON523-E5-in-class.pdf).
 
-You can also access the empirical exercise as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON523-E5-questions.do) or [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON523-E5-questions.pdf).
+You can also access the empirical exercise as a [do file](ECON523-E5-questions.do) or [pdf](ECON523-E5-questions.pdf).
 
 <br>
 
@@ -24,17 +24,17 @@ Before you begin, create a do file (with all the standard stuff at the top) that
 
 ## In-Class Activity
 
-The gross primary enrollment ratio is 100 times the number of students enrolled in primary school divided by the number of primary-school-aged children. This number can be greater than 100 when over-age children are enrolled in primary school - which often happens when school fees are eliminated.  What was the average level of primary school enrollment in 1981 (at the beginning of the data set)?  What was the average year of primary school enrollment in the last year for which data is available?  In how many country-years is the gross primary enrollment ratio above 100?
+The **gross primary enrollment ratio** is 100 times the number of students enrolled in primary school divided by the number of primary-school-aged children. This number can be greater than 100 when over-age children are enrolled in primary school - which often happens when school fees are eliminated.  What was the average level of primary school enrollment in 1981 (at the beginning of the data set)?  What was the average year of primary school enrollment in the last year for which data is available?  In how many country-years is the gross primary enrollment ratio above 100?
 
 In the first activity, we'll be using `enroll` as our outcome variable.  Drop country-years for which `enroll` is missing. 
 
 ### Question 1
 
-Generate a treatment dummy `fpe` that is equal to one for years where where primary school is free (i.e. all years starting from the year where FPE was implemented).  Label this variable "Free primary education".  What is the mean of this variable across all country-years in the data set?
+Generate a treatment dummy `fpe` that is equal to one for years where where primary school is free (i.e. all years starting from the year when FPE was implemented in  a particular country).  Label this variable "Free primary education".  What is the mean of this variable across all country-years in the data set?
 
 ### Question 2
 
-Regress gross enrollment on `fpe` controlling for country and year fixed effects.  Restrict the sample to countries that eventually implemented FPE (an easy way to do this is to go up a few lines and make sure `fpe` is missing for observations in countries that never implemented free primary).  Cluster your standard errors at the country level.  What is the estimated impact of eliminating school fees on enrollment?
+Regress gross enrollment on `fpe` controlling for country and year fixed effects.  Restrict the sample to countries that eventually implemented FPE (an easy way to do this is to go back up a few lines in your do file and make `fpe` missing for observations in countries that never implemented free primary).  Cluster your standard errors at the country level.  What is the estimated impact of eliminating school fees on enrollment?
 
 ### Question 3
 
@@ -42,7 +42,7 @@ Next we are going to construct the TWFE estimate of the impact of FPE "by hand" 
 
 #### Part (a)
 
-Regress `fpe` on country and year fixed effects, and generate a variable `tresid` (short for treatment residual) equal to the residuals from the regression (make sure that you dropped the country-years with missing values of the outcome variable).
+Regress `fpe` on country and year fixed effects, and generate a variable `tresid` (short for treatment residual) equal to the residuals from the regression (make sure that you drop the country-years with missing values of the outcome variable before you do this).
 
 #### Part (b)
 
@@ -58,7 +58,13 @@ What fraction of the treated country-years received negative weight in our TWFE 
 
 #### Part (e)
 
-The TWFE coefficient is a linear combination of the observed values of the outcome variable, with each value of Y is weighted by the associated residualized value of treatment (`tresid`) divided by the sum of all the squared values of `tresid`.  Confirm that this is correct by:  (1) calculating a variable `tr2` equal to the square of `tresid`, (2) using `egen`'s `sum` option to calculate a variable `tvar` equal to the sum of `tr2` across all observations, (3) generate a `weight` variable equal to `tresid` divided by `tvar`, (4) generate a variable `yxweight` that is equal to the observed value of `enroll` (the outcome variable) times the regression `weight`, and (5) calculate the TWFE coefficient as the sum of `yxweight` across all observations.
+The TWFE coefficient is a linear combination of the observed values of the outcome variable, with each value of Y weighted by the associated residualized value of treatment (`tresid`) divided by the sum of all the squared values of `tresid`.  Confirm that this is correct by:  
+
+1. Calculating a variable `tr2` equal to the square of `tresid`,
+2. Using `egen`'s `sum` option to calculate a variable `tvar` equal to the sum of `tr2` across all observations,
+3. Generating a `weight` variable equal to `tresid` divided by `tvar`,
+4. Generating a variable `yxweight` that is equal to the observed value of `enroll` (the outcome variable) times the regression `weight`, and 
+5. Calculating the TWFE coefficient as the sum of `yxweight` across all observations.
 
 #### Part (f)
 
