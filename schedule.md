@@ -8,7 +8,7 @@
 
 [February 27, March 1: Diff-in-Diff in Panel Data (DD III)](https://pjakiela.github.io/ECON523/M4-DD2.html)  
 
-March 6, 8:  Two-Way Fixed Effects (DD III)
+[March 6, 8:  Two-Way Fixed Effects (DD III)](https://pjakiela.github.io/ECON523/M5-TWFE.html)
 
 April 3, 5: Treatment-on-the-Treated
 
