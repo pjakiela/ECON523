@@ -15,6 +15,8 @@ can be severely biased when treatment timing is staggered and treatment effects 
 
 [Simple Diagnostics for Two-Way Fixed Effects](https://arxiv.org/abs/2103.13229)
 
+<br>
+
 ### Optional Readings
 
 [Difference-in-differences with variation in treatment timing](https://www.sciencedirect.com/science/article/pii/S0304407621001445)  
