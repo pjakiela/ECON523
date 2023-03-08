@@ -72,17 +72,17 @@ Now that you know you can do this by hand, we will never do it again. Drop `yres
 
 ### Question 4
 
-Now rerun your TWFE regression including the never-treated countries.  How many treated country-years are negatively weighted now?
+Now rerun your TWFE regression including the never-treated countries.  How many treated country-years are negatively weighted now?  How much does eliminating negative weights change your coefficient of interest?
 
 <br>
 
 ## Empirical Exercise
 
-Create a new do file (with all the standard stuff at the top) that downloads the data set [the data set](https://pjakiela.github.io/ECON523/exercises/E5-fpedata.dta).  Drop any country-years that are missing data on the primary school completion rate.  Extend your do file as you answer the questions below.
+Next, we're going to estimate the impact of eliminate primary school fees on primary school completion.  Create a new do file (with all the standard stuff at the top) that downloads [the data set](E5-fpedata.dta).  What variable indicates the primary school completion rate?  What was the mean level of primary school completion (across countries in the sample) in 1981?  What was the level of primary school completion in 2020?  Drop any country-years that are missing data on the primary school completion rate.  Extend your do file as you answer the questions below.
 
 ### Question 1
 
-Estimate two TWFE regressions of primary school completion on `fpe` controlling for country and year fixed effects.  In your first regression, include only the countries that eventually implemented free primary; include all the countries in the data set in your second regression.  Cluster your standard errors at the country level.  Export your regression results to word, and take a screen shot of your resulting (nice looking) table.
+Estimate two TWFE regressions of primary school completion on `fpe` controlling for country and year fixed effects.  In your first regression, include only the countries that eventually implemented free primary; include all the countries in the data set in your second regression.  Cluster your standard errors at the country level.  Export your regression results to word, and take a screen shot of your resulting (nice looking) table.  As a reminder, guidance on how to make nice looking tables is available [here](https://pjakiela.github.io/stata/regression-table.html).
 
 ### Question 2
 
