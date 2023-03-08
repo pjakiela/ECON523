@@ -6,9 +6,9 @@
 
 [Exercise 3: Difference-in-Differences I (2x2 DD)](https://pjakiela.github.io/ECON523/exercises/E3-DD1.html)  
 
-Exercise 4: Diff-in-Diff in a Panel Data Framework (DD II)  
+[Exercise 4: Diff-in-Diff in a Panel Data Framework (DD II)](https://pjakiela.github.io/ECON523/exercises/E4-DD2.html)  
 
-Exercise 5: Two-Way Fixed Effects   
+[Exercise 5: Two-Way Fixed Effects](https://pjakiela.github.io/ECON523/exercises/E5-TWFE.html)   
 
 Exercise 6: Treatment-on-the-Treated
 
