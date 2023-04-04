@@ -160,7 +160,7 @@ Print each of your tables to pdf so that you can upload your finished product(s)
  
 ### Question 5 
 
-Using instrumental variables to estimated treatment effects on the treated makes sense when random assignment to treatment (i.e. inviting someone to participate in a program) has no impact on those who choose not to take up treatment.  Does this approach make sense in the context of microfinance?  Why or why not?
+Using instrumental variables to estimate treatment effects on the treated makes sense when random assignment to treatment (i.e. inviting someone to participate in a program) has no impact on those who choose not to take up treatment.  Does this approach make sense in the context of microfinance?  Why or why not?
 
 <br>
 
