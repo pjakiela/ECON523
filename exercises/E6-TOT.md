@@ -38,9 +38,8 @@ to open the data directly from the web:
 ```
 clear all
 set more off
-set scheme s1mono
-set seed 314159
-cd "C:\Users\pj\Dropbox\econ523-2022\exercises\E6-IV"
+set seed 12345
+cd "C:\myfilepath"
 webuse set https://pjakiela.github.io/ECON523/exercises/
 webuse E6-BanerjeeEtAl-data.dta
 ```
