@@ -10,7 +10,7 @@
 
 [Exercise 5: Two-Way Fixed Effects](https://pjakiela.github.io/ECON523/exercises/E5-TWFE.html)   
 
-Exercise 6: Treatment-on-the-Treated
+[Exercise 6: Treatment-on-the-Treated](https://pjakiela.github.io/ECON523/exercises/E6-TOT.html)
 
 Exercise 7:  Instrumental Variables
 
