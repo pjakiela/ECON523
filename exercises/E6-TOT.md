@@ -16,6 +16,10 @@ an estimate of the impact of treatment (access to loans from Spandana) on indivi
 3. We can use the `ivregress 2sls` command in Stata to implement two-stage least squares (as in 2, except using a single Stata command)
 4. We can estimate the impact of Spandana loans on our outcome of interest controlling for the residuals in our first-stage regression (the **control function** approach)
 
+You can access the in-class activity as a [do file](ECON523-E6-inclass.do) or [pdf](ECON523-E6-inclass.pdf).
+
+You can also access the empirical exercise as a [do file](ECON523-E6-questions.do) or [pdf](ECON523-E6-questions.pdf).
+
 <br>
 
 ## Getting Started
