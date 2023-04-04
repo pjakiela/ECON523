@@ -10,7 +10,7 @@
 
 [March 6, 8:  Two-Way Fixed Effects (DD III)](https://pjakiela.github.io/ECON523/M5-TWFE.html)
 
-April 3, 5: Treatment-on-the-Treated
+[April 3, 5: Treatment-on-the-Treated](https://pjakiela.github.io/ECON523/M6-TOT.html)
 
 April 10, 12:  Instrumental Variables
 
