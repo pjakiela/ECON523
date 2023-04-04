@@ -11,7 +11,9 @@ of a program under imperfect compliance.
 
 ## Readings
 
-[Simple Diagnostics for Two-Way Fixed Effects](https://arxiv.org/abs/2103.13229)
+[Impact Evaluation in Practice, second edition: Chapter 5](https://www.worldbank.org/en/programs/sief-trust-fund/publication/impact-evaluation-in-practice)
+
+[The Miracle of Microfinance?  Evidence from a Randomized Evaluation](https://www.jstor.org/stable/43189512?seq=1)
 
 <br>
 
