@@ -1,4 +1,4 @@
-# The Impacts of Treatment on the Treated
+# Treatment on the Treated
 
 <br>
 
