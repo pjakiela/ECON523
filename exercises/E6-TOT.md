@@ -16,7 +16,7 @@ an estimate of the impact of treatment (access to loans from Spandana) on indivi
 3. We can use the `ivregress 2sls` command in Stata to implement two-stage least squares (as in 2, except using a single Stata command)
 4. We can estimate the impact of Spandana loans on our outcome of interest controlling for the residuals in our first-stage regression (the **control function** approach)
 
-You can access the in-class activity as a [do file](ECON523-E6-inclass.do) or [pdf](ECON523-E6-inclass.pdf).
+You can access the in-class activity as a [do file](ECON523-E6-inclass.do) or [pdf](ECON523-E6-in-class.pdf).
 
 You can also access the empirical exercise as a [do file](ECON523-E6-questions.do) or [pdf](ECON523-E6-questions.pdf).
 
@@ -171,3 +171,8 @@ Using instrumental variables to estimate treatment effects on the treated makes 
 ## More Fun with Stata
 
 The relatively low take-up rates for microfinance loans can be interpreted as evidence that not everyone wants to be an entrepreneur, and several studies have found that access to credit is more effective at helping people expand their businesses than at encouraging non-entrepreneurs to start new businesses.  The variable `any_old_biz` is an indicator for operating a microenterprise prior to the start of the study.  Restrict your sample to those who were already operating microenterprises before Spandana's expansion, and estimate the impact of Spandana loans on microenterprise profits, revenues, and assets in this restricted sample.  Store your results in an Excel table (but don't over-write your earlier work).  What do these results suggest about the impacts of microfinance?
+
+ ---
+ 
+This exercise is part of the module [Impacts of Treatment on the Treated](https://pjakiela.github.io/ECON523/M6-TOT.html).
+
