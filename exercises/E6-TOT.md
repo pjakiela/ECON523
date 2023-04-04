@@ -9,6 +9,13 @@ the control neighborhoods until after the study.
 
 Before getting started, take a look at this [J-PAL policy brief on the impacts of microfinance](https://www.povertyactionlab.org/policy-insight/microcredit-impacts-and-limitations).  We'll be using a small slice of the data from the paper by Banerjee, Duflo, Glennerster, and Kinnan to explore the use of **instrumental variables** techniques to estimate impacts of **treatment on the treated** - and to think about when such methods are appropriate.
 
+Our first step is to review the mechanics of treatment-on-the-treated estimation.  There are four ways to arrive at 
+an estimate of the impact of treatment (access to loans from Spandana) on individuals who take it up (by taking out a Spandana microloan):
+1. We can calculate the impact of treatment on an outcome of interest (say, microenterprise profits), and then take the ratio of this coefficient to the estimated impact of treatment on take-up of Spandana microloans
+2. We can estimate the impact of treatment on take-up of microloans and then regress our outcome of interest on **predicted** take-up of microloans
+3. We can use the `ivregress 2sls` command in Stata to implement two-stage least squares (as in 2, except using a single Stata command)
+4. We can estimate the impact of Spandana loans on our outcome of interest controlling for the residuals in our first-stage regression (the **control function** approach)
+
 <br>
 
 ## Getting Started
@@ -38,25 +45,16 @@ webuse set https://pjakiela.github.io/ECON523/exercises/
 webuse E6-BanerjeeEtAl-data.dta
 ```
 
-We are going to make use of the variables `treatment`, `spandana_1`, `bizprofit_1`, `bizrev_1`, `bizassets_1`, and `any_biz_1`.  Before you begin, 
+We are going to make use of the variables `treatment`, `spandana_1`, and `bizprofit_1`.  Before you begin, 
 add a line to your do file that drops any observations with one of these variables missing.
 
 <br>
 
-## The Mechanics of IV
-
-Our first step is to review the mechanics of treatment-on-the-treated estimation using instrumental variables.  There are three ways to arrive at 
-an estimate of the impact of treatment (access to loans from Spandana) on individuals who take it up (by taking out a Spandana microloan):
-
-1. We can calculate the impact of treatment on an outcome of interest (say, microenterprise profits), and then take the ratio of this coefficient to the estimated impact of treatment on take-up of Spandana microloans
-2. We can estimate the impact of treatment on take-up of microloans and then regress our outcome of interest on **predicted** take-up of microloans
-3. We can use the `ivregress 2sls` command in Stata to implement two-stage least squares (as in 2, except using a single Stata command)
-
-We will start by reviewing all three approaches to confirm that they lead to identical estimates of the impact of treatment on the treated
+## In-Class Activity
 
 ### Question 1
 
-Estimate the impact of `treatment` on the likelihood of taking a loan from Spandana (the variable `spandana_1`).  What is the estimated coefficient on `treatment`?  Because treatment is randomly assigned at the neighborhood level, we need to cluster our standard errors by neighborhood.  Add the option `, cluster(areaid)` to the end of your regression command to do this.  This is the **first stage** regression.
+Estimate the impact of `treatment` on the likelihood of taking a loan from Spandana (the variable `spandana_1`).  What is the estimated coefficient on `treatment`?  Because treatment is randomly assigned at the neighborhood level, we need to cluster our standard errors by neighborhood.  Do this.  This is the **first stage** regression.
 
 ### Question 2
 
@@ -64,73 +62,104 @@ Now extend your do file so that you also run the **reduced form** regression of 
 
 ### Question 3 
 
-Based on your answers to Questions 1 and 2, what is the **treatment-on-the-treated** impact of random assignment to Spandana access on business profits?
+Based on your answers to Questions 1 and 2, what is the **treatment-on-the-treated** impact of random assignment to Spandana access on business profits?  Write this down somewhere.
 
 ### Question 4 
 
-Confirm that your answer is correct by estimating an **instrumental variables** (IV) regression of `bizprofit_1` on `spandana_1`, instrumenting for `spandana_1` with the `treatment` dummy.  Make sure you remember to cluster your standard errors!  Your estimated coefficient should be identical to your answer to Question 3.
+Now we want to output our results to Excel.
 
-### Question 5 
+#### Part (a)
 
-As we discussed in class, you can also calculate the treatment-on-the-treated estimate by regressing `spandana_1` on `treatment`, storing the predicted values from that regression, and regressing `bizprofit_1` on your predicted values.  To do this, you will need to rerun your first stage regression (from Question 1) and then use Stata's `predict` command (without the `, resid` option that we used last week).  Again, your estimated coefficient should match your answers to Questions 3 and 4.  How do the standard errors compare?  
-
-### Question 6
-
-Now we want to output our results to Excel.  Use the code below to setup a blank Excel table where you can store your results:
+We're going to use the `putexcel` command to write our results into an Excel file. `putexcel` is a simple command that allows you to write Stata output to a particular cell or set of cells in an Excel file. Before getting started with `putexcel`, use the `pwd` ("print working directory") command in the Stata command window to make sure that you are writing your results to an appropriate file. Use the `cd` command to change your file path if necessary. Then set up the Excel file that will receive your results using the command `putexcel set`.  Use the code below to setup a blank Excel table where you can store your results:
 ```
-putexcel set E6-TOT-results.xlsx, replace
-putexcel B1="Profits", hcenter bold border(top)
+putexcel set E6-TOT-in-class.xlsx, replace
+putexcel A1=" ", hcenter border(top) 
+putexcel A2=" ", hcenter border(bottom)
+putexcel B1="Borrowed", hcenter bold border(top)
 putexcel B2="(1)", hcenter bold border(bottom)
-putexcel C1="Revenues", hcenter bold border(top)
+putexcel C1="Profits", hcenter bold border(top)
 putexcel C2="(2)", hcenter bold border(bottom)
-putexcel D1="Assets", hcenter bold border(top)
-putexcel D2="(3)", hcenter bold border(bottom)
-putexcel E1="Any Business", hcenter bold border(top)
-putexcel E2="(4)", hcenter bold border(bottom)
 putexcel A3="Treatment", bold
 putexcel A6="Observations", bold border(bottom)
 ```
 
-### Question 7 
+#### Part (b)
 
-After you run a regression (even an IV regression), you can use the following commands to store your regression results as a matrix and view the contents of that matrix:
+At this point, it is worth opening your Excel file to make sure that you are writing to it successfully. Be sure to close the file after you look at it; Stata won't write over an open Excel file. The column and row labels should all appear in bold font (the `bold` option), and the column headings in cells B1 and C1 should be centered (the `hcenter` option) and have a border above them (the `border()` option).
+
+The next step is to write your regression results to Excel.  We are going to do this by writing a program.  We've already seen that we can store our regression results in a Stata matrix using the command 
 ```
-ivregress 2sls bizprofit_1 (spandana_1 = treatment), cluster(areaid) 
 mat V = r(table)
-mat list V
 ```
+after running a regression.  This allows us to extract both the standard error and the p-value associated with each regression coefficient (something that is difficult to do using `esttab`).  The program below adds a column to our Excel file containing the results of an additional regression.  Review the code below carefully to make sure that you understand each line.  Then add two lines to the program to write the p-value associated with the regression coefficient in Row 5 of the spreadsheet.  Put the p-value in square brackets rather than parentheses. 
 
-As you can see, the estimated IV regresion coefficient is stored in cell `[1,1]` of the matrix, the estimated standard error is stored in cell `[2,1]`, and the associated p-value is stored in cell `[4,1]`.  The number of observations used in the regression is stored in the local `e(N)` after you run your regression.  As we saw in Empirical Exercise 4, you can use the following code to export your results to Excel.  
 ```
-local my_coef = round(V[1,1],0.001)
-putexcel B3 = "`my_coef'", hcenter
-
-local my_se = round(V[2,1],0.001)
-putexcel B4 = "(`my_se')", hcenter
-
-local my_pval = round(V[4,1],0.001)
-putexcel B5 = "[0`my_pval']", hcenter 
-
-putexcel B6 = "`e(N)'", hcenter border(bottom)
-```
-
-Now extend your do file so that your results table (in Excel) also includes TOT estimates of the impact of Spandana loans on microenterprise revenues (the variable `bizrev_1`), microenterprise assets (the variable `bizassets_1`), and the likelihood of operating a microenterprise (the variable `any_biz_1`).  There are many ways to do this, but you might want to use a loop like this (using the loop is totally optional):
-```
-local i = 66 // the first column with results in your table
-
-foreach var of varlist bizprofit_1 bizrev_1 bizassets_1 any_biz_1 {
-	ivregress 2sls `var' (spandana_1 = treatment), cluster(areaid) 
+cap program drop tabcolumn
+program define tabcolumn // tabrow var columnletter
+	reg `1' treatment, cluster(areaid) 
 	mat V = r(table)
-	local myletter = char(`i')
-	local my_coef = round(V[1,1],0.001)
-	putexcel `myletter'3 = "`my_coef'", hcenter
-	local i = `i' + 1
-}
+	local beta = string(V[1,1],"%04.3f")
+	local se = string(V[2,1],"%04.3f")
+	putexcel `2'3="`beta'", hcenter 
+	putexcel `2'4="(`se')", hcenter 
+	putexcel `2'6=`e(N)', hcenter border(bottom)
+end
+
+tabcolumn spandana_1 B 
+tabcolumn bizprofit_1 C 
 ```
 
-Extend this loop or write other Stata code so that your table also reports the standard errors in parentheses (in Row 4), the p-values in square brackets (in Row 5), and the number of observations (in Row 6).
+#### Part (c) is optional.
 
-### Question 8 
+You may want to set the widths of the columns in your Excel file.  Unfortunately, there is no way to do this using `putexcel`.  The code below invokes Stata's mata programming language to adjust the column widths.  You can also just adjust them as needed by hand before you print your table to a pdf.
+
+```
+mata
+b = xl()
+b.load_book("E6-TOT-in-class.xlsx")
+b.set_sheet("Sheet1")
+b.set_column_width(1,1,20) // make variable name column widest
+b.set_column_width(2,3,16) // width for subsequent columns
+b.set_row_height(7,7,32)
+b.close_book()
+end
+```
+
+#### Part (d)
+
+Add a note at the bottom of your table that explains the contents of the table.  
+
+<br>
+
+## Empirical Exercise
+
+Start a new do file for the main part of the empirical exercise.  We are going to make use of the variables `treatment`, `spandana_1`, `bizprofit_1`, `bizrev_1`, `bizassets_1`, and `any_biz_1`.  Before you begin, add a line to your do file that drops any observations with one of these variables missing.
+
+### Question 1:  Implementing 2SLS
+
+Use two-stage least squares (2SLS) to estimate an instrumental variables (IV) regression of bizprofit_1 on spandana_1, instrumenting for spandana_1 with the treatment dummy.  Cluster your standard errors at the neighborhood level.   Your estimated coefficient should be identical to your answer from the In-Class Activity.
+
+### Question 2:  2SLS Results
+
+Now make a table that reports TOT estimates of the impact of Spandana loans on microenterprise profits (the variable `bizprofit_1`), microenterprise revenues (the variable `bizrev_1`), microenterprise assets (the variable `bizassets_1`), and the likelihood of operating a microenterprise (the variable `any_biz_1`). 
+
+#### Part (a)
+
+Write the code to set up an excel file that will hold the results of your regressions.  Give the table a title.  Leave space to report the coefficient estimate, the standard error, and the p-value for both the Spandana coefficient and the constant.  Leave space to report the number of observations in each column.
+
+#### Part (b) 
+
+Now modify the program from the In-Class Activity to produce the results needed for your table.  
+
+### Question 3:  The Control Function Approach
+
+Now make another table that replicates the treatment-on-the treated estimation from Question 2 using the control function approach. 
+
+### Question 4
+
+Print each of your tables to pdf so that you can upload your finished product(s) to gradescope.
+ 
+### Question 5 
 
 Using instrumental variables to estimated treatment effects on the treated makes sense when random assignment to treatment (i.e. inviting someone to participate in a program) has no impact on those who choose not to take up treatment.  Does this approach make sense in the context of microfinance?  Why or why not?
 
@@ -138,4 +167,4 @@ Using instrumental variables to estimated treatment effects on the treated makes
 
 ## More Fun with Stata
 
-The relatively low take-up rates for microfinance loans can be interpreted as evidence that not everyone wants to be an entrepreneur, and several studies have found that access to credit is more effective at helping people expand their businesses than at encouraging non-entrepreneurs to start new businesses.  The variable `any_old_biz` is an indicator for operating a microenterprise prior to the start of the study.  Restrict your sample to those who were already operating microenterprises before Spandana's expansion, and estimate the impact of Spandana loans on microenterprise profits, revenues, and assets in this restricted sample.  Store your results in an Excel table (but don't over-write your earlier work).
+The relatively low take-up rates for microfinance loans can be interpreted as evidence that not everyone wants to be an entrepreneur, and several studies have found that access to credit is more effective at helping people expand their businesses than at encouraging non-entrepreneurs to start new businesses.  The variable `any_old_biz` is an indicator for operating a microenterprise prior to the start of the study.  Restrict your sample to those who were already operating microenterprises before Spandana's expansion, and estimate the impact of Spandana loans on microenterprise profits, revenues, and assets in this restricted sample.  Store your results in an Excel table (but don't over-write your earlier work).  What do these results suggest about the impacts of microfinance?
