@@ -15,6 +15,12 @@ Preprimary Education and Early Childhood Development:  Evidence from Government 
 
 <br>
 
+### Optional Readings
+
+[Instrumental Variables: An Econometrician's Perspective](https://www.nber.org/papers/w19983)
+
+<br>
+
 ## Lecture Slides
 
 A handout version of the lecture slides is available [here](ECON523-L7-IV-handout-2UP.pdf). 
