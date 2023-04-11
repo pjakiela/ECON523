@@ -12,7 +12,7 @@
 
 [April 3, 5: Treatment-on-the-Treated](https://pjakiela.github.io/ECON523/M6-TOT.html)
 
-April 10, 12:  Instrumental Variables
+[April 10, 12:  Instrumental Variables](https://pjakiela.github.io/ECON523/M7-IV.html)
 
 April 17, 19:  Regression Discontinuity   
 
