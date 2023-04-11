@@ -22,7 +22,7 @@ This module reviews regression, which we all know but could know better.
 
 ## Lecture Slides
 
-A handout version of the lecture slides is available [here]().
+A handout version of the lecture slides is available [here](ECON523-L2-regression-handout-2UP.pdf).
 
 <br>
 
