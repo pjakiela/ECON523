@@ -12,7 +12,7 @@
 
 [Exercise 6: Treatment-on-the-Treated](https://pjakiela.github.io/ECON523/exercises/E6-TOT.html)
 
-Exercise 7:  Instrumental Variables
+[Exercise 7:  Instrumental Variables](https://pjakiela.github.io/ECON523/exercises/E7-IV.html)
 
 Exercise 8:  Regression Discontinuity  
 
