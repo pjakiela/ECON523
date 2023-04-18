@@ -29,9 +29,9 @@ will store a variable's label as a local macro and write it to an excel file.
 you can use a command like:
 ```
 twoway ///
-		(plottype y2 x, options) ///
-		(plottype y2 x, options), ///
-		legen(off) title("I Love Making Graphs")
+ (plottype y2 x, options) ///
+ (plottype y2 x, options), ///
+ legend(off) title("I Love Making Graphs")
 ```
 where `plottype` might be `scatter` or `line` or `lpoly` (for a local linear regression like the ones in Figure 5 in the paper) or 
 `histogram` (without a y-variable) or `rarea` (with two y-variables that you want to shade the area between).  `twoway` allows you 
