@@ -14,7 +14,7 @@
 
 [April 10, 12:  Instrumental Variables](https://pjakiela.github.io/ECON523/M7-IV.html)
 
-April 17, 19:  Regression Discontinuity   
+[April 17, 19:  Regression Discontinuity](https://pjakiela.github.io/ECON523/M8-RD.html)   
 
 April 24:  Randomization in Practice  
 
