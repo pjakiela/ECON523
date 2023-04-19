@@ -23,7 +23,7 @@ with a variable name.
 local l`1' : variable label `1'
 quietly putexcel A`2'	="`l`1''", left
 ```
-in your Stata program (that you write to produce Table 1), Stata will store a variable's label as a local macro `l`1'` (where ``1'` is the first argument that you pass to your program) and write it to an excel file (specifically, to cell `A`2'`, where ``2'` is the second argument that you pass to your program).
+in your Stata program (that you write to produce Table 1), Stata will store a variable's label as a local macro (where `\`1'` is the first argument that you pass to your program) and write it to an excel file (specifically, to cell `A`2'`, where ``2'` is the second argument that you pass to your program).
 
 **3.** Use the `twoway` command to make the histogram.  To layer multiple plots with the same s-axis variable over each other, 
 you can use a command like:
