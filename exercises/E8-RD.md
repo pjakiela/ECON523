@@ -18,12 +18,12 @@ by Erik Meyersson. Upload pdfs of your finished tables and figure to gradescope,
 **1.** When replicating Table 1, it will save time to write a program that produces a single row when you supply it 
 with a variable name.  
 
-**2.** The code
+**2.** If you include the code
 ```
 local l`1' : variable label `1'
 quietly putexcel A`2'	="`l`1''", left
 ```
-will store a variable's label as a local macro and write it to an excel file.
+in your Stata program (that you write to produce Table 1), Stata will store a variable's label as a local macro `l`1'` (where ``1'` is the first argument that you pass to your program) and write it to an excel file (specifically, to cell `A`2'`, where ``2'` is the second argument that you pass to your program).
 
 **3.** Use the `twoway` command to make the histogram.  To layer multiple plots with the same s-axis variable over each other, 
 you can use a command like:
