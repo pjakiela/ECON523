@@ -1,7 +1,6 @@
 # Regression Discontinuity Designs
 
-<br>
-$5^2$  
+<br> 
 
 A pdf of this empirical exercise is available [here](ECON523-E8-questions.pdf).
 
