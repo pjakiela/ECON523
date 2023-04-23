@@ -1,4 +1,4 @@
-# Empirical Exercise 8
+# Empirical Exercise 9
 
 In this exercise, we'll be learning how to randomly assign treatment status in a way 
 that is transparent and reproducible.  After assigning treatments, we'll check 
@@ -51,7 +51,8 @@ completely new random treatment assignment.  Insert the command
 set seed 1234 
 ```
 between `clear` and `set obs 4`.  This will guarantee that Stata uses the 
-same sequence of pseudo-random numbers every time you run the file.  Run the file 
+same sequence of pseudo-random numbers every time you run the file (you can also set the version 
+for additional confidence in your code's reproducibility).  Run the file 
 a few times to confirm that this is the case. 
 
 <br>
@@ -59,7 +60,7 @@ a few times to confirm that this is the case.
 ## Empirical Exercise
 
 We're going to use the same data set on potential microfinance clients in urban India 
-that we worked with in [Empirical Exericse 6](https://pjakiela.github.io/ECON523/exercises/E6-TOT.html).   The data set 
+that we worked with in [Empirical Exercise 6](https://pjakiela.github.io/ECON523/exercises/E6-TOT.html).   The data set 
 comes from the paper [The Miracle of Microfinance?  Evidence from a Randomized Evaluation](https://www.jstor.org/stable/43189512?seq=1) by 
 Abhijit Banerjee, Esther Duflo, Rachel Glennerster, and Cynthia Kinnan.  The authors worked with an 
 Indian MFI (microfinance institution) called Spandana that was expanding into the city of Hyderabad.  Spandana 
@@ -69,7 +70,7 @@ to a treatment group where branches would be opened immediately.  Spandana held 
 the control neighborhoods until after the study.  
 
 The data set contains information on 6,853 households.  Suppose you want to work with a local NGO to 
-offer business training and mentoring to microentrepenurs, and you want to stratify treatment assignments 
+offer business training and mentoring to microentrepeneurs, and you want to stratify treatment assignments 
 by treatment status in the Spandana RCT to see whether impacts depend on the availability of microcredit.  
 
 Create a do file that reads the Spandana data from Empirical Exercise 6 into Stata.  Then extend your do file 
