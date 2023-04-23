@@ -16,7 +16,7 @@
 
 [Exercise 8:  Regression Discontinuity](https://pjakiela.github.io/ECON523/exercises/E8-RD.html)  
 
-Exercise 9:  Randomization in Practice  
+[Exercise 9:  Randomization in Practice](https://pjakiela.github.io/ECON523/exercises/E9-randomization.html)  
 
 Exercise 10:  Power Calculations   
 
