@@ -16,7 +16,7 @@
 
 [April 17, 19:  Regression Discontinuity](https://pjakiela.github.io/ECON523/M8-RD.html)   
 
-April 24:  Randomization in Practice  
+[April 24:  Randomization in Practice](https://pjakiela.github.io/ECON523/M9-randomizing.html)  
 
 April 26:  Power Calculations
 
