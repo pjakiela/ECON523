@@ -7,21 +7,20 @@ that are comparable in terms of their observable characteristics.
 
 <br>
 
-## Getting Started
+## In-Class Activity
 
 Start by creating a new do file that runs the following Stata code:
 ```
 clear
 set obs 4
 gen id = _n 
-gen rand_num = runiform()
+gen rand_num = rnormal()
 sort rand_num
 egen treatment = seq(), from(0) to(1)
 sort id
 ```
-What happens when you run the code?  Use Stata's data editor (the button that looks like 
-a spreadsheet with a magnifying glass over it) to view the (very small) data set you 
-created.  Which ID numbers are assigned to treatment?  Run the code several times:  are 
+What happens when you run the code?  Use Stata's data editor to view the (very small) data set you 
+created.  Which ID numbers are assigned to treatment?  Run the code several times.  Are 
 the same ID numbers assigned to treatment each time?  
 
 The code above contains the three key parts of every randomization do file:  
@@ -29,33 +28,6 @@ The code above contains the three key parts of every randomization do file:
 1. A command that generates a pseudo-random number 
 2. A command that sorts the data based on that random number
 3. A command that assigns treatment based on that random sort order
-
-However, we failed to set the seed, so each time we run our code, we get a 
-completely new random treatment assignment.  Insert the command 
-```
-set seed 1234 
-```
-between `clear` and `set obs 4`.  This will guarantee that Stata uses the 
-same sequence of pseudo-random numbers every time you run the file.  Run the file 
-a few times to confirm that this is the case. 
-
-<br>
-
-## Random Assignment in Stata
-
-The code above uses the command `runiform()` to generate a variable that assigns 
-each observation a different draw from a standard uniform random variable, which 
-takes values between 0 and 1.  What happens when you create a large data set of such 
-draws from a standard uniform?  What happens as you increase the number 
-of observations?  Use the code below to find out:
-```
-clear
-set obs 100
-gen x = runiform()
-sum x
-hist x, bin(50) fraction
-```
-Now re-run the code using the `rnormal()` command instead of the `runiform()` command.  
 
 The idea behind random assignment is that we can generate a variable 
 using Stata's pseudo-random number generator and then sort the data set based on that 
@@ -68,21 +40,35 @@ The command
 ```
 egen treatment = seq(), from(0) to(1)
 ``` 
-will generate a repeating sequence from 0 to 1.  So, the first row (observation) in 
+generates a repeating sequence from 0 to 1:  the first row (observation) in 
 the data set will get a 0, the second row will get a 1, the third row will get a 0, 
 and so on.  Familiarize yourself with this command.  How might you assign observations 
 in your data set to four different treatment groups?
 
-Once you have randomly assigned treatment status, we will typically want to check whether 
-our treatment and comparison groups look similar in terms of observable characteristics.  How 
-might you extend the do file above to do this?
+In the example above, we failed to set the seed, so each time we run our code, we get a 
+completely new random treatment assignment.  Insert the command 
+```
+set seed 1234 
+```
+between `clear` and `set obs 4`.  This will guarantee that Stata uses the 
+same sequence of pseudo-random numbers every time you run the file.  Run the file 
+a few times to confirm that this is the case. 
+
+<br>
+
+
+
+
+
+
+
+
 
 <br>
 
 ## Empirical Exercise
 
-Now that we know how to assign treatment, let's see how it works in practice.  We're 
-going to use the same data set on potential microfinance clients in urban India 
+We're going to use the same data set on potential microfinance clients in urban India 
 that we worked with in [Empirical Exericse 6](https://pjakiela.github.io/ECON523/exercises/E6-TOT.html). The 
 data set contains information on 6,853 households.  We'll only use a subset of the data:  eight variables measuring 
 entrepreneurial activity.  
@@ -147,27 +133,14 @@ your do file to do this and then randomly assign treatment (creating a new treat
 How do your stratified-assignment treatment groups compare in terms of the variables that we stratified 
 on?  How do the differences that we observe compare to those that we saw when we did not stratify?
 
+Once you have randomly assigned treatment status, we will typically want to check whether 
+our treatment and comparison groups look similar in terms of observable characteristics.  
+
 <br>
  
-## Even More Fun with Stata, Part 1
+## Extensions
 
-We often wish to produce a balance check table that documents our statistical analysis 
-of the similarities between the treatment and comparison groups.  Such a table should look 
-something like this:
 
-| Variable        | Treatment           | Control  | T-Test |
-| ------------- |-------------|-----|-----|
-| Any bank loan      | 0.083 | 0.080 | 0.4461 |
-|       | (0.004)     |   (0.005) | |
-| Microenterprise profits      | 858 | 1078 | -0.7340 |
-|       | (185)     |   (235) | |
-
-Extend your do file so that you create such a table, reporting standard deviations 
-in parentheses below each mean.  
- 
-<br>
- 
-## Even More Even More Fun with Stata
  
 Sometimes we want to assign treatment at the group rather than the individual level - for example, 
 when a policy might have spillovers from one individual to another.  So, for instance, educational 
