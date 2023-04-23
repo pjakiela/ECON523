@@ -5,6 +5,10 @@ that is transparent and reproducible.  After assigning treatments, we'll check
 whether we've succeeded in creating a treatment group and a control group 
 that are comparable in terms of their observable characteristics.  
 
+You can access the in-class activity as a [pdf](ECON523-E9-in-class.pdf).
+
+You can also access the empirical exercise as a [pdf](ECON523-E9-questions.pdf).
+
 <br>
 
 ## In-Class Activity
@@ -123,5 +127,7 @@ at the 95 percent confidence level?
 2. How would you modify your code to assign households to either a control group or one of three different treatment arms?
 3. How would you modify your code to assign treatment at the neighborhood level, and then check for balance on household-level covariates?
  
+ ---
  
+This exercise is part of the module [Randomization in Practice](https://pjakiela.github.io/ECON523/M9-randomization.html). 
 
