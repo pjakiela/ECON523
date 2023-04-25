@@ -18,7 +18,7 @@
 
 [April 24:  Randomization in Practice](https://pjakiela.github.io/ECON523/M9-randomization.html)  
 
-April 26:  Power Calculations
+[April 26:  Power Calculations](https://pjakiela.github.io/ECON523/M10-power.html)
 
 May 1:  Clustering
 
