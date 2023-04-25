@@ -73,5 +73,5 @@ If you wanted to have power of 0.8 to detect a 25 percent increase in business p
 
  --- 
 
-This exercise is part of the module [Power Calculations](https://pjakiela.github.io/ECON523/E10-power.html).
+This exercise is part of the module [Power Calculations](https://pjakiela.github.io/ECON523/M10-power.html).
 
