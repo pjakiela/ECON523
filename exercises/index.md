@@ -18,7 +18,7 @@
 
 [Exercise 9:  Randomization in Practice](https://pjakiela.github.io/ECON523/exercises/E9-randomization.html)  
 
-Exercise 10:  Power Calculations   
+[Exercise 10:  Power Calculations](https://pjakiela.github.io/ECON523/exercises/E10-power.html)  
 
 Exercise 11:  Clustering
 
