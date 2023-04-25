@@ -71,3 +71,7 @@ Given the size of this data set and the standard deviation of `bizprofit_1`, wha
 
 If you wanted to have power of 0.8 to detect a 25 percent increase in business profits, how large of a sample size would you need?
 
+ --- 
+
+This exercise is part of the module [Power Calculations](https://pjakiela.github.io/ECON523/E10-power.html).
+
