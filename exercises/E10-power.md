@@ -24,7 +24,8 @@ Abhijit Banerjee, Esther Duflo, Rachel Glennerster, and Cynthia Kinnan.  We sued
 
 ### Question 1
 
-Your are designing an intervention intended to increase knowledge about malaria transmission, using the data set E1-CohenEtAl-data.dta.  Your 
+Your are designing an intervention intended to increase knowledge about malaria transmission, using 
+the data set [E1-CohenEtAl-data.dta](https://pjakiela.github.io/ECON379/exercises/E1-intro/E1-CohenEtAl-data.dta).  Your 
 main outcome variable of interest is the variable `b_knowledge_correct`, which measures beliefs about how malaria 
 is transmitted and what can be done to treat it.  Familiarize yourself with this variable:  what is 
 its mean, and what are the maximum and minimum values observed in the sample?
@@ -37,7 +38,7 @@ the same size (so P in the MDE formula = 0.5).  What is the MDE?
 
 ### Question 2 
 
-You can also calculate the sample size needed to detect a particular MDE using Stata sampsi command. Type the command:
+You can also calculate the sample size needed to detect a particular MDE using Stata `sampsi` command. Type the command:
 ```
 sampsi 0 0.11651129, power(0.8) sd(0.4989005)
 ```
@@ -60,8 +61,7 @@ How large of a sample size would need to detect the MDE that you calculated in Q
 
 Now we will consider a completely different data set: the data on access to microfinance that we used in Empirical Exercise 6 and again in Empirical Exercise 9.  We are going to use the variable `bizprofit_1`, which measures microenterprise profits. Unlike the knowledge variable used above, the standard deviation of `bizprofit_1` is large relative to its mean.
 
-What 
-is the mean of `bizprofit_1`?  What is the standard deviation of `bizprofit_1`?
+What is the mean of `bizprofit_1`?  What is the standard deviation of `bizprofit_1`?
 
 #### Part (a)
 
