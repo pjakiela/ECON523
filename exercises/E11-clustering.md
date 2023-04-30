@@ -6,6 +6,10 @@ or market level) when we are worried about potential spillovers across individua
 if outcomes within a cluster are correlated (as they usually are), we need to modify our approach 
 to calculating statistical power and sample size.
 
+You can access the in-class activity as a [do file](ECON523-E11-inclass.do) or [pdf](ECON523-E11-in-class.pdf).
+
+You can also access the empirical exercise as a [pdf](ECON523-E11-questions.pdf).
+
 <br>
 
 ## Getting Started
