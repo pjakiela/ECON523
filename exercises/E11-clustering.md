@@ -245,4 +245,4 @@ How large of a sample would you need to be powered to detect an impact of 0.25 i
 
  ---
  
-This exercise is part of the module [Clustering](https://pjakiela.github.io/ECOn523/M11-clustering.html).
+This exercise is part of the module [Clustering](https://pjakiela.github.io/ECON523/M11-clustering.html).
