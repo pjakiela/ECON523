@@ -237,6 +237,7 @@ How large of a sample would you need to be powered to detect an impact of 0.25 i
 1. How would you calculate the required sample size if you expected 10 percent attrition between baseline and endline in both the treatment group and the control group?
 2. How would you calculate the required sample size if you only expected 50 percent take-up among individuals assigned to treatment?
 
+<br>
 
  ---
  
