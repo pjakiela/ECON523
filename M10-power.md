@@ -4,14 +4,16 @@
 
 ## Overview  
 
-This is the first of two modules on power calculations. In this module, we’ll learn how to calculate the **minimum detectable effect** 
+This is the first of three modules on power calculations. In this module, we’ll learn how to calculate the **minimum detectable effect** 
 as a function of sample size.
 
 <br>
 
 ## Readings
 
-[Running Randomized Evaluations: Chapter 6](https://www.jstor.org/stable/j.ctt4cgd52.10)
+[Running Randomized Evaluations: Chapter 6](https://www.jstor.org/stable/j.ctt4cgd52.10)  
+
+**Optional:**  [Using Randomization in Development Economics Research:  A Toolkit](https://www.nber.org/papers/t0333)  
 
 <br>
 
