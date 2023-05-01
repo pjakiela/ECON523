@@ -15,7 +15,7 @@ when we are worried about potential spillovers across individuals within a clust
 
 [Running Randomized Evaluations: Chapter 6](https://www.jstor.org/stable/j.ctt4cgd52.10)
 
-**Optional:**  [Using Randomization in Development Economics research:  A Toolkit](https://www.nber.org/papers/t0333)
+**Optional:**  [Using Randomization in Development Economics Research:  A Toolkit](https://www.nber.org/papers/t0333)
 
 <br>
 
@@ -31,4 +31,4 @@ The in-class activity is available as a [do file](https://github.com/pjakiela/EC
 
 The empirical exercise is available as a [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON523-E11-questions.pdf).
 
-A web version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/E11-power.html).
+A web version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/E11-clustering.html).
