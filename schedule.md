@@ -20,7 +20,7 @@
 
 [April 26:  Power Calculations](https://pjakiela.github.io/ECON523/M10-power.html)
 
-May 1:  Clustering
+[May 1:  Clustering](https://pjakiela.github.io/ECON523/M11-clustering.html)  
 
 May 3:  Machine Learning for Causal Inference
 
