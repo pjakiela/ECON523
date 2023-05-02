@@ -54,4 +54,4 @@ Predict the residuals from the regression that includes the controls selected by
 
  ---
  
-This exercise is part of the module [Choosing Covariate](https://pjakiela.github.io/ECON523/M12-covariates.html).
+This exercise is part of the module [Choosing Covariates](https://pjakiela.github.io/ECON523/M12-covariates.html).
