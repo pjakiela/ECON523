@@ -20,9 +20,9 @@
 
 [Exercise 10:  Power Calculations](https://pjakiela.github.io/ECON523/exercises/E10-power.html)  
 
-Exercise 11:  Clustering
+[Exercise 11:  Clustering](https://pjakiela.github.io/ECON523/exercises/E11-clustering.html)
 
-Exercise 12:  Machine Learning for Causal Inference
+[Exercise 12:  Machine Learning for Causal Inference](https://pjakiela.github.io/ECON523/exercises/E12-ML.html)
 
 <br>
 
