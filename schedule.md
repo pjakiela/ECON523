@@ -22,7 +22,7 @@
 
 [May 1:  Clustering](https://pjakiela.github.io/ECON523/M11-clustering.html)  
 
-May 3:  Machine Learning for Causal Inference
+[May 3:  Choosing Covariates](https://pjakiela.github.io/ECON523/M12-covariates.html)
 
 <br>
 
