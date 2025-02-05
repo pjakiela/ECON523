@@ -1,32 +1,32 @@
 # Schedule of Topics   
 
-[February 6, 8: Selection Bias and the Experimental Ideal](M1-selection.html)  
+[February 10, 12, 14: Selection Bias and the Experimental Ideal](M1-selection.html)  
 
-[February 13, 15: Regression](M2-regression.html) 
+[February 17, 19: Regression](M2-regression.html) 
 
-[February 20, 22: 2x2 Difference-in-Differences (DD I)](M3-DD1.html)   
+[February 24, 26, 28: 2x2 Difference-in-Differences (DD I)](M3-DD1.html)   
 
-[February 27, March 1: Diff-in-Diff in Panel Data (DD III)](https://pjakiela.github.io/ECON523/M4-DD2.html)  
+[March 3, 5, 7: Diff-in-Diff in Panel Data (DD III)](https://pjakiela.github.io/ECON523/M4-DD2.html)  
 
-[March 6, 8:  Two-Way Fixed Effects (DD III)](https://pjakiela.github.io/ECON523/M5-TWFE.html)
+[March 10, 12, 14:  Two-Way Fixed Effects (DD III)](https://pjakiela.github.io/ECON523/M5-TWFE.html)
 
-[April 3, 5: Treatment-on-the-Treated](https://pjakiela.github.io/ECON523/M6-TOT.html)
+[April 7, 9, 11: Treatment-on-the-Treated](https://pjakiela.github.io/ECON523/M6-TOT.html)
 
-[April 10, 12:  Instrumental Variables](https://pjakiela.github.io/ECON523/M7-IV.html)
+[April 14, 16, 18:  Instrumental Variables](https://pjakiela.github.io/ECON523/M7-IV.html)
 
-[April 17, 19:  Regression Discontinuity](https://pjakiela.github.io/ECON523/M8-RD.html)   
+[April 21, 23, 25:  Regression Discontinuity](https://pjakiela.github.io/ECON523/M8-RD.html)   
 
-[April 24:  Randomization in Practice](https://pjakiela.github.io/ECON523/M9-randomization.html)  
+[April 28:  Randomization in Practice](https://pjakiela.github.io/ECON523/M9-randomization.html)  
 
-[April 26:  Power Calculations](https://pjakiela.github.io/ECON523/M10-power.html)
+[April 30:  Power Calculations](https://pjakiela.github.io/ECON523/M10-power.html)
 
-[May 1:  Clustering](https://pjakiela.github.io/ECON523/M11-clustering.html)  
+[May 5:  Clustering](https://pjakiela.github.io/ECON523/M11-clustering.html)  
 
-[May 3:  Choosing Covariates](https://pjakiela.github.io/ECON523/M12-covariates.html)
+[May 7:  Choosing Covariates](https://pjakiela.github.io/ECON523/M12-covariates.html)
 
 <br>
 
-_There is no class on March 13 and 15 and on May 8 and 10, as we will be doing one-on-one Stata skills assessments._
+_There is no class on March 17, 19, and 21 and on May 12, 14, and 16, as we will be doing one-on-one Stata/R/Python skills assessments._
 
  
 
