@@ -1,4 +1,6 @@
-# Replication Project
+# Replication Project  
+
+_Last updated 2023._  
 
 This exercise makes use of the data set [Card-Krueger-1994-data.dta](Card-Krueger-1994-data.dta), 
 which was first used in the paper [Minimum Wages and Employment:  A Case Study of the Fast-Food Industry in New Jersey and Pennsylvania](https://www.jstor.org/stable/2118030?sid=primo) by David Card 
