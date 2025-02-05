@@ -4,11 +4,11 @@ _This is the website for Professor Pamela Jakiela's ECON 523 course at Williams 
 
 <br>
 
-## Spring 2023 Course Information:  
+## Spring 2025 Course Information:  
 
-[Syllabus](https://pjakiela.github.io/ECON523/ECON523-syllabus-2023-02-02.pdf)   
+[Syllabus](https://pjakiela.github.io/ECON523/ECON523-syllabus-2025-02-05.pdf)   
 
-[Reading List](https://pjakiela.github.io/ECON523/ECON-523-reading-list.pdf) 
+[Reading List](https://pjakiela.github.io/ECON523/ECON-523-reading-list-2025.pdf) 
 
 [Schedule of Course Modules](https://pjakiela.github.io/ECON523/schedule.html)  
 
