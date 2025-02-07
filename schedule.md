@@ -1,6 +1,6 @@
 # Schedule of Topics   
 
-[February 7: Introduction to the Course](M1-selection.html)  
+[February 7: Introduction to the Course](ECON523-L0-intro-2025-handout.pdf)  
 
 [February 10, 12, 14: Selection Bias and the Experimental Ideal](ECON523-L0-intro-2025-handout.pdf)  
 
