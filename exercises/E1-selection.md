@@ -31,7 +31,7 @@ set seed 12345
 You'll also want to include a command to **change the working directory** so that any outputs are saved where you can find them later.
 
 ```
-** change working directory as appropriate to where you want to save
+** change working directory 
 cd "C:\ECON-523\E1"
 ```
 
