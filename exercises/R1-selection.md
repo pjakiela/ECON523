@@ -209,4 +209,69 @@ print(newse)
 
 <br>
 
+ # Empirical Exercise
+
+Some of the questions below only ask you to provide the correct code. When a question asks for a numeric or verbal response, please provide your answer in a comment embedded in a code cell. Upload your finished program to gradescope once you have finished.
+
+## **Question 1: One Treatment Dummy**
+
+### **Part (a)**
+
+Summarize the mean level of ART use (the variable `c_act`) in the randomly assigned treatment group (`act_any == 1`) and the randomly assigned comaprison group (`act_any == 0`).
+
+Hint: to summarize the mean of a variable `x` within groups defined by variable `groupid` (all in data frame `df`), pipe the data frame (`df %>%`) to `group_by(groupid)` and then pipe the results into `summarize(mean_x = mean(x))`. This will define a new data frame (actually a tibble) containing the group-level means.
+ 
+
+e1data %>%
+  group_by(act_any) %>%
+  summarize(mean_act = mean(c_act))
+
+ ### **Part (b)**
+
+Conduct a t-test of the hypothesis that treatment (`act_any`) does not impact the likelihood of using ARTs (using `t.test`).
+
+Hint: adapt the code from Question 15 in the In-Class Activity.
+ 
+
+
+
+ ### **Part (c)**
+
+Test the hypothesis that treatment (`act_any`) does not impact the likelihood of using ARTs using a linear regression.
+
+Hint: adapt the code from Question 14 in the In-Class Activity.
+ 
+## Question 2: Multiple Treatments
+
+### **Part (a)**
+
+The variable `coartemprice` indicates the randomly-assigned ACT price (and, implicitly, the associated level of price subsidy). What price/subsidy levels are included in the experiment?  
+
+Hint: use `count()`, adapting the code from Question 3 of the In-Class Activity.  
+
+### **Part (b)
+What is the mean level of ACT use at each subsidy level, and how do these levels compare to the level observed in the control group?  
+
+Hint: use the `group_by()` syntax and the pipe (`%>%`) as you did in Question 1 Part (a).  
+
+### Part (c)
+Now regress c_act on the dummies act40, act60, and act100, which indicate the three different randomly-assigned subsidy levels in the RCT. What do you expect the regression coefficients to be (based on your answer to Question 2b). Do the observed coefficients match your expectations?  
+
+Hint: use `feols()` as you did in Question 1 Part (c). To add additional variables to the regression, structure your regression formula as: `y ~ x1 + x2 + x3`.  
+ 
+## Question 3: Pooling Treatment Arms
+
+### Part (a)
+Calculate the proportion of treated observations at each of the three subsidy levels.  
+
+Hint: to do this, use `count()` and then filter the output to create a data frame `treated_counts` containing only treated observations (adapting the code from Question 10 in the In-Class Activity). The last step is to define a new column, `proportion`, that is the number of observations at a subsidy level `n` divided by the sum of `n`. Use `mutate()` to generate this new column. Use `print()` to display your resulting data frame showing the proportions.  
+
+### Part (b)
+Calculate a weighted average of the regression coefficients from Question 2 Part (c) where the weights are the proportion of treated observations in each of the three arms (which you calculated in Question 3 Part (a)).  
+
+Hint: just paste in the relevant numbers from your answers to earlier questions into the code cell and use R as a calculator.  
+
+### Part (c)
+Where have you seen this coefficient before?  
+
 
