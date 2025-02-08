@@ -19,7 +19,7 @@ You can also access the main empirical exercise (also below) as a [do file](http
 Create a `do` file that contains the following preliminaries:
 
 ```
-// ECON 523:  PROGRAM EVALUATION FOR INTERNATIONAL DEVELOPMENT
+// ECON 523:  PROGRAM EVALUATION FOR DEVELOPMENT
 // PROFESSOR PAMELA JAKIELA
 
 /* preliminary stuff*/
@@ -32,7 +32,7 @@ You'll also want to include a command to **change the working directory** so tha
 
 ```
 ** change working directory as appropriate to where you want to save
-cd "C:\Users\CookieMonster\Dropbox\ECON-523\exercises\E1-selection"
+cd "C:\ECON-523\E1"
 ```
 
 Because the data set is available on github, you can simply download it every time you want to use it.  The following code in the do file will do this:  
