@@ -43,7 +43,7 @@ The stata version of the empirical exercise is also available [here](https://pja
 
 The R version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/R1-selection.html)  
 
-The Python version of the empirical exercise is available [here]()  
+The Python version of the empirical exercise is available [here](https://colab.research.google.com/drive/10OEYzsOX6dONrEarj-g3u2Wku15TbwhK?usp=sharing)  
 
 <br>
 
