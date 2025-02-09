@@ -29,7 +29,7 @@ _Use the link to access the French, Portuguese, and Spanish versions._
 
 ## Lecture Slides
 
-A handout version of the lecture slides is available [here](ECON523-L1-selection-handout.pdf). 
+A handout version of the lecture slides is available [here](ECON523-L1-selection-handout-2025.pdf). 
 
 <br>
 
