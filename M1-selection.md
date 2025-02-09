@@ -29,17 +29,21 @@ _Use the link to access the French, Portuguese, and Spanish versions._
 
 ## Lecture Slides
 
-A handout version of the lecture slides is available [here](ECON523-L1-selection-handout-2025.pdf). 
+A handout version of the lecture slides is available [here](ECON523-L1-selection-2025-handout.pdf). 
 
 <br>
 
 ## Empirical Exercise
 
-The in-class activity as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/in-class1.do) or [pdf](h[ttps://pjakiela.github.io/exercises/](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/)ECON-523-in-class1.pdf)
+The stata version of the in-class activity as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/in-class1.do) or [pdf](h[ttps://pjakiela.github.io/exercises/](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/)ECON-523-in-class1.pdf)  
 
-The empirical exercise as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/E1-questions.do) or [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-ex1.pdf)
+The stata version of the empirical exercise as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/E1-questions.do) or [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-ex1.pdf)  
 
-A web version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/E1-selection.html).
+The stata version of the empirical exercise is also available [here](https://pjakiela.github.io/ECON523/exercises/E1-selection.html)  
+
+The R version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/R1-selection.html)  
+
+The Python version of the empirical exercise is available [here]()  
 
 <br>
 
