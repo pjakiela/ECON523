@@ -51,7 +51,7 @@ e1data <- read_dta(urlfile)
 
 ## In-Class Activity
 
-## Question 1
+### Question 1
 How many variables are in the data set?  
 
 For any dataframe `df`, you can use `head(df)` and `glimpse(df)` to familiarize yourself with the data. `summary(df)` provides a summary 
@@ -61,12 +61,12 @@ head(e1data)
 glimpse(e1data)
 summary(e1data)
 ```
-## Question 2
+### Question 2
 How many observations are in the data set?  
 
 Hint: you should be able to read off the answer from the output above.  
 
-## Question 3
+### Question 3
 The variable `act_any` is a treatment dummy. What values does it take on?   
 
 The code below shows how you can tabulate the values of a column of a data frame using `count()`.
@@ -74,10 +74,10 @@ The code below shows how you can tabulate the values of a column of a data frame
 count(e1data, act_any)
 ```
 
-## Question 4
+### Question 4
 How many people received subsidized malaria treatment?  You should be able to answer this question by looking at the output from Question 3.  
 
-## Question 5
+### Question 5
 What is the mean of `act_any` to three decimal places?  
 
 In the code below, we use `round()` and `mean()` to report the mean of `act_any` to three decimal places. To select a single column within a data frame, 
@@ -85,29 +85,27 @@ we use the dollar sign, as in `mean(df$colname)`.
 ```
 round(mean(e1data$act_any), 3)
 ```
-## Question 6
+### Question 6
 The variable `c_act` indicates whether a respondent used ACTs as treatment the last time they had malaria. What values does the variable `c_act` take on?  
 
 Hint: use the same approach as in Question 3.
 
-## Question 7
-
+### Question 7
 What is the mean of `c_act`?  
 
 Hint: use the same approach as Question 5.  
 
-## Question 8
-
+### Question 8
 What is the standard deviation of the variable `c_act`?  
 
 Hint: use the same code as above, but with `sd()` instead of `mean()`.  
 
-## Question 9
+### Question 9
 What is the standard error of the mean of `c_act`?  
 
 Hint: the standard error is the standard deviation divided by the square root of the number of observations. You can find the number of rows in dataframe `df` with `nrow(df)` and you can find the length of a column vector with `length(df$colname)`.  
  
-## Question 10
+### Question 10
 What is the mean level of ACT use among those assigned to the treatment group?  
 
 `df[df$x == 1]` filters ("subsets") the data frame `df` to select only those rows where `x` equals 1, so `df$colname[df$x == 1]` is the values of the `colname` variable from only those rows where `x` equals 1. Thus, the code below calculates the mean of `c_act` among observations with `act_any` equal to 1.  
@@ -122,7 +120,7 @@ e1data %>%
   summarize(mean = mean(c_act))
 ```
 
-## Question 11
+### Question 11
 Variables starting with `b_` are baseline characteristics (measured before the RCT). How many baseline variables are included in the data set? Which ones are missing data for some households in the sample?  
 
 `names(df)` gives a list of the names of the columns in a data frame. You can use this to see how many baseline variables there are. You can then create a `baseline_vars` data frame that includes only the baseline data. `summary(df)` will allow you to see the means, medians, minima, maxima, and number of missing observations for the (numeric) variables in your data frame. The code below illustrates this.  
@@ -142,7 +140,7 @@ A more elegant way to do this is to define a tibble that contains the column nam
 tibble(variable = names(bl_vars), na_count = colSums(is.na(bl_vars)))
 ```
 
-## Question 12
+### Question 12
 We're going to look at selection bias by comparing the level of educational attainment among households that choose to use ACT treatment when they have malaria versus those that do not use ACT treatment.  
 
 Extend the code below to obtain the mean and standard error of `b_h_edu` when `c_act==1` and when `c_act==0` and then calculate the t-statistic associated with a test of the hypothesis that the two means are equal.  
@@ -167,7 +165,7 @@ t <- mean_diff / se_diff
 print(t)
 ```
 
-## Question 13
+### Question 13
 Now compare your results to what you obtain using `t.test()`.  
 
 Notice: the first argument of `t.test()` is a formula, `y ~ x` where `y` is the outcome variable and `x` is the treatment dummy, and the second argument is a data frame (since we could have multiple data frames active at the same time).
@@ -175,7 +173,7 @@ Notice: the first argument of `t.test()` is a formula, `y ~ x` where `y` is the 
 t.test(b_h_edu ~ c_act, data = e1data)
 ```
 
-## Question 14
+### Question 14
 Now compare the results of your t-test to a linear regression of `b_h_edu` on `c_act`. How are they similar? How are they different?  
 
 One simple way to run OLS in R is to use `lm()` (linear model). The code below regresses `b_h_edu` on `c_act` and a constant. Notice that the formula is again specified using `~`: `y ~ x`. `summary()` is a simple way to view the regression results after you estimate the model.  
@@ -184,7 +182,7 @@ ols <- lm(b_h_edu ~ c_act, data = e1data)
 summary(ols)
 ```
 
-## Question 15
+### Question 15
 
 The `t.test` t-statistic differed from the OLS t-statistic because when we ran OLS, we were implicitly assuming homoskedastic errors. By default, `t.test()` allows the variance of `y` to differ across groups in a two-sample t-test. Setting `var.equal` to `TRUE` will yield the same t-statistic that we obtained by running the regression.  
  
@@ -209,69 +207,62 @@ print(newse)
 
 <br>
 
- # Empirical Exercise
+## Empirical Exercise
+Create a new script (with the same preliminaries at the top) to answer the following questions, so that you can run the code from start to finish and re-generate all your answers (without re-running the code from the empirical exercise). Some of the questions below only ask you to provide the correct code. When a question asks for a numeric or verbal response, please provide your answer in a comment embedded in your code. Upload your finished program to gradescope once you have finished.  
 
-Some of the questions below only ask you to provide the correct code. When a question asks for a numeric or verbal response, please provide your answer in a comment embedded in a code cell. Upload your finished program to gradescope once you have finished.
+### Question 1: One Treatment Dummy
 
-## **Question 1: One Treatment Dummy**
+#### Part (a)
+Summarize the mean level of ART use (the variable `c_act`) in the randomly assigned treatment group (`act_any == 1`) and the randomly assigned 
+comaprison group (`act_any == 0`).  
 
-### **Part (a)**
-
-Summarize the mean level of ART use (the variable `c_act`) in the randomly assigned treatment group (`act_any == 1`) and the randomly assigned comaprison group (`act_any == 0`).
-
-Hint: to summarize the mean of a variable `x` within groups defined by variable `groupid` (all in data frame `df`), pipe the data frame (`df %>%`) to `group_by(groupid)` and then pipe the results into `summarize(mean_x = mean(x))`. This will define a new data frame (actually a tibble) containing the group-level means.
- 
-
+Hint: to summarize the mean of a variable `x` within groups defined by variable `groupid` (all in data frame `df`), pipe the data frame (`df %>%`) to `group_by(groupid)` and then pipe the results into `summarize(mean_x = mean(x))`. This will define a new data frame (actually a tibble) containing the group-level means.  
+```
 e1data %>%
   group_by(act_any) %>%
   summarize(mean_act = mean(c_act))
+```
 
- ### **Part (b)**
+#### Part (b)
+Conduct a t-test of the hypothesis that treatment (`act_any`) does not impact the likelihood of using ARTs (using `t.test`).  
 
-Conduct a t-test of the hypothesis that treatment (`act_any`) does not impact the likelihood of using ARTs (using `t.test`).
+Hint: adapt the code from Question 15 in the In-Class Activity.  
 
-Hint: adapt the code from Question 15 in the In-Class Activity.
+#### Part (c)
+Test the hypothesis that treatment (`act_any`) does not impact the likelihood of using ARTs using a linear regression.  
+
+Hint: adapt the code from Question 14 in the In-Class Activity.  
  
+### Question 2: Multiple Treatments
 
-
-
- ### **Part (c)**
-
-Test the hypothesis that treatment (`act_any`) does not impact the likelihood of using ARTs using a linear regression.
-
-Hint: adapt the code from Question 14 in the In-Class Activity.
- 
-## Question 2: Multiple Treatments
-
-### **Part (a)**
-
+#### Part (a)
 The variable `coartemprice` indicates the randomly-assigned ACT price (and, implicitly, the associated level of price subsidy). What price/subsidy levels are included in the experiment?  
 
 Hint: use `count()`, adapting the code from Question 3 of the In-Class Activity.  
 
-### **Part (b)
+#### Part (b)
 What is the mean level of ACT use at each subsidy level, and how do these levels compare to the level observed in the control group?  
 
 Hint: use the `group_by()` syntax and the pipe (`%>%`) as you did in Question 1 Part (a).  
 
-### Part (c)
+#### Part (c)
 Now regress c_act on the dummies act40, act60, and act100, which indicate the three different randomly-assigned subsidy levels in the RCT. What do you expect the regression coefficients to be (based on your answer to Question 2b). Do the observed coefficients match your expectations?  
 
 Hint: use `feols()` as you did in Question 1 Part (c). To add additional variables to the regression, structure your regression formula as: `y ~ x1 + x2 + x3`.  
  
-## Question 3: Pooling Treatment Arms
+### Question 3: Pooling Treatment Arms
 
-### Part (a)
+#### Part (a)
 Calculate the proportion of treated observations at each of the three subsidy levels.  
 
 Hint: to do this, use `count()` and then filter the output to create a data frame `treated_counts` containing only treated observations (adapting the code from Question 10 in the In-Class Activity). The last step is to define a new column, `proportion`, that is the number of observations at a subsidy level `n` divided by the sum of `n`. Use `mutate()` to generate this new column. Use `print()` to display your resulting data frame showing the proportions.  
 
-### Part (b)
+#### Part (b)
 Calculate a weighted average of the regression coefficients from Question 2 Part (c) where the weights are the proportion of treated observations in each of the three arms (which you calculated in Question 3 Part (a)).  
 
 Hint: just paste in the relevant numbers from your answers to earlier questions into the code cell and use R as a calculator.  
 
-### Part (c)
+#### Part (c)
 Where have you seen this coefficient before?  
 
 
