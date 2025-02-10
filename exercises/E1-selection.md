@@ -155,11 +155,15 @@ Now regress `c_act` on the dummies `act40`, `act60`, and `act100`, which indicat
 
 #### Part (a) 
 
-Can you figure out a way to get Stata to tell you how many treated observations are in each (of the three) treatment arms using a single line of Stata code?
+Calculate the proportion of treated observations at each of the three subsidy levels.
+
+Hint: `tabulate` the number of observations at each subsidy level, but restrict the sample to only treated observations.
 
 #### Part (b)
 
-Stata's `display` command is useful for doing arithmetic.  Calculate a weighted average of the regression coefficients from Question 2c, where the weights are the proportion of treated observations in each of the three arms.  
+Calculate a weighted average of the regression coefficients from Question 2c, where the weights are the proportion of treated observations in each of the three arms.   
+
+Hint: stata's `display` command is useful for doing arithmetic.  
 
 #### Part (c)
 
