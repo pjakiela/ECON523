@@ -139,11 +139,13 @@ The variable `coartemprice` indicates the randomly-assigned ACT price (and, impl
 
 #### Part (b) 
 
-If you place the code 
+What is the mean level of ACT use at each subsidy level, and how do these levels compare to the level observed in the control group?
+
+Hint: if you place the code 
 ```
 bysort coartemprice: 
 ```
-before the summarize command, Stata will summarize your value of interest separately for each observed value of the variable `coartemprice`.  What is the mean level of ART use at each subsidy level, and how do these levels compare to the level observed in the control group?  
+before the summarize command, Stata will summarize your value of interest separately for each observed value of the variable `coartemprice`.  
 
 #### Part (c)
 
