@@ -44,7 +44,7 @@ e2data <- read_dta(urlfile)
 
 ## In-Class Activity
 
-Extend your script as you answer the following questions, so that you can run the code from start to finish and re-generate all your answers.
+Extend your script as you answer the following questions, so that you can run the code from start to finish and re-generate all your answers.  
 
 ### Question 1  
 
@@ -57,24 +57,28 @@ the mean value of `treatment` in each each country.
 ### Question 2  
 
 Take a look at the outcome variable `e_foodsec`.  What is the mean value in each country?  What is the mean value **in the treatment group** 
-in each country?  What does a histogram of the food security index look like?
+in each country?  What does a histogram of the food security index look like?  
 
-Hint: use `hist()` to make a simple histogram.
+Hint: use `hist()` to make a simple histogram.  
 
 ### Question 3
 
-Regress food security on treatment.  What do you find?  How should we interpret this coefficient?
+Regress food security on treatment.  What do you find?  How should we interpret this coefficient?  
 
-Hint: use `feols()`.
+Hint: use `feols()`, as we did in Exercise 1. The general syntax is `feols(y ~ x, data = df, vcov = 'hc1')`.  
 
 ### Question 4
 
-Now regress food security on treatment controlling for country fixed effects (by adding `i.country`) to the regression.  How do the results change?
+Now regress food security on treatment controlling for country fixed effects.  How do the results change?  
+
+Hint: to add fixed effects for categorical variable `z` to your `feols` regression equation, use the syntax `y ~ x | z`.
 
 ### Question 5
 
 What if we regress food security on treatment separately for each country?  In how many 
 of the six countries do we see a positive and statistically significant treatment effect?
+
+Hint: `e2data[e2data$country == 1]` will identify the subset of the rows of `e2data` with `country` equal to 1.
 
 ### Question 6 (SKIP THIS ONE)
 
