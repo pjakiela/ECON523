@@ -80,11 +80,13 @@ of the six countries do we see a positive and statistically significant treatmen
 
 Hint: `e2data[e2data$country == 1]` will identify the subset of the rows of `e2data` with `country` equal to 1.
 
-### Question 6 (SKIP THIS ONE)
+### Question 6 
 
 The regression including country fixed effects is equivalent to a regression where we first subtract off 
 country-specific means and then regress de-meaned (or normalized) food security on normalized treatment.  Show 
-that this is the case.  (hint:  use `egen`)
+that this is the case.  
+
+Hint: use `group_by()`, then `mutate()` to generate the variables `mean_t` and `mean_fs`, and then `ungroup()` to return the data frame to one where the unit of observation is an individual rather than a country.  
 
 ### Question 7 (SKIP THIS ONE TOO)
 
