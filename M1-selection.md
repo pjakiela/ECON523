@@ -35,7 +35,7 @@ A handout version of the lecture slides is available [here](ECON523-L1-selection
 
 ## Empirical Exercise
 
-The stata version of the in-class activity as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/in-class1.do) or [pdf](h[ttps://pjakiela.github.io/exercises/](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/)ECON-523-in-class1.pdf)  
+The stata version of the in-class activity as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/in-class1.do) or [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-in-class1.pdf)  
 
 The stata version of the empirical exercise as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/E1-questions.do) or [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-ex1.pdf)  
 
