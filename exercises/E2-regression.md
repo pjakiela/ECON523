@@ -67,17 +67,25 @@ Now regress food security on treatment controlling for country fixed effects (by
 What if we regress food security on treatment separately for each country?  In how many 
 of the six countries do we see a positive and statistically significant treatment effect?
 
-### Question 6 (SKIP THIS ONE)
+### Question 6 
 
 The regression including country fixed effects is equivalent to a regression where we first subtract off 
-country-specific means and then regress de-meaned (or normalized) food security on normalized treatment.  Show 
-that this is the case.  (hint:  use `egen`)
+country-specific means and then regress de-meaned (or normalized) food security on normalized treatment. Show 
+that this is the case: generate variables `mean_t` and `mean_fs` capturing the within-country means of treatment and food security, 
+and then generate `norm_t` and `norm_fs` capturing the normalized values (calculated by subtracting the country-specific mean). Regress 
+`norm_fs` on `norm_t` without country fixed effects to confirm that the regression coefficient from Question 4.
 
-### Question 7 (SKIP THIS ONE TOO)
+Hint:  use `egen` with the `bysort` prefix to calculate country-specific means.
+
+### Question 7 
 
 The regression including country fixed effects is also equivalent to a regression of residualized food security 
 (predicted from a regression of food security on country fixed effects) on residualized treatment 
-(predicted the same way).  Show that this is the case.  (hint:  use `predict`)
+(predicted the same way).  Show that this is the case by generating new variables `fs_resid` and `t_resid` that capture 
+the residuals from regressions of food security and treatment on the country fixed effects. Regress `fs_resid` on `t_resid` 
+and compare your results to the coefficients from Questions 4 and 6.
+
+Hint:  use `predict` to generate new variables containing the residuals from a regression.
 
 ### Question 8 
 
