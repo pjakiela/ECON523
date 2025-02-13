@@ -51,8 +51,7 @@ Extend your script as you answer the following questions, so that you can run th
 Familiarize yourself with the data set.  How many countries are included in the study, 
 and how many observations are there in each country?  What fraction of the observations from each country were treated?  
 
-Hint: use `count()` to count the number of observations from each country, and use `group_by()` followed by `summarize()` to calculate 
-the mean value of `treatment` in each each country.  
+Hint: use `count()` to count the number of observations from each country, use `table()` to do a cross-tabulation of two variables, and use `group_by()` followed by `summarize()` to calculate the mean value of `treatment` in each each country.  
 
 ### Question 2  
 
@@ -65,7 +64,10 @@ Hint: use `hist()` to make a simple histogram.
 
 Regress food security on treatment.  What do you find?  How should we interpret this coefficient?  
 
-Hint: use `feols()`, as we did in Exercise 1. The general syntax is `feols(y ~ x, data = df, vcov = 'hc1')`.  
+Hint: use `feols()`, as we did in Exercise 1. The general syntax is: 
+```
+feols(y ~ x, data = df, vcov = 'hc1')
+```  
 
 ### Question 4
 
@@ -84,11 +86,13 @@ Hint: `e2data[e2data$country == 1]` will identify the subset of the rows of `e2d
 
 The regression including country fixed effects is equivalent to a regression where we first subtract off 
 country-specific means and then regress de-meaned (or normalized) food security on normalized treatment.  Show 
-that this is the case.  
+that this is the case: generate variables `mean_t` and `mean_fs` capturing the within-country means of treatment and food security, 
+and then generate `norm_t` and `norm_fs` capturing the normalized values (calculated by subtracting the country-specific mean). Regress 
+`norm_fs` on `norm_t` without country fixed effects to confirm that the regression coefficient from Question 4.
 
 Hint: use `group_by()`, then `mutate()` to generate the variables `mean_t` and `mean_fs`, and then `ungroup()` to return the data frame to one where the unit of observation is an individual rather than a country.  
 
-### Question 7 (SKIP THIS ONE TOO)
+### Question 7 
 
 The regression including country fixed effects is also equivalent to a regression of residualized food security 
 (predicted from a regression of food security on country fixed effects) on residualized treatment 
