@@ -140,7 +140,7 @@ webuse E2-BanerjeeEtAl-data.dta
 drop if treatment==1
 drop treatment
 
-** randomly assign observations to four equally-sized groups
+** randomly assign observations to four groups
 gen randnum = runiform()
 sort country randnum
 by country:  gen within_id = _n
@@ -156,13 +156,13 @@ sort country within_id
 Create a treatment variable `t1` and assign observations in groups 1 and 2 to treatment.  Then, 
 create a variable `impact1` that is equal to 2 for observations in the treatment group and 0 otherwise.  This is the treatment effect 
 for the purposes of this (first) simulation.  Generate an outcome variable `y1` that is endline foodsecurity (`e_foodsec`) 
-plus `impact1`.  Now regress `y1` on `t1` with and without country fixed effects.  How do the estimated treatments effecta 
-and the levels of statistical significant compare across the two specifications?
+plus `impact1`.  Now regress `y1` on `t1` with and without country fixed effects.  How do the estimated treatments effects 
+and the levels of statistical significance compare across the two specifications?  
 
 #### Part (b)
 
 When the probability of treatment does not vary across countries, including country fixed effects is not necessary - but it may increase 
-statistical power.  In the example above, fixed effects did not improve statistical power much because the mean 
+statistical power. In the example above, fixed effects did not improve statistical power much because the mean of the outcome variable 
 does not vary across countries (it is normalized to zero in the control group in every country).  Change this by increasing 
 `y1` by 10 in two countries and decreasing `y1` by 20 in two other countries.  Now rerun your two regressions 
 (with and without fixed effects).  You should see that including fixed effects now changes the standard error 
@@ -170,22 +170,22 @@ on your estimated treatment effect substantially (though it still should not imp
 
 #### Part (c)
 
-When `p` is fixed, the estimated coefficient from a regression with fixed effects is a weighted average of the estimated country-specific 
-treatment effects (i.e. the within-country differences in means).  The weights are the share of the total sample size within 
-each country.  Given this, if you increased the treatment effect in Peru from 2 to 11, what you expect the treatment effect to be?  See whether 
-this is true in practice (by changing the treatment effect in Peru and then re-running your fixed effects regression).
+The estimated coefficient from a regression with fixed effects is a weighted average of the estimated country-specific 
+treatment effects (i.e. the within-country differences in means between treatment and control).  The weights are proportional to the sample size within 
+each country.  Given this, if you increased the treatment effect in Peru from 2 to 11, what you expect the treatment effect to be?  Calculate the 
+expected regression coefficient by hand (using Stata as a calculator) and then adjust your code and run the fixed effects regression to confirm your result.
 
-### Question 2:  When are fixed effects necessary?
+### Question 2:  when are fixed effects necessary?
 
-Fixed effects are needed when treatment probabilities vary across countries **and** the mean of the outcome variable also varies 
+Fixed effects are **needed** when treatment probabilities vary across countries **and** the mean of the outcome variable also varies 
 across countries (because then treatment is correlated with the outcome, even in the absence of a treatment effect).  To see this, 
 generate a variable `t2` that is equal to 1 for all observations in group 1 plus the observations in group 2 in 
-Ethiopia, Ghana, and Honduras (countries 1, 2, and 3).  In this simulation, we are not going to add any treatment effect.  Generate 
+Ethiopia, Ghana, and Honduras (countries 1, 2, and 3).  In this simulation, we are not going to add any treatment effect - so the null hypothesis is true.  Generate 
 an outcome variable `y2` that is equal to food security, and then add 5 to it in Ethiopia, Ghana, and Honduras 
 (for observations in the treatment and control groups in those countries).  How do the results of regressions 
 with and without country fixed effects compare?
 
-### Question 3:  How observations are weighted with fixed effects.
+### Question 3:  how observations are weighted?
 
 For the last question, we need to have the same number of observations in each country.  The code below does this.  You can see 
 that we now have equal numbers of observations from groups 1, 2, 3, and 4 in each country as well. 
