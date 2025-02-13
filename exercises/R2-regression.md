@@ -192,24 +192,26 @@ treatment effects (i.e. the within-country differences in means between treatmen
 each country.  Given this, if you increased the treatment effect in Peru from 2 to 11, what you expect the treatment effect to be?  Calculate the expected 
 regression coefficient by hand (using R as a calculator) and then adjust your code and run the fixed effects regression to confirm your result.
 
-### Question 2:  When are fixed effects necessary?
+### Question 2:  when are fixed effects necessary?
 
-Fixed effects are needed when treatment probabilities vary across countries **and** the mean of the outcome variable also varies 
+Fixed effects are **needed** when treatment probabilities vary across countries **and** the mean of the outcome variable also varies 
 across countries (because then treatment is correlated with the outcome, even in the absence of a treatment effect).  To see this, 
 generate a variable `t2` that is equal to 1 for all observations in group 1 plus the observations in group 2 in 
-Ethiopia, Ghana, and Honduras (countries 1, 2, and 3).  In this simulation, we are not going to add any treatment effect.  Generate 
+Ethiopia, Ghana, and Honduras (countries 1, 2, and 3).  In this simulation, we are not going to add any treatment effect - so the null hypothesis is true.  Generate 
 an outcome variable `y2` that is equal to food security, and then add 5 to it in Ethiopia, Ghana, and Honduras 
 (for observations in the treatment and control groups in those countries).  How do the results of regressions 
 with and without country fixed effects compare?
 
-### Question 3:  How observations are weighted with fixed effects.
+### Question 3:  how observations are weighted?
 
 For the last question, we need to have the same number of observations in each country.  The code below does this.  You can see 
 that we now have equal numbers of observations from groups 1, 2, 3, and 4 in each country as well. 
 
 ```
-keep if within<=360 // 360 obs per country
-tab country group 
+q3 <- e2data %>% 
+  filter(within_id <= 360)
+count(q3, group)
+table(q3$country, q3$group)
 ```
 
 Now generate a treatment variable `t3`.  `t3` should be equal to one for observations in group 1 in 
@@ -219,7 +221,7 @@ be equal to 1 for observations in groups 1, 2, and 3 in Pakistan and Peru. Given
 #### Part (a) 
 
 First, consider what happens when we **only** have a treatment effect in the countries with the lowest proportion treated. Create 
-a variable `impact3` that is equal to 10 for treated observations in Ethiopia and Ghana, and equal to zero for everybody else. Then, 
+a variable `impact3a` that is equal to 10 for treated observations in Ethiopia and Ghana, and equal to zero for everybody else. Then, 
 create an outcome variable `y3a` that is the sum of `e_foodsec` and `impact3a`.  You can see the average treatment effect across 
 all the treated observations in the sample summarizing impact3a among all treated individuals.  How does that compare to 
 the results of regressions with and without fixed effects, or to the results from a regression that only includes data from Ethiopia and Ghana?
