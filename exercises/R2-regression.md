@@ -22,7 +22,7 @@ explore the mechanics of fixed effects.
 Create an R script that contains the following preliminaries:
 
 ```
-# preliminaries ----------------------------------------------------------------
+# preliminaries -----------------------------------------
 
 ## libraries
 
