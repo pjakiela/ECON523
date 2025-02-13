@@ -96,36 +96,34 @@ Hint: use `group_by()`, then `mutate()` to generate the variables `mean_t` and `
 
 The regression including country fixed effects is also equivalent to a regression of residualized food security 
 (predicted from a regression of food security on country fixed effects) on residualized treatment 
-(predicted the same way).  Show that this is the case.  (hint:  use `predict`)
+(predicted the same way).  Show that this is the case by generating new variables `fs_resid` and `t_resid` that capture 
+the residuals from regressions of food security and treatment on the country fixed effects. Regress `fs_resid` on `t_resid` 
+and compare your results to the coefficients from Questions 4 and 6.  
+
+Hint: the example below illustrates how to capture the residuals from a regression:
+
+```
+model <- feols(y ~ x, data = df, vcov = 'hc1')
+y_resid <- model$residuals
+```
 
 ### Question 8 
 
 The regression including country fixed effects is also equivalent to a weighted average of the country-specific 
 treatment effects.  The weights are proportional to `N*p*(1-p)` where `N` is the number of observations in a country 
 and `p` is the proportion treated in that country.  The weights are normalized by dividing by the sum of 
-all the weights.  Extend the program below to calculate the treatment effect that you would get from a regression controlling for fixed effects.
+all the weights.  Extend the program below to calculate the treatment effect that you would get from 
+a regression controlling for fixed effects.
 
 ```
-gen T_mean = .
-gen C_mean = .
-gen p = .
-gen N = .
+## check: what values should your new variables take on?
+e2data %>% group_by(country, treatment) %>% 
+  summarize(mean = mean(e_foodsec))
 
-forvalues i = 1/6 {
-	sum e_foodsec if treatment==1 & country==`i'
-	replace T_mean = r(mean) in `i'
-	sum e_foodsec if treatment==0 & country==`i'
-	replace C_mean = r(mean) in `i'
-	sum treatment if country==`i'
-	replace p = r(mean) in `i'
-	count if country==`i'
-	replace N = r(N) in `i'
-}
-
-gen weight = N*p*(1-p)
-egen sum_weights = total(weight)
-replace weight = weight / sum_weights
-drop sum_weights
+## calculate the weights and the regression coefficient
+e2data %>% group_by(country) %>% 
+  summarize(mean_fs_t = mean(e_foodsec[treatment == 1], na.rm = TRUE)) %>% 
+  mutate(weight = n*mean_t*(1-mean_t) / sum(n*mean_t*(1-mean_t)))
 ```
 
 <br>
@@ -134,46 +132,54 @@ drop sum_weights
 
 For this part of the exercise, we're going to drop 
 all the observations in the treatment group, and then simulate alternative 
-scenarios to better understand how fixed effects work.  Create a new do file that begins with the code below, and 
-then extend your do file as you answer the questions.
+scenarios to better understand how fixed effects work.  Create a new R script that begins with the code below, and 
+then extend your program as you answer the questions. Make sure you unerstand what the code below does before proceeding.  
 
 ```
-** preliminaries
-clear all 
-set more off
-set seed 12345
+# preliminaries ---------------------------------
 
-** load the data from the course website
-webuse set https://pjakiela.github.io/ECON523/exercises
-webuse E2-BanerjeeEtAl-data.dta
+## libraries
 
-** drop observations in the treatment group
-drop if treatment==1
-drop treatment
+#install.packages("tidyverse")
+#install.packages("haven") # load dta files
+#install.packages("fixest") # OLS w/ robust SEs
 
-** randomly assign observations to four equally-sized groups
-gen randnum = runiform()
-sort country randnum
-by country:  gen within_id = _n
-gen group = mod(within_id,4)
-replace group = 4 if group==0
-sort country within_id
+library(tidyverse)
+library(haven)
+library(fixest)
+
+## load data 
+
+urlfile <- 'https://pjakiela.github.io/ECON523/exercises/E2-BanerjeeEtAl-data.dta'
+e2dataraw <- read_dta(urlfile)
+
+## drop treatment group, randomly assign observations to four groups
+e2data <- e2dataraw %>% 
+  filter(treatment != 1) %>% 
+  select(!treatment) %>% 
+  mutate(randnum = runif(n())) %>%  
+  arrange(country, randnum) %>%  
+  group_by(country) %>%
+  mutate(within_id = row_number(),  
+         group = (within_id %% 4)) %>%  
+  mutate(group = ifelse(group == 0, 4, group)) %>% 
+  ungroup()
 ```
 
-### Question 1:  Fixed effects when `p` is constant across countries
+### Question 1:  fixed effects when `p` is constant across countries
 
 #### Part (a)
 
 Create a treatment variable `t1` and assign observations in groups 1 and 2 to treatment.  Then, 
 create a variable `impact1` that is equal to 2 for observations in the treatment group and 0 otherwise.  This is the treatment effect 
 for the purposes of this (first) simulation.  Generate an outcome variable `y1` that is endline foodsecurity (`e_foodsec`) 
-plus `impact1`.  Now regress `y1` on `t1` with and without country fixed effects.  How do the estimated treatments effecta 
-and the levels of statistical significant compare across the two specifications?
+plus `impact1`.  Now regress `y1` on `t1` with and without country fixed effects.  How do the estimated treatments effects 
+and the levels of statistical significance compare across the two specifications?
 
 #### Part (b)
 
 When the probability of treatment does not vary across countries, including country fixed effects is not necessary - but it may increase 
-statistical power.  In the example above, fixed effects did not improve statistical power much because the mean 
+statistical power. In the example above, fixed effects did not improve statistical power much because the mean of the outcome variable 
 does not vary across countries (it is normalized to zero in the control group in every country).  Change this by increasing 
 `y1` by 10 in two countries and decreasing `y1` by 20 in two other countries.  Now rerun your two regressions 
 (with and without fixed effects).  You should see that including fixed effects now changes the standard error 
@@ -181,10 +187,10 @@ on your estimated treatment effect substantially (though it still should not imp
 
 #### Part (c)
 
-When `p` is fixed, the estimated coefficient from a regression with fixed effects is a weighted average of the estimated country-specific 
-treatment effects (i.e. the within-country differences in means).  The weights are the share of the total sample size within 
-each country.  Given this, if you increased the treatment effect in Peru from 2 to 11, what you expect the treatment effect to be?  See whether 
-this is true in practice (by changing the treatment effect in Peru and then re-running your fixed effects regression).
+The estimated coefficient from a regression with fixed effects is a weighted average of the estimated country-specific 
+treatment effects (i.e. the within-country differences in means between treatment and control).  The weights are proportional to the sample size within 
+each country.  Given this, if you increased the treatment effect in Peru from 2 to 11, what you expect the treatment effect to be?  Calculate the expected 
+regression coefficient by hand (using R as a calculator) and then adjust your code and run the fixed effects regression to confirm your result.
 
 ### Question 2:  When are fixed effects necessary?
 
