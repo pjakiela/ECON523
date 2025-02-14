@@ -205,7 +205,7 @@ with and without country fixed effects compare?
 ### Question 3:  how observations are weighted?
 
 For the last question, we need to have the same number of observations in each country.  The code below does this.  You can see 
-that we now have equal numbers of observations from groups 1, 2, 3, and 4 in each country as well. 
+that we now have equal numbers of observations from groups 1, 2, 3, and 4 in each country. 
 
 ```
 q3 <- e2data %>% 
@@ -214,7 +214,7 @@ count(q3, group)
 table(q3$country, q3$group)
 ```
 
-Now generate a treatment variable `t3`.  `t3` should be equal to one for observations in group 1 in 
+Generate a treatment variable `t3`.  `t3` should be equal to one for observations in group 1 in 
 Ethiopia and Ghana.  `t3` should be equal to one for observations in groups 1 and 2 in Honduras and India.  `t3` should 
 be equal to 1 for observations in groups 1, 2, and 3 in Pakistan and Peru. Given this, what is the proportion treated in each country?
 
@@ -223,8 +223,8 @@ be equal to 1 for observations in groups 1, 2, and 3 in Pakistan and Peru. Given
 First, consider what happens when we **only** have a treatment effect in the countries with the lowest proportion treated. Create 
 a variable `impact3a` that is equal to 10 for treated observations in Ethiopia and Ghana, and equal to zero for everybody else. Then, 
 create an outcome variable `y3a` that is the sum of `e_foodsec` and `impact3a`.  You can see the average treatment effect across 
-all the treated observations in the sample summarizing impact3a among all treated individuals.  How does that compare to 
-the results of regressions with and without fixed effects, or to the results from a regression that only includes data from Ethiopia and Ghana?
+all the **treated** observations in the sample by summarizing impact3a among treated individuals.  How does that compare to 
+the results of regressions with and without fixed effects? Which do you think better captures the average treatment effect, and why (this is a trick question)?
 
 #### Part (b)
 
@@ -236,9 +236,13 @@ rather than in Ethiopia and Ghana (where the proportion treated is one quarter).
 Now replicate the exercise again, but have the treatment effect occur in Pakistan and Peru (where the proportion treated is three quarters) 
 rather than in Honduras and India (where the proportion treated is one half).  Generate new variables `impact3c` and `y3c` and repeat your analysis.
 
+#### Part (d) 
+
+In the simulations above, the regressions without fixed effects recovered a reasonable estimate of average treatment effect on the treated across all the countries in the analysis. Why was this? How would you modify simulation 3c so that the regression without fixed effects would **not** recover an unbiased estimate of the average treatment effect across all treated individuals in the sample?
+
 ### Question 4:  Takeaways.
 
-Based on the above, which countries received relatively low weight in the analysis of Banerjee et al. because the proportion treated was relatively low?  How do you think that might have impacted their results?  
+Based on the above, which countries received relatively low weight in the analysis of Banerjee et al. conditional on the number of observations from that country?  How do you think that might have impacted their results?  
 
 <br>
 
