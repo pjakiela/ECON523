@@ -222,7 +222,7 @@ rather than in Honduras and India (where the proportion treated is one half).  G
 
 In the simulations above, the regressions without fixed effects recovered a reasonable estimate of average treatment effect on the treated across all the countries in the analysis. Why was this? How would you modify simulation 3c so that the regression without fixed effects would **not** recover an unbiased estimate of the average treatment effect across all treated individuals in the sample?
 
-### Question 4:  Takeaways.
+### Question 4:  takeaways
 
 Based on the above, which countries received relatively low weight in the analysis of Banerjee et al. conditional on the number of observations from that country?  How do you think that might have impacted their results?  
 
