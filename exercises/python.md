@@ -1,4 +1,4 @@
-# Empirical Exercises in Python (Co-Labs)  
+# Empirical Exercises in Python
 
 [Exercise 1:  Selection Bias and the Experimental Ideal](https://colab.research.google.com/drive/10OEYzsOX6dONrEarj-g3u2Wku15TbwhK?usp=sharing)
 
