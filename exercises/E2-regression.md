@@ -15,12 +15,6 @@ randomized trial in six countries.
 In this exercise, we use data on the program's impacts on food security to 
 explore the mechanics of fixed effects.
 
-You can access the in-class activity (below) as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/in-class2.do) 
-or [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-E2-in-class.pdf).  
-
-You can also access the main empirical exercise (also below) as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/E2-questions.do) 
-or [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-E2-questions.pdf).
-
 <br>
 
 ## Getting Started 
@@ -116,6 +110,10 @@ egen sum_weights = total(weight)
 replace weight = weight / sum_weights
 drop sum_weights
 ```
+
+### Question 9
+
+Show that you can also recover the coefficient and standard error from the fixed effects regression by regressing e_foodsec on treatment while controlling for the propensity score which is probability that an observation is treated, proxied for by the proportion treated within each country.  
 
 <br>
 
