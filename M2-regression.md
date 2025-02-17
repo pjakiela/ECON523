@@ -4,7 +4,8 @@
 
 ## Overview
 
-This module reviews regression, which we all know but could know better.
+This module reviews **regression**, which we all know but could know better. We review the derivation of linear regression coefficients, 
+the use of fixed effects, and the Firsch-Waugh-Lovell theorem.
 
 <br>
 
@@ -22,14 +23,21 @@ This module reviews regression, which we all know but could know better.
 
 ## Lecture Slides
 
-A handout version of the lecture slides is available [here](ECON523-L2-regression-handout-2UP.pdf).
+A handout version of the lecture slides is available [here](ECON523-L2-regression-handout-2025.pdf).
 
 <br>
 
 ## Empirical Exercise
 
-The in-class activity as a [do](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/in-class2.do) file or [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-E2-in-class.pdf)
+The stata version of the in-class activity as a [do](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/in-class2.do) file or [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-E2-in-class.pdf)
 
-The empirical exercise as a [do](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/E2-questions.do) file or [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-E2-questions.pdf)
+The stata version of the empirical exercise as a [do](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/E2-questions.do) file or [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-E2-questions.pdf)
 
-A web version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/E2-regression.html).
+The stata version of both is also available [here](https://pjakiela.github.io/ECON523/exercises/E2-regression.html)
+
+The R version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/R2-regression.html)
+
+The Python version of the empirical exercise is available [here]()
+
+
+
