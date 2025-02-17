@@ -23,7 +23,7 @@ the use of fixed effects, and the Firsch-Waugh-Lovell theorem.
 
 ## Lecture Slides
 
-A handout version of the lecture slides is available [here](ECON523-L2-regression-handout-2025.pdf).
+A handout version of the lecture slides is available [here](ECON523-L2-regression-2025-handout.pdf).
 
 <br>
 
