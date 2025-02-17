@@ -126,6 +126,10 @@ e2data %>% group_by(country) %>%
   mutate(weight = n*mean_t*(1-mean_t) / sum(n*mean_t*(1-mean_t)))
 ```
 
+### Question 9
+
+Show that you can also recover the coefficient and standard error from the fixed effects regression by regressing e_foodsec on treatment while controlling for the propensity score which is probability that an observation is treated, proxied for by the proportion treated within each country.
+
 <br>
 
 ## Empirical Exercise
