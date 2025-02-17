@@ -183,7 +183,7 @@ an outcome variable `y2` that is equal to food security, and then add 5 to it in
 (for observations in the treatment and control groups in those countries).  How do the results of regressions 
 with and without country fixed effects compare?
 
-### Question 3:  how observations are weighted?
+### Question 3:  how are observations weighted?
 
 For the last question, we need to have the same number of observations in each country.  The code below does this.  You can see 
 that we now have equal numbers of observations from groups 1, 2, 3, and 4 in each country as well. 
