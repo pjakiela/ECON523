@@ -137,7 +137,7 @@ Show that you can also recover the coefficient and standard error from the fixed
 For this part of the exercise, we're going to drop 
 all the observations in the treatment group, and then simulate alternative 
 scenarios to better understand how fixed effects work.  Create a new R script that begins with the code below, and 
-then extend your program as you answer the questions. Make sure you unerstand what the code below does before proceeding.  
+then extend your program as you answer the questions. Make sure you understand what the code below does before proceeding.  
 
 ```
 # preliminaries ---------------------------------
