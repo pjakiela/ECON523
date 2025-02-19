@@ -23,9 +23,10 @@ The option `sheet` tells Stata which worksheet within the excel file `E3-Semmelw
 `first` indicates that the first row of the spreadsheet should be treated as variable names and not as one of the observations.  
 
 After importing the data, assign the variables the following labels using the `label var` command:
-|---|---|
-Births1 | Births in Division 1 (Treatment Group)|
-|---|---|
+
+| Variable | Label to Assign |
+|------------|------------|
+| Births1 | Births in Division 1 (Treatment Group) |
 
 Use the `describe` and `summarize` commands to familiarize yourself with the data set.  Which variable 
 records the maternal mortality rate in Division 1 of the hospital?  What is the average maternal mortality rate in Division 1?  What is 
