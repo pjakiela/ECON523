@@ -33,7 +33,7 @@ The stata version of the empirical exercise is available [here](https://pjakiela
 
 The R version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/R2-regression.html)
 
-The Python version of the empirical exercise is available [here]()
+The Python version of the empirical exercise is available [here](https://colab.research.google.com/drive/1vgqyTfI0Llrgyuco-NpEqnp6EU-9hZ64?usp=sharing)
 
 
 
