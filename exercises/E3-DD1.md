@@ -13,7 +13,7 @@ Data on maternal mortality rates in Vienna are contained in the Excel file [E3-S
 (where expectant mothers were treated by doctors and medical students) and Division 2 (where expectant mothers were treated by midwives and trainee midwives from 1841 on). In Semmelweis' difference-in-differences analysis, Division 1 was the (ever-)treated group.  
 
 Our first task is to import this Excel file into Stata using the `import excel` command.  Create a do file that begins with the usual 
-preliminaries and then imports the Semmelweis data directly from github using the follow code:
+preliminaries and then imports the Semmelweis data directly from github using the following code:
 ```
 import excel ///
 "https://pjakiela.github.io/ECON523/exercises/E3-Semmelweis1861-data.xlsx", /// 
@@ -27,17 +27,13 @@ After importing the data, assign the variables the following labels using the `l
 | Variable | Label to Assign |
 |------------|------------|
 | Births1 | Births in Division 1 (Treatment Group) |
+| Deaths1 | Deaths in Division 1 (Treatment Group) |
+| Rate1 | Mortality Rate in Division 1 (Treatment Group) |
+| Births2 | Births in Division 2 (Comparison Group) |
+| Deaths2 | Deaths in Division 2 (Comparison Group) |
+| Rate2 | Mortality Rate in Division 2 (Comparison Group) |
 
-Use the `describe` and `summarize` commands to familiarize yourself with the data set.  Which variable 
-records the maternal mortality rate in Division 1 of the hospital?  What is the average maternal mortality rate in Division 1?  What is 
-the average maternal mortality rate in Division 2?
-
-The next lines of the code in the `do` file save the data in Stata format, and then graph maternal mortality rates in Division 1 
-and Division 2.  If you have important the data correctly, Stata should generate a figure that looks like this:
-
-![all-data-plot](vienna-by-wing-fig1.png)
-
-What patterns do you notice in this figure?  How do maternal mortality rates in the two divisions of the hospital compare?
+Now familiarize yourself with the data set. What is the average maternal mortality rate in Division 1?  What is the average maternal mortality rate in Division 2?
 
 <br>
 
@@ -45,13 +41,26 @@ What patterns do you notice in this figure?  How do maternal mortality rates in 
 
 ### Question 1
 
-Use the `list` command to list the the notes contained in the data set by year.  If you only want to list the rows of data 
-that include a note (i.e. where the `Note` variable is non-missing), you can add `!missing(Note)` at the end of the command.  
+Use stata's `twoway` command to make a graph of maternal mortality in the two wings of the hospital. First, if you have not already, install the `blindschemes` packing by running the command
+```
+ssc install blindschemes
+```
+This will allow you to use the colors `sea` and `vermillion`, as shown in the sample code below.  
+
+
+Your finished graph should look something like this.
+
+![all-data-plot](vienna-by-wing-fig1.png)
+
+What patterns do you notice in this figure?  How do maternal mortality rates in the two divisions of the hospital compare?
 
 ### Question 2
 
 In what year did the hospital first move to the system where patients in Division 1 were treated by doctors and patients in Division 2 
 were treated by midwives?  Drop the observations (years) before this happened using the drop command.
+
+Use the `list` command to list the the notes contained in the data set by year.  If you only want to list the rows of data 
+that include a note (i.e. where the `Note` variable is non-missing), you can add `!missing(Note)` at the end of the command.  
 
 _Make sure that you record this and all your subsequent commands in your do file, so that you can re-run your code later._
 
