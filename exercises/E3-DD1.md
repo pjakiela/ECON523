@@ -3,7 +3,7 @@
 In this exercise, we're going to analyze data from Ignaz Semmelweis' handwashing intervention in the maternity hospital in Vienna.  The data come from 
 Semmelweis' (1861) book, and [some helpful person put them on Wikipedia](https://en.wikipedia.org/wiki/Historical_mortality_rates_of_puerperal_fever#Yearly_mortality_rates_for_birthgiving_women_1784%E2%80%931849).  
 
-We'll review the different ways to estimate simple difference-in-differences models.  We'll also learn how to export results to excel using Stata's `esttab` and `putexcel` commands.  The `putexcel` command is more customizable, but it also takes more work. `esttab` is a very straightforward tool for getting basic regression results out of stata and into pretty much any format.   
+We'll review the different ways to estimate simple difference-in-differences models.  We'll also learn how to make simple graphs using `twoway` and export regression results to excel using the  `esttab` and `putexcel` commands.  `putexcel` is more customizable, but it also takes more work. `esttab` is a very straightforward tool for getting basic regression results out of stata and into pretty much any format.   
   
 <br> 
 
