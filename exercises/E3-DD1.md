@@ -57,7 +57,7 @@ twoway (connected Rate1 Year, ///
 	col(2) ring(0) pos(2))
 ```
 Your finished graph should look something like this:
-![all-data-plot](vienna-by-wing-fig1.png)
+![all-data-plot](vienna-by-wing-plot.png)
 
 What patterns do you notice in this figure?  How do maternal mortality rates in the two divisions of the hospital compare?
 
