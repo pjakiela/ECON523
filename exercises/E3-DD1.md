@@ -45,11 +45,18 @@ Use stata's `twoway` command to make a graph of maternal mortality in the two wi
 ```
 ssc install blindschemes
 ```
-This will allow you to use the colors `sea` and `vermillion`, as shown in the sample code below.  
-
-
-Your finished graph should look something like this.
-
+This will allow you to use the colors `sea` and `vermillion`, as shown in the sample code below. Now, adapt the code below to make your graph as possible to the one below.
+```
+twoway (connected Rate1 Year, ///
+	color(vermillion) msymbol(o) msize(small) lw(thin)) /// 
+	(connected Rate2 Year, ///
+	color(sea) msymbol(o) msize(small) lw(thin)), ///
+	xlabel(1830(5)1860) xtitle(" ") ///
+	legend(label(1 "Doctors' Wing") ///
+	label(2 "Midwives' Wing") ///
+	col(2) ring(0) pos(2))
+```
+Your finished graph should look something like this:
 ![all-data-plot](vienna-by-wing-fig1.png)
 
 What patterns do you notice in this figure?  How do maternal mortality rates in the two divisions of the hospital compare?
