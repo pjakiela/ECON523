@@ -19,8 +19,7 @@ import excel ///
 "https://pjakiela.github.io/ECON523/exercises/E3-Semmelweis1861-data.xlsx", /// 
 sheet("ViennaBothClinics") first
 ```
-The option `sheet` tells Stata which worksheet within the excel file `E3-Semmelweis1861-data.xlsx` to select.  The option 
-`first` indicates that the first row of the spreadsheet should be treated as variable names and not as one of the observations.  
+The option `sheet` tells Stata which worksheet within the excel file `E3-Semmelweis1861-data.xlsx` to select.  The option `first` indicates that the first row of the spreadsheet should be treated as variable names and not as one of the observations.  
 
 After importing the data, assign the variables the following labels using the `label var` command:
 
