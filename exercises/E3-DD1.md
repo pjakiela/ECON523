@@ -55,20 +55,17 @@ twoway (connected Rate1 Year, ///
 	label(2 "Midwives' Wing") ///
 	col(2) ring(0) pos(2))
 ```
-Your finished graph should look something like this:
+Your finished graph should look something like this:  
+
 ![all-data-plot](vienna-by-wing-plot.png)
 
 What patterns do you notice in this figure?  How do maternal mortality rates in the two divisions of the hospital compare?
 
 ### Question 2
 
-In what year did the hospital first move to the system where patients in Division 1 were treated by doctors and patients in Division 2 
-were treated by midwives?  Drop the observations (years) before this happened using the drop command.
+In what year did the hospital first move to the system where patients in Division 1 were treated by doctors and patients in Division 2 were treated by midwives?  Drop the observations (years) before this happened using the drop command.
 
-Use the `list` command to list the the notes contained in the data set by year.  If you only want to list the rows of data 
-that include a note (i.e. where the `Note` variable is non-missing), you can add `!missing(Note)` at the end of the command.  
-
-_Make sure that you record this and all your subsequent commands in your do file, so that you can re-run your code later._
+Hint: use the `list` command to list the the notes contained in the data set by year.  If you only want to list the rows of data that include a note (i.e. where the `Note` variable is non-missing), you can add `!missing(Note)` at the end of the command.  
 
 ### Question 3
 
@@ -80,11 +77,7 @@ What is the mean postpartum mortality rate in the doctors' wing (Division 1) pri
 
 ### Question 5
 
-Now let's put this result in a table.  We're going to use the `putexcel` command to write our results into an Excel file.  `putexcel` 
-is a simple command that allows you to write Stata output to a particular cell or set of cells in an Excel file.  Before getting started 
-with `putexcel`, use the `pwd` ("print working directory") command in the Stata command window to make sure that you are writing your 
-results to an appropriate file.  Use the `cd` command to change your file path if necessary (add this to your do file).  Then set up the Excel file that will 
-receive your results using the commands:
+Now we're going to use the `putexcel` command to write our results into an excel file.  `putexcel` is a simple command that allows you to write Stata output to a particular cell or set of cells in an excel file.  Before getting started with `putexcel`, use the `pwd` ("print working directory") command in the Stata command window to make sure that you are writing your results to an appropriate folder.  Use `cd` to change your file path if necessary.  Then set up the Excel file that will receive your results using the commands:
 
 ```
 putexcel set E3-DD-table1.xlsx, replace
