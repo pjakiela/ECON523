@@ -45,7 +45,7 @@ Use stata's `twoway` command to make a graph of maternal mortality in the two wi
 ```
 ssc install blindschemes
 ```
-This will allow you to use the colors `sea` and `vermillion`, as shown in the sample code below. Now, adapt the code below to make your graph as possible to the one below.
+This will allow you to use the colors `sea` and `vermillion` from the Okabe-Ito colorblind-friendly palette, as shown in the sample code. Adapt the code to make your graph as possible to the one below.
 ```
 twoway (connected Rate1 Year, ///
 	color(vermillion) msymbol(o) msize(small) lw(thin)) /// 
