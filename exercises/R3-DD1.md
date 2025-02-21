@@ -17,9 +17,7 @@ Our first task is to import this Excel file into Stata using the `openxlsx` pack
 url <- "https://pjakiela.github.io/ECON523/exercises/E3-Semmelweis1861-data.xlsx"
 e3data <- tibble(read.xlsx(url, sheet = "ViennaBothClinics"))
 ```
-The option `sheet` tells R which worksheet within the excel file `E3-Semmelweis1861-data.xlsx` to select.  
-
-After importing the data, you should observe the following columns in the `e3data` data frame:
+The option `sheet` tells R which worksheet within the excel file `E3-Semmelweis1861-data.xlsx` to select. After importing the data, you should observe the following columns in the `e3data` data frame:
 
 | Columns | Description |
 |------------|------------|
@@ -31,3 +29,33 @@ After importing the data, you should observe the following columns in the `e3dat
 | Rate2 | Mortality Rate in Division 2 (Comparison Group) |
 
 Now familiarize yourself with the data set. What is the average maternal mortality rate in Division 1?  What is the average maternal mortality rate in Division 2?
+
+## In-Class Activity
+
+### Question 1
+
+Use R's `ggplot` package to make a graph of maternal mortality in the two wings of the hospital. First, use the following code to define the dark blue and dar orange color's from the Okabe-Ito colorblind-friendly palette
+```
+oiblue <- "#0072B2"
+oiverm <- "#D55E00"
+```
+This will allow you to use the colors `oiblue` and `oiverm`, as shown in the sample code. Adapt the code to make your graph as possible to the one below.
+```
+ggplot(e3data, aes(x = Year, y = Rate1)) + 
+  geom_point(color = oiblue, shape = 16, size = 0.8) +
+  geom_line(aes(color = 'Doctors'), linewidth = 0.32) +
+  geom_point(aes(y = Rate2), color = oiblue, shape = 16, size = 0.8) +
+  geom_line(aes(y = Rate2, color = 'Midwives'), linewidth = 0.32) +
+  xlab(" ") +
+  ylab("Maternal Mortality (Percent)") + 
+  scale_x_continuous(n.breaks=6) +
+  scale_color_manual(name=' ',
+                     breaks=c('Doctors',
+                              'Midwives'),
+                     values=c('Doctors' = oiverm,
+                              'Midwives' = oiblue)) 
+```
+Your finished graph should look something like this:
+![all-data-plot](R-semmelweis-plot.png)
+
+What patterns do you notice in this figure?  How do maternal mortality rates in the two divisions of the hospital compare?
