@@ -9,27 +9,25 @@ We'll review the different ways to estimate simple difference-in-differences mod
 
 ## Getting Started  
 
-Data on maternal mortality rates in Vienna are contained in the Excel file [E3-Semmelweis1861-data.xlsx](E3-Semmelweis1861-data.xlsx). The spreadsheet inlcudes 
-annual data from 1833 (when the Vienna Maternity Hospital opened its second clinic) through 1858.  Mortality rates are reported for Division 1 
-(where expectant mothers were treated by doctors and medical students) and Division 2 (where expectant mothers were treated by midwives and trainee midwives from 1841 on). 
-In Semmelweis' difference-in-differences analysis, Division 1 was the (ever-)treated group.  
+Data on maternal mortality rates in Vienna are contained in the Excel file [E3-Semmelweis1861-data.xlsx](E3-Semmelweis1861-data.xlsx). The spreadsheet inlcudes annual data from 1833 (when the Vienna Maternity Hospital opened its second clinic) through 1858.  Mortality rates are reported for Division 1 
+(where expectant mothers were treated by doctors and medical students) and Division 2 (where expectant mothers were treated by midwives and trainee midwives from 1841 on). In Semmelweis' difference-in-differences analysis, Division 1 was the (ever-)treated group.  
 
-Our first task is to import this Excel file into R using the `import excel` command.  Create a do file that begins with the usual 
-preliminaries and then imports the Semmelweis data directly from github using the follow code:
+Our first task is to import this Excel file into Stata using the `openxlsx` package.  Create R script that begins with the usual preliminaries, installs the package `openxlsx` and loads it as one of the libraries, and then imports the Semmelweis data directly from github using the following code:
 ```
-import excel ///
-"https://pjakiela.github.io/ECON523/exercises/E3-Semmelweis1861-data.xlsx", /// 
-sheet("ViennaBothClinics") first
+url <- "https://pjakiela.github.io/ECON523/exercises/E3-Semmelweis1861-data.xlsx"
+e3data <- tibble(read.xlsx(url, sheet = "ViennaBothClinics"))
 ```
-The option `sheet` tells Stata which worksheet within the excel file `E3-Semmelweis1861-data.xlsx` to select.  The option 
-`first` indicates that the first row of the spreadsheet should be treated as variable names and not as one of the observations.  
+The option `sheet` tells R which worksheet within the excel file `E3-Semmelweis1861-data.xlsx` to select.  
 
-After importing the data, assign the variables the following labels using the `label var` command:
+After importing the data, you should observe the following columns in the `e3data` data frame:
 
-| Variable | Label to Assign |
+| Columns | Description |
 |------------|------------|
 | Births1 | Births in Division 1 (Treatment Group) |
+| Deaths1 | Deaths in Division 1 (Treatment Group) |
+| Rate1 | Mortality Rate in Division 1 (Treatment Group) |
+| Births2 | Births in Division 2 (Comparison Group) |
+| Deaths2 | Deaths in Division 2 (Comparison Group) |
+| Rate2 | Mortality Rate in Division 2 (Comparison Group) |
 
-Use the `describe` and `summarize` commands to familiarize yourself with the data set.  Which variable 
-records the maternal mortality rate in Division 1 of the hospital?  What is the average maternal mortality rate in Division 1?  What is 
-the average maternal mortality rate in Division 2?
+Now familiarize yourself with the data set. What is the average maternal mortality rate in Division 1?  What is the average maternal mortality rate in Division 2?
