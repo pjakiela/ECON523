@@ -90,6 +90,21 @@ putexcel A4="After Handwashing", bold
 
 At this point, it is worth opening your Excel file to make sure that you are writing to it successfully.  **Be sure to close the file after you look at it**; Stata won't write over an open Excel file.  The column and row labels should all appear in bold font (the `bold` option), and the column headings in cells B1, C1, and D1 should be centered (the `hcenter` option) and have a border above them (the `border()` option).  
 
+Your table should look something like this:  
+
+|             | Treatment | Control | Difference | 
+|-------------|-----------|---------|------------|
+| Before Handwashing | | | |
+|  | | | |
+| After Handwashing | | | |
+|  | | | |
+| Difference | | | |
+|  | | | |
+
+ 
+![image](https://github.com/user-attachments/assets/ca62ea88-b075-46bc-ae96-ea70658c3453)
+
+
 ### Question 6
 
 Now that we know that `putexcel` is working, we can add the mean of the variable `Rate1` (the maternal mortality rate in Division 1) for the years prior to the introduction of handwashing.  You can use the `return list` command after a command like `summarize` to see what statistics the summarize command stored in Stata's short-term memory as locals.  Any of these statistics can be exported to Excel.  
