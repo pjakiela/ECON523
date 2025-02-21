@@ -40,7 +40,7 @@ Now familiarize yourself with the data set. What is the average maternal mortali
 
 ### Question 1
 
-Use stata's `twoway` command to make a graph of maternal mortality in the two wings of the hospital. First, if you have not already, install the `blindschemes` packing by running the command
+Use stata's `twoway` command to make a graph of maternal mortality in the two wings of the hospital. First, if you have not already, install the `blindschemes` packing by running the command:
 ```
 ssc install blindschemes
 ```
@@ -90,20 +90,16 @@ putexcel A4="After Handwashing", bold
 
 At this point, it is worth opening your Excel file to make sure that you are writing to it successfully.  **Be sure to close the file after you look at it**; Stata won't write over an open Excel file.  The column and row labels should all appear in bold font (the `bold` option), and the column headings in cells B1, C1, and D1 should be centered (the `hcenter` option) and have a border above them (the `border()` option).  
 
-Your table should look something like this:  
+Your table should look something like this, except with the actual means, standard errors, and differences instead of ones and zeroes:  
 
 |             | Treatment | Control | Difference | 
 |-------------|-----------|---------|------------|
-| Before Handwashing | | | |
-|  | | | |
-| After Handwashing | | | |
-|  | | | |
-| Difference | | | |
-|  | | | |
-
- 
-![image](https://github.com/user-attachments/assets/ca62ea88-b075-46bc-ae96-ea70658c3453)
-
+| Before Handwashing | 1.00 | 1.00 | 1.00 |
+| | (0.00) | (0.00) | (0.00) |
+| After Handwashing | 1.00 | 1.00 | 1.00 |
+| | (0.00) | (0.00) | (0.00) |
+| Difference | 1.00 | 1.00 | 1.00 |
+| | (0.00) | (0.00) | (0.00) |
 
 ### Question 6
 
