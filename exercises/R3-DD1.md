@@ -58,4 +58,33 @@ ggplot(e3data, aes(x = Year, y = Rate1)) +
 Your finished graph should look something like this:
 ![all-data-plot](R-semmelweis-plot.png)
 
-What patterns do you notice in this figure?  How do maternal mortality rates in the two divisions of the hospital compare?
+What patterns do you notice in this figure?  How do maternal mortality rates in the two divisions of the hospital compare?  
+
+### Question 2
+
+In what year did the hospital first move to the system where patients in Division 1 were treated by doctors and patients in Division 2 were treated by midwives?  Drop the observations (years) before this happened.  
+
+Hint: Hint: use `print(df, n = 100)` to print the first 100 rows of data frame `df`. Then use `select()` to keep the correct rows.
+
+### Question 3
+
+Generate a `post` variable equal to one for years after the handwashing policy was implemented (and zero otherwise).  
+
+### Question 4
+
+What is the mean postpartum mortality rate in the doctors' wing (Division 1) prior to the implementation of the handwashing policy?
+
+### Question 5
+
+Now we're going to use the `putexcel` command to write our results into an excel file.  `putexcel` is a simple command that allows you to write Stata output to a particular cell or set of cells in an excel file.  Before getting started with `putexcel`, use the `pwd` ("print working directory") command in the Stata command window to make sure that you are writing your results to an appropriate folder.  Use `cd` to change your file path if necessary.  Then set up the Excel file that will receive your results using the commands:
+
+```
+putexcel set E3-DD-table1.xlsx, replace
+putexcel B1="Treatment", hcenter bold border(top)
+putexcel C1="Control", hcenter bold border(top)
+putexcel D1="Difference", hcenter bold border(top)
+putexcel A2="Before Handwashing", bold
+putexcel A4="After Handwashing", bold
+```
+
+At this point, it is worth opening your Excel file to make sure that you are writing to it successfully.  **Be sure to close the file after you look at it**; Stata won't write over an open Excel file.  The column and row labels should all appear in bold font (the `bold` option), and the column headings in cells B1, C1, and D1 should be centered (the `hcenter` option) and have a border above them (the `border()` option).  
