@@ -77,22 +77,10 @@ What is the mean postpartum mortality rate in the doctors' wing (Division 1) pri
 
 ### Question 5
 
-Now we're going to use the `putexcel` command to write our results into an excel file.  `putexcel` is a simple command that allows you to write Stata output to a particular cell or set of cells in an excel file.  Before getting started with `putexcel`, use the `pwd` ("print working directory") command in the Stata command window to make sure that you are writing your results to an appropriate folder.  Use `cd` to change your file path if necessary.  Then set up the Excel file that will receive your results using the commands:
+Now we're going make a table showing the difference-in-differences estimate of the treatment effect of hand washing on maternal mortality. The table 
+will show the mean mortality rate (maternal deaths per 100 births) in the Treatment and Comparison wings before and after Semmelweis' policy was implemented. Your table will look something like this, except with the actual means, standard errors, and differences instead of ones and zeroes:  
 
-```
-putexcel set E3-DD-table1.xlsx, replace
-putexcel B1="Treatment", hcenter bold border(top)
-putexcel C1="Control", hcenter bold border(top)
-putexcel D1="Difference", hcenter bold border(top)
-putexcel A2="Before Handwashing", bold
-putexcel A4="After Handwashing", bold
-```
-
-At this point, it is worth opening your Excel file to make sure that you are writing to it successfully.  **Be sure to close the file after you look at it**; Stata won't write over an open Excel file.  The column and row labels should all appear in bold font (the `bold` option), and the column headings in cells B1, C1, and D1 should be centered (the `hcenter` option) and have a border above them (the `border()` option).  
-
-Your table should look something like this, except with the actual means, standard errors, and differences instead of ones and zeroes:  
-
-|             | Treatment | Control | Difference | 
+|             | Treatment | Comparison | Difference | 
 |-------------|-----------|---------|------------|
 | Before Handwashing | 1.00 | 1.00 | 1.00 |
 | | (0.00) | (0.00) | (0.00) |
@@ -100,6 +88,40 @@ Your table should look something like this, except with the actual means, standa
 | | (0.00) | (0.00) | (0.00) |
 | Difference | 1.00 | 1.00 | 1.00 |
 | | (0.00) | (0.00) | (0.00) |
+
+
+We'll write to an excel file using the `putexcel` command .  `putexcel` is a simple command that allows you to write Stata output to a particular cell or set of cells in an excel file.  Before getting started with `putexcel`, use the `pwd` ("print working directory") command in the Stata command window to make sure that you are writing your results to an appropriate folder.  Use `cd` to change your file path if necessary.  Then set up the Excel file that will receive your results using the commands:
+
+```
+putexcel set E3-DD-table1.xlsx, replace
+putexcel B1="Treatment", hcenter bold border(top)
+putexcel C1="Comparison", hcenter bold border(top)
+putexcel D1="Difference", hcenter bold border(top)
+putexcel A2="Before Handwashing", bold
+putexcel A4="After Handwashing", bold
+```
+
+You will also want to set the widths of the columns in your Excel file. Unfortunately, there is no way to do this using putexcel. The code below invokes Stata’s mata programming language to adjust the column widths. Change 
+```
+mata
+b = xl()
+b.load_book("E3-DD-table1.xlsx")
+b.set_sheet("Sheet1")
+// make variable name column widest
+b.set_column_width(1,1,20)
+// width for subsequent columns
+b.set_column_width(2,4,12)
+// set row heights
+b.set_row_height(2,7,32)
+b.set_row_height(2,7,32)
+cols = (1,4)
+b.set_font_bold(1, cols, "on")
+b.close_book()
+end
+```
+
+At this point, it is worth opening your Excel file to make sure that you are writing to it successfully.  **Be sure to close the file after you look at it**; Stata won't write over an open Excel file.  The column and row labels should all appear in bold font (the `bold` option), and the column headings in cells B1, C1, and D1 should be centered (the `hcenter` option) and have a border above them (the `border()` option).  
+
 
 ### Question 6
 
