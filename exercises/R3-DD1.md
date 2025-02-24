@@ -76,15 +76,54 @@ What is the mean postpartum mortality rate in the doctors' wing (Division 1) pri
 
 ### Question 5
 
-Now we're going to use the `putexcel` command to write our results into an excel file.  `putexcel` is a simple command that allows you to write Stata output to a particular cell or set of cells in an excel file.  Before getting started with `putexcel`, use the `pwd` ("print working directory") command in the Stata command window to make sure that you are writing your results to an appropriate folder.  Use `cd` to change your file path if necessary.  Then set up the Excel file that will receive your results using the commands:
+Now we're going make a table showing the difference-in-differences estimate of the treatment effect of hand washing on maternal mortality. The table 
+will show the mean mortality rate (maternal deaths per 100 births) in the Treatment and Comparison wings before and after Semmelweis' policy was implemented. Your table will look something like this, except with the actual means, standard errors, and differences instead of ones and zeroes:  
 
+|             | Treatment | Comparison | Difference | 
+|-------------|-----------|---------|------------|
+| Before Handwashing | 1.00 | 1.00 | 1.00 |
+| | (0.00) | (0.00) | (0.00) |
+| After Handwashing | 1.00 | 1.00 | 1.00 |
+| | (0.00) | (0.00) | (0.00) |
+| Difference | 1.00 | 1.00 | 1.00 |
+| | (0.00) | (0.00) | (0.00) |
+
+
+We'll write to an excel file using `openxlsx` `saveWorkbook()`,  a simple command that allows you to write a data frame to an excel file.  Before getting started with `saveWorkbook()`, we will define a simple data frame that contains our desired column and row headings as well as placeholders for the results we want to report. Use the code below to do this. Notice that the second, third, anf fourth columns of the tibble that we create are named **Treatment**, **Comparison**, and **Difference**.  
 ```
-putexcel set E3-DD-table1.xlsx, replace
-putexcel B1="Treatment", hcenter bold border(top)
-putexcel C1="Control", hcenter bold border(top)
-putexcel D1="Difference", hcenter bold border(top)
-putexcel A2="Before Handwashing", bold
-putexcel A4="After Handwashing", bold
+labels <- c("Before Handwashing", 
+            " ", 
+            "After Handwashing", 
+            " ", 
+            "Difference", 
+            " ")
+temp_column <- c("111", "000", "111", "000", "111", "000")
+e3_results <- tibble(" " = labels, 
+                     "Treatment" = temp_column, 
+                     "Comparison" = temp_column, 
+                     "Difference" = temp_column)
+print(e3_results)
 ```
 
-At this point, it is worth opening your Excel file to make sure that you are writing to it successfully.  **Be sure to close the file after you look at it**; Stata won't write over an open Excel file.  The column and row labels should all appear in bold font (the `bold` option), and the column headings in cells B1, C1, and D1 should be centered (the `hcenter` option) and have a border above them (the `border()` option).  
+Now we use `createWorkbook()`, `addWorksheet()`, `writeData()`, and `saveWorkbook()` to write the data frame `e3_results` to excel. In addition to those key steps, the code below uses `setColWidths()` and `addStyle()` to format the table. Adjust the formatting parameters as desired. 
+```
+wb <- createWorkbook()
+addWorksheet(wb, "Results")
+# create a header style
+hs1 <- createStyle(halign = "CENTER", textDecoration = "Bold", border = "BottomTop")
+# write the results to the table
+writeData(wb, "Results", e3_results, headerStyle = hs1)
+# adjust column widths
+e3_widths <- c(18, 12, 12, 12)
+setColWidths(wb, "Results", cols = 1:4, widths = e3_widths)
+# center the content of the table
+center_style <- createStyle(halign = "CENTER")
+addStyle(wb, "Results", center_style, cols = 2:4, rows = 1:7, gridExpand = TRUE, stack = TRUE)
+# create a bottom border
+bottom_style <- createStyle(border = "Bottom")
+addStyle(wb, "Results", bottom_style, cols = 1:4, rows = 7, gridExpand = TRUE, stack = TRUE)
+# save workbook
+saveWorkbook(wb, file = paste0(pjpath, "/R3-DD1.xlsx"), overwrite = TRUE)
+```
+
+At this point, it is worth opening your excel file to make sure that you are writing to it successfully.  **Be sure to close the file after you look at it**; R won't write over an open excel file.  The column and row labels should all appear in bold font, and there should be borders at the top and bottom of the table.  
