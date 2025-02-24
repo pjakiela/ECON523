@@ -22,7 +22,7 @@ This module introduces the difference-in-differences identification strategy. We
 
 ## Lecture Slides
 
-A handout version of the lecture slides is available [here](ECON523-L3-DD1-handout-2UP.pdf). 
+A handout version of the lecture slides is available [here](ECON-523-L3-DD1-2025-handout.pdf). 
 
 <br>
 
@@ -40,11 +40,7 @@ A handout version of the lecture slides is available [here](ECON523-L3-DD1-hando
 
 ## Empirical Exercise
 
-The in-class activity as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-E3-in-class.do) or [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-E3-in-class.pdf)
-
-The empirical exercise as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-E3-questions.do) or [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-E3-questions.pdf)
-
-A web version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/E3-DD1.html).
+The stata version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/E3-DD1.html).
 
 <br>
 
