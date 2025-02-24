@@ -90,7 +90,7 @@ will show the mean mortality rate (maternal deaths per 100 births) in the Treatm
 | | (0.00) | (0.00) | (0.00) |
 
 
-We'll write to an excel file using the `putexcel` command .  `putexcel` is a simple command that allows you to write Stata output to a particular cell or set of cells in an excel file.  Before getting started with `putexcel`, use the `pwd` ("print working directory") command in the Stata command window to make sure that you are writing your results to an appropriate folder.  Use `cd` to change your file path if necessary.  Then set up the Excel file that will receive your results using the commands:
+We'll write to an excel file using the `putexcel` command .  `putexcel` is a simple command that allows you to write Stata output to a particular cell or set of cells in an excel file.  Before getting started with `putexcel`, use the `pwd` ("print working directory") command to make sure that you are writing your results to an appropriate folder.  Use `cd` to change your file path if necessary.  Then set up the excel file that will receive your results using the commands:
 
 ```
 putexcel set E3-DD-table1.xlsx, replace
@@ -101,21 +101,26 @@ putexcel A2="Before Handwashing", bold
 putexcel A4="After Handwashing", bold
 ```
 
-You will also want to set the widths of the columns in your Excel file. Unfortunately, there is no way to do this using putexcel. The code below invokes Stata’s mata programming language to adjust the column widths. Change 
+You will also want to set the widths of the columns in your Excel file. Unfortunately, there is no way to do this using `putexcel`. The code below invokes stata’s mata programming language to adjust the column widths. Change 
 ```
 mata
 b = xl()
 b.load_book("E3-DD-table1.xlsx")
 b.set_sheet("Sheet1")
 // make variable name column widest
-b.set_column_width(1,1,20)
+b.set_column_width(1,1,20) 
 // width for subsequent columns
-b.set_column_width(2,4,12)
-// set row heights
-b.set_row_height(2,7,32)
-b.set_row_height(2,7,32)
+b.set_column_width(2,4,12) 
+// row heights
+b.set_row_height(2,7,20)
+b.set_row_height(2,7,20)
+// make headers bold
 cols = (1,4)
 b.set_font_bold(1, cols, "on")
+// top and bottom borders
+b.set_bottom_border(7, cols, "thin")
+b.set_top_border(1, cols, "thin")
+b.set_top_border(2, cols, "thin")
 b.close_book()
 end
 ```
