@@ -119,10 +119,6 @@ putexcel B2=`temp_mean', hcenter
 
 The `string` command in the first line creates a local macro containing a string that is the mean calculated the last time you used the `summarize` command, rounded to 2 decimal places.  The second line writes that local macro in our Excel file.  Notice that the local macro being exported to Excel appears in single quotes.  If you are just writing a local macro to Excel using the `putexcel` command, it does not need to appear in (double) quotes, but sequences of letters and numbers do need double quotes.  The `hcenter` option tells Excel to center the number within the column.  
 
-We can calculate the standard error of the mean by taking the standard deviation (reported by the `sum` command) and dividing it by the square root of the number of 
-observartions (also reported by the `sum` command).  What is the standard error of the mean postpartum mortality rate in the doctors' wing prior to Semmelweis' handwashing 
-intervention?
-
 ### Question 7
 
 We can calculate the standard error of the mean by taking the standard deviation (reported by the `sum` command) and dividing it by the square root of the number of observations (also reported by the `sum` command).  What is the standard error of the mean postpartum mortality rate in the doctors' wing prior to Semmelweis' handwashing intervention?  Use the code below to add this to your table.
