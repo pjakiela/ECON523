@@ -3,7 +3,9 @@
 In this exercise, we're going to analyze data from Ignaz Semmelweis' handwashing intervention in the maternity hospital in Vienna.  The data come from 
 Semmelweis' (1861) book, and [some helpful person put them on Wikipedia](https://en.wikipedia.org/wiki/Historical_mortality_rates_of_puerperal_fever#Yearly_mortality_rates_for_birthgiving_women_1784%E2%80%931849).  
 
-We'll review the different ways to estimate simple difference-in-differences models.  We'll also learn how to make simple graphs using `twoway` and export regression results to excel using the  `esttab` and `putexcel` commands.  `putexcel` is more customizable, but it also takes more work. `esttab` is a very straightforward tool for getting basic regression results out of stata and into pretty much any format.   
+We'll review the different ways to estimate simple difference-in-differences models.  We'll also learn how to make simple graphs using `twoway` and export regression results using the  `esttab` and `putexcel` commands.  `putexcel` is more customizable, but it also takes more work. `esttab` is a very straightforward tool for getting basic regression results out of stata and into pretty much any format.   
+
+Additional tips on using Stata for data visualization are available [here](https://pjakiela.github.io/stata/dataviz.html).  Tips on making tables are available [here](https://pjakiela.github.io/stata/making-tables.html).  
   
 <br> 
 
@@ -44,7 +46,7 @@ Use stata's `twoway` command to make a graph of maternal mortality in the two wi
 ```
 ssc install blindschemes
 ```
-This will allow you to use the colors `sea` and `vermillion` from the Okabe-Ito colorblind-friendly palette, as shown in the sample code. Adapt the code to make your graph as possible to the one below.
+This will allow you to use the colors `sea` and `vermillion` from the Okabe-Ito colorblind-friendly palette, as shown in the sample code. Adapt the code to make your graph as close possible to the one below.
 ```
 twoway (connected Rate1 Year, ///
 	color(vermillion) msymbol(o) msize(small) lw(thin)) /// 
@@ -59,7 +61,7 @@ Your finished graph should look something like this:
 
 ![all-data-plot](vienna-by-wing-plot.png)
 
-What patterns do you notice in this figure?  How do maternal mortality rates in the two divisions of the hospital compare?
+What patterns do you notice in this figure?  How do maternal mortality rates in the two divisions of the hospital compare?  
 
 ### Question 2
 
@@ -101,7 +103,7 @@ putexcel A2="Before Handwashing", bold
 putexcel A4="After Handwashing", bold
 ```
 
-You will also want to set the widths of the columns in your Excel file. Unfortunately, there is no way to do this using `putexcel`. The code below invokes stata’s mata programming language to adjust the column widths. Change 
+You will also want to set the widths of the columns in your Excel file. Unfortunately, there is no way to do this using `putexcel`. The code below invokes stata’s mata programming language to adjust the column widths. Change the parameter values as needed to create a professional-looking table.  
 ```
 mata
 b = xl()
@@ -125,8 +127,7 @@ b.close_book()
 end
 ```
 
-At this point, it is worth opening your Excel file to make sure that you are writing to it successfully.  **Be sure to close the file after you look at it**; Stata won't write over an open Excel file.  The column and row labels should all appear in bold font; the column headings in cells B1, C1, and D1 should be centered; and the table should have borders at the top and bottom.  
-
+At this point, it is worth opening your excel file to make sure that you are writing to it successfully.  **Be sure to close the file after you look at it**; Stata won't write over an open file.  The column and row labels should all appear in bold font; the column headings in cells B1, C1, and D1 should be centered; and the table should have borders at the top and bottom.  
 
 ### Question 6
 
@@ -177,7 +178,7 @@ Now complete the table.
 
 ## Empirical Exercise
 
-Create a do file that reads in Semmelweis' data from github and restricts attention to the period 
+Next, we are going to implement difference-in-differences as a regression. Create a do file that reads in Semmelweis' data from github and restricts attention to the period 
 when doctors worked in the first clinic and midwives worked in the second clinic.  Your do file 
 should start with the usual preliminaries, just like your do file for the in-class activity. 
 
@@ -210,19 +211,38 @@ You can use the `esttab` command to make a table of your regression results.  Tr
 
 ### Question 7
 
-Take a screenshot of your finished regression table and upload it to gradescope.
+**Optional.** If you want to make a fully customizable table using `putexcel`, you can instead run your regression, store the results in new stata variables that you create, and export those to excel, as follows:
+```
+reg Rate treatment post txpost
+mat V = r(table)
+mat list V
+```
+You see that you have your regression results stored in the matrix `V`. You could use `putexcel` to write those results one coefficient at a time, or you could create the column of results that you want in your table as a variable and then export it, like this:
+```
+gen results = ""
+replace results = string(V[1,1],"%03.2f") in 1 
+replace results = string(V[2,1],"%03.2f") in 2
+replace results = string(V[1,2],"%03.2f") in 3 
+replace results = string(V[2,2],"%03.2f") in 4
+replace results = string(V[1,3],"%03.2f") in 5 
+replace results = string(V[2,3],"%03.2f") in 6
+replace results = string(V[1,4],"%03.2f") in 7 
+replace results = string(V[2,4],"%03.2f") in 8 
+replace results = "(" + results + ")" if mod(_n,2)==0 & results!=""
+putexcel set E3-DD-regs.xlsx, replace
+putexcel B1="(1)", hcenter bold border(top)
+putexcel B2="OLS", hcenter bold border(bottom)
+export excel results using E3-DD-regs.xlsx, cell(B3) sheet("Sheet1", modify)
+```
+Edit the code so that you end up with a nicely formatted regression table in excel, complete with variable labels, borders, etc. You will have the option to upload this table to gradescope in place of the table from Question 7.
 
 ### Question 8
 
-Which coefficient in the regression table (i.e. the coefficient on which variable) is the difference-in-differences estimate of the treatment effect of handwashing on maternal mortalty?
+When you upload your do file to gradescope, you will be asked to answer the following questions about your results:
 
-### Question 9
-
-Which regression coefficient is the estimate of the degree of selection bias?
-
-### Question 10
-
-Which regression coefficient is the estimate of the time trend in the absence of treatment?
+- Which coefficient in the regression table (i.e. the coefficient on which variable) is the difference-in-differences estimate of the treatment effect of handwashing on maternal mortalty?
+- Which regression coefficient is the estimate of the degree of selection bias?
+- Which regression coefficient is the estimate of the time trend in the absence of treatment?
 
 
  ---
