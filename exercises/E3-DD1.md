@@ -169,7 +169,7 @@ Calculate the difference (between the mean of `Rate1` in the pre-treatment perio
 
 Now confirm that you get the same result using the `ttest` command.  How would you export the results of the `ttest` command into your table using `putexcel`?
 
-### Question 11 (SKIP THIS IN CLASS)
+### Question 11 
 
 Now complete the table. 
 
@@ -177,29 +177,16 @@ Now complete the table.
 
 ## Empirical Exercise
 
-Create a do file that reads in your copy of Semmelweis' data and restricts attention to the period 
-when doctors worked in the first clinic and midwives worked in the second clinic.  All your do files 
-should start with the same set of commands at the top.
-
-```
-clear all 
-set scheme s1mono 
-set more off
-set seed 314159
-
-** change working directory as appropriate to where you want to save
-cd "C:\Users\pj\Dropbox\ECON-523\topics\3-DD1\stata"
-
-** load data
-use E3-semmelweis-vienna-by-wing.dta
-drop if Year<1840
-```
+Create a do file that reads in Semmelweis' data from github and restricts attention to the period 
+when doctors worked in the first clinic and midwives worked in the second clinic.  Your do file 
+should start with the usual preliminaries, just like your do file for the in-class activity. 
 
 ### Question 1
 
-Use the following `reshape` command to convert your data into a panel data set containing a variable `Rate` and a variable `clinic` that indicates whether an observation comes from Clinic 1 (doctors) or Clinic 2 (midwives).  How many observations are there in the data set now?  How many from each clinic?  
-
+Use the `reshape` command (illustrated below) to convert your data into a panel data set containing a variable `Rate` and a variable `clinic` that indicates whether an observation comes from Clinic 1 (doctors) or Clinic 2 (midwives).  How many observations are there in the data set now?  How many from each clinic?  
+```
 reshape long Rate, j(clinic) i(Year)
+```
 
 ### Question 2
 
