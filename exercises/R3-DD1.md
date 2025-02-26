@@ -97,7 +97,7 @@ labels <- c("Before Handwashing",
             " ", 
             "Difference", 
             " ")
-temp_column <- c("111", "000", "111", "000", "111", "000")
+temp_column <- c("11", "00", "11", "00", "11", "00")
 e3_results <- tibble(" " = labels, 
                      "Treatment" = temp_column, 
                      "Comparison" = temp_column, 
@@ -126,4 +126,18 @@ addStyle(wb, "Results", bottom_style, cols = 1:4, rows = 7, gridExpand = TRUE, s
 saveWorkbook(wb, file = paste0(pjpath, "/R3-DD1.xlsx"), overwrite = TRUE)
 ```
 
-At this point, it is worth opening your excel file to make sure that you are writing to it successfully.  **Be sure to close the file after you look at it**; R won't write over an open excel file.  The column and row labels should all appear in bold font, and there should be borders at the top and bottom of the table.  
+At this point, it is worth opening your excel file to make sure that you are writing to it successfully.  **Be sure to close the file after you look at it**; R won't write over an open excel file.  The column labels should all appear in bold font, and there should be borders at the top and bottom of the table.  
+
+### Question 6
+
+Now that we know the `openxls` commands are working, we can add the mean of the variable Rate1 for the years prior to the introduction of handwashing. Calculate the mean, and then use `as.character()` to convert it to a string that you call `pre_mean_1`. You can use `df[rownum, colnum]` to index a particular cell in a data frame. Update the data frame `e3_results` by replacing the appropriate cell with `pre_mean_1`, as illustrated in the code below. Then re-run the code that creates your excel workbook to see that you have successfully exported your first result.
+```
+pre_mean_1 <- as.character(mean(dd_data$Rate1[dd_data$Year <= 1846]))
+e3_results[1, 2] <- pre_mean_1
+```
+
+
+
+### Question 11  
+
+Now complete the table.
