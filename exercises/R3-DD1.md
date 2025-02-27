@@ -12,7 +12,7 @@ We'll review the different ways to estimate simple difference-in-differences mod
 Data on maternal mortality rates in Vienna are contained in the Excel file [E3-Semmelweis1861-data.xlsx](E3-Semmelweis1861-data.xlsx). The spreadsheet inlcudes annual data from 1833 (when the Vienna Maternity Hospital opened its second clinic) through 1858.  Mortality rates are reported for Division 1 
 (where expectant mothers were treated by doctors and medical students) and Division 2 (where expectant mothers were treated by midwives and trainee midwives from 1841 on). In Semmelweis' difference-in-differences analysis, Division 1 was the (ever-)treated group.  
 
-Our first task is to import this Excel file into Stata using the `openxlsx` package.  Create R script that begins with the usual preliminaries, installs the package `openxlsx` and loads it as one of the libraries, and then imports the Semmelweis data directly from github using the following code:
+Our first task is to import this Excel file into R using the `openxlsx` package.  Create R script that begins with the usual preliminaries, installs the package `openxlsx` and loads it as one of the libraries, and then imports the Semmelweis data directly from github using the following code:
 ```
 url <- "https://pjakiela.github.io/ECON523/exercises/E3-Semmelweis1861-data.xlsx"
 e3data <- tibble(read.xlsx(url, sheet = "ViennaBothClinics"))
@@ -34,7 +34,7 @@ Now familiarize yourself with the data set. What is the average maternal mortali
 
 ### Question 1
 
-Use R's `ggplot` package to make a graph of maternal mortality in the two wings of the hospital. First, use the following code to define the dark blue and dar orange color's from the Okabe-Ito colorblind-friendly palette
+Use R's `ggplot` package to make a graph of maternal mortality in the two wings of the hospital. First, use the following code to define the dark blue and dark orange color's from the Okabe-Ito colorblind-friendly palette
 ```
 oiblue <- "#0072B2"
 oiverm <- "#D55E00"
@@ -64,7 +64,7 @@ What patterns do you notice in this figure?  How do maternal mortality rates in 
 
 In what year did the hospital first move to the system where patients in Division 1 were treated by doctors and patients in Division 2 were treated by midwives?  Drop the observations (years) before this happened.  
 
-Hint: Hint: use `print(df, n = 100)` to print the first 100 rows of data frame `df`. Then use `select()` to keep the correct rows.
+Hint: use `print(df, n = 100)` to print the first 100 rows of data frame `df`. Then use `select()` to keep the correct rows.
 
 ### Question 3
 
@@ -89,7 +89,7 @@ will show the mean mortality rate (maternal deaths per 100 births) in the Treatm
 | | (0.00) | (0.00) | (0.00) |
 
 
-We'll write to an excel file using `openxlsx` `saveWorkbook()`,  a simple command that allows you to write a data frame to an excel file.  Before getting started with `saveWorkbook()`, we will define a simple data frame that contains our desired column and row headings as well as placeholders for the results we want to report. Use the code below to do this. Notice that the second, third, anf fourth columns of the tibble that we create are named **Treatment**, **Comparison**, and **Difference**.  
+We'll write to an excel file using `openxlsx` `saveWorkbook()`,  a simple command that allows you to write a data frame to an excel file.  Before getting started with `saveWorkbook()`, we will define a simple data frame that contains our desired column and row headings as well as placeholders for the results we want to report. Use the code below to do this. Notice that the second, third, and fourth columns of the tibble that we create are named **Treatment**, **Comparison**, and **Difference**.  
 ```
 labels <- c("Before Handwashing", 
             " ", 
