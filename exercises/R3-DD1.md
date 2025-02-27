@@ -183,3 +183,11 @@ e3_results[6, 2:4] <- ddresults_se[3, ]
 ### Question 11  
 
 Now export `e3_results` to excel, adapting the code from Question 5. Make sure that your code now produces a correct, correctly-formatted table showing the difference-in-differences estimate of the impact of handwashing on maternal mortality.
+
+## Empirical Exercise  
+
+Next, we are going to implement difference-in-differences as a regression. Create a new R script file that reads in Semmelweis’ data from github and restricts attention to the period when doctors worked in the first clinic and midwives worked in the second clinic. Your script should start with the usual preliminaries, just like the one you wrote for the in-class activity.  
+
+### Question 1
+
+
