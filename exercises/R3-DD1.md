@@ -136,8 +136,50 @@ pre_mean_1 <- as.character(mean(dd_data$Rate1[dd_data$Year <= 1846]))
 e3_results[1, 2] <- pre_mean_1
 ```
 
+### Question 7  
 
+You **can** complete the table by calculating each statistic individually, but it is easier and faster to manipulate the data as a matrix. The code below uses `group_by()` and `summarize()` to calculate the mean, SD, and number of observations for `Rate1` and `Rate2` in the pre-treatment and post-treatment periods, and then calculates the standard error of the mean of `Rate1` as well as the standard error of the difference in means between `Rate1` and `Rate2`. Extend the code so that you also calculate the standard error of the mean of `Rate2`, and then drop the columns containing the SDs and Ns from the data frame.  
+```
+ddresults <- e3data %>% 
+  select(Rate1, Rate2, post) %>% 
+  group_by(post) %>% 
+  summarise(across(where(is.numeric), .fns = 
+                                        list(mean = mean,
+                                             sd = sd,
+                                             n = ~ n()
+                                        ))) %>% 
+  mutate(Rate1_se = Rate1_sd / sqrt(Rate1_n), 
+         diff = Rate1_mean - Rate2_mean, 
+         diff_se = sqrt(Rate1_se ** 2 + Rate2_se ** 2)) 
+```
+
+### Question 8  
+
+We now have a data frame ``ddresults` that contains six columns: three means and three standard errors. We want to create a data frame that displays the standard errors below the means. To do this, start by creating separate data frames `ddresults_mean` and `ddresults_se` that select the appropriate columns from `ddresults`.  
+
+### Question 9  
+
+The code below illustrates how we can add an additional row to `ddresults_se` containing the standard errors of the differences in means (pre v.s post). Implement a similar procedure to add a row containing the difference in means (pre vs. post) to the `ddresults_mean` data frame.  
+```
+pre_vs_post_se <- ddresults_se[1, ] ** 2 + ddresults_se[2, ] ** 2
+pre_vs_post_se <- sqrt( pre_vs_post_se)
+ddresults_se <- rbind(ddresults_se, pre_vs_post_se)
+```
+
+### Question 10 
+
+Before we export our results to excel, we need to format them appropriately and convert them to strings. The code below shows how to do this for the standard errors contained in `ddresults_se`, and then illustrates how we can transfer our standard errors to the `e3_results` data frame that we intend to export to excel. Extend the code so that you also include the appropriately-formatted means in `e3_results`. Then, print `e3_results` to make sure that you are ready to write your findings to excel.
+
+```
+ddresults_se <- ddresults_se %>% 
+  mutate(across(1:3, ~ sprintf("%.2f", .))) %>% 
+  mutate(across(everything(), as.character)) %>% 
+  mutate(across(everything(), ~ str_c("(", ., ")")))
+e3_results[2, 2:4] <- ddresults_se[1, ]
+e3_results[4, 2:4] <- ddresults_se[2, ]
+e3_results[6, 2:4] <- ddresults_se[3, ]
+```
 
 ### Question 11  
 
-Now complete the table.
+Now export `e3_results` to excel, adapting the code from Question 5. Make sure that your code now produces a correct, correctly-formatted table showing the difference-in-differences estimate of the impact of handwashing on maternal mortality.
