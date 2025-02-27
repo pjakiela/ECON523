@@ -191,3 +191,18 @@ Next, we are going to implement difference-in-differences as a regression. Creat
 ### Question 1
 
 
+
+
+### Question 8
+
+When you upload your do file to gradescope, you will be asked to answer the following questions about your results:
+  
+  - Which coefficient in the regression table (i.e. the coefficient on which variable) is the difference-in-differences estimate of the treatment effect of handwashing on maternal mortalty?
+  - Which regression coefficient is the estimate of the degree of selection bias?
+  - Which regression coefficient is the estimate of the time trend in the absence of treatment?
+  
+  
+---
+
+This exercise is part of [Module 3:  Difference-in-Differences 1](https://pjakiela.github.io/ECON523/M3-DD1.html).
+
