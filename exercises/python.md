@@ -4,10 +4,10 @@
 
 [Exercise 2: Regression Review](https://colab.research.google.com/drive/1vgqyTfI0Llrgyuco-NpEqnp6EU-9hZ64?usp=sharing)
 
-<!--
-[Exercise 3: Difference-in-Differences I (2x2 DD)](https://pjakiela.github.io/ECON523/exercises/R3-DD1.html)  
+[Exercise 3: Difference-in-Differences I (2x2 DD)](https://colab.research.google.com/drive/12DZ-bKlV7c9roC7N_3vLpGuEF3A7-7Ps?usp=drive_link)  
 
-[Exercise 4: Diff-in-Diff in a Panel Data Framework (DD II)](https://pjakiela.github.io/ECON523/exercises/R4-DD2.html)  
+<!--
+[Exercise 4: Diff-in-Diff in a Panel Data Framework (DD II)]()  
 
 [Exercise 5: Two-Way Fixed Effects](https://pjakiela.github.io/ECON523/exercises/R5-TWFE.html)   
 
