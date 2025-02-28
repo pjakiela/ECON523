@@ -4,7 +4,7 @@
 
 [Exercise 2: Regression Review](https://colab.research.google.com/drive/1vgqyTfI0Llrgyuco-NpEqnp6EU-9hZ64?usp=sharing)
 
-[Exercise 3: Difference-in-Differences I (2x2 DD)](https://colab.research.google.com/drive/12DZ-bKlV7c9roC7N_3vLpGuEF3A7-7Ps?usp=drive_link)  
+[Exercise 3: Difference-in-Differences I (2x2 DD)](https://colab.research.google.com/drive/12DZ-bKlV7c9roC7N_3vLpGuEF3A7-7Ps?usp=sharing)  
 
 <!--
 [Exercise 4: Diff-in-Diff in a Panel Data Framework (DD II)]()  
