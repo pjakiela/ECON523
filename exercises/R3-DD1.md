@@ -190,12 +190,44 @@ Next, we are going to implement difference-in-differences as a regression. Creat
 
 ### Question 1
 
+Use `pivot_longer()` (illustrated below) to convert your data into a panel data set containing a variable `Rate` and a variable `clinic` that indicates whether an observation comes from Clinic 1 (doctors) or Clinic 2 (midwives).  How many observations are there in the data set now?  How many from each clinic?   
+```
+e3panel <- e3data %>% 
+  pivot_longer(!Year, names_to = "clinic", values_to = "Rate") %>% 
+  mutate(clinic = if_else(clinic == "Rate1", "1", "2"))
+dim(e3panel)
+```
 
+### Question 2
 
+Generate a `post` variable equal to one for years after the handwashing policy was implemented (and zero otherwise) and a `treatment` variable equal to one for the doctors' wing (and zero otherwise).  
+
+### Question 3 
+
+Generate the interaction term you need to estimate a difference-in-differences model in a regression framework.  
+
+### Question 4
+
+Implement difference-in-differences in an OLS regression framework. Store your results.
+
+### Question 5
+
+The code below will create a data frame containing the coefficients and standard errors from your regression. Adapt the code from the In-Class Activity to format the values (rounding them to two or three decimal places and then converting them to strings). 
+```
+results <- model$coeftable[,1:2]
+```
+
+### Question 6
+
+Modify the `results` data frame so that it is ready to be exported to excel. You are free to leave the coefficients and standard errors in separate columns if you wish, but make sure to add well-formatted labels for the rows and clean up the column names.
+
+### Question 7
+
+Adapt the code from the In-Class Activity to export your regression results to excel.
 
 ### Question 8
 
-When you upload your do file to gradescope, you will be asked to answer the following questions about your results:
+When you upload your code and excel file to gradescope, you will be asked to answer the following questions about your results:
   
   - Which coefficient in the regression table (i.e. the coefficient on which variable) is the difference-in-differences estimate of the treatment effect of handwashing on maternal mortalty?
   - Which regression coefficient is the estimate of the degree of selection bias?
