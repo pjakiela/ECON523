@@ -16,7 +16,7 @@ and the inclusion of period-specific and unit-specific fixed effects.
 
 ## Lecture Slides
 
-A handout version of the lecture slides is available [here](ECON523-L4-DD2-2UP.pdf). 
+A handout version of the lecture slides is available [here](ECON-523-L4-DD2-2025-handout.pdf). 
 
 <br>
 
@@ -31,15 +31,12 @@ A handout version of the lecture slides is available [here](ECON523-L4-DD2-2UP.p
 
 ## Empirical Exercise
 
-The in-class activity as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON523-E4-in-class.do) or [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON523-E4-in-class.pdf).
-
-The empirical exercise as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON523-E4-questions.do) or [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON523-E4-questions.pdf).
-
-A web version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/E4-DD2.html).
+The stata version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/E4-DD2.html).
 
 
 <br>
 
 ## Acknowledgments
+
 Special thanks to Patrick Blanchenay, Garret Christensen, Liz Cascio, Jess Goldberg, Guy Grossman, Kirabo Jackson, Michael Kevane, 
 Scott Imberman, Manisha Shah, and Mike Urbancic for their diff-in-diff suggestions.
