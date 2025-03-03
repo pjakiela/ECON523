@@ -7,10 +7,6 @@ on traditional birth attendants (TBAs) on a range of birth outcomes.  At the end
 regression results to word using the `esttab` command.  An 
 overview of the use of `esttab` is available [here](https://pjakiela.github.io/stata/regression-table.html).
 
-You can access the in-class activity as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON523-E4-in-class.do) or [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON523-E4-in-class.pdf).
-
-You can also access the empirical exercise as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON523-E4-questions.do) or [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON523-E4-questions.pdf).
-
 <br>
 
 ## Getting Started
@@ -18,9 +14,10 @@ You can also access the empirical exercise as a [do file](https://github.com/pja
 The data set `E4-GodlontonOkeke-data.dta` contains information (from the 
 [2010 Malawi Demographic and Health Survey](https://dhsprogram.com/methodology/survey/survey-display-333.cfm)) 
 on 19,680 live births between July 2005 and September 2010.  Each observation represents a birth.  Create 
-a do file that opens the data set in Stata.  Your standard code for starting a do file should look something like:
-
-``` 
+a do file that opens the data set.  Your standard code for starting a do file should look something like:  
+```
+// ECON 523: In-Class Activity 4
+// A. Student
 clear all
 set more off
 cd "C:\mypath\E4-DD2"
