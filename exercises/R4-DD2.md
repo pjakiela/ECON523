@@ -4,12 +4,7 @@ In this exercise, we're going to replicate the difference-in-differences analysi
 [Does a ban on informal health providers save lives? Evidence from Malawi](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4677333/) 
 by Professor Susan Godlonton and Dr. Edward Okeke.  The authors estimate the impact of Malawi's 2007 ban 
 on traditional birth attendants (TBAs) on a range of birth outcomes.  At the end of the exercise, we'll export our 
-regression results to word using the `esttab` command.  An 
-overview of the use of `esttab` is available [here](https://pjakiela.github.io/stata/regression-table.html).
-
-You can access the in-class activity as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON523-E4-in-class.do) or [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON523-E4-in-class.pdf).
-
-You can also access the empirical exercise as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON523-E4-questions.do) or [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON523-E4-questions.pdf).
+regression results to excel using `openxlsx`.  
 
 <br>
 
@@ -18,14 +13,25 @@ You can also access the empirical exercise as a [do file](https://github.com/pja
 The data set `E4-GodlontonOkeke-data.dta` contains information (from the 
 [2010 Malawi Demographic and Health Survey](https://dhsprogram.com/methodology/survey/survey-display-333.cfm)) 
 on 19,680 live births between July 2005 and September 2010.  Each observation represents a birth.  Create 
-a do file that opens the data set in Stata.  Your standard code for starting a do file should look something like:
-
-``` 
-clear all
-set more off
-cd "C:\mypath\E4-DD2"
-use "C:\mypath\E4-DD2\E5-GodlontonOkeke-data.dta"
+R script that opens the Stata data set in R (using `read_dta()` from `haven`). You should have received the data set over email, and 
+you will need to save it and load it to R from your computer. Your code for starting the script should look something like:
 ```
+## ECON 325: In-Class Activity 4
+## A. Student
+
+# libraries
+library(tidyverse)
+library(fixest)
+library(openxlsx)
+library(haven)
+
+# file path
+mypath  <-  "C:/Users/"
+
+## load data 
+e4data <- read_dta(paste0(mypath, "/data/E4-GodlontonOkeke-data.dta"))
+```
+Make sure to install the packages `tidyverse`, `fixest`, `openxlsx`, and `haven` if you have not already done so.
 
 <br>
 
