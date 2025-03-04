@@ -39,26 +39,13 @@ The `post` variable is already present in the data set.  What is the mean of the
 
 ### Question 2
 
-The `time` variable indicates the month and year in which a birth took place. If you type the command 
-`desc time` you'll see the following output:
-
-![desc-time](https://pjakiela.github.io/ECON379/exercises/E5-DD2/stata-time-desc.png)  
-
-Notice that the `time` variable is formatted in Stata's date format:  it is stored as a number, 
-but appears as a month and year when you describe or tabulate it.  
+The `time` variable indicates the month and year in which a birth took place (this information is also contained in the variables `birthyear` and `birthmonth`). If you type the command 
+```
+desc time
+```
+you'll see information about how the variable `time` is formatted.  Notice that the `time` variable is formatted in Stata's date format: it is stored as a number, but appears as a month and year when you describe or tabulate it. Cross-tabulate `time` and `post` (or `birthyr` and `post`) to see how Professor Godlonton and Dr. Okeke define the post-treatment time period in their analysis. What is the first treated month?  
 
 ### Question 3
-
-Use the command 
-
-```
-tab time post
-``` 
-
-to see how Professor Godlonton and Dr. Okeke define the 
-post-treatment time period in their analysis.  What is the first treated month?
-
-### Question 4
 
 We need to define an indicator for the treatment group.  Professor Godlonton and Dr. Okeke 
 define the treatment group as DHS clusters (i.e. communities) that were at or above the 
