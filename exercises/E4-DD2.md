@@ -92,7 +92,16 @@ to calculate the level of TBA use prior to the ban?
 
 However, this tells us the mean use of TBAs within a DHS cluster over the entire sample period, 
 but we only want a measure of the mean in  the pre-ban period.  How can we modify the code above 
-to calculate the level of TBA use prior to the ban?  
+to calculate the level of TBA use prior to the ban?   
+
+At this point, `meantba` is only non-missing for births (i.e. observations) in the pre-treatment period. 
+Extend the code as illustrated below so that you define `meantba`, the pre-treatment rate of TBA use, for all observations 
+where the `meantba` variable is non-missing.  
+``` 
+bys dhsclust:  egen tempvar = max(meantba)
+replace meantba = tempvar if meantba==. & post==1 & tba!=.
+drop tempvar
+```
 
 ### Question 6
 
@@ -100,43 +109,24 @@ Summarize your `meantba` variable using the `detail` or `d` option after the `su
 so that you can calculate the 75th percentile of TBA use in the pre-ban period.  As we've seen in earlier 
 exercises, you can use the `return list` command to see which locals are saved when 
 you run the `summarize` command.  Define a local macro `cutoff` equal to the 75th percentile 
-of the variable `meantba`.  Then immediately create a new variable `high_exposure` that is an indicator 
-for DHS clusters where the level of TBA use prior to the ban exceeded the cutoff we just calculated. 
+of the variable `meantba`.  Then immediately create a new variable `high_exp` that is an indicator 
+for DHS clusters where the level of TBA use prior to the ban exceeded the cutoff we just calculated. What is the mean of `high_exposure`?
 
-### Question 11
-
-At this point, `meantba` is only non-missing for births (ie observations) in the pre-treatment period. 
-Modify the code so that you only define `high_exposure` for births 
-where the `meantba` variable is non-missing. Then we need to replace the missing values of `high_exposure` 
-in the post-treatment period with the correct ones (based on the values in the same cluster in 
-the pre-treatment period).  Here are three lines of code that will fix it:
-
-``` 
-bys dhsclust:  egen maxtreat = max(high_exposure)
-replace high_exposure = maxtreat if high_exposure==. & post==1 & tba!=.
-drop maxtreat
-```
-
-### Question 12
-
-Tabulate your `high_exposure` variable to make sure that it is only missing for observations 
-with the `tba` variable missing.  What is the mean of `high_exposure`?
-
-### Question 13 
+### Question 7 
 
 The last variable we need to conduct difference-in-differences analysis is an interaction between 
-our treatment variable, `high_exposure`, and the `post` variable.  Generate such a variable. 
+our treatment variable, `high_exp`, and the `post` variable.  Generate such a variable. 
 I suggest calling it `highxpost`.  You should also label your three variables:  `high_exp`, `post`, 
 and `highxpost`.
 
-### Question 14
+### Question 8
 
 Now you are ready to run a regression.  Regress the `tba` dummy on `high_exp`, `post`, and 
 `highxpost`.  What is the difference-in-differences estimate of the treatment effect 
 of the TBA ban on use of informal birth attendants?  How do your results compare 
 to those in Table 5, Panel A, Column 1 of the paper?
 
-### Question 15
+### Question 9
 
 You are using the same data as Professor Godlonton and Dr. Okeke, so you should 
 be able to replicate their coefficient estimates and standard errors **exactly**.  Have you done 
@@ -152,7 +142,7 @@ are precisely identical to those in the paper.
 ## Empirical Exercise
 
 Start by generating a new do file that loads `E4-GodlontonOkeke-data.dta` and uses your answers 
-to the in-class activity to generate and labels the variables needed to replicate Column 1 of 
+to the in-class activity to generate and label the variables needed to replicate Column 1 of 
 Table 5.  
 
 ### Question 1:  Replicating Column 1 from Tables 5 and 6
@@ -181,13 +171,13 @@ Table 6, Panel B, Column 1.  Store your results.
 
 #### Part (e)
 
-Now export your results to word as a nicely formatted table.  Report the 
+Export your results to word (or excel if you prefer) as a nicely formatted table.  Report the 
 R-squared for each specification, and do not report coefficients 
-on the district and time fixed effects (use the `indicate` option to report 
+on the district and time fixed effects (with esttab, use the `indicate` option to report 
 which columns include fixed effects, or indicate which fixed effects are used 
 in the table notes).  Report standard errors rather than t-statistics.  Make sure 
 all variables and columns are clearly labeled, and that your labels are not 
-cut off (because they are too long).  
+cut off because they are too long.  
 
 ### Question 2:  Assessing the Common Trends Assumption
 
@@ -197,40 +187,15 @@ to replicate Columns 3 and 4).
 
 #### Part (a) 
 
-Drop the observations from after the ban was in place.  Then generate a `trend` variable 
-by using the `egen` command's `group` option (with the `time` variable).  The `egen` option `group` 
-creates a variable indicating the different groups (or values) of the `time` variable.  So, 
-in the example below, the `egen` command would generate a `trend` variable as 
-follows:
-
-time|trend
-----|----
-Jul05|1
-Jul05|1
-Jul05|1
-Aug05|2
-Aug05|2
-Oct05|3
-Oct05|3
-
-Notice that `egen` is just counting off the groups defined by the `time` variable:  there are no observations 
-from September of 2005 in the example above, so October 2005 is the third group (ie the `egen` command 
-is **not** telling us how many months have passed since the start of the data set). 
-
-If you tab `time` in our actual data, you will see that there aren't any missing months, so the `trend` variable 
-_does_ also tell us how many months an observation is from the earliest observations in 
-the data set - but that is because of the particular structure of this data.  
-
-Once you've generated the `trend` variable, interact it with the `high_exposure` variable, and label everything.
+Drop the observations from after the ban was in place.  Then, interact the `time` variable, which indexes the month of birth, with the `high_exposure` variable, and label everything.
 
 #### Part (b) 
 
-Replicate columns 1 and 2 from Table 2 to the best of your ability (note:  
-they will not replicate perfectly).  Store your coefficient estimates.
+Replicate columns 1 and 2 from Table 2 to the best of your ability.  Store your coefficient estimates.
 
 #### Part (c)
 
-Export your results to word as a nicely formatted table (all of the guidance from Question 1 still applies).  
+Export your results to word or excel as a nicely formatted table (all of the guidance from Question 1 still applies).  
 
 <br>
 
@@ -240,10 +205,10 @@ If you are looking for ways to expand your program evaluation skills further, ex
 by including district-specific time trends, as Professor Godlonton and Dr. Okeke do in Columns 4 through 6 
 of Tables 5 and 6.  Alternatively, you can replicate the main analysis using a continuous measure of 
 treatment intensity:  the interaction between the level of TBA use prior to the ban and the `post` dummy.  Generate 
-this new treatment variable using your existing `meantba` variable (which, unfortunately, is missing for all 
-observations in the post-ban period), and then estimate regressions that control for DHS cluster and time 
-fixed effects (warning:  this will give your computer a bit of a workout).  How do the results from these 
-alternative specifications compare to those reported in the paper?
+this new treatment variable using your existing `meantba` variable, and then estimate regressions that control for 
+`meantba` and its interaction with `post`. How do the results from these 
+alternative specifications compare to those reported in the paper? Finally, consider replacing the district fixed effects 
+used in the paper with DHS cluster fixed effects. Do the DHS cluster fixed effects reduce the standard errors?  
 
 <br>
 
