@@ -107,7 +107,7 @@ so that you can calculate the 75th percentile of TBA use in the pre-ban period. 
 exercises, you can use the `return list` command to see which locals are saved when 
 you run the `summarize` command.  Define a local macro `cutoff` equal to the 75th percentile 
 of the variable `meantba`.  Then immediately create a new variable `high_exp` that is an indicator 
-for DHS clusters where the level of TBA use prior to the ban exceeded the cutoff we just calculated. What is the mean of `high_exposure`?
+for DHS clusters where the level of TBA use prior to the ban exceeded the cutoff we just calculated. What is the mean of `high_exp`?
 
 ### Question 7 
 
@@ -138,7 +138,7 @@ are precisely identical to those in the paper.
 
 ## Empirical Exercise
 
-Start by generating a new do file that loads `E4-GodlontonOkeke-data.dta` and uses your answers 
+Start by creating a new do file that loads `E4-GodlontonOkeke-data.dta` and uses your answers 
 to the in-class activity to generate and label the variables needed to replicate Column 1 of 
 Table 5.  
 
@@ -184,7 +184,7 @@ to replicate Columns 3 and 4).
 
 #### Part (a) 
 
-Drop the observations from after the ban was in place.  Then, interact the `time` variable, which indexes the month of birth, with the `high_exposure` variable, and label everything.
+Drop the observations from after the ban was in place.  Then, interact the `time` variable, which indexes the month of birth, with the `high_exp` variable, and label everything.
 
 #### Part (b) 
 
@@ -204,8 +204,8 @@ of Tables 5 and 6.  Alternatively, you can replicate the main analysis using a c
 treatment intensity:  the interaction between the level of TBA use prior to the ban and the `post` dummy.  Generate 
 this new treatment variable using your existing `meantba` variable, and then estimate regressions that control for 
 `meantba` and its interaction with `post`. How do the results from these 
-alternative specifications compare to those reported in the paper? Finally, consider replacing the district fixed effects 
-used in the paper with DHS cluster fixed effects. Do the DHS cluster fixed effects reduce the standard errors?  
+alternative specifications compare to those reported in the paper? Finally, consider using DHS cluster fixed effects and 
+month of birth fixed effects in the same specification. Do the DHS cluster fixed effects reduce the standard errors?  
 
 <br>
 
