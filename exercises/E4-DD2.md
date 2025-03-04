@@ -70,46 +70,31 @@ is to use the `recode` command:
 ```
 recode m3g (9=.), gen(tba)
 ```
-
 This generates a new variable, `tba`, that is the same as the `m3g` variable except that `tba` is equal to missing for all 
-observations where `m3g` is equal to 9.  It is usually better to generate a new variable 
-instead of modifying the variables in your raw data set, because you don't want to make 
-mistakes that you cannot undo.   
+observations where `m3g` is equal to 9. (It is usually better to generate a new variable/column 
+instead of modifying the raw data, because you don't want to make mistakes that you cannot undo.)  
 
-### Question 6
+### Question 5
 
-Confirm that your new variable, `tba`, is a dummy variable.   Use the command 
+We want to generate a **treatment group dummy** - an indicator for DHS clusters where use of TBAs was at or above 
+the 75th percentile prior to the ban.  How should we do it?  
 
-```
-tab tba, m
-``` 
+The variable `dhsclust` is an ID number for each DHS cluster.  How many clusters are there in the data set?  
 
-to tabulate the observed values of `tba` (the `m` option tells 
-Stata to tabulate the number of missing values in addition to the other values).
-
-### Question 7
-
-We want to generate a **treatment dummy** - an indicator for DHS clusters where use of TBAs was at or above 
-the 75th percentile prior to the ban.  How should we do it?  The variable `dhsclust` is an ID number 
-for each DHS cluster.  How many clusters are there in the data set?  
-
-### Question 8
-
-We can use the `egen` command 
-to generate a variable equal to the mean of another variable, and we can use `egen` with the `bysort` option 
-to generate a variable equal to the mean within different groups:
-
+We can use the `egen` command to generate a variable equal to the mean of another variable, and we can use `egen` with the `bysort` option 
+to generate a variable equal to the mean within different groups:  
 ```
 bysort dhsclust:  egen meantba = mean(tba)
 ```
-
-### Question 9
+However, this tells us the mean use of TBAs within a DHS cluster over the entire sample period, 
+but we only want a measure of the mean in  the pre-ban period.  How can we modify the code above 
+to calculate the level of TBA use prior to the ban?  
 
 However, this tells us the mean use of TBAs within a DHS cluster over the entire sample period, 
 but we only want a measure of the mean in  the pre-ban period.  How can we modify the code above 
 to calculate the level of TBA use prior to the ban?  
 
-### Question 10
+### Question 6
 
 Summarize your `meantba` variable using the `detail` or `d` option after the `sum` command 
 so that you can calculate the 75th percentile of TBA use in the pre-ban period.  As we've seen in earlier 
