@@ -13,7 +13,8 @@ overview of the use of `esttab` is available [here](https://pjakiela.github.io/s
 
 The data set `E4-GodlontonOkeke-data.dta` contains information (from the 
 [2010 Malawi Demographic and Health Survey](https://dhsprogram.com/methodology/survey/survey-display-333.cfm)) 
-on 19,680 live births between July 2005 and September 2010.  Each observation represents a birth.  Create 
+on 19,680 live births between July 2005 and September 2010.  Each observation represents a birth.   You should have received the data set over email, 
+and you will need to save it and load it to Stata from your computer. Create 
 a do file that opens the data set.  Your standard code for starting a do file should look something like:  
 ```
 // ECON 523: In-Class Activity 4
