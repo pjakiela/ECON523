@@ -26,10 +26,10 @@ library(openxlsx)
 library(haven)
 
 # file path
-mypath  <-  "C:/Users/"
+mypath  <-  "C:/Users/ECON523/data"
 
 ## load data 
-e4data <- read_dta(paste0(mypath, "/data/E4-GodlontonOkeke-data.dta"))
+e4data <- read_dta(paste0(mypath, "/E4-GodlontonOkeke-data.dta"))
 ```
 Make sure to install the packages `tidyverse`, `fixest`, `openxlsx`, and `haven` if you have not already done so.
 
@@ -44,28 +44,11 @@ To implement difference-in-differences, we need:
  - a dummy variable for the treatment group, and 
  - an interaction between the two  
  
-The `post` variable is already present in the data set.  What is the mean of the `post` variable?  What fraction of the observations in the data set occur in the post-treatment period?
+The `post` variable is already present in the data set, one of the columns of `e4data`.  What is the mean of `post`?  What fraction of the observations in the data set occur in the post-treatment period?  
 
 ### Question 2
 
-The `time` variable indicates the month and year in which a birth took place. If you type the command 
-`desc time` you'll see the following output:
-
-![desc-time](https://pjakiela.github.io/ECON379/exercises/E5-DD2/stata-time-desc.png)  
-
-Notice that the `time` variable is formatted in Stata's date format:  it is stored as a number, 
-but appears as a month and year when you describe or tabulate it.  
-
-### Question 3
-
-Use the command 
-
-```
-tab time post
-``` 
-
-to see how Professor Godlonton and Dr. Okeke define the 
-post-treatment time period in their analysis.  What is the first treated month?
+The time variable indicates the month and year in which a birth took place. Cross-tabulate time and post to see how Professor Godlonton and Dr. Okeke define the post-treatment time period in their analysis. What is the first treated month?  
 
 ### Question 4
 
