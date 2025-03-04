@@ -58,7 +58,7 @@ Responses have been converted into a set of different variables representing the
 types of attendants who might have been present at the birth.  Tabulate (using the `tab` command) 
 the `m3g` variable, which indicates whether a woman indicated that a TBA was present at a birth. What pattern of responses do you observe?
 
-### Question 5
+### Question 4
 
 We want to generate a dummy variable that is equal to one if a TBA was present at a particular birth, 
 equal to zero if a TBA was not present, and equal to missing if a woman did not 
