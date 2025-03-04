@@ -89,15 +89,11 @@ bysort dhsclust:  egen meantba = mean(tba)
 ```
 However, this tells us the mean use of TBAs within a DHS cluster over the entire sample period, 
 but we only want a measure of the mean in  the pre-ban period.  How can we modify the code above 
-to calculate the level of TBA use prior to the ban?  
-
-However, this tells us the mean use of TBAs within a DHS cluster over the entire sample period, 
-but we only want a measure of the mean in  the pre-ban period.  How can we modify the code above 
 to calculate the level of TBA use prior to the ban?   
 
-At this point, `meantba` is only non-missing for births (i.e. observations) in the pre-treatment period. 
-Extend the code as illustrated below so that you define `meantba`, the pre-treatment rate of TBA use, for all observations 
-where the `meantba` variable is non-missing.  
+This is still not exactly what we want - at this point, `meantba` is only non-missing for births (i.e. observations) in the pre-treatment period. 
+Extend the code as illustrated below so that you populate `meantba`, the pre-treatment rate of TBA use, for all observations 
+where the `tba` variable is non-missing (this is a common trick that we will use to calculate group-level conditional means again and again).  
 ``` 
 bys dhsclust:  egen tempvar = max(meantba)
 replace meantba = tempvar if meantba==. & post==1 & tba!=.
