@@ -40,7 +40,7 @@ Make sure to install the packages `tidyverse`, `fixest`, `openxlsx`, and `haven`
 ### Question 1
 
 To implement difference-in-differences, we need:
- - a dummy variable for the post treatment period, 
+ - a dummy variable for the post-treatment period, 
  - a dummy variable for the treatment group, and 
  - an interaction between the two  
  
@@ -50,7 +50,11 @@ The `post` variable is already present in the data set, one of the columns of `e
 
 The time variable indicates the month and year in which a birth took place. Cross-tabulate time and post to see how Professor Godlonton and Dr. Okeke define the post-treatment time period in their analysis. What is the first treated month?  
 
-### Question 4
+The `birthyear` and `birthmonth` variablea indicate the month and year in which a birth took place. Cross-tabulate `birthyr` and `post` to see how Professor Godlonton and Dr. Okeke define the post-treatment time period in their analysis. What is the first treated month?  
+
+Hint: you can use `xtabs(~ y + x, data = df)` to cross-tabulate the columns `y` and `x` in data frame `df`.
+
+### Question 3
 
 We need to define an indicator for the treatment group.  Professor Godlonton and Dr. Okeke 
 define the treatment group as DHS clusters (i.e. communities) that were at or above the 
@@ -60,56 +64,40 @@ on use of TBAs comes from responses to the question below:
 ![dhs](https://pjakiela.github.io/ECON379/exercises/E5-DD2/DHS-question.png)
 
 Responses have been converted into a set of different variables representing the different 
-types of attendants who might have been present at the birth.  Tabulate (using the `tab` command) 
-the `m3g` variable, which indicates whether a woman indicated that a TBA was present at a birth. What pattern of responses do you observe?
+types of attendants who might have been present at the birth.  Tabulate (using `count(df, varname)`) 
+the `m3g` variable, which indicates whether a woman indicated that a TBA was present at a birth. What pattern of responses do you observe?  
 
-### Question 5
+Hint: a value of 0 indicates **no**, 1 indicates **yes**, and 9 indicates **don't know** or a refusal to answer.
+
+### Question 4
 
 We want to generate a dummy variable that is equal to one if a TBA was present at a particular birth, 
 equal to zero if a TBA was not present, and equal to missing if a woman did not 
 answer the question about TBAs.  
 
-There are several different ways to do this in Stata.  One 
-is to use the `recode` command:  
-
+There are several different ways to do this.  The code below illustrates a simple approach: generate a column a `tba` column in `e4data` that is equal to the `m3g` column, 
+and then convert 9s to NAs using `na_if()`:  
 ```
-recode m3g (9=.), gen(tba)
+e4data$tba <- e4data$m3g
+e4data$tba <- na_if(e4data$tba, 9)
 ```
 
 This generates a new variable, `tba`, that is the same as the `m3g` variable except that `tba` is equal to missing for all 
-observations where `m3g` is equal to 9.  It is usually better to generate a new variable 
-instead of modifying the variables in your raw data set, because you don't want to make 
-mistakes that you cannot undo.   
+observations where `m3g` is equal to 9. (It is usually better to generate a new variable/column 
+instead of modifying the raw data, because you don't want to make mistakes that you cannot undo.)  
 
-### Question 6
+### Question 5
 
-Confirm that your new variable, `tba`, is a dummy variable.   Use the command 
+We want to generate a **treatment group dummy** - an indicator for DHS clusters where use of TBAs was at or above 
+the 75th percentile prior to the ban.  How should we do it?  
 
-```
-tab tba, m
-``` 
+The variable `dhsclust` is an ID number for each DHS cluster.  How many clusters are there in the data set?  
 
-to tabulate the observed values of `tba` (the `m` option tells 
-Stata to tabulate the number of missing values in addition to the other values).
-
-### Question 7
-
-We want to generate a **treatment dummy** - an indicator for DHS clusters where use of TBAs was at or above 
-the 75th percentile prior to the ban.  How should we do it?  The variable `dhsclust` is an ID number 
-for each DHS cluster.  How many clusters are there in the data set?  
-
-### Question 8
-
-We can use the `egen` command 
-to generate a variable equal to the mean of another variable, and we can use `egen` with the `bysort` option 
-to generate a variable equal to the mean within different groups:
-
+We can use the `egen` command to generate a variable equal to the mean of another variable, and we can use `egen` with the `bysort` option 
+to generate a variable equal to the mean within different groups:  
 ```
 bysort dhsclust:  egen meantba = mean(tba)
 ```
-
-### Question 9
-
 However, this tells us the mean use of TBAs within a DHS cluster over the entire sample period, 
 but we only want a measure of the mean in  the pre-ban period.  How can we modify the code above 
 to calculate the level of TBA use prior to the ban?  
