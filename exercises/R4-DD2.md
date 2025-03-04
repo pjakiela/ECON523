@@ -93,58 +93,36 @@ the 75th percentile prior to the ban.  How should we do it?
 
 The variable `dhsclust` is an ID number for each DHS cluster.  How many clusters are there in the data set?  
 
-We can use the `egen` command to generate a variable equal to the mean of another variable, and we can use `egen` with the `bysort` option 
-to generate a variable equal to the mean within different groups:  
+We can use `group_by(dhsclust)` before generating the conditional mean in the pre-treatment period, as the code below illustrates:  
 ```
-bysort dhsclust:  egen meantba = mean(tba)
-```
-However, this tells us the mean use of TBAs within a DHS cluster over the entire sample period, 
-but we only want a measure of the mean in  the pre-ban period.  How can we modify the code above 
-to calculate the level of TBA use prior to the ban?  
-
-### Question 10
-
-Summarize your `meantba` variable using the `detail` or `d` option after the `sum` command 
-so that you can calculate the 75th percentile of TBA use in the pre-ban period.  As we've seen in earlier 
-exercises, you can use the `return list` command to see which locals are saved when 
-you run the `summarize` command.  Define a local macro `cutoff` equal to the 75th percentile 
-of the variable `meantba`.  Then immediately create a new variable `high_exposure` that is an indicator 
-for DHS clusters where the level of TBA use prior to the ban exceeded the cutoff we just calculated. 
-
-### Question 11
-
-At this point, `meantba` is only non-missing for births (ie observations) in the pre-treatment period. 
-Modify the code so that you only define `high_exposure` for births 
-where the `meantba` variable is non-missing. Then we need to replace the missing values of `high_exposure` 
-in the post-treatment period with the correct ones (based on the values in the same cluster in 
-the pre-treatment period).  Here are three lines of code that will fix it:
-
-``` 
-bys dhsclust:  egen maxtreat = max(high_exposure)
-replace high_exposure = maxtreat if high_exposure==. & post==1 & tba!=.
-drop maxtreat
+e4data <- e4data %>% 
+  group_by(dhsclust) %>% 
+  mutate(meantba = mean(tba[post == 0], na.rm = TRUE))
 ```
 
-### Question 12
+### Question 6
 
-Tabulate your `high_exposure` variable to make sure that it is only missing for observations 
-with the `tba` variable missing.  What is the mean of `high_exposure`?
+The code below illustrates how to define a scalar `cutoff` equal to the 75th percentile 
+of the variable `meantba`.  
+```
+cutoff <- quantile(e4data$meantba, probs = 0.75, na.rm = "TRUE")
+```
+Add this to your code and then create a new variable `high_exp` that is an indicator 
+for DHS clusters where the level of TBA use prior to the ban exceeded the cutoff we just calculated. Replace this variable with NA 
+for observations where data on the use of TBAs is missing (i.e. when `m3g` equals 9). What is the mean of `high_exposure`?
 
-### Question 13 
+### Question 7 
 
 The last variable we need to conduct difference-in-differences analysis is an interaction between 
-our treatment variable, `high_exposure`, and the `post` variable.  Generate such a variable. 
-I suggest calling it `highxpost`.  You should also label your three variables:  `high_exp`, `post`, 
-and `highxpost`.
+our treatment variable, `high_exp`, and the `post` variable.  Generate such a variable. 
+I suggest calling it `highxpost`.  
 
-### Question 14
+### Question 8
 
 Now you are ready to run a regression.  Regress the `tba` dummy on `high_exp`, `post`, and 
 `highxpost`.  What is the difference-in-differences estimate of the treatment effect 
 of the TBA ban on use of informal birth attendants?  How do your results compare 
-to those in Table 5, Panel A, Column 1 of the paper?
-
-### Question 15
+to those in Table 5, Panel A, Column 1 of the paper? 
 
 You are using the same data as Professor Godlonton and Dr. Okeke, so you should 
 be able to replicate their coefficient estimates and standard errors **exactly**.  Have you done 
