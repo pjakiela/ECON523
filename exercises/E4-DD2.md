@@ -72,7 +72,7 @@ is to use the `recode` command:
 recode m3g (9=.), gen(tba)
 ```
 This generates a new variable, `tba`, that is the same as the `m3g` variable except that `tba` is equal to missing for all 
-observations where `m3g` is equal to 9. (It is usually better to generate a new variable/column 
+observations where `m3g` is equal to 9. (It is usually better to generate a new variable 
 instead of modifying the raw data, because you don't want to make mistakes that you cannot undo.)  
 
 ### Question 5
