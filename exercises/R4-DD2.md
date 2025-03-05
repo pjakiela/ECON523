@@ -4,7 +4,7 @@ In this exercise, we're going to replicate the difference-in-differences analysi
 [Does a ban on informal health providers save lives? Evidence from Malawi](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4677333/) 
 by Professor Susan Godlonton and Dr. Edward Okeke.  The authors estimate the impact of Malawi's 2007 ban 
 on traditional birth attendants (TBAs) on a range of birth outcomes.  At the end of the exercise, we'll export our 
-regression results to excel using `openxlsx`.  
+regression results to excel using `openxlsx`, as we did in Empirical Exercise 3.  
 
 <br>
 
@@ -48,9 +48,7 @@ The `post` variable is already present in the data set, one of the columns of `e
 
 ### Question 2
 
-The time variable indicates the month and year in which a birth took place. Cross-tabulate time and post to see how Professor Godlonton and Dr. Okeke define the post-treatment time period in their analysis. What is the first treated month?  
-
-The `birthyear` and `birthmonth` variablea indicate the month and year in which a birth took place. Cross-tabulate `birthyr` and `post` to see how Professor Godlonton and Dr. Okeke define the post-treatment time period in their analysis. What is the first treated month?  
+The `time` variable indexes the month and year in which a birth took place. Unfortunately, it is in Stata's date format, and reads into R without the appropriate labels. Fortunately, the same information is contained in the variables `birthyr` and `birthmonth`. Cross-tabulate `birthyr` and `post` to see how Professor Godlonton and Dr. Okeke define the post-treatment time period in their analysis. What is the first treated month?  
 
 Hint: you can use `xtabs(~ y + x, data = df)` to cross-tabulate the columns `y` and `x` in data frame `df`.
 
