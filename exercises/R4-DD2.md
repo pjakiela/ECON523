@@ -39,7 +39,7 @@ Make sure to install the packages `tidyverse`, `fixest`, `openxlsx`, and `haven`
 
 ### Question 1
 
-To implement difference-in-differences, we need:
+To implement difference-in-differences, we need to add the following columns/variables to the `e4data` data frame:
  - a dummy variable for the post-treatment period, 
  - a dummy variable for the treatment group, and 
  - an interaction between the two  
@@ -73,11 +73,9 @@ We want to generate a dummy variable that is equal to one if a TBA was present a
 equal to zero if a TBA was not present, and equal to missing if a woman did not 
 answer the question about TBAs.  
 
-There are several different ways to do this.  The code below illustrates a simple approach: generate a column a `tba` column in `e4data` that is equal to the `m3g` column, 
-and then convert 9s to NAs using `na_if()`:  
+There are several different ways to do this.  The code below illustrates a simple approach using `if_else`.  
 ```
-e4data$tba <- e4data$m3g
-e4data$tba <- na_if(e4data$tba, 9)
+e4data$tba <- if_else(e4data$m3g == 9, NA, e4data$m3g)
 ```
 
 This generates a new variable, `tba`, that is the same as the `m3g` variable except that `tba` is equal to missing for all 
@@ -95,7 +93,8 @@ We can use `group_by(dhsclust)` before generating the conditional mean in the pr
 ```
 e4data <- e4data %>% 
   group_by(dhsclust) %>% 
-  mutate(meantba = mean(tba[post == 0], na.rm = TRUE))
+  mutate(meantba = mean(tba[post == 0], na.rm = TRUE)) %>% 
+  ungroup()
 ```
 
 ### Question 6
@@ -105,22 +104,24 @@ of the variable `meantba`.
 ```
 cutoff <- quantile(e4data$meantba, probs = 0.75, na.rm = "TRUE")
 ```
-Add this to your code and then create a new variable `high_exp` that is an indicator 
+Add this to your code and then create a new column/variable (in the `e4data` data frame) called `high_exp` that is an indicator 
 for DHS clusters where the level of TBA use prior to the ban exceeded the cutoff we just calculated. Replace this variable with NA 
-for observations where data on the use of TBAs is missing (i.e. when `m3g` equals 9). What is the mean of `high_exposure`?
+for observations where data on the use of TBAs is missing (i.e. when `m3g` equals 9). What is the mean of `high_exp`?
 
 ### Question 7 
 
 The last variable we need to conduct difference-in-differences analysis is an interaction between 
-our treatment variable, `high_exp`, and the `post` variable.  Generate such a variable. 
-I suggest calling it `highxpost`.  
+our treatment variable, `high_exp`, and the `post` variable.  Generate such a variable as a column 
+in the `e4data` data frame. I suggest calling it `highxpost`.  
 
 ### Question 8
 
 Now you are ready to run a regression.  Regress the `tba` dummy on `high_exp`, `post`, and 
 `highxpost`.  What is the difference-in-differences estimate of the treatment effect 
 of the TBA ban on use of informal birth attendants?  How do your results compare 
-to those in Table 5, Panel A, Column 1 of the paper? 
+to those in Table 5, Panel A, Column 1 of the paper?  
+
+### Question 9  
 
 You are using the same data as Professor Godlonton and Dr. Okeke, so you should 
 be able to replicate their coefficient estimates and standard errors **exactly**.  Have you done 
@@ -135,16 +136,44 @@ are precisely identical to those in the paper.
 
 ## Empirical Exercise
 
-Start by generating a new do file that loads `E4-GodlontonOkeke-data.dta` and uses your answers 
-to the in-class activity to generate and labels the variables needed to replicate Column 1 of 
-Table 5.  
+Start by generating a new R script that loads `E4-GodlontonOkeke-data.dta` and uses your answers 
+to the in-class activity to generate the variables needed to replicate Column 1 of 
+Table 5. Then add the following code, which defines a program `reshape_regs()` that takes output from 
+a regression (estimating using `feols()`), cleans it up using the `tidy()` function form the `broom` package, 
+and then reformats the results to look like a column of a regression table. 
+```
+reshape_regs <- function(myresults){
+  olsresults <- tidy(myresults)
+  olsresults$index <- 1:nrow(olsresults)
+  olsresults <- olsresults %>% 
+    mutate(stars = if_else(p.value <= 0.01, "***", 
+                           if_else(p.value <= 0.05, "**", 
+                                   if_else(p.value <= 0.1, "*", "")))) %>% 
+    mutate(across(c(estimate, std.error), ~ sprintf("%.3f", .))) %>% 
+    mutate(across(c(estimate, std.error), ~ as.character(.))) %>% 
+    mutate(estimate = str_c(estimate, stars)) %>% 
+    mutate(std.error = str_c("(", std.error, ")")) %>% 
+    select(term, estimate, std.error, index) %>% 
+    pivot_longer(c(estimate, std.error), names_to = "type", values_to = "est") %>% 
+    select(term, type, est)
+  return(olsresults)
+}
+```
+If you have not already, install the package `broom` and then add `broom` to the list of libraries 
+that you load at the start of your script.
 
 ### Question 1:  Replicating Column 1 from Tables 5 and 6
 
 #### Part (a)
 
-Estimate a difference-in-differences specification that replicates Table 5, Panel A, 
-Column 1.  Store your results using the `eststo` command.
+Use `feols()` to estimate a difference-in-differences specification that replicates Table 5, Panel A, 
+Column 1.  Then use the program we defined above to clean up your results and store them in the data frame `c1`, 
+as illustrtated in the code below:
+```
+T5AC1 <- feols(tba ~ highxpost + high_exp | district + time, data = e4data, vcov = ~district)
+c1 <- reshape_regs(T5AC1)
+print(c1)
+```
 
 #### Part (b)
 
