@@ -174,6 +174,11 @@ T5AC1 <- feols(tba ~ highxpost + high_exp | district + time, data = e4data, vcov
 c1 <- reshape_regs(T5AC1)
 print(c1)
 ```
+You can also use the code below to store the R-squared and the number of observations as character strings that can be added to the results table later.
+```
+N1 <- as.character(T5AC1$nobs)
+R2_1 <- as.character(round(r2(T5AC1)[2],3))
+```
 
 #### Part (b)
 
@@ -194,13 +199,19 @@ Table 6, Panel B, Column 1.  Store your results.
 
 #### Part (e)
 
-Now export your results to word as a nicely formatted table.  Report the 
-R-squared for each specification, and do not report coefficients 
-on the district and time fixed effects (use the `indicate` option to report 
-which columns include fixed effects, or indicate which fixed effects are used 
-in the table notes).  Report standard errors rather than t-statistics.  Make sure 
-all variables and columns are clearly labeled, and that your labels are not 
-cut off (because they are too long).  
+Use `left_join()` to combine the results from your four regression specifications. The code below 
+illustrates the first step, combining the results from the first two regressions into a single data frame.
+```
+results1 <- left_join(c1, c2, by = c("term", "type"))
+print(results1)
+```
+Once you have combined all four regression specifications into a single data frame, 
+drop the `type` column (which was helpful when merging the results from the different regressions), 
+modify the variable labels in the term column, and rename the `term` column so that it has no column name. You should also 
+use `add_row()` to add rows containing the number of observations in each specification and the R-squared. If you want, 
+you can also add rows indicating which fixed effects are included.  
+
+Once you have a nicely formatted data frame, export it to excel by modifying the code from Empirical Exercise 3. 
 
 ### Question 2:  Assessing the Common Trends Assumption
 
@@ -210,53 +221,27 @@ to replicate Columns 3 and 4).
 
 #### Part (a) 
 
-Drop the observations from after the ban was in place.  Then generate a `trend` variable 
-by using the `egen` command's `group` option (with the `time` variable).  The `egen` option `group` 
-creates a variable indicating the different groups (or values) of the `time` variable.  So, 
-in the example below, the `egen` command would generate a `trend` variable as 
-follows:
-
-time|trend
-----|----
-Jul05|1
-Jul05|1
-Jul05|1
-Aug05|2
-Aug05|2
-Oct05|3
-Oct05|3
-
-Notice that `egen` is just counting off the groups defined by the `time` variable:  there are no observations 
-from September of 2005 in the example above, so October 2005 is the third group (ie the `egen` command 
-is **not** telling us how many months have passed since the start of the data set). 
-
-If you tab `time` in our actual data, you will see that there aren't any missing months, so the `trend` variable 
-_does_ also tell us how many months an observation is from the earliest observations in 
-the data set - but that is because of the particular structure of this data.  
-
-Once you've generated the `trend` variable, interact it with the `high_exposure` variable, and label everything.
+Drop the observations from after the ban was in place.  Then, interact the `time` variable, which indexes the month of birth, with the `high_exp` variable.  This should 
+give you all the variables needed to replicate the first two columns in Table 2.
 
 #### Part (b) 
 
-Replicate columns 1 and 2 from Table 2 to the best of your ability (note:  
-they will not replicate perfectly).  Store your coefficient estimates.
+Replicate columns 1 and 2 from Table 2 to the best of your ability.  Store your results.
 
 #### Part (c)
 
-Export your results to word as a nicely formatted table (all of the guidance from Question 1 still applies).  
+Export your results to excel as a nicely formatted table (all of the guidance from Question 1 still applies).  
 
 <br>
 
 ## Additional Activities
 
-If you are looking for ways to expand your program evaluation skills further, extend your answer to Question 1 
-by including district-specific time trends, as Professor Godlonton and Dr. Okeke do in Columns 4 through 6 
-of Tables 5 and 6.  Alternatively, you can replicate the main analysis using a continuous measure of 
-treatment intensity:  the interaction between the level of TBA use prior to the ban and the `post` dummy.  Generate 
-this new treatment variable using your existing `meantba` variable (which, unfortunately, is missing for all 
-observations in the post-ban period), and then estimate regressions that control for DHS cluster and time 
-fixed effects (warning:  this will give your computer a bit of a workout).  How do the results from these 
-alternative specifications compare to those reported in the paper?
+If you are looking for ways to expand your program evaluation skills further, extend your answer to Question 1 by including district-specific time trends, 
+as Professor Godlonton and Dr. Okeke do in Columns 4 through 6 of Tables 5 and 6. Alternatively, you can replicate the main analysis 
+using a continuous measure of treatment intensity: the interaction between the level of TBA use prior to the ban and the post dummy. Generate 
+this new treatment variable using your existing `meantba` variable, and then estimate regressions that control for `meantba` and its interaction 
+with post. How do the results from these alternative specifications compare to those reported in the paper? Finally, consider using DHS cluster fixed effects 
+and month of birth fixed effects in the same specification. Do the DHS cluster fixed effects reduce the standard errors?
 
 <br>
 
