@@ -1,4 +1,4 @@
-# Empirical Exercise 4
+# Empirical Exercise 4 in R
 
 In this exercise, we're going to replicate the difference-in-differences analysis from 
 [Does a ban on informal health providers save lives? Evidence from Malawi](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4677333/) 
