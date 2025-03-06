@@ -13,25 +13,28 @@ regression results to excel using `openpyxl`, as we did in Empirical Exercise 3.
 The data set `E4-GodlontonOkeke-data.dta` contains information (from the 
 [2010 Malawi Demographic and Health Survey](https://dhsprogram.com/methodology/survey/survey-display-333.cfm)) 
 on 19,680 live births between July 2005 and September 2010.  Each observation represents a birth.  Create 
-R script that opens the Stata data set in R (using `read_dta()` from `haven`). You should have received the data set over email, and 
-you will need to save it and load it to R from your computer. Your code for starting the script should look something like:
+a python program that opens the Stata data set in python (using `pd.read_stata` from `pandas`). You should have received the data set over email, and 
+you will need to save it and load it to python from your computer. Your code for starting the script should look something like:
 ```
-## ECON 325: In-Class Activity 4
-## A. Student
+# ECON 523: EMPIRICAL EXERCISE 4 IN-CLASS ACTIVITY
+# A. Student
 
-# libraries
-library(tidyverse)
-library(fixest)
-library(openxlsx)
-library(haven)
+# preliminaries --------------------------------------------
 
-# file path
-mypath  <-  "C:/Users/ECON523/data"
+## libraries
+import numpy as np
+import pandas as pd
+import statsmodels.formula.api as smf
+from openpyxl import load_workbook
+from openpyxl.styles import Alignment, Font, Border, Side
 
-## load data 
-e4data <- read_dta(paste0(mypath, "/E4-GodlontonOkeke-data.dta"))
+## file path
+mypath = f"C:/Users/me/ECON-523/E4-DD2/"
+
+# load data ------------------------------------------------
+e4data = pd.read_stata(pjpath + "E4-GodlontonOkeke-data.dta")
 ```
-Make sure to install the packages `tidyverse`, `fixest`, `openxlsx`, and `haven` if you have not already done so.
+Make sure to import `numpy`, `pandas`, and `statsmodels.formula.api`, as always.
 
 <br>
 
@@ -46,11 +49,13 @@ To implement difference-in-differences, we need to add the following columns/var
  
 The `post` variable is already present in the data set, one of the columns of `e4data`.  What is the mean of `post`?  What fraction of the observations in the data set occur in the post-treatment period?  
 
+Hint: remember that you can find the mean of the column `varname` in data frame `df` with `df.varname.mean()`.
+
 ### Question 2
 
-The `time` variable indexes the month and year in which a birth took place. Unfortunately, it is in Stata's date format, and reads into R without the appropriate labels. Fortunately, the same information is contained in the variables `birthyr` and `birthmonth`. Cross-tabulate `birthyr` and `post` to see how Professor Godlonton and Dr. Okeke define the post-treatment time period in their analysis. What is the first treated month?  
+The `time` variable indexes the month and year in which a birth took place. In the original data set, it is in Stata's date format, and it reads into python in `datetime64[ns]` format. The same information is also contained in the variables `birthyr` and `birthmonth`. Cross-tabulate `time` and `post` or `birthyr` and `post` to see how Professor Godlonton and Dr. Okeke define the post-treatment time period in their analysis. What is the first treated month?  
 
-Hint: you can use `xtabs(~ y + x, data = df)` to cross-tabulate the columns `y` and `x` in data frame `df`.
+Hint: you can use `pd.crosstab()` to cross-tabulate two variables.
 
 ### Question 3
 
@@ -62,10 +67,10 @@ on use of TBAs comes from responses to the question below:
 ![dhs](https://pjakiela.github.io/ECON379/exercises/E5-DD2/DHS-question.png)
 
 Responses have been converted into a set of different variables representing the different 
-types of attendants who might have been present at the birth.  Tabulate (using `count(df, varname)`) 
+types of attendants who might have been present at the birth.  Tabulate 
 the `m3g` variable, which indicates whether a woman indicated that a TBA was present at a birth. What pattern of responses do you observe?  
 
-Hint: a value of 0 indicates **no**, 1 indicates **yes**, and 9 indicates **don't know** or a refusal to answer.
+Hint: Use `df.varname.value.counts()` to tabulate a variable. A value of 0 indicates **no**, 1 indicates **yes**, and 9 indicates **don't know** or a refusal to answer.
 
 ### Question 4
 
