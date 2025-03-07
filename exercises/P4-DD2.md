@@ -6,6 +6,8 @@ by Professor Susan Godlonton and Dr. Edward Okeke.  The authors estimate the imp
 on traditional birth attendants (TBAs) on a range of birth outcomes.  At the end of the exercise, we'll export our 
 regression results to excel using `openpyxl`, as we did in Empirical Exercise 3.  
 
+This exercise is also available as a [colab](https://colab.research.google.com/drive/1fJhuD7pOe9fEMEIf3bhLIHygfaCTvE8-?usp=sharing).
+
 <br>
 
 ## Getting Started
