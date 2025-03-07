@@ -150,14 +150,54 @@ Hint 2: to cluster your standard errors by district, you will need to set `cov_t
 
 Start by generating a new script that loads `E4-GodlontonOkeke-data.dta` and uses your answers 
 to the in-class activity to generate the variables needed to replicate Column 1 of 
-Table 5. 
+Table 5. Then add the following code, which defines a program `reshape_regs()` that takes output from a regression and 
+reformats the results to look like a column of a regression table.
+```
+def reshape_regs(olsresults):
+    results = pd.DataFrame({'coef': olsresults.params,
+                            'std_err': olsresults.bse, 
+                            'pval': olsresults.pvalues})
+    results = results.tail(2)
+    results['stars'] = results['pval'].apply(
+        lambda x: '***' if x <= 0.01 else ('**' if x <= 0.05 else ('*' if x <= 0.1 else ''))
+    )
+    results['coef'] = results['coef'].map(lambda x: f"{x:.3f}")
+    results['coef'] = results['coef'] + results['stars']
+    results['std_err'] = results['std_err'].map(lambda x: f"{x:.3f}")
+    results = results.astype(str)
+    results['std_err'] = results['std_err'].map(lambda x: f"({x})")
+    results = results[['coef', 'std_err']]
+    results.insert(0, 'var_num', range(len(results)))
+    results = results.reset_index()
+    results = (
+        results.melt(id_vars=['index', 'var_num'], var_name='type', value_name='est')
+    )
+    results = results.sort_values(by = ['var_num', 'type'])
+    results = results[['index', 'type', 'est']]
+    return results
+```
 
 ### Question 1:  Replicating Column 1 from Tables 5 and 6
 
 #### Part (a)
 
 Estimate a difference-in-differences specification that replicates Table 5, Panel A, 
-Column 1.  Store your results.
+Column 1.  Then use the program we defined above to clean up your results and store them in 
+the data frame c1, as illustrtated in the code below:  
+```
+T5AC1 = smf.ols('tba ~ highxpost + high_exp + C(district) + C(time)', data = e4data).fit(
+    cov_type='cluster', 
+    cov_kwds={'groups': e4data['district']})
+c1 = reshape_regs(T5AC1)
+c1 = c1.rename(columns={'est': 'TBA'})
+print(c1)
+```
+You can also use the code below to store the R-squared and the number of observations so  
+that they can be added to the results table later.   
+```
+N1 = T5AC1.nobs
+R2_1 = round(T5AC1.rsquared, 3).astype(str)
+```
 
 #### Part (b)
 
@@ -174,20 +214,22 @@ Column 1.  Store your results.
 
 Now generate a variable `alone` that is equal to one minus the maximum of 
 the `tba`, `sba`, and `friend` variables. Use this variable to replicate 
-Table 6, Panel B, Column 1.  Store your results. 
+Table 6, Panel B, Column 1.  Store your results.  
+
+Hint: `e4data[['x', 'y', 'z']].max(axis=1)` will find the row-specific maximum of the variables `x`, `y`, and `z`.
 
 #### Part (e)
 
-Use `left_join()` to combine the results from your four regression specifications. The code below 
+Use `merge()` to combine the results from your four regression specifications. The code below 
 illustrates the first step, combining the results from the first two regressions into a single data frame.
 ```
-results1 <- left_join(c1, c2, by = c("term", "type"))
+results1 = c1.merge(c2, on=["index", "type"], how="left")
 print(results1)
 ```
 Once you have combined all four regression specifications into a single data frame, 
 drop the `type` column (which was helpful when merging the results from the different regressions), 
 modify the variable labels in the term column, and rename the `term` column so that it has no column name. You should also 
-use `add_row()` to add rows containing the number of observations in each specification and the R-squared. If you want, 
+use `pd.concat()` to add rows containing the number of observations in each specification and the R-squared. If you want, 
 you can also add rows indicating which fixed effects are included.  
 
 Once you have a nicely formatted data frame, export it to excel by modifying the code from Empirical Exercise 3. 
@@ -196,7 +238,8 @@ Once you have a nicely formatted data frame, export it to excel by modifying the
 
 Next, assess the validity of the common trends assumption by replicating 
 the first two columns of Table 2 (we don't have the outcome data needed 
-to replicate Columns 3 and 4).  
+to replicate Columns 3 and 4). Start by reading in the data as a new data frame, `q2data`. Use the option 
+`convert_dates = False` so that the `time` variable will read in as a number (indexing the month) rather than a date.
 
 #### Part (a) 
 
