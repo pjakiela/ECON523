@@ -33,6 +33,11 @@ A handout version of the lecture slides is available [here](ECON-523-L4-DD2-2025
 
 The stata version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/E4-DD2.html).
 
+The R version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/R4-DD2.html).
+
+The python version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/P4-DD2.html).
+
+The python version is also available [here](https://colab.research.google.com/drive/1fJhuD7pOe9fEMEIf3bhLIHygfaCTvE8-?usp=sharing) as a colab.
 
 <br>
 
