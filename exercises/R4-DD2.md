@@ -197,6 +197,8 @@ Now generate a variable `alone` that is equal to one minus the maximum of
 the `tba`, `sba`, and `friend` variables. Use this variable to replicate 
 Table 6, Panel B, Column 1.  Store your results. 
 
+Hint: use `pmax()` to calculate the within-row maximum across multiple columns.
+
 #### Part (e)
 
 Use `left_join()` to combine the results from your four regression specifications. The code below 
