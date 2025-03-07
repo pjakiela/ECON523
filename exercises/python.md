@@ -6,8 +6,7 @@
 
 [Exercise 3: Difference-in-Differences I (2x2 DD)](https://colab.research.google.com/drive/12DZ-bKlV7c9roC7N_3vLpGuEF3A7-7Ps?usp=sharing)  
 
-<!--
-[Exercise 4: Diff-in-Diff in a Panel Data Framework (DD II)]()  
+[Exercise 4: Diff-in-Diff in a Panel Data Framework (DD II)](https://pjakiela.github.io/ECON523/exercises/P4-DD2.html)  
 
 [Exercise 5: Two-Way Fixed Effects](https://pjakiela.github.io/ECON523/exercises/R5-TWFE.html)   
 
