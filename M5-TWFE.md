@@ -27,16 +27,10 @@ can be severely biased when treatment timing is staggered and treatment effects 
 
 ## Lecture Slides
 
-A handout version of the lecture slides is available [here](ECON523-L5-TWFE-2UP.pdf). 
+A handout version of the lecture slides is available [here](ECON-523-L5-TWFE-2025-handout.pdf). 
 
 <br>
 
 ## Empirical Exercise
 
-The in-class activity as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON523-E5-in-class.do) or 
-[pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON523-E5-in-class.pdf).
-
-The empirical exercise as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON523-E5-questions.do) or 
-[pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON523-E5-questions.pdf).
-
-A web version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/E5-TWFE.html).
+The stata version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/E5-TWFE.html).
