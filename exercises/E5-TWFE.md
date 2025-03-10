@@ -10,15 +10,11 @@ and completion. Since this policy was phased in by different countries at
 different times, it is a useful setting for exploring the strengths and 
 weaknesses of TWFE.
 
-You can access the in-class activity as a [do file](ECON523-E5-in-class.do) or [pdf](ECON523-E5-in-class.pdf).
-
-You can also access the empirical exercise as a [do file](ECON523-E5-questions.do) or [pdf](ECON523-E5-questions.pdf).
-
 <br>
 
 ## Getting Started
 
-Before you begin, create a do file (with all the standard stuff at the top) that downloads [the data set](https://pjakiela.github.io/ECON523/exercises/E5-fpedata.dta).  Familiarize yourself with the data.  What years does it cover?  What variable indicates the year in which a country implemented free primary education (FPE)?  How many countries implemented FPE?  
+Before you begin, create a do file (with all the standard stuff at the top) that downloads [the data set](https://pjakiela.github.io/ECON523/exercises/E5-fpedata.dta).  Familiarize yourself with the data.  What years does it cover?  The variable **fpe_year** indicates the year in which a country implemented free primary education (FPE).  How many countries implemented FPE?  
 
 <br>
 
@@ -34,7 +30,9 @@ Generate a treatment dummy `fpe` that is equal to one for years where where prim
 
 ### Question 2
 
-Regress gross enrollment on `fpe` controlling for country and year fixed effects.  Restrict the sample to countries that eventually implemented FPE (an easy way to do this is to go back up a few lines in your do file and make `fpe` missing for observations in countries that never implemented free primary).  Cluster your standard errors at the country level.  What is the estimated impact of eliminating school fees on enrollment?
+Regress gross enrollment on `fpe` controlling for country and year fixed effects.  Restrict the sample to countries that eventually implemented FPE.  Cluster your standard errors at the country level.  What is the estimated impact of eliminating school fees on enrollment?
+
+Hint: generate a `never_treated` variable.
 
 ### Question 3
 
