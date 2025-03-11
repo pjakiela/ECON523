@@ -34,25 +34,25 @@ Generate a treatment dummy `fpe` that is equal to one for years where where prim
 
 Regress gross enrollment on `fpe` controlling for country and year fixed effects.  Restrict the sample to countries that eventually implemented FPE.  Though we would normally cluster our standard errors at the country level, do not do so in this case.  What is the estimated impact of eliminating school fees on enrollment?
 
-Hint: an an easy way to do this in stata is to make `fpe` missing for observations in countries that never implemented free primary. 
+Hint: an an easy way to do this in stata is to make `fpe` missing for observations in countries that never implemented free primary.  
 
 ### Question 3
 
-Next we are going to construct the TWFE estimate of the impact of FPE "by hand" using the residuals. 
+Next we are going to construct the TWFE estimate of the impact of FPE "by hand" using the residuals.  
 
 #### Part (a)
 
-Regress `fpe` on country and year fixed effects, and generate a variable `tresid` (short for treatment residual) equal to the residuals from the regression (make sure that you drop the country-years with missing values of the outcome variable before you do this).
+Regress `fpe` on country and year fixed effects, and generate a variable `tresid` (short for treatment residual) equal to the residuals from the regression (make sure that you drop the country-years with missing values of the outcome variable before you do this).  
 
 #### Part (b)
 
-Regress `enroll` on country and year fixed effects, and generate a variable `yresid` that contains the residuals from that regression.
+Regress `enroll` on country and year fixed effects, and generate a variable `yresid` that contains the residuals from that regression. Make sure that you restrict the sample to obesrvations with `fpe` not equal to missing.  
 
 #### Part (c)
 
 Regress `yresid` on `tresid`.  Confirm that you recover your TWFE estimate from Question 2.  
 
-Your standard errors should not match those from Question 2, but they should be reasonably close. Confirm that the standard error from Question 2 multiplied by the square root of 555/502 (the ratio of the degrees of freedom in the two regressions) matches the standard error above **exactly**. 
+Your standard errors should not match those from Question 2, but they should be reasonably close. Confirm that the standard error from Question 2 multiplied by the square root of 555/502 (the ratio of the degrees of freedom in the two regressions) matches the standard error above **exactly**.  
 
 #### Part (d)
 
