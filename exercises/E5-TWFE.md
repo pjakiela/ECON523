@@ -80,11 +80,11 @@ Now rerun your TWFE regression including the never-treated countries.  How many 
 
 ## Empirical Exercise
 
-Next, we're going to estimate the impact of eliminate primary school fees on primary school completion.  Create a new do file (with all the standard stuff at the top) that downloads [the data set](E5-fpedata.dta).  What variable indicates the primary school completion rate?  What was the mean level of primary school completion (across countries in the sample) in 1981?  What was the level of primary school completion in 2020?  Drop any country-years that are missing data on the primary school completion rate.  Extend your do file as you answer the questions below.
+Next, we're going to estimate the impact of eliminating primary school fees on primary school completion.  Create a new do file (with all the standard stuff at the top) that downloads [the data set](E5-fpedata.dta).  The variable `complete` indicates the primary school completion rate.  What was the mean level of primary school completion (across countries in the sample) in 1981?  What was the level of primary school completion in 2020?  Drop any country-years that are missing data on the primary school completion rate.  Extend your do file as you answer the questions below.
 
 ### Question 1
 
-Estimate two TWFE regressions of primary school completion on `fpe` controlling for country and year fixed effects.  In your first regression, include only the countries that eventually implemented free primary; include all the countries in the data set in your second regression.  Cluster your standard errors at the country level.  Export your regression results to word, and take a screen shot of your resulting (nice looking) table.  As a reminder, guidance on how to make nice looking tables is available [here](https://pjakiela.github.io/stata/regression-table.html).
+Estimate two TWFE regressions of primary school completion on `fpe` controlling for country and year fixed effects.  In your first regression, include only the countries that eventually implemented free primary; include all the countries in the data set in your second regression.  Cluster your standard errors at the country level.  Export your regression results to word or excel, and take a screen shot of your resulting (nicely formatted) table.  As a reminder, guidance on how to make nice looking tables is available [here](https://pjakiela.github.io/stata/regression-table.html).
 
 ### Question 2
 
@@ -94,11 +94,11 @@ Given what you know about TWFE, and given the nature of the policy and outcome u
 
 #### Part (a)
 
-What proportion of treated country years receive negative weighting in the TWFE estimation when you exclude the never treated countries?  You can answer this question by generating and then summarizing a variable that is 1 for treated observations (i.e. country-years) receiving negative weight in TWFE, 0 for treated observations receiving positive weight in TWFE, and missing for untreated country-years.
+What proportion of treated country-years (i.e. country-years with `fpe` equal to one) receive negative weighting in the TWFE estimation when you exclude the never-treated countries?  
 
 #### Part (b)
 
-What proportion of treated country years receive negative weighting in the TWFE estimation when you include the never treated countries?
+What proportion of treated country-years receive negative weighting in the TWFE estimation when you include the never treated countries?
 
 ### Question 4:  Event studies.
 
