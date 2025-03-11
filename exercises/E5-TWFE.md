@@ -14,11 +14,13 @@ weaknesses of TWFE.
 
 ## Getting Started
 
-Before you begin, create a do file (with all the standard stuff at the top) that downloads [the data set](https://pjakiela.github.io/ECON523/exercises/E5-fpedata.dta).  Familiarize yourself with the data.  What years does it cover?  The variable **fpe_year** indicates the year in which a country implemented free primary education (FPE).  How many countries implemented FPE?  
+Before you begin, create a do file (with all the standard stuff at the top) that downloads [the data set](https://pjakiela.github.io/ECON523/exercises/E5-fpedata.dta).  Familiarize yourself with the data.  What years does it cover?   
 
 <br>
 
 ## In-Class Activity
+
+The variable **fpe_year** indicates the year in which a country implemented free primary education (FPE).  How many countries implemented FPE?  
 
 The **gross primary enrollment ratio** is 100 times the number of students enrolled in primary school divided by the number of primary-school-aged children. This number can be greater than 100 when over-age children are enrolled in primary school - which often happens when school fees are eliminated.  What was the average level of primary school enrollment in 1981 (at the beginning of the data set)?  What was the average year of primary school enrollment in the last year for which data is available?  In how many country-years is the gross primary enrollment ratio above 100?
 
@@ -30,9 +32,9 @@ Generate a treatment dummy `fpe` that is equal to one for years where where prim
 
 ### Question 2
 
-Regress gross enrollment on `fpe` controlling for country and year fixed effects.  Restrict the sample to countries that eventually implemented FPE.  Cluster your standard errors at the country level.  What is the estimated impact of eliminating school fees on enrollment?
+Regress gross enrollment on `fpe` controlling for country and year fixed effects.  Restrict the sample to countries that eventually implemented FPE.  Though we would normally cluster our standard errors at the country level, do not do so in this case.  What is the estimated impact of eliminating school fees on enrollment?
 
-Hint: generate a `never_treated` variable.
+Hint: an an easy way to do this in stata is to make `fpe` missing for observations in countries that never implemented free primary. 
 
 ### Question 3
 
@@ -48,7 +50,9 @@ Regress `enroll` on country and year fixed effects, and generate a variable `yre
 
 #### Part (c)
 
-Regress `yresid` on `tresid`.  Confirm that you recover your TWFE estimate from Question 2.
+Regress `yresid` on `tresid`.  Confirm that you recover your TWFE estimate from Question 2.  
+
+Your standard errors should not match those from Question 2, but they should be reasonably close. Confirm that the standard error from Question 2 multiplied by the square root of 555/502 (the ratio of the degrees of freedom in the two regressions) matches the standard error above **exactly**. 
 
 #### Part (d)
 
