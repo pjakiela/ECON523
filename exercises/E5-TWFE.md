@@ -20,7 +20,7 @@ Before you begin, create a do file (with all the standard stuff at the top) that
 
 ## In-Class Activity
 
-The variable **fpe_year** indicates the year in which a country implemented free primary education (FPE).  How many countries implemented FPE?  
+The variable `fpe_year` indicates the year in which a country implemented free primary education (FPE).  How many countries implemented FPE?  
 
 The **gross primary enrollment ratio** is 100 times the number of students enrolled in primary school divided by the number of primary-school-aged children. This number can be greater than 100 when over-age children are enrolled in primary school - which often happens when school fees are eliminated.  What was the average level of primary school enrollment in 1981 (at the beginning of the data set)?  What was the average year of primary school enrollment in the last year for which data is available?  In how many country-years is the gross primary enrollment ratio above 100?
 
