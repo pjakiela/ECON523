@@ -90,7 +90,7 @@ Estimate two TWFE regressions of primary school completion on `fpe` controlling 
 
 Given what you know about TWFE, and given the nature of the policy and outcome under consideration, why might you have expected the coefficient (on `fpe`) in Column 1 to be smaller than the coefficient in Column 2?  
 
-### Question 3:  Negative weights.
+### Question 3:  negative weights
 
 #### Part (a)
 
@@ -100,7 +100,7 @@ What proportion of treated country-years (i.e. country-years with `fpe` equal to
 
 What proportion of treated country-years receive negative weighting in the TWFE estimation when you include the never treated countries?
 
-### Question 4:  Event studies.
+### Question 4:  event studies
 
 #### Part (a)
 
@@ -127,27 +127,15 @@ Now implement the event study design by regressing `complete` on country and yea
 
 Adapt the code from the do file [ECON523-E5-event-study-example.do](ECON523-E5-event-study-example.do) to make an event study graph of your results.  Save the graph as a pdf or png file (so that you can upload it later).  What does the graph suggest about your TWFE model?
 
-### Question 5:  Trimming
+### Question 5:  restricting the sample
 
 #### Part (a)
 
-Rerun your event study regressions.  Use the post-estimation `test` command to test whether you can reject the hypothesis that `minus_2` is equal to 0.  (You should not be able to).  Now test the joint hypothesis that `minus_2` and `minus_3` are both equal to 0.  Continue adding additional pre-treatment terms to your join test until you can reject the hypothesis that they are all zero at the 90 percent level.
+Rerun your event study regression in a restricted sample. To decide how to do this, first tabulate the observed values of the the `rel_time` variable: at what points do you observe a marked drop off in the number of observations? In other words, at what values of positive and negative relative time do you start to see evidence that effects would be based on only a restricted set of countries? Keep a restricted subsample of your data such that your event-time effects are estimated off of a broadly comparable set of countries, and then restrict the years of data on never-treated countries that you include to match the years observed among the (eventually) treated countries. Restrict the sample in other ways as you see fit (you will have to explain your choices when you submit your work).  
 
 #### Part (b)
 
-Use the results from Question 5a to exclude some pre-treatment observations (where common trends appears to be violated).  In other words, drop observations based on their relative time, so that you can implement an event study design where none of your pre-FPE terms is statistically significant.
-
-#### Part (c)
-
-Make a new event study plot that presents the results in your trimmed (i.e. restricted) sample. 
-
-#### Part (d)
-
-Make a table that reports the results of two TWFE regressions of primary school completion rates on the FPE dummy.  In Column 1, include only the countries that eventually implemented free primary.  In Column 2, include all the countries in the sample.  Cluster your standard errors at the country level, report standard errors rather than t-statistics, and make your table look as professional as possible.  Export your results to  word, and take a screen shot of your finished table (so that you can upload it later). 
-
-### Question 6 
-
-From a statistical perspective, do you think it is good or bad that we trimmed the data by including only eight years prior to the implementation of free primary?  Justify your answer (in no more than 2 or 3 sentences).
+Make a new event study plot that presents the results in your trimmed (i.e. restricted sample). Highlight the pre-treatment periods in a color that is distinct from the post-treatment periods. Make your figure look as professional as possible and savie it as a pdf or png file.  
 
  ---
  
