@@ -48,11 +48,11 @@ Next we are going to construct the TWFE estimate of the impact of FPE "by hand" 
 
 #### Part (a)
 
-Regress `fpe` on country and year fixed effects, and generate a variable `tresid` (short for treatment residual) equal to the residuals from the regression (make sure that you drop the country-years with missing values of the outcome variable before you do this).  
+Regress `fpe` on country and year fixed effects, and generate a variable `tresid` (short for treatment residual) equal to the residuals from the regression. Make sure that you do this in the `fpe_sample` data frame, so that you are using exactly the same sample that you used in Question 2.  
 
 #### Part (b)
 
-Regress `enroll` on country and year fixed effects, and generate a variable `yresid` that contains the residuals from that regression. Make sure that you restrict the sample to obesrvations with `fpe` not equal to missing.  
+Regress `enroll` on country and year fixed effects, and generate a variable `yresid` that contains the residuals from that regression. Make sure that you do this in the `fpe_sample` data frame, so that you are using exactly the same sample that you used in Question 2.  
 
 #### Part (c)
 
