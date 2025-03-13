@@ -69,14 +69,14 @@ What fraction of the treated country-years received negative weight in our TWFE 
 The TWFE coefficient is a linear combination of the observed values of the outcome variable, with each value of Y weighted by the associated residualized value of treatment (`tresid`) divided by the sum of all the squared values of `tresid`.  Confirm that this is correct by:  
 
 1. Calculating a variable `tr2` equal to the square of `tresid`,
-2. Using `egen`'s `sum` option to calculate a variable `tvar` equal to the sum of `tr2` across all observations,
-3. Generating a `weight` variable equal to `tresid` divided by `tvar`,
+2. Calculating a variable `denom` equal to the sum of `tr2` across all observations,
+3. Generating a `weight` variable equal to `tresid` divided by `denom`,
 4. Generating a variable `yxweight` that is equal to the observed value of `enroll` (the outcome variable) times the regression `weight`, and 
 5. Calculating the TWFE coefficient as the sum of `yxweight` across all observations.
 
 #### Part (f)
 
-Now that you know you can do this by hand, we will never do it again. Drop `yresid`, `tresid`, `tr2`, `weight`, `yxweight`, and `betahat`.
+Now that you know you can do this by hand, we will never do it again. Drop `yresid`, `tresid`, `tr2`, `weight`, `yxweight`, and `betahat` from the data frame.
 
 ### Question 4
 
@@ -86,11 +86,13 @@ Now rerun your TWFE regression including the never-treated countries.  How many 
 
 ## Empirical Exercise
 
-Next, we're going to estimate the impact of eliminating primary school fees on primary school completion.  Create a new do file (with all the standard stuff at the top) that downloads [the data set](E5-fpedata.dta).  The variable `complete` indicates the primary school completion rate.  What was the mean level of primary school completion (across countries in the sample) in 1981?  What was the level of primary school completion in 2020?  Drop any country-years that are missing data on the primary school completion rate.  Extend your do file as you answer the questions below.
+Next, we're going to estimate the impact of eliminating primary school fees on primary school completion.  Create a new R script (with all the standard stuff at the top) that downloads [the data set](E5-fpedata.dta).  The variable `complete` indicates the primary school completion rate.  What was the mean level of primary school completion (across countries in the sample) in 1981?  What was the level of primary school completion in 2020?  Drop any country-years that are missing data on the primary school completion rate.  Extend your script as you answer the questions below.
 
 ### Question 1
 
-Estimate two TWFE regressions of primary school completion on `fpe` controlling for country and year fixed effects.  In your first regression, include only the countries that eventually implemented free primary; include all the countries in the data set in your second regression.  Cluster your standard errors at the country level.  Export your regression results to word or excel, and take a screen shot of your resulting (nicely formatted) table.  As a reminder, guidance on how to make nice looking tables is available [here](https://pjakiela.github.io/stata/regression-table.html).
+Estimate two TWFE regressions of primary school completion on `fpe` controlling for country and year fixed effects.  In your first regression, include only the countries that eventually implemented free primary; include all the countries in the data set in your second regression.  Cluster your standard errors at the country level.  Export your regression results to excel.  
+
+Hint: adapt the program from last week to prep your regression results for exporting.
 
 ### Question 2
 
@@ -114,24 +116,21 @@ Generate a relative time variable `rel_time` that indicates the difference betwe
 
 #### Part (b)
 
-Summarize the `rel_time` variable.  What is the maximum number of years that we observe **before** a country implements free primary (among countries that eventually implement it)?  Use the loop below to generate variables `minus_2`, `minus_3`, `minus_4` etc that are dummies equal to one for country-years (respectively) 2, 3, 4 etc. years before a country implements free primary.  For countries that never implement free primary, these variables should be equal to 0 for all years.  
-```
-forvalues i = 2/27 {
- gen minus_`i' = (fpe_year - year==`i' & nevertreated==0)
-}
-```
+What is the maximum number of years that we observe **before** a country implements free primary (among countries that eventually implement it)?  Define a variable `minus` equal to the absolute value of `rel_time` for observations with relative time less than zero. In other words, `minus` captures how many years in the future a country will implement free primary education. Set `minus` equal to zero for never-treated countries.  
+
+Now use `dummy_cols()` from the `fastDummies` library (you will probably need to install it) to generate dummies for the different values that `minus` takes on.
 
 #### Part (c)
 
-What is the maximum number of years that we observe **after** a country implements free primary (among countries that eventually implement it)?  Generate variables `plus_0`, `plus_1`, `plus_2` etc that are dummies equal to one for country-years (respectively) 0, 1, 2 etc. years after a country implements free primary.  The variable `plus_0` indicates the year FPE was first implemented.  For countries that never implement free primary, these variables should be equal to 0 for all years.
+What is the maximum number of years that we observe **after** a country implements free primary (among countries that eventually implement it)?  Following the procedures outlines in (b), generate variables `plus_0`, `plus_1`, `plus_2` etc that are dummies equal to one for country-years (respectively) 0, 1, 2 etc. years after a country implements free primary.  The variable `plus_0` indicates the year FPE was first implemented.  For countries that never implement free primary, these variables should be equal to 0 for all years.
 
 #### Part (d) 
 
-Now implement the event study design by regressing `complete` on country and year fixed effects as well as the `minus_*` and `plus_*` variables.  What patterns of significance do you observe among the `plus_*` variables?  Is there ever a statistically significant impact of FPE on primary school completion?  What patterns of significance do you observe among the `minus_*` variables?  Is there evidence that the assumption of common trends is violated?
+Now implement the event study design by regressing `complete` on country and year fixed effects as well as the `minus_*` and `plus_*` variables. Omit `minus_1`.  What patterns of significance do you observe among the `plus_*` variables?  Is there ever a statistically significant impact of FPE on primary school completion?  What patterns of significance do you observe among the `minus_*` variables?  Is there evidence that the assumption of common trends is violated?
 
 #### Part (e)
 
-Adapt the code from the do file [ECON523-E5-event-study-example.do](ECON523-E5-event-study-example.do) to make an event study graph of your results.  Save the graph as a pdf or png file (so that you can upload it later).  What does the graph suggest about your TWFE model?
+Adapt the code below to make an event study graph of your results.  Save the graph as a pdf or png file (so that you can upload it later).  What does the graph suggest about your TWFE model?
 
 ### Question 5:  restricting the sample
 
@@ -141,7 +140,7 @@ Rerun your event study regression in a restricted sample. To decide how to do th
 
 #### Part (b)
 
-Make a new event study plot that presents the results in your trimmed (i.e. restricted sample). Highlight the pre-treatment periods in a color that is distinct from the post-treatment periods. Make your figure look as professional as possible and savie it as a pdf or png file.  
+Make a new event study plot that presents the results in your restricted sample. Highlight the pre-treatment periods in a color that is distinct from the post-treatment periods. Make your figure look as professional as possible and save it as a pdf or png file.  
 
  ---
  
