@@ -40,7 +40,7 @@ FPE was implemented in a particular country).  What is the mean of this variable
 Regress gross enrollment on `fpe` controlling for country and year fixed effects.  Restrict the sample to countries that eventually implemented FPE. Though we would normally cluster 
 our standard errors at the country level, do not do so in this case.  What is the estimated impact of eliminating school fees on enrollment?
 
-Hint: an an easy way to do this is to create a data frame `fpe_countries` that includes only data from countries that eventually implemented free primary.  
+Hint: an an easy way to do this is to create a data frame `fpe_sample` that includes only data from countries that eventually implemented free primary.  
 
 ### Question 3
 
