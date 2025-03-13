@@ -58,7 +58,7 @@ Regress `enroll` on country and year fixed effects, and generate a variable `yre
 
 Regress `yresid` on `tresid`.  Confirm that you recover your TWFE estimate from Question 2.  
 
-Your standard errors should not match those from Question 2, but they should be reasonably close. Confirm that the standard error from Question 2 multiplied by the square root of 555/502 (the ratio of the degrees of freedom in the two regressions) matches the standard error above **exactly**.  
+Your standard errors should not match those from Question 2, but they should be reasonably close. Confirm that the standard error from Question 2 multiplied by the square root of 502/555 (the ratio of the degrees of freedom in the two regressions) matches the standard error above **exactly**.  
 
 #### Part (d)
 
