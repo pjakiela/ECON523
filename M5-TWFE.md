@@ -33,4 +33,8 @@ A handout version of the lecture slides is available [here](ECON-523-L5-TWFE-202
 
 ## Empirical Exercise
 
-The stata version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/E5-TWFE.html).
+The stata version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/E5-TWFE.html).  
+
+The R version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/R5-TWFE.html).  
+
+The Python version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/P5-TWFE.html).  
