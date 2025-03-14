@@ -8,7 +8,9 @@ that we'll use is posted [here](https://pjakiela.github.io/ECON523/exercises/E5-
 effects (TWFE) estimates of the impact of eliminating school fees on enrollment 
 and completion. Since this policy was phased in by different countries at 
 different times, it is a useful setting for exploring the strengths and 
-weaknesses of TWFE.
+weaknesses of TWFE.  
+
+This exercise is also available [here](https://colab.research.google.com/drive/1MlHV0oMqOFvtsQalMGF1ndXge4qlnC_k?usp=sharing) as a colab.  
 
 <br>
 
@@ -62,7 +64,7 @@ Your standard errors should not match those from Question 2, but they should be 
 
 #### Part (d)
 
-What fraction of the treated country-years received negative weight in our TWFE regression?
+What fraction of the treated country-years received negative weight in our TWFE regression?  
 
 #### Part (e)
 
@@ -97,7 +99,7 @@ Estimate two TWFE regressions of primary school completion on `fpe` controlling 
 eventually implemented free primary; include all the countries in the data set in your second regression.  Cluster your standard errors at the country level.  Export 
 your regression results to excel.  
 
-Hint: adapt the program from last week to prep your regression results for exporting.
+Hint: adapt the program from last week to prep your regression results for exporting.  
 
 ### Question 2
 
@@ -112,13 +114,13 @@ What proportion of treated country-years (i.e. country-years with `fpe` equal to
 
 #### Part (b)
 
-What proportion of treated country-years receive negative weighting in the TWFE estimation when you include the never treated countries?
+What proportion of treated country-years receive negative weighting in the TWFE estimation when you include the never treated countries?  
 
 ### Question 4:  event studies
 
 #### Part (a)
 
-Generate a relative time variable `rel_time` that indicates the difference between the (current, for each observation) year and the year in which FPE was implemented in that country.
+Generate a relative time variable `rel_time` that indicates the difference between the (current, for each observation) year and the year in which FPE was implemented in that country.  
 
 #### Part (b)
 
