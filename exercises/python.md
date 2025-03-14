@@ -8,9 +8,9 @@
 
 [Exercise 4: Diff-in-Diff in a Panel Data Framework (DD II)](https://pjakiela.github.io/ECON523/exercises/P4-DD2.html)  
 
-<!--
-[Exercise 5: Two-Way Fixed Effects](https://pjakiela.github.io/ECON523/exercises/R5-TWFE.html)   
+[Exercise 5: Two-Way Fixed Effects](https://pjakiela.github.io/ECON523/exercises/P5-TWFE.html)   
 
+<!--
 [Exercise 6: Treatment-on-the-Treated](https://pjakiela.github.io/ECON523/exercises/R6-TOT.html)
 
 [Exercise 7:  Instrumental Variables](https://pjakiela.github.io/ECON523/exercises/R7-IV.html)
