@@ -19,16 +19,14 @@ of a program under imperfect compliance.
 
 ## Lecture Slides
 
-A handout version of the lecture slides is available [here](ECON523-L6-TOT-handout-2UP.pdf). 
+A handout version of the lecture slides is available [here](ECO-523-L6-TOT-2025-handout.pdf). 
 
 <br>
 
 ## Empirical Exercise
 
-The in-class activity as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON523-E6-inclass.do) or 
-[pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON523-E6-in-class.pdf).
+The Stata version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/E6-TOT.html).  
 
-The empirical exercise as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON523-E6-questions.do) or 
-[pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON523-E6-questions.pdf).
+The R version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/R6-TOT.html).  
 
-A web version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/E6-TOT.html).
+The Python version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/P6-TOT.html).  
