@@ -19,7 +19,7 @@ of a program under imperfect compliance.
 
 ## Lecture Slides
 
-A handout version of the lecture slides is available [here](ECO-523-L6-TOT-2025-handout.pdf). 
+A handout version of the lecture slides is available [here](ECON-523-L6-TOT-2025-handout.pdf). 
 
 <br>
 
