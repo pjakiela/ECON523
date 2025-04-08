@@ -115,8 +115,7 @@ tabcolumn bizprofit_1 C
 
 #### Part (c) 
 
-You may want to set the widths of the columns in your Excel file.  Unfortunately, there is no way to do this using `putexcel`, as we have seen.  The code below invokes Stata's mata programming language to adjust the column widths.  You can also just adjust them as needed by hand before you print your table to a pdf.
-
+As a last step, you need to adjust the widths of the columns in your excel file.  Unfortunately, there is no way to do this using `putexcel`, as we have seen.  The code below invokes Stata's mata programming language to adjust the column widths. You may want to extend the code to adjust the row heights as well.  
 ```
 mata
 b = xl()
@@ -131,7 +130,7 @@ end
 
 #### Part (d)
 
-Add a note at the bottom of your table that explains the contents of the table.  
+Now add a note at the bottom of your table that explains the contents of the table.  
 
 <br>
 
