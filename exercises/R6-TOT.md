@@ -15,7 +15,7 @@ Our first step is to review the mechanics of treatment-on-the-treated estimation
 an estimate of the impact of treatment (access to loans from Spandana) on individuals who take it up (by taking out a Spandana microloan):
 1. We can calculate the impact of treatment on an outcome of interest (say, microenterprise profits), and then take the ratio of this coefficient to the estimated impact of treatment on take-up of Spandana microloans
 2. We can estimate the impact of treatment on take-up of microloans and then regress our outcome of interest on **predicted** take-up of microloans
-3. We can use the `ivregress 2sls` command in Stata to implement two-stage least squares (as in 2, except using a single Stata command)
+3. We can use `feols` to implement two-stage least squares (as in 2, except using a single step)
 4. We can estimate the impact of Spandana loans on our outcome of interest controlling for the residuals in our first-stage regression (the **control function** approach)
 
 <br>
@@ -35,20 +35,26 @@ We will be using the following outcome variables:
 - `bizassets_1` is a measure of assets owned by one's microenterprise
 - `any_biz_1` is an indicator for operating a microenterprise
 
-To get started, create a do file that reads the data into Stata directly from the web:
+To get started, create a script that reads the data into R directly from the web:
 ```
 // ECON 523: In-Class Activity 6
 // A. Student
-clear all
-set more off
-set seed 12345
-cd "C:\myfilepath"
-webuse set https://pjakiela.github.io/ECON523/exercises/
-webuse E6-BanerjeeEtAl-data.dta
+library(tidyverse)
+library(haven)
+library(fixest)
+mypath <- "C:\myfilepath"
+urlfile <- 'https://pjakiela.github.io/ECON523/exercises/E6-BanerjeeEtAl-data.dta'
+e6data <- read_dta(urlfile)
 ```
 
 We are going to make use of the variables `treatment`, `spandana_1`, and `bizprofit_1`.  Before you begin, 
-add a line to your do file that drops any observations with one of these variables missing.
+add a line to your do file that drops any observations with one of these variables missing.  
+
+Hint:  the code
+```
+filter(df, !if_any(c(x1, x2), is.na))
+```
+drops any rows with either `x1` or `x2` missing from the data frame `df`.
 
 <br>
 
@@ -56,19 +62,19 @@ add a line to your do file that drops any observations with one of these variabl
 
 ### Question 1
 
-Estimate the impact of `treatment` on the likelihood of taking a loan from Spandana (the variable `spandana_1`).  What is the estimated coefficient on `treatment`?  Because treatment is randomly assigned at the neighborhood level, we need to cluster our standard errors by neighborhood.  Do this.  This is the **first stage** regression.  
+Estimate the impact of `treatment` on the likelihood of taking a loan from Spandana (the variable `spandana_1`).  What is the estimated coefficient on `treatment`?  Because treatment is randomly assigned at the neighborhood level, we need to cluster our standard errors by neighborhood (`areaid` indexes neighborhoods).  Do this.  This is the **first stage** regression.  
 
-Save the coefficient on `treatment` as a local macro `beta_fs`.  
+Save the coefficient on `treatment` as `beta_fs`.  
 
 ### Question 2
 
-Now extend your do file so that you also run the **reduced form** regression of microenterprise profits (the variable `bizprofit_1`) on `treatment`.  What is the estimated impact of being randomly assigned to a treatment (at the neighborhood level) on business profits?  
+Now extend your code so that you also run the **reduced form** regression of microenterprise profits (the variable `bizprofit_1`) on `treatment`.  What is the estimated impact of being randomly assigned to a treatment (at the neighborhood level) on business profits?  
 
-Save the coefficient on `treatment` as a local macro `beta_rf`.  
+Save the coefficient on `treatment` as `beta_rf`.  
 
 ### Question 3 
 
-Based on your answers to Questions 1 and 2, what is the **treatment-on-the-treated** impact of random assignment to Spandana access on business profits?  Use `beta_fs` and `beta_rf` to calculate this quantity (in your do file).
+Based on your answers to Questions 1 and 2, what is the **treatment-on-the-treated** impact of random assignment to Spandana access on business profits?  Use `beta_fs` and `beta_rf` to calculate this quantity (in your script).
 
 ### Question 4 
 
