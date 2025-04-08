@@ -37,8 +37,8 @@ We will be using the following outcome variables:
 
 To get started, create a script that reads the data into R directly from the web:
 ```
-// ECON 523: In-Class Activity 6
-// A. Student
+## ECON 523: In-Class Activity 6
+## A. Student
 library(tidyverse)
 library(haven)
 library(fixest)
