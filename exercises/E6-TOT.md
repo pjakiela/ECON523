@@ -70,7 +70,7 @@ Based on your answers to Questions 1 and 2, what is the **treatment-on-the-treat
 
 ### Question 4 
 
-Now we want to output our results to Excel.
+Now we want to output our results to excel.
 
 #### Part (a)
 
