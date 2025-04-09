@@ -78,67 +78,77 @@ Based on your answers to Questions 1 and 2, what is the **treatment-on-the-treat
 
 ### Question 4 
 
-Now we want to output our results to Excel.
+Now we want to output our results to excel. To do this, we will create a data frame called `results` that contains the results that we wish to export, formatted appropriately.
 
 #### Part (a)
 
-We're going to use the `putexcel` command to write our results into an excel file. To review, `putexcel` is a simple command that allows you to write Stata output to a particular cell or set of cells in an excel file. Before getting started with `putexcel`, use the `pwd` ("print working directory") command in the Stata command window to make sure that you are writing your results to an appropriate file and filepath. Use the `cd` command to change your file path if necessary. Then set up the excel file that will receive your results using the command `putexcel set`.  Use the code below to setup a blank excel table where you can store your results:
+The code below defines a function `reshape_regs()` that formats the results from a regression in a column, with the `term` column indicating the variable whose coefficient is being reported and the `type` column indicating whether the row contains a coefficient estimate or a standard error in parentheses.  Review the code below carefully to make sure that you understand each line. Then extend the code to include the p-value in the row below the standard error. Put the p-value in square brackets rather than parentheses.  
 ```
-putexcel set E6-TOT-in-class.xlsx, replace
-putexcel A1=" ", hcenter border(top) 
-putexcel A2=" ", hcenter border(bottom)
-putexcel B1="Borrowed", hcenter bold border(top)
-putexcel B2="(1)", hcenter bold border(bottom)
-putexcel C1="Profits", hcenter bold border(top)
-putexcel C2="(2)", hcenter bold border(bottom)
-putexcel A3="Treatment", bold
-putexcel A6="Observations", bold border(bottom)
+reshape_regs <- function(myresults){
+  olsresults <- tidy(myresults)
+  olsresults$index <- 1:nrow(olsresults)
+  olsresults <- olsresults %>% 
+  filter(!term == "(Intercept)") %>% 
+  mutate(across(c(estimate, std.error), ~ sprintf("%.3f", .))) %>% 
+  mutate(across(c(estimate, std.error), ~ as.character(.))) %>% 
+  mutate(std.error = str_c("(", std.error, ")")) %>% 
+  select(term, estimate, std.error, index) %>% 
+  arrange(index) %>% 
+  pivot_longer(c(estimate, std.error), 
+               names_to = "type", 
+               values_to = "est") %>% 
+  select(term, type, est)
+  return(olsresults)
+}
 ```
 
 #### Part (b)
 
-At this point, it is worth opening your excel file to make sure that you are writing to it successfully. Be sure to close the file after you look at it; Stata won't write over an open excel file. The column and row labels should all appear in bold font (the `bold` option), and the column headings in cells B1 and C1 should be centered (the `hcenter` option) and have a border above them (the `border()` option).
-
-The next step is to write your regression results to excel.  We are going to do this by writing a program.  We've already seen that we can store our regression results in a Stata matrix using the command 
+Use the `reshape_regs()` function to store the results from the first stage and reduced form regressions. You can also adapt the code below to store the number of observations and the R-squared.
 ```
-mat V = r(table)
-```
-after running a regression.  This allows us to extract both the standard error and the p-value associated with each regression coefficient (something that is difficult to do using `esttab`).  The program below adds a column to our excel file containing the results of an additional regression.  Review the code below carefully to make sure that you understand each line.  Then add two lines to the program to write the p-value associated with the regression coefficient in Row 5 of the spreadsheet.  Put the p-value in square brackets rather than parentheses. 
-
-```
-cap program drop tabcolumn
-program define tabcolumn // tabrow var columnletter
-	reg `1' treatment, cluster(areaid) 
-	mat V = r(table)
-	local beta = string(V[1,1],"%04.3f")
-	local se = string(V[2,1],"%04.3f")
-	putexcel `2'3="`beta'", hcenter 
-	putexcel `2'4="(`se')", hcenter 
-	putexcel `2'6=`e(N)', hcenter border(bottom)
-end
-
-tabcolumn spandana_1 B 
-tabcolumn bizprofit_1 C 
+N_fs <- as.character(fs$nobs)
+R2_fs <- as.character(round(r2(fs)[2],3))
 ```
 
 #### Part (c) 
 
-You may want to set the widths of the columns in your Excel file.  Unfortunately, there is no way to do this using `putexcel`, as we have seen.  The code below invokes Stata's mata programming language to adjust the column widths.  You can also just adjust them as needed by hand before you print your table to a pdf.
-
+Now you need to merge the results from your first stage and reduced form regressions into a single data frame that you can export to excel. The code below does this. Make sure that you understand what every line is doing, and then use the code to generate the data frame `results`.  
 ```
-mata
-b = xl()
-b.load_book("E6-TOT-in-class.xlsx")
-b.set_sheet("Sheet1")
-b.set_column_width(1,1,20) // make variable name column widest
-b.set_column_width(2,3,16) // width for subsequent columns
-b.set_row_height(7,7,32)
-b.close_book()
-end
+results <- left_join(fs_results, rf_results, by = c("term", "type")) %>% 
+  mutate(term = if_else(type == "estimate", term, "")) %>% 
+  mutate(term = if_else(term == "treatment" & type == "estimate", "Treatment", "")) %>% 
+  add_row(term = "Observations", C1 = N_fs, C2 = N_rf) %>% 
+  rename(" " = term, 
+         "Borrowed" = C1, 
+         "Profits" = C2) %>% 
+  select(!type) 
+print(results)
 ```
 
-#### Part (d)
+#### Part (d) 
 
-Add a note at the bottom of your table that explains the contents of the table.  
+The last step is to export your results to excel. Here, we adapt the code from Empirical Exercise 5 to export our results to an excel file called `R6-in-class.xlsx`. Before doing this, make sure you have loaded the `openxlsx` library and defined your filepath correctly (so that you will be able to locate your results).  
+```
+wbname <- "In-Class"
+wb <- createWorkbook()
+addWorksheet(wb, wbname)
+# create a header style
+hs1 <- createStyle(halign = "CENTER", textDecoration = "Bold", border = "BottomTop")
+# write the results to the table
+writeData(wb, wbname, results, headerStyle = hs1)
+# adjust column widths
+my_widths <- c(20, 16, 16)
+setColWidths(wb, wbname, cols = 1:3, widths = my_widths)
+my_heights <- c(rep(16, 1), rep(20, 4))
+setRowHeights(wb, wbname, rows = 1:5, heights = my_heights)
+# center the content of the table
+center_style <- createStyle(halign = "CENTER")
+addStyle(wb, wbname, center_style, cols = 2:3, rows = 1:5, gridExpand = TRUE, stack = TRUE)
+# create a bottom border
+bottom_style <- createStyle(border = "Bottom")
+addStyle(wb, wbname, bottom_style, cols = 1:3, rows = 5, gridExpand = TRUE, stack = TRUE)
+# save workbook
+saveWorkbook(wb, file = paste0(mypath, "R6-in-class.xlsx"), overwrite = TRUE)
+```
 
 <br>
