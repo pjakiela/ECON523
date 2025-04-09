@@ -159,7 +159,12 @@ Start a new script for the main part of the empirical exercise.  We are going to
 
 ### Question 1:  Implementing 2SLS
 
-Use two-stage least squares (2SLS) to estimate an instrumental variables (IV) regression of `bizprofit_1` on `spandana_1`, instrumenting for `spandana_1` with the treatment dummy.  Cluster your standard errors at the neighborhood level.   Your estimated coefficient should be identical to your answer from the In-Class Activity.
+Use two-stage least squares (2SLS) to estimate an instrumental variables (IV) regression of `bizprofit_1` on `spandana_1`, instrumenting for `spandana_1` with the treatment dummy.  Cluster your standard errors at the neighborhood level. Your estimated coefficient should be identical to your answer from the In-Class Activity.  
+
+Hint: the following code illustrates how to implement two-stage least squares using `feols()` (given outcome `y`, endogenous regressor `x`, and instrument `z`):  
+```
+feols(y ~ 1 | x ~ z, data = df, vcov = ~clustvar)
+```
 
 ### Question 2:  2SLS Results
 
@@ -168,6 +173,12 @@ Now make a table that reports TOT estimates of the impact of Spandana loans on m
 ### Question 3:  The Control Function Approach
 
 Now make another table that replicates the treatment-on-the treated estimation from Question 2 using the control function approach. 
+
+Hint: the following code reviews the process of generating a new variable reflecting the residuals from a regression:  
+```
+model1 <- feols(y ~ x, data = df) 
+df$myresid <- model1$residuals
+```
 
 ### Question 4
 
