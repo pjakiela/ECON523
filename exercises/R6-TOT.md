@@ -48,7 +48,7 @@ e6data <- read_dta(urlfile)
 ```
 
 We are going to make use of the variables `treatment`, `spandana_1`, and `bizprofit_1`.  Before you begin, 
-add a line to your do file that drops any observations with one of these variables missing.  
+add a line to your code that drops any observations with one of these variables missing.  
 
 Hint:  the code
 ```
@@ -152,3 +152,38 @@ saveWorkbook(wb, file = paste0(mypath, "R6-in-class.xlsx"), overwrite = TRUE)
 ```
 
 <br>
+
+## Empirical Exercise
+
+Start a new script for the main part of the empirical exercise.  We are going to make use of the variables `treatment`, `spandana_1`, `bizprofit_1`, `bizrev_1`, `bizassets_1`, and `any_biz_1`.  Before you begin, add a line to your code that drops any observations with one of these variables missing.
+
+### Question 1:  Implementing 2SLS
+
+Use two-stage least squares (2SLS) to estimate an instrumental variables (IV) regression of `bizprofit_1` on `spandana_1`, instrumenting for `spandana_1` with the treatment dummy.  Cluster your standard errors at the neighborhood level.   Your estimated coefficient should be identical to your answer from the In-Class Activity.
+
+### Question 2:  2SLS Results
+
+Now make a table that reports TOT estimates of the impact of Spandana loans on microenterprise profits (the variable `bizprofit_1`), microenterprise revenues (the variable `bizrev_1`), microenterprise assets (the variable `bizassets_1`), and the likelihood of operating a microenterprise (the variable `any_biz_1`). Modify the code from the In-Class Activity to store your results in a data frame and export them to excel as a nicely formatted table.
+
+### Question 3:  The Control Function Approach
+
+Now make another table that replicates the treatment-on-the treated estimation from Question 2 using the control function approach. 
+
+### Question 4
+
+Print each of your tables to pdf so that you can upload your finished product(s) to gradescope.
+ 
+### Question 5 
+
+Using instrumental variables to estimate treatment effects on the treated makes sense when random assignment to treatment (i.e. inviting someone to participate in a program) has no impact on those who choose not to take up treatment.  Does this approach make sense in the context of microfinance?  Why or why not?
+
+<br>
+
+## More Fun with R
+
+The relatively low take-up rates for microfinance loans can be interpreted as evidence that not everyone wants to be an entrepreneur, and several studies have found that access to credit is more effective at helping people expand their businesses than at encouraging non-entrepreneurs to start new businesses.  The variable `any_old_biz` is an indicator for operating a microenterprise prior to the start of the study.  Restrict your sample to those who were already operating microenterprises before Spandana's expansion, and estimate the impact of Spandana loans on microenterprise profits, revenues, and assets in this restricted sample.  Store your results in an excel table (but don't over-write your earlier work).  What do these results suggest about the impacts of microfinance?
+
+ ---
+ 
+This exercise is part of the module [Impacts of Treatment on the Treated](https://pjakiela.github.io/ECON523/M6-TOT.html).
+
