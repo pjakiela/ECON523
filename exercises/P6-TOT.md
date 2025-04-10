@@ -1,5 +1,7 @@
 # Empirical Exercise 6 in Python  
 
+This empirical exercise is also available as a [google colab](https://colab.research.google.com/drive/1C05_ZpMNcROjKdEgb0weLrsLuNhD6uhV?usp=sharing).
+
 In this exercise, we'll be using data from the paper [The Miracle of Microfinance?  Evidence from a Randomized Evaluation](https://www.jstor.org/stable/43189512?seq=1) by 
 Abhijit Banerjee, Esther Duflo, Rachel Glennerster, and Cynthia Kinnan.  The paper reports the results of one of the first randomized evaluations of a microcredit 
 intervention.  The authors worked with an Indian MFI (microfinance institution) called Spandana that was expanding into the city of Hyderabad.  Spandana 
