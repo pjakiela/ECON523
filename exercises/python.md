@@ -10,20 +10,20 @@
 
 [Exercise 5: Two-Way Fixed Effects](https://pjakiela.github.io/ECON523/exercises/P5-TWFE.html)   
 
-[Exercise 6: Treatment-on-the-Treated](https://pjakiela.github.io/ECON523/exercises/R6-TOT.html)
+[Exercise 6: Treatment-on-the-Treated](https://pjakiela.github.io/ECON523/exercises/P6-TOT.html)
 
 <!--
-[Exercise 7:  Instrumental Variables](https://pjakiela.github.io/ECON523/exercises/R7-IV.html)
+[Exercise 7:  Instrumental Variables](https://pjakiela.github.io/ECON523/exercises/P7-IV.html)
 
-[Exercise 8:  Regression Discontinuity](https://pjakiela.github.io/ECON523/exercises/R8-RD.html)  
+[Exercise 8:  Regression Discontinuity](https://pjakiela.github.io/ECON523/exercises/P8-RD.html)  
 
-[Exercise 9:  Randomization in Practice](https://pjakiela.github.io/ECON523/exercises/R9-randomization.html)  
+[Exercise 9:  Randomization in Practice](https://pjakiela.github.io/ECON523/exercises/P9-randomization.html)  
 
-[Exercise 10:  Power Calculations](https://pjakiela.github.io/ECON523/exercises/R10-power.html)  
+[Exercise 10:  Power Calculations](https://pjakiela.github.io/ECON523/exercises/P10-power.html)  
 
-[Exercise 11:  Clustering](https://pjakiela.github.io/ECON523/exercises/R11-clustering.html)
+[Exercise 11:  Clustering](https://pjakiela.github.io/ECON523/exercises/P11-clustering.html)
 
-[Exercise 12:  Machine Learning for Causal Inference](https://pjakiela.github.io/ECON523/exercises/R12-ML.html)
+[Exercise 12:  Machine Learning for Causal Inference](https://pjakiela.github.io/ECON523/exercises/P12-ML.html)
 --->
 <br>
 
