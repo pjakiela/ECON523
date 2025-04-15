@@ -12,9 +12,9 @@
 
 [Exercise 6: Treatment-on-the-Treated](https://pjakiela.github.io/ECON523/exercises/P6-TOT.html)
 
-<!--
-[Exercise 7:  Instrumental Variables](https://pjakiela.github.io/ECON523/exercises/P7-IV.html)
+[Exercise 7:  Instrumental Variables](https://pjakiela.github.io/ECON523/exercises/E7-IV.html)
 
+<!--
 [Exercise 8:  Regression Discontinuity](https://pjakiela.github.io/ECON523/exercises/P8-RD.html)  
 
 [Exercise 9:  Randomization in Practice](https://pjakiela.github.io/ECON523/exercises/P9-randomization.html)  
