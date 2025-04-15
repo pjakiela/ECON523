@@ -29,4 +29,4 @@ A handout version of the lecture slides is available [here](ECON-523-L7-IV-2025-
 
 ## Empirical Exercise
 
-The Stata version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/E7-IV.html).
+The empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/E7-IV.html).
