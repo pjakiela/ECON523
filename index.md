@@ -12,7 +12,9 @@ _This is the website for Professor Pamela Jakiela's ECON 523 course at Williams 
 
 [Schedule of Course Modules](https://pjakiela.github.io/ECON523/schedule.html)  
 
-[Card and Krueger Replication Project](https://pjakiela.github.io/ECON523/replication.html) 
+[Card and Krueger Replication Project](https://pjakiela.github.io/ECON523/replication.html)  
+
+[Pre-Analysis Plan Project](https://pjakiela.github.io/ECON523/RR.html)  
 
 <br>
 
