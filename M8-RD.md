@@ -13,7 +13,7 @@ eligibility is determined through some type of cutoff.
 
 [Impact Evaluation in Practice, first edition: Chapter 5](https://openknowledge.worldbank.org/handle/10986/2550)
 
-[Islamic Rule and the Empowerment of the Poor and Piouse](https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA9878)
+[Islamic Rule and the Empowerment of the Poor and Pious](https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA9878)
 
 <br>
 
