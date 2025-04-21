@@ -2,10 +2,7 @@
 
 <br> 
 
-A pdf of this empirical exercise is available [here](ECON523-E8-questions.pdf).
-
-Using the data set [ECON523-E8-meyersson-data.dta](ECON523-E8-meyersson-data.dta), replicate Table 1, Table 2 (only the first half, 
-on page 247, and only columns 1 through 8 of the results), and Figure 2a 
+Using the data set [ECON523-E8-meyersson-data.dta](ECON523-E8-meyersson-data.dta), replicate Table 1, Table 2 (Panel A, Columns 1 through 8), and Figure 2a 
 from [Islamic Rule and the Empowerment of the Poor and Pious](https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA9878) 
 by Erik Meyersson. Upload pdfs of your finished tables and figure to gradescope, together with the file that generates them.
 
@@ -40,32 +37,26 @@ and `ytitle` options).  Play around with the bin width to replicate Dr. Meyersso
 
 **4.** Placing the `set scheme s1mono` command near the top of your do file will eliminate the blue background from your graphs.
 
-**5.** You can install the `blindschemes` package to access the Okabe-Ito colorblind friendly palette, which is ideal for making graphs 
-that are easy for people to read.  Data visualization books recommend using blue and orange to make your graphs accessible.  I like 
-the colars `sea` and `vermillion` together; [the most popular machine learning textbook](https://hastie.su.domains/ElemStatLearn/) 
-uses the colors `sky` and `orangebrown`.
-
-**6.** You can make scatter plot markers or confidence bands partially opaque by adding a percent sign followed by a number between 1 and 99.  For example, 
+**5.** You can make scatter plot markers or confidence bands partially opaque by adding a percent sign followed by a number between 1 and 99.  For example, 
 I graph confidence intervals using the code (for a `twoway` layer):
 ```
-(rarea upper lower x, sort lwidth(none) fcolor(sea%24))
+(rarea upper lower x, sort lwidth(none) fcolor(midblue%24))
 ```
 
-**7.** You do not need to format the titles of Table 2 exactly the way Dr. Meyersson has.  Since all of your columns have the same outcome variable 
-and the same age range, you can omit those labels.  You do not need to use \hat{h} to indicate the Imbens-Kalyanaraman optimal bandwidth; 
-you can just refer to it as "IK Optimal Bandwidth" or something similar.
+**6.** You do not need to format the titles of Table 2 exactly the way Dr. Meyersson has.  Since all of your columns have the same outcome variable 
+and the same age range, you can omit those labels.  You do not need to use h-hat to indicate the Imbens-Kalyanaraman optimal bandwidth; 
+you can just refer to it as "IK Bandwidth" or something similar.
 
-**8.** The paper reports the Imbens-Kalyanaraman optimal bandwidth in approximate terms, but you can use the `rd` or `rdcv` commands to get 
-the exact bandwidth.  Alternatively, you can play around with the bandwidth in each column so that your sample sizes match the ones 
+**7.** The paper reports the Imbens-Kalyanaraman optimal bandwidth in approximate terms. Yyou can play around with the bandwidth in each column so that your sample sizes match the ones 
 reported in the paper.
 	
-**9.** When you use the quadratic control function in an RD, you need to include both the running variable (above and below 
+**8.** When you use the quadratic control function in an RD, you need to include both the running variable (above and below 
 the discontinuity) and the square of those two terms.  When you used the cubic control function, you need to include those terms 
 plus cubic functions of the running variable.
 	
-**10.** The TA and I are not going to help you with the extra credit, and it is a tough one.  You will need to install and use Stata's `kdens` 
+**9.** The TA and I are not going to help you with the extra credit, and it is a tough one.  You will need to install and use Stata's `kdens` 
 command to calculate and store estimates of the kernel density and the upper and lower bounds of the confidence interval for 
-the kernel density.  (You can read about kernel density plots [ger](https://clauswilke.com/dataviz/histograms-density-plots.html) and 
+the kernel density.  (You can read about kernel density plots [here](https://clauswilke.com/dataviz/histograms-density-plots.html) and 
 [here](https://datavizcatalogue.com/methods/density_plot.html).)  You'll need to figure out which of `kdens`'s options allows you 
 to have a sharp upper or lower boundary on the range of points for which you are estimating the kernel density.  When you estimate 
 the kernel densities separately above and below the discontinuity, they will have different scales, because the area under a kernel density 
