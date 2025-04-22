@@ -25,4 +25,8 @@ A handout version of the lecture slides is available [here](ECON-523-L8-RD-2025-
 
 ## Empirical Exercise
 
-A Stata version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/E8-RD.html).
+The Stata version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/E8-RD.html).  
+
+The R version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/R8-RD.html).  
+
+The Python version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/P8-RD.html).  
