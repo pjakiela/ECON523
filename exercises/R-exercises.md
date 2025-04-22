@@ -14,8 +14,9 @@
 
 [Exercise 7:  Instrumental Variables](https://pjakiela.github.io/ECON523/exercises/E7-IV.html)
 
-<!--
 [Exercise 8:  Regression Discontinuity](https://pjakiela.github.io/ECON523/exercises/R8-RD.html)  
+
+<!--
 
 [Exercise 9:  Randomization in Practice](https://pjakiela.github.io/ECON523/exercises/R9-randomization.html)  
 
