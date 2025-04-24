@@ -5,10 +5,6 @@ that is transparent and reproducible.  After assigning treatments, we'll check
 whether we've succeeded in creating a treatment group and a control group 
 that are comparable in terms of their observable characteristics.  
 
-You can access the in-class activity as a [pdf](ECON523-E9-in-class.pdf).
-
-You can also access the empirical exercise as a [pdf](ECON523-E9-questions.pdf).
-
 <br>
 
 ## In-Class Activity
