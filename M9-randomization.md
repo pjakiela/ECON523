@@ -19,13 +19,14 @@ that are comparable in terms of their observable characteristics.
 
 ## Lecture Slides
 
-A handout version of the lecture slides is available [here](ECON523-L9-randomization-handout-2UP.pdf). 
+A handout version of the lecture slides is available [here](ECON-523-L9-randomization-2025-handout.pdf). 
 
 <br>
 
 ## Empirical Exercise
 
-The in-class activity is available as a [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON523-E9-in-class.pdf), as is 
-the [empirical exercise](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON523-E9-questions.pdf).
+The Stata version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/E9-randomizing.html).  
 
-A web version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/E9-randomizing.html).
+The R version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/R9-randomizing.html).  
+
+The Python version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/P9-randomizing.html).  
