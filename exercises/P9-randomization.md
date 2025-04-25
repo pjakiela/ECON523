@@ -119,7 +119,7 @@ a **balance check table** that reports, for each of a set of covariates,
 - The p-value from a t-test of the hypothesis that the mean does not differ between the treatment and comparison groups
 
 To do this, you can adapt the code that you wrote for 
-[Empirical Exercise 8](https://pjakiela.github.io/ECON523/exercises/E8-RD.html).  Report tests for balance for each of 
+[Empirical Exercise 8](https://pjakiela.github.io/ECON523/exercises/P8-RD.html).  Report tests for balance for each of 
 your stratification variables plus the variables capturing whether a household operates a business (as of Endline 1), 
 the number of household businesses, business assets, business revenues, business expenses, business profits.  Save a copy of your finished 
 balance check table as a pdf so that you can upload it to gradescope.
