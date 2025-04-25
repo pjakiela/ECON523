@@ -16,10 +16,9 @@
 
 [Exercise 8:  Regression Discontinuity](https://pjakiela.github.io/ECON523/exercises/R8-RD.html)  
 
-<!--
-
 [Exercise 9:  Randomization in Practice](https://pjakiela.github.io/ECON523/exercises/R9-randomization.html)  
 
+<!--
 [Exercise 10:  Power Calculations](https://pjakiela.github.io/ECON523/exercises/R10-power.html)  
 
 [Exercise 11:  Clustering](https://pjakiela.github.io/ECON523/exercises/R11-clustering.html)
