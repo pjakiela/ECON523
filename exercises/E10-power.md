@@ -18,7 +18,7 @@ impact evaluation of malaria treatment that we studied in the first week of clas
 [E1-CohenEtAl-data.dta](https://pjakiela.github.io/ECON379/exercises/E1-intro/E1-CohenEtAl-data.dta) contains 
 data from [Price Subsidies, Diagnostic Tests, and Targeting of Malaria Treatment: Evidence from a Randomized Controlled Trial](https://www.aeaweb.org/articles?id=10.1257/aer.20130267) by Jessica Cohen, Pascaline Dupas, and Simone Schaner.  We will also use data from 
 the paper [The Miracle of Microfinance?  Evidence from a Randomized Evaluation](https://www.jstor.org/stable/43189512?seq=1) by 
-Abhijit Banerjee, Esther Duflo, Rachel Glennerster, and Cynthia Kinnan.  We sued this latter data set in Empirical Exercises 6 and 9.
+Abhijit Banerjee, Esther Duflo, Rachel Glennerster, and Cynthia Kinnan.  We used this latter data set in Empirical Exercises 6 and 9.
 
 <br> 
 
@@ -38,9 +38,15 @@ the same size (so P in the MDE formula = 0.5).  What is the MDE?
 
 ### Question 2 
 
-You can also calculate the sample size needed to detect a particular MDE using Stata `sampsi` command. Type the command:
+You can also calculate the MDE using Stata's `power` command. Type the command:
 ```
-sampsi 0 0.11651129, power(0.8) sd(0.4989005)
+power twomeans 0, sd(0.4989005) power(0.8) n(575)
+```
+How does this compare to your answer to Question 1?  
+
+`power` can also calculate the sample size needed to achieve a particular MDE:
+```
+power twomeans 0 0.1165, sd(0.4989005) power(0.8)
 ```
 What sample size does Stata suggest, and how does it compare to the actual sample size (that you used 
 to calculate the MDE in Question 1)?
@@ -59,7 +65,7 @@ How large of a sample size would need to detect the MDE that you calculated in Q
 
 ### Question 5
 
-Now we will consider a completely different data set: the data on access to microfinance that we used in Empirical Exercise 6 and again in Empirical Exercise 9.  We are going to use the variable `bizprofit_1`, which measures microenterprise profits. Unlike the knowledge variable used above, the standard deviation of `bizprofit_1` is large relative to its mean.
+Now we will consider a completely different data set: [the data on access to microfinance that we used in Empirical Exercise 6 and again in Empirical Exercise 9](https://pjakiela.github.io/ECON379/exercises/E6-BanerjeeEtAl-data.dta). Load this data set. We are going to use the variable `bizprofit_1`, which measures microenterprise profits. Unlike the knowledge variable used above, the standard deviation of `bizprofit_1` is large relative to its mean.
 
 What is the mean of `bizprofit_1`?  What is the standard deviation of `bizprofit_1`?
 
