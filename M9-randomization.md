@@ -25,8 +25,8 @@ A handout version of the lecture slides is available [here](ECON-523-L9-randomiz
 
 ## Empirical Exercise
 
-The Stata version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/E9-randomizing.html).  
+The Stata version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/E9-randomization.html).  
 
-The R version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/R9-randomizing.html).  
+The R version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/R9-randomization.html).  
 
-The Python version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/P9-randomizing.html).  
+The Python version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/P9-randomization.html).  
