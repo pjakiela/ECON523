@@ -54,7 +54,7 @@ Use the formula to calculate the MDE in the study (if you used the same outcome 
 
 How large of a sample size would need to detect the MDE that you calculated in Question 1?
 
-### Question 5
+### Question 4
 
 Now we will consider a completely different data set: [the data on access to microfinance that we used in Empirical Exercise 6 and again in Empirical Exercise 9](https://pjakiela.github.io/ECON379/exercises/E6-BanerjeeEtAl-data.dta). Load this data set. We are going to use the variable `bizprofit_1`, which measures microenterprise profits. Unlike the knowledge variable used above, the standard deviation of `bizprofit_1` is large relative to its mean.
 
