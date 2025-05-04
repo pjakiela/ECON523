@@ -51,8 +51,8 @@ the individual unit of observation is the student and the cluster is the classro
 within a classroom are in the same grade and the same school, have the same teacher, and talk to each other - so 
 we might expect their test scores to be correlated.  
 
-The `numclusters` indicates the number of 
-clusters in the similuated data set, and the `obspercluster` indicates the number 
+The `numclusters` parameter indicates the number of 
+clusters in the similuated data set, and the `obspercluster` parameter indicates the number 
 of observations per cluster.  As you can see, the current values of those parameters create a data set 
 with only one observation per cluster (so this is a clustered data set in name only at this point, though 
 you will fix that shortly).  
