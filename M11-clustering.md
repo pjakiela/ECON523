@@ -21,14 +21,14 @@ when we are worried about potential spillovers across individuals within a clust
 
 ## Lecture Slides
 
-A handout version of the lecture slides is available [here](ECON523-L11-clustering-handout-2UP.pdf). 
+A handout version of the lecture slides is available [here](ECON523-L11-clustering-2025-handout.pdf). 
 
 <br>
 
 ## Empirical Exercise
 
-The in-class activity is available as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON523-E11-in-class.do) or a [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON523-E11-in-class.pdf).
+The Stata version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/E11-clustering.html).  
 
-The empirical exercise is available as a [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON523-E11-questions.pdf).
+The R version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/R11-clustering.html).  
 
-A web version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/E11-clustering.html).
+The Python version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/P11-clustering.html).  
