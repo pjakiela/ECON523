@@ -6,15 +6,15 @@ _This is the website for Professor Pamela Jakiela's ECON 523 course at Williams 
 
 ## Spring 2025 Course Information:  
 
-[Syllabus](https://pjakiela.github.io/ECON523/ECON523-syllabus-pdf-2025-02-05.pdf)   
+[Syllabus](https://pjakiela.github.io/ECON523/ECON523-syllabus-pdf-2026-02-06.pdf)   
 
-[Reading List](https://pjakiela.github.io/ECON523/ECON-523-reading-list-2025.pdf) 
+[Reading List](https://pjakiela.github.io/ECON523/readings.html) 
 
 [Schedule of Course Modules](https://pjakiela.github.io/ECON523/schedule.html)  
 
 [Card and Krueger Replication Project](https://pjakiela.github.io/ECON523/replication.html)  
 
-[Pre-Analysis Plan Project](https://pjakiela.github.io/ECON523/RR.html)  
+[Pre-Analysis Plan Project](https://pjakiela.github.io/ECON523/RR-2026.html)  
 
 <br>
 
