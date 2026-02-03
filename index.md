@@ -22,8 +22,8 @@ _This is the website for Professor Pamela Jakiela's ECON 523 course at Williams 
 
 Williams ECON's [Stata tutorials](https://pjakiela.github.io/stata/)  
 
-[Georgetown University's EdX course on Impact Evaluation with Applications in Low and Middle Income Countries](https://www.edx.org/course/impact-evaluation-methods-with-applications-in-low-and-middle-income-countries)  
+[Getting Started in R](https://pjakiela.github.io/ECON370/getting-started-R.html)  
 
-[Professor Andrew Heiss' Program Evaluation for Public Service](https://evalsp20.classes.andrewheiss.com/) 
+[Getting Started in Python](https://pjakiela.github.io/ECON370/getting-started-python.html)
 
 
