@@ -1,24 +1,18 @@
-# Readings  
+# Readings    
 
-February 17: Introduction  
+### February 9, 11, 13: Selection Bias   
 
-**February 8, 10: Why Evaluate?**  
+- [Mastering Metrics: Chapter 1](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjE2pfw-JjuAhUBZc0KHQo1DnoQFjAAegQIBhAC&url=http%3A%2F%2Fassets.press.princeton.edu%2Fchapters%2Fs10363.pdf&usg=AOvVaw3IGywrUpw1_F9e5npteATA)
+- [J-PAL: A Balancing Act](https://www.povertyactionlab.org/publication/balancing-act)  
 
-- [Impact Evaluation in Practice](https://openknowledge.worldbank.org/handle/10986/2550), first edition: Chapters 1 and 2  
+_Many of you already read the Mastering Metrics chapter in ECON 503 or ECON 255._  
 
-- [Running Randomized Evaluations:  Chapter 1](https://www.jstor.org/stable/j.ctt4cgd52.5)  
+### February 16, 18, 20: Regression Revisited   
 
-- [J-PAL Policy Briefcase:  A Balancing Act](https://www.povertyactionlab.org/publication/balancing-act)  
+- [Notes on Regression]()  
+- [J-PAL: Building Stable Livelihoods for the Ultra-Poor](https://poverty-action.org/sites/default/files/publications/building-stable-livelihoods-ultra-poor.pdf)
 
-**February 15, 17, 22, 24: Selection Bias and the Experimental Ideal**  
-
-- [Running Randomized Evaluations:  Chapter 2](https://doi.org/10.2307/j.ctt4cgd52.6)  
-
-- [Impact Evaluation in Practice](https://openknowledge.worldbank.org/handle/10986/2550), first edition: Chapter 3    
-
-- [Mastering Metrics: Chapter 1](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjE2pfw-JjuAhUBZc0KHQo1DnoQFjAAegQIBhAC&url=http%3A%2F%2Fassets.press.princeton.edu%2Fchapters%2Fs10363.pdf&usg=AOvVaw3IGywrUpw1_F9e5npteATA)  
-
-**March 1, 3: Difference-in-Differences (DD I)**  
+### February 23, 25, 27: Difference-in-Differences (DD I)**  
 
 - [Impact Evaluation in Practice](https://openknowledge.worldbank.org/handle/10986/2550), first edition: Chapter 6   
 
