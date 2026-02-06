@@ -1,4 +1,4 @@
-# Selection Bias and the Experimental Ideal
+# Selection Bias 
 
 <br>
 
@@ -19,27 +19,21 @@ explaining how average treatment effects can be estimated when treatment status 
 
 ### Optional Readings
 
-[_Impact Evaluation in Practice, first edition_: Chapter 3](https://openknowledge.worldbank.org/handle/10986/2550)  
-
-_Use the link to access the French, Portuguese, and Spanish versions._
-
 [Price Subsidies, Diagnostic Tests, and Targeting of Malaria Treatment: Evidence from a Randomized Controlled Trial](https://www.aeaweb.org/articles?id=10.1257/aer.20130267)
 
 <br>
 
 ## Lecture Slides
 
-A handout version of the lecture slides is available [here](ECON523-L1-selection-2025-handout.pdf). 
+A handout version of the lecture slides is available [here](ECON523-L1-selection-2026-handout.pdf). 
 
 <br>
 
 ## Empirical Exercise
 
-The stata version of the in-class activity as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/in-class1.do) or [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-in-class1.pdf)  
+The stata version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/E1-selection.html)  
 
-The stata version of the empirical exercise as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/E1-questions.do) or [pdf](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/ECON-523-ex1.pdf)  
-
-The stata version of the empirical exercise is also available [here](https://pjakiela.github.io/ECON523/exercises/E1-selection.html)  
+The stata version of the in-class activity is also available as a [do file](https://github.com/pjakiela/ECON523/tree/gh-pages/exercises/in-class1.do)  
 
 The R version of the empirical exercise is available [here](https://pjakiela.github.io/ECON523/exercises/R1-selection.html)  
 
