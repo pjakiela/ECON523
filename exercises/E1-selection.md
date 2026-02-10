@@ -115,7 +115,7 @@ Confirm that you can also replicate your results from Q12 using the `regress` co
 
 ## Empirical Exercise
 
-Create a new do file (with the same preliminaries at the top) to answer the following questions, so that you can run the code from start to finish and re-generate all your answers.  Some questions only ask you to provide the correct Stata code; when a question asks for a numeric or verbal response, please provide your answer in a comment in your do file.  Upload your finished do file to gradescope once you have finished.
+Create a new do file (with the same preliminaries at the top) to answer the following questions, so that you can run the code from start to finish and re-generate all your answers.  Some questions only ask you to provide the correct Stata code; when a question asks for a numeric or verbal response, please provide your answer in a comment in your do file. You will be asked to enter your answers directly into gradescope, and you will also upload your finished do file.
 
 ### Question 1:  One Treatment Dummy
 
