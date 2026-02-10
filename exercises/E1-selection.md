@@ -125,11 +125,11 @@ Summarize the mean level of ART use (the variable `c_act`) in the randomly assig
 
 #### Part (b)
 
-Conduct a t-test of the hypothesis that treatment (`act_any`) does not impact the likelihood of using ARTs (using the `ttest` command).  
+Conduct a t-test of the hypothesis that treatment (`act_any`) does not impact the likelihood of using ARTs (using the `ttest` command). What is the resulting t-statistic?
 
 #### Part (c)
 
-Test the hypothesis that treatment (`act_any`) does not impact the likelihood of using ARTs using the regress command.
+Test the hypothesis that treatment (`act_any`) does not impact the likelihood of using ARTs using the `regress` command. What is the coefficient on `act_any`? What is the t-statistic?
 
 ### Question 2:  Multiple Treatments
 
