@@ -11,7 +11,7 @@ the use of fixed effects, and the Firsch-Waugh-Lovell theorem.
 
 ## Readings
 
-[Notes on Regression]()
+[Notes on Regression](2-regression-notes-2026-02-11.pdf)
 
 [Building Stable Livelihoods for the Ultra-poor](https://poverty-action.org/sites/default/files/publications/building-stable-livelihoods-ultra-poor.pdf)  
 
