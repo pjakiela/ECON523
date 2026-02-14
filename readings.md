@@ -11,7 +11,7 @@ _Many of you already read the Mastering Metrics chapter in ECON 503 or ECON 255,
 
 ### February 16, 18, 20: Regression Revisited   
 
-- [Notes on Regression]()  
+- [Notes on Regression](2-regression-notes-2026-02-11.pdf)  
 - [J-PAL: Building Stable Livelihoods for the Ultra-Poor](https://poverty-action.org/sites/default/files/publications/building-stable-livelihoods-ultra-poor.pdf)  
 
 ### February 23, 25, 27: 2x2 Difference-in-Differences  
