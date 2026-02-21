@@ -10,7 +10,7 @@ This module introduces the difference-in-differences identification strategy. We
 
 ## Readings
 
-[Impact Evaluation in Practice, first edition: Chapter 6](https://openknowledge.worldbank.org/handle/10986/2550)
+[Minimum Wages and Employment: A Case Study of the Fast-Food Industry in New Jersey and Pennsylvania](https://davidcard.berkeley.edu/papers/njmin-aer.pdf)
 
 <br>
 
