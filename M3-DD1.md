@@ -22,7 +22,7 @@ This module introduces the difference-in-differences identification strategy. We
 
 ## Lecture Slides
 
-A handout version of the lecture slides is available [here](ECON-523-L3-DD1-2025-handout.pdf). 
+A handout version of the lecture slides is available [here](ECON-523-L3-DD1-2026-handout.pdf). 
 
 <br>
 
