@@ -213,7 +213,7 @@ Implement (standard 2x2) difference-in-differences in an OLS regression framewor
 
 ### Question 6
 
-Now implement differences in differences while controlling for year fixed effects: omit the `post` variable from your regression, and instead include `i.Year` to generate and include year fixed effects. Use `eststo` to store your results (do not use `eststo clear` first because you want to store the results from both regressions. What is the coefficient on your `txpost` variable? what is the standard error?  Did including fixed effects improve the precision of your estimates?
+Now implement differences in differences while controlling for year fixed effects: omit the `post` variable from your regression, and instead include `i.Year` to generate and include year fixed effects. Use `eststo` to store your results (do not use `eststo clear` first because you want to store the results from both regressions). What is the coefficient on your `txpost` variable? what is the standard error?  Did including fixed effects improve the precision of your estimates?
 
 ### Question 7
 
