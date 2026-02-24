@@ -179,39 +179,47 @@ Now complete the table.
 ## Empirical Exercise
 
 Next, we are going to implement difference-in-differences as a regression. Create a do file that reads in Semmelweis' data from github and restricts attention to the period 
-when doctors worked in the first clinic and midwives worked in the second clinic.  Your do file 
-should start with the usual preliminaries, just like your do file for the in-class activity. 
+when doctors worked in the first clinic and midwives worked in the second clinic.  Your do file should start with the usual preliminaries, just like your do file 
+for the in-class activity. 
 
-### Question 1
+### Question 1 
+
+Generate a `post` variable equal to one for years after the handwashing policy was implemented (and zero otherwise), and then generate a `diff` variable equal to the difference in mortality rates between Clinic 1 (treatment) and clinic 2 (control). Regress `diff` on `post`. Use the command `eststo clear` immediately **before** your regression command, and then use the command `eststo` (short for "estimates store") immediately after. This will save your regression results. Then display your results with `esttab` with the `se` (standard error) option (`esttab, se`). What is the coefficient on `post`, which is the difference-in-difference-in-differences estimate of the treatment effect of handwashing? What is the associated standard error? What is the t-statistic?
+
+### Question 2
 
 Use the `reshape` command (illustrated below) to convert your data into a panel data set containing a variable `Rate` and a variable `clinic` that indicates whether an observation comes from Clinic 1 (doctors) or Clinic 2 (midwives).  How many observations are there in the data set now?  How many from each clinic?  
 ```
 reshape long Rate, j(clinic) i(Year)
 ```
 
-### Question 2
-
-Generate a `post` variable equal to one for years after the handwashing policy was implemented (and zero otherwise) and a `treatment` variable equal to one for the doctors' wing (and zero otherwise).
-
 ### Question 3
 
-Generate the interaction term you need to estimate a difference-in-differences model in a regression framework.
+Generate a `treatment` variable equal to one for the doctors' wing (and zero otherwise). Then generate the interaction term you need to estimate a difference-in-differences model in a regression framework.
 
 ### Question 4
 
-Use the `label variable` command to give your variables short, easy to interpret labels.
+Use the `label variable` command to give your variables short, easy to interpret labels. I suggest the following:
+
+| Variable | Label to Assign |
+|------------|------------|
+| treatment | Treatment clinic |
+| post | Handwashing implemented (post) |
+| txpost | Treatment*post |
 
 ### Question 5
 
-Implement difference-in-differences in an OLS regression framework.  Use the command `eststo clear` immediately before your `regression` command, and then use the command `eststo` (estimates store) immediately after.  This will save your results.
+Implement (standard 2x2) difference-in-differences in an OLS regression framework.  Use the command `eststo clear` immediately before your `regression` command, and then use the command `eststo` (estimates store) to save your results. What is the coefficient on your `txpost` (`treatment` x `post`) variable? what is the standard error?  
 
 ### Question 6
 
-You can use the `esttab` command to make a table of your regression results.  Try it by typing `esttab` in the command window.  The command `esttab using clinic-regs.rtf` will save your table as a word document.  Look through the `esttab` options to make your table look more professional.  Report standard errors rather than t-statistics in parentheses below your coefficients.  Have your variable labels appear in place of variable names, and make sure your first column is wide enough to accommodate the labels you have given your variables.  Make the column with your regression coefficients say OLS at the top using `esttab`'s `mtitle` option.  You can learn more about making tables in `esttab` [here](https://pjakiela.github.io/stata/regression-table.html). 
+Now implement differences in differences while controlling for year fixed effects: omit the `post` variable from your regression, and instead include `i.Year` to generate and include year fixed effects. Use `eststo` to store your results (do not use `eststo clear` first because you want to store the results from both regressions. What is the coefficient on your `txpost` variable? what is the standard error?  Did including fixed effects improve the precision of your estimates?
 
 ### Question 7
 
-**Optional.** If you want to make a fully customizable table using `putexcel`, you can instead run your regression, store the results in new stata variables that you create, and export those to excel, as follows:
+Use the `esttab` command to make a table of your regression results, and then use `esttab using clinic-regs.rtf` to save your table as a word (rtf) document. Look through the `esttab` options to make your table look more professional. Report standard errors rather than t-statistics in parentheses below your coefficients. Have your variable labels appear in place of variable names, and make sure your first column is wide enough to accommodate the labels you have given your variables. Make the columns with your regression coefficients say OLS at the top using `esttab`'s `mtitle` option. Adding `indicate(Year Fixed Effects = *.Year)` will tell `esttab` to omit the coefficients on the fixed effects and instead indicate where they are included. You can learn more about making tables in `esttab` [here](https://pjakiela.github.io/stata/regression-table.html). Export your finished table to word and then save it as a pdf so that you can upload it to gradescope.
+
+**Optional.** If you want to make a fully customizable table using `putexcel`, you can instead run your regressions, store the results in new stata variables that you create, and export those to excel, as follows:
 ```
 reg Rate treatment post txpost
 mat V = r(table)
@@ -234,7 +242,7 @@ putexcel B1="(1)", hcenter bold border(top)
 putexcel B2="OLS", hcenter bold border(bottom)
 export excel results using E3-DD-regs.xlsx, cell(B3) sheet("Sheet1", modify)
 ```
-Edit the code so that you end up with a nicely formatted regression table in excel, complete with variable labels, borders, etc. You will have the option to upload this table to gradescope in place of the table from Question 7.
+Extend the code so that you end up with a nicely formatted regression table containing the results of both regressions, complete with variable labels, borders, etc. You can also use a similar approach to export your results to latex, if you prefer.  
 
 ### Question 8
 
@@ -243,6 +251,7 @@ When you upload your do file to gradescope, you will be asked to answer the foll
 - Which coefficient in the regression table (i.e. the coefficient on which variable) is the difference-in-differences estimate of the treatment effect of handwashing on maternal mortalty?
 - Which regression coefficient is the estimate of the degree of selection bias?
 - Which regression coefficient is the estimate of the time trend in the absence of treatment?
+- In one sentence, explain how adding fixed effects changed the precision of your difference-in-difference estimate of the impact of handwashing.
 
 
  ---
