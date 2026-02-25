@@ -192,6 +192,10 @@ Next, we are going to implement difference-in-differences as a regression. Creat
 
 ### Question 1
 
+Generate a `post` variable equal to one for years after the handwashing policy was implemented (and zero otherwise), and then generate a `diff` variable equal to the difference in mortality rates between Clinic 1 (treatment) and clinic 2 (control). Regress `diff` on `post`. What is the coefficient on `post`, which is the difference-in-difference-in-differences estimate of the treatment effect of handwashing? What is the associated standard error? What is the t-statistic?  
+
+### Question 2
+
 Use `pivot_longer()` (illustrated below) to convert your data into a panel data set containing a variable `Rate` and a variable `clinic` that indicates whether an observation comes from Clinic 1 (doctors) or Clinic 2 (midwives).  How many observations are there in the data set now?  How many from each clinic?   
 ```
 e3panel <- e3data %>% 
@@ -200,32 +204,28 @@ e3panel <- e3data %>%
 dim(e3panel)
 ```
 
-### Question 2
+### Question 3
 
-Generate a `post` variable equal to one for years after the handwashing policy was implemented (and zero otherwise) and a `treatment` variable equal to one for the doctors' wing (and zero otherwise).  
-
-### Question 3 
-
-Generate the interaction term you need to estimate a difference-in-differences model in a regression framework.  
+Generate a `treatment` variable equal to one for the doctors' wing (and zero otherwise).  Then generate the interaction term you need to estimate a difference-in-differences model in a regression framework.
 
 ### Question 4
 
-Implement difference-in-differences in an OLS regression framework. Store your results.
+Question 4 is about variable labels, so not relevant if you are using R.
 
 ### Question 5
 
-The code below will create a data frame containing the coefficients and standard errors from your regression. Adapt the code from the In-Class Activity to format the values (rounding them to two or three decimal places and then converting them to strings). 
+Implement (standard 2x2) difference-in-differences in an OLS regression framework. The code below will create a data frame containing the coefficients and standard errors from your regression. Adapt the code from the In-Class Activity to format the values (rounding them to two or three decimal places and then converting them to strings). What is the coefficient on your txpost (treatment x post) variable? what is the standard error?   
 ```
 results <- model$coeftable[,1:2]
 ```
 
 ### Question 6
 
-Modify the `results` data frame so that it is ready to be exported to excel. You are free to leave the coefficients and standard errors in separate columns if you wish, but make sure to add well-formatted labels for the rows and clean up the column names.
+Now implement differences in differences while controlling for year fixed effects: omit the `post` variable from your regression, and use `feols` to include year fixed effects. Add your results from this regression to the `results` data frame. What is the coefficient on your `txpost` variable? what is the standard error?  Did including fixed effects improve the precision of your estimates?
 
 ### Question 7
 
-Adapt the code from the In-Class Activity to export your regression results to excel.
+Modify the `results` data frame so that it is ready to be exported to excel. You are free to leave the coefficients and standard errors in separate columns if you wish, but make sure to add well-formatted labels for the rows and clean up the column names.
 
 ### Question 8
 
@@ -234,6 +234,7 @@ When you upload your code and excel file to gradescope, you will be asked to ans
   - Which coefficient in the regression table (i.e. the coefficient on which variable) is the difference-in-differences estimate of the treatment effect of handwashing on maternal mortalty?
   - Which regression coefficient is the estimate of the degree of selection bias?
   - Which regression coefficient is the estimate of the time trend in the absence of treatment?
+  - In one sentence, explain how adding fixed effects changed the precision of your difference-in-difference estimate of the impact of handwashing.
   
   
 ---
