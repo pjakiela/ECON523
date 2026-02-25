@@ -155,7 +155,7 @@ ddresults <- e3data %>%
 
 ### Question 8  
 
-We now have a data frame ``ddresults` that contains six columns: three means and three standard errors. We want to create a data frame that displays the standard errors below the means. To do this, start by creating separate data frames `ddresults_mean` and `ddresults_se` that select the appropriate columns from `ddresults`.  
+We now have a data frame `ddresults` that contains six columns: three means and three standard errors. We want to create a data frame that displays the standard errors below the means. To do this, start by creating separate data frames `ddresults_mean` and `ddresults_se` that select the appropriate columns from `ddresults`.  
 
 ### Question 9  
 
@@ -183,6 +183,8 @@ e3_results[6, 2:4] <- ddresults_se[3, ]
 ### Question 11  
 
 Now export `e3_results` to excel, adapting the code from Question 5. Make sure that your code now produces a correct, correctly-formatted table showing the difference-in-differences estimate of the impact of handwashing on maternal mortality.
+
+<br>
 
 ## Empirical Exercise  
 
