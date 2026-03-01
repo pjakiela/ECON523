@@ -16,7 +16,7 @@ and the inclusion of period-specific and unit-specific fixed effects.
 
 ## Lecture Slides
 
-A handout version of the lecture slides is available [here](ECON-523-L4-DD2-2025-handout.pdf). 
+A handout version of the lecture slides is available [here](ECON-523-L4-DD2-2026-handout.pdf). 
 
 <br>
 
