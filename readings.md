@@ -24,7 +24,7 @@ _Many of you already read the Mastering Metrics chapter in ECON 503 or ECON 255,
 
 ### March 9, 11, 13: Two-Way Fixed Effects    
 
-- [Simple Diagnostics for Two-Way Fixed Effects](https://arxiv.org/abs/2103.13229)  
+- [Simple Diagnostics for Two-Way Fixed Effects](TWFE-2026-03-08.pdf)  
 
 ### April 6, 8, 10: Treatment-on-the-Treated  
 
