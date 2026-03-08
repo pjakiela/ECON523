@@ -13,7 +13,7 @@ can be severely biased when treatment timing is staggered and treatment effects 
 
 ## Readings
 
-[Simple Diagnostics for Two-Way Fixed Effects](https://arxiv.org/abs/2103.13229)
+[Simple Diagnostics for Two-Way Fixed Effects](TWFE-2026-03-08.pdf)
 
 <br>
 
@@ -27,7 +27,7 @@ can be severely biased when treatment timing is staggered and treatment effects 
 
 ## Lecture Slides
 
-A handout version of the lecture slides is available [here](ECON-523-L5-TWFE-2025-handout.pdf). 
+A handout version of the lecture slides is available [here](ECON-523-L5-TWFE-2026-handout.pdf). 
 
 <br>
 
