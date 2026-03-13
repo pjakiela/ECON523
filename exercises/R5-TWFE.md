@@ -76,49 +76,9 @@ Estimate a TWFE regression of primary school completion on fpe controlling for c
 
 Given what you know about TWFE, and given the nature of the policy and outcome under consideration, why might you have expected the coefficient (on fpe) in in the regression above to be biased down? 
 
-### Question 3:  negative weights
+### Question 3
 
-#### Part (a)
-
-What proportion of treated country-years (i.e. country-years with `fpe` equal to one) receive negative weighting in the TWFE estimation when you exclude the never-treated countries?  
-
-#### Part (b)
-
-What proportion of treated country-years receive negative weighting in the TWFE estimation when you include the never treated countries?
-
-### Question 4:  event studies
-
-#### Part (a)
-
-Generate a relative time variable `rel_time` that indicates the difference between the (current, for each observation) year and the year in which FPE was implemented in that country.
-
-#### Part (b)
-
-What is the maximum number of years that we observe **before** a country implements free primary (among countries that eventually implement it)?  Define a variable `minus` equal to the absolute value of `rel_time` for observations with relative time less than zero. In other words, `minus` captures how many years in the future a country will implement free primary education. Set `minus` equal to zero for never-treated countries.  
-
-Now use `dummy_cols()` from the `fastDummies` library (you will probably need to install it) to generate dummies for the different values that `minus` takes on.
-
-#### Part (c)
-
-What is the maximum number of years that we observe **after** a country implements free primary (among countries that eventually implement it)?  Following the procedures outlines in (b), generate variables `plus_0`, `plus_1`, `plus_2` etc that are dummies equal to one for country-years (respectively) 0, 1, 2 etc. years after a country implements free primary.  The variable `plus_0` indicates the year FPE was first implemented.  For countries that never implement free primary, these variables should be equal to 0 for all years.
-
-#### Part (d) 
-
-Now implement the event study design by regressing `complete` on country and year fixed effects as well as the `minus_*` and `plus_*` variables. Omit `minus_1`.  What patterns of significance do you observe among the `plus_*` variables?  Is there ever a statistically significant impact of FPE on primary school completion?  What patterns of significance do you observe among the `minus_*` variables?  Is there evidence that the assumption of common trends is violated?
-
-#### Part (e)
-
-Adapt the code below to make an event study graph of your results.  Save the graph as a pdf or png file (so that you can upload it later).  What does the graph suggest about your TWFE model?
-
-### Question 5:  restricting the sample
-
-#### Part (a)
-
-Rerun your event study regression in a restricted sample. To decide how to do this, first tabulate the observed values of the the `rel_time` variable: at what points do you observe a marked drop off in the number of observations? In other words, at what values of positive and negative relative time do you start to see evidence that effects would be based on only a restricted set of countries? Keep a restricted subsample of your data such that your event-time effects are estimated off of a broadly comparable set of countries, and then restrict the years of data on never-treated countries that you include to match the years observed among the (eventually) treated countries. Restrict the sample in other ways as you see fit (you will have to explain your choices when you submit your work).  
-
-#### Part (b)
-
-Make a new event study plot that presents the results in your restricted sample. Highlight the pre-treatment periods in a color that is distinct from the post-treatment periods. Make your figure look as professional as possible and save it as a pdf or png file.  
+Install the `did2s` package and load the library so that you can implement the imputation-based estimator proposed by Gardner et al (2024). Regress primary school completion on `fpe` controlling for country and year fixed effects using `did2s`. Store your estimates, and then export the results from both of your regression results to word or excel. Save the resulting table as a pdf.  
 
  ---
  
