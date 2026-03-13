@@ -80,8 +80,9 @@ Given what you know about TWFE, and given the nature of the policy and outcome u
 
 ### Question 3
 
-At present, there is no `did2s` package for Python. Estimate an OLS regression of primary school completion on the country and year fixed effects, using only the years prior to the adoption of free primary. Then, use the coefficients from this regression to predict primary school completion in all...
+At present, there is no `did2s` package for Python. So, you can stop here if you want. Alternatively, you can estimate an OLS regression of primary school completion on the country and year fixed effects, using only the years prior to the adoption of free primary. Then, use the coefficients from this regression to predict primary school completion in all the observations. Generate a new variable equal to primary school completion minus predicte primary school completion, and regress that variable on `fpe`. How do your results compare to the `did2s` estimate produced in Stata or R?
 
+<br>
 
  ---
  
