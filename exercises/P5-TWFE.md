@@ -1,16 +1,12 @@
 # Empirical Exercise 5 in Python
 
 In this exercise, we'll be using a data set on primary school enrollment and 
-completion in 35 African countries, 15 if which eliminated primary school fees 
-between 1990 and 2015. Raw data on country-level enrollment and completion rates 
-comes from the World Bank's [World Development Indicators Database](https://databank.worldbank.org/source/world-development-indicators). The data set 
-that we'll use is posted [here](https://pjakiela.github.io/ECON523/exercises/E5-fpedata.dta). We will use this data set to generate two-way fixed 
-effects (TWFE) estimates of the impact of eliminating school fees on enrollment 
+completion in 18 African countries that eliminated primary school fees 
+between 1990 and 2019. Raw data on country-level enrollment and completion rates 
+comes from the World Bank's [World Development Indicators Database](https://databank.worldbank.org/source/world-development-indicators). The data set that we'll use is posted [here](https://pjakiela.github.io/ECON523/exercises/E5-fpedata-1981-to-2019.dta). We will use this data set to generate two-way fixed effects (TWFE) estimates of the impact of eliminating school fees on enrollment 
 and completion. Since this policy was phased in by different countries at 
 different times, it is a useful setting for exploring the strengths and 
-weaknesses of TWFE.  
-
-This exercise is also available [here](https://colab.research.google.com/drive/1MlHV0oMqOFvtsQalMGF1ndXge4qlnC_k?usp=sharing) as a colab.  
+weaknesses of TWFE.
 
 <br>
 
