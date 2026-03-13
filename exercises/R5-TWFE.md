@@ -66,7 +66,7 @@ Now that you know you can do this by hand, we will never do it again. Drop `yres
 
 ## Empirical Exercise
 
-Next, we're going to estimate the impact of eliminating primary school fees on primary school completion.  Create a new R script (with all the standard stuff at the top) that downloads [the data set](E5-fpedata-1981-to-2019.dta).  The variable `complete` indicates the primary school completion rate.  What was the mean level of primary school completion (across countries in the sample) in 1981?  What was the level of primary school completion in 2019?  Drop any country-years that are missing data on the primary school completion rate.  Extend your do file as you answer the questions below.  
+Next, we're going to estimate the impact of eliminating primary school fees on primary school completion.  Create a new R script (with all the standard stuff at the top) that downloads [the data set](E5-fpedata-1981-to-2019.dta).  The variable `complete` indicates the primary school completion rate.  What was the mean level of primary school completion (across countries in the sample) in 1981?  What was the level of primary school completion in 2019?  Drop any country-years that are missing data on the primary school completion rate.  Extend your script as you answer the questions below.  
 
 ### Question 1
 
