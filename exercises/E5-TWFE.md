@@ -42,7 +42,7 @@ Regress `fpe` on country and year fixed effects, and generate a variable `tresid
 
 #### Part (b)
 
-Regress `enroll` on country and year fixed effects, and generate a variable `yresid` that contains the residuals from that regression. Make sure that you restrict the sample to obesrvations with `fpe` not equal to missing.  
+Regress `enroll` on country and year fixed effects, and generate a variable `yresid` that contains the residuals from that regression. Make sure that you restrict the sample to observations with `fpe` not equal to missing.  
 
 #### Part (c)
 
