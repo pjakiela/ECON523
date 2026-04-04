@@ -28,7 +28,7 @@ _Many of you already read the Mastering Metrics chapter in ECON 503 or ECON 255,
 
 ### April 6, 8, 10: Treatment-on-the-Treated  
 
-- [Impact Evaluation in Practice](https://openknowledge.worldbank.org/handle/10986/2550), second edition: Chapter 5  
+- [Impact Evaluation in Practice](GertlerEtAl-2ndEd-TOT.pdf), second edition: Chapter 5  
 
 ### April 13, 15, 17:  Instrumental Variables  
 
