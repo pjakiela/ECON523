@@ -11,15 +11,23 @@ of a program under imperfect compliance.
 
 ## Readings
 
-[Impact Evaluation in Practice, second edition: Chapter 5](https://www.worldbank.org/en/programs/sief-trust-fund/publication/impact-evaluation-in-practice)
+[Impact Evaluation in Practice, second edition: Chapter 5](https://www.worldbank.org/en/programs/sief-trust-fund/publication/impact-evaluation-in-practice)  
 
-[The Miracle of Microfinance?  Evidence from a Randomized Evaluation](https://www.jstor.org/stable/43189512?seq=1)
+[J-PAL: Where Credit Is Due](https://www.povertyactionlab.org/sites/default/files/publication/where-credit-is-due.pdf)  
+
+<br>
+
+## Optional Readings
+
+[The Miracle of Microfinance?  Evidence from a Randomized Evaluation](https://www.jstor.org/stable/43189512?seq=1)  
+
+[Estimating the Impact of Microcredit on Those Who Take It Up: Evidence from a Randomized Experiment in Morocco](https://www.aeaweb.org/articles?id=10.1257/app.20130535)  
 
 <br>
 
 ## Lecture Slides
 
-A handout version of the lecture slides is available [here](ECON-523-L6-TOT-2025-handout.pdf). 
+A handout version of the lecture slides is available [here](ECON-523-L6-TOT-2026-handout.pdf). 
 
 <br>
 
