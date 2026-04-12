@@ -23,7 +23,7 @@ that have not been randomly assigned.
 
 ## Lecture Slides
 
-A handout version of the lecture slides is available [here](ECON-523-L7-IV-2025-handout.pdf). 
+A handout version of the lecture slides is available [here](ECON-523-L7-IV-2026-handout.pdf). 
 
 <br>
 
