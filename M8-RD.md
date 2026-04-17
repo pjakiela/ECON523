@@ -11,7 +11,7 @@ eligibility is determined through some type of cutoff.
 
 ## Readings
 
-[Impact Evaluation in Practice, first edition: Chapter 5](https://openknowledge.worldbank.org/handle/10986/2550)
+Optional: [Impact Evaluation in Practice, first edition: Chapter 5](https://openknowledge.worldbank.org/handle/10986/2550)
 
 [Islamic Rule and the Empowerment of the Poor and Pious](https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA9878)
 
@@ -19,7 +19,7 @@ eligibility is determined through some type of cutoff.
 
 ## Lecture Slides
 
-A handout version of the lecture slides is available [here](ECON-523-L8-RD-2025-handout.pdf). 
+A handout version of the lecture slides is available [here](ECON-523-L8-RD-2026-handout.pdf). 
 
 <br>
 
