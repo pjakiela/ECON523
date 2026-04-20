@@ -47,7 +47,7 @@ I graph confidence intervals using the code (for a `twoway` layer):
 and the same age range, you can omit those labels.  You do not need to use h-hat to indicate the Imbens-Kalyanaraman optimal bandwidth; 
 you can just refer to it as "IK Bandwidth" or something similar.
 
-**7.** The paper reports the Imbens-Kalyanaraman optimal bandwidth in approximate terms. Yyou can play around with the bandwidth in each column so that your sample sizes match the ones 
+**7.** The paper reports the Imbens-Kalyanaraman optimal bandwidth in approximate terms. You can play around with the bandwidth in each column so that your sample sizes match the ones 
 reported in the paper.
 	
 **8.** When you use the quadratic control function in an RD, you need to include both the running variable (above and below 
