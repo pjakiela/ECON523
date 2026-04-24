@@ -19,7 +19,7 @@ that are comparable in terms of their observable characteristics.
 
 ## Lecture Slides
 
-A handout version of the lecture slides is available [here](ECON-523-L9-randomization-2025-handout.pdf). 
+A handout version of the lecture slides is available [here](ECON-523-L9-randomization-2026-handout.pdf). 
 
 <br>
 
