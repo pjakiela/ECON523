@@ -19,7 +19,7 @@ as a function of sample size.
 
 ## Lecture Slides
 
-A handout version of the lecture slides is available [here](ECON-523-L10-power-2025-handout.pdf). 
+A handout version of the lecture slides is available [here](ECON-523-L10-power-2026-handout.pdf). 
 
 <br>
 
