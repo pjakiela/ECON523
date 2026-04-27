@@ -48,7 +48,7 @@ Use the formula to calculate the MDE in the study (if you used the same outcome 
 
 How large of a sample size would need to detect the MDE that you calculated in Question 1?
 
-### Question 5
+### Question 4
 
 Now we will consider a completely different data set: [the data on access to microfinance that we used in Empirical Exercise 6 and again in Empirical Exercise 9](https://pjakiela.github.io/ECON379/exercises/E6-BanerjeeEtAl-data.dta). Load this data set. We are going to use the variable `bizprofit_1`, which measures microenterprise profits. Unlike the knowledge variable used above, the standard deviation of `bizprofit_1` is large relative to its mean.
 
@@ -61,6 +61,16 @@ Given the size of this data set and the standard deviation of `bizprofit_1`, wha
 #### Part (b)
 
 If you wanted to have power of 0.8 to detect a 25 percent increase in business profits, how large of a sample size would you need?
+
+### Optional Extra
+
+In Stata, you can also calculate the sample size needed to detect a particular MDE using the `power twomeans` command. For example, the code below should (approximately) replicate your answers to Question 1:
+```
+summarize b_knowledge_correct, d
+local sd = sqrt(r(Var))
+power twomeans 0 0.1169, sd(`sd') power(0.8)
+```
+
 
  --- 
 
