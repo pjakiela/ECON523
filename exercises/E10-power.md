@@ -38,28 +38,13 @@ the same size (so P in the MDE formula = 0.5).  What is the MDE?
 
 ### Question 2 
 
-You can also calculate the MDE using Stata's `power` command. Type the command:
-```
-power twomeans 0, sd(0.4989005) power(0.8) n(575)
-```
-How does this compare to your answer to Question 1?  
-
-`power` can also calculate the sample size needed to achieve a particular MDE:
-```
-power twomeans 0 0.1165, sd(0.4989005) power(0.8)
-```
-What sample size does Stata suggest, and how does it compare to the actual sample size (that you used 
-to calculate the MDE in Question 1)?
-
-### Question 3
-
 The treatment dummy in the original study is `act_any`.  Based on this variable, what is the ratio 
 of treated obesrvations to control observations?  What proportion of the sample was assigned to treatment?
 
 Use the formula to calculate the MDE in the study (if you used the same outcome variable as above, 
 `b_knowledge_correct`) given the actual ratio of treatment to control observations.  What is the MDE?
 
-### Question 4
+### Question 3
 
 How large of a sample size would need to detect the MDE that you calculated in Question 1?
 
