@@ -172,7 +172,7 @@ and a treatment effect of 0).  Extend your do file as you answer the following q
 
 ### Question 1
 
-As we've seen, when treatment is assigned at the cluster elvel, our hypothesis tests are only correctly sized when we 
+As we've seen, when treatment is assigned at the cluster level, our hypothesis tests are only correctly sized when we 
 cluster our standard errors.  How do we account for this in calculating statistical power or required sample size?  For 
 cluster-randomized trials, we use a slightly different equation for the MDE:
 
