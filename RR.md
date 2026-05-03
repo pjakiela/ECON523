@@ -4,7 +4,7 @@ _Due May 19, 2026, at 5:00 PM_
 
 <br>
 
-The objective for this project is to produce a pre-analysis plan for a proposed randomized evaluation of a development intervention.  
+The objective for this project is to produce a pre-analysis plan for a proposed randomized evaluation of a development intervention. A template is available [here](ECON-523-PAP-template-2026.docx).  
 
 <br>
 
