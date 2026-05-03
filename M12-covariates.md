@@ -12,9 +12,9 @@ the choice of covariates influences the required sample size.
 
 ## Readings
 
-[Evaluating the Effect of an Early Literacy Intervention](https://pjakiela.github.io/research/EMERGE-registered-report-accepted.pdf)
+[Blog Post: Using PDS Lasso to Select Controls in Field Experiments](https://blogs.worldbank.org/en/impactevaluations/using-pds-lasso-to-select-controls-in-field-experiments)
 
-[Using PDS Lasso to Select Controls in Field Experiments](https://blogs.worldbank.org/en/impactevaluations/using-pds-lasso-to-select-controls-in-field-experiments)
+[Using Post-Double Selection Lasso in Field Experiments](https://documents.worldbank.org/en/publication/documents-reports/documentdetail/099721209262431433)
 
 **Optional:**  [An Introduction to Statistical Learning:  Chapter 6](https://www.statlearning.com/)
 
