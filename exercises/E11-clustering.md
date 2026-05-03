@@ -166,7 +166,8 @@ to the end of your regression.  How many times to you reject the null hypothesis
 
 ## Empirical Exercise
 
-In the remainder of this exercise, we will extend the simulation program that we used in the in-class activity.   To get started, 
+In the remainder of this exercise, we will extend the simulation program that we used in the in-class activity. In doing so, 
+you will replicate and extend the loop from the In-Class Activity in several different ways. To get started, 
 create a new do file containing the same simulation program that we used above (with 50 clusters, 20 observations per cluster, 
 and a treatment effect of 0).  Extend your do file as you answer the following questions.
 
