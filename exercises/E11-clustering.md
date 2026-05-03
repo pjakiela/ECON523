@@ -216,7 +216,7 @@ MDE (of 0.25)?  Use the MDE formula to answer this question.
 
 ### Question 5  
 
-Confirm that, with the sample size you have calculated, you are powered to detect an MDE of 0.25 using your simulation code.
+Confirm that, with the sample size you have calculated, you are powered to detect an MDE of 0.25 using your simulation code. How many times (out of 1000) do you reject the null hypothesis?  
 
 ### Question 6 
 
