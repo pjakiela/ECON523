@@ -12,7 +12,7 @@ child outcomes are highly correlated over time, selecting the right covariates c
 
 ## Getting Started 
 
-Begin by creating a do file that reads in the data set `E12-storybooks-data-2025.dta1`.  Familiarize yourself with the dataset and 
+Begin by creating a do file that reads in the data set `E12-storybooks-data-2025.dta`.  Familiarize yourself with the dataset and 
 the range of baseline variables included in it.  The key outcome variable is `e_zstoryexp`, a measure of the 
 expressive vocabulary children might have picked up from the storybooks.  The data 
 set also contains a large set of baseline covariates.  Extend your do file as you answer the following questions.
@@ -32,39 +32,25 @@ Predict the residuals from the regression above.  What is the variance of the re
 
 ### Question 3
 
-Use `lasso` to identify the baseline covariates that predict `treatment`. Use cross-validation to choose the tuning parameter, lambda, using the code:
+Use `rlasso` to identify the baseline covariates that predict `treatment`:
 ```
-lasso linear treatment b_*, sel(cv)
+rlasso treatment b_*, robust
 ```
-Which variables 
-does lasso select as predictors of `treatment`?  Store the selected variables in a local named `Tvars`.
+Which variables does lasso select as predictors of `treatment`?  Store the selected variables in a local named `Tvars`.
 
 ### Question 4
 
-Use `lasso` to identify the baseline covariates that predict `e_zstoryexp`. Use cross-validation to choose the tuning parameter, 
-lambda. Which variables does lasso select as predictors 
+Use `rlasso` to identify the baseline covariates that predict `e_zstoryexp`. Which variables does lasso select as predictors 
 of the outcome?  Store the selected variables in a local named `Yvars`.
 
 ### Question 5
 
-Regress the outcome `e_zstoryexp` on treatment including all the controls selected by lasso.  What is the p-value 
+Regress the outcome `e_zstoryexp` on treatment including all the controls selected by lasso. What is the p-value 
 associated with the test of the hypothesis that treatment has no impact on children's vocabulary?
 
 ### Question 6
 
-Predict the residuals from the regression that includes the controls selected by lasso.  What is the variance of these residuals?
-
-### Question 7  
-
-Now implement post-double-selection lasso (by repeating Steps 3 through 6) using the data-driven penalty, which is implemented using:
-```
-lasso linear treatment b_*, sel(plugin)
-```
-How do your results compare?
-
-### Question 8
-
-Now implement post-double-selection lasso by installing the `pdslasso` package in Stata.
+Predict the residuals from the regression that includes the controls selected by `rlasso`.  What is the variance of these residuals?
 
 <br>
 
