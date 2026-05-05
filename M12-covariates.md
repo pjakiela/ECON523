@@ -22,7 +22,7 @@ the choice of covariates influences the required sample size.
 
 ## Lecture Slides
 
-A handout version of the lecture slides is available [here](ECON523-L12-ML-2025-handout.pdf). 
+A handout version of the lecture slides is available [here](ECON523-L12-ML-2026-handout.pdf). 
 
 <br>
 
